@@ -21,19 +21,21 @@ camera and a global light. No game code exists yet. Everything below is intent.
 
 This repo is docs-driven. Read these before working, and honour them in all output:
 
-- **`CONTEXT.md`** (repo root) — the domain glossary / ubiquitous language. Use its
+- **`Assets/CONTEXT.md`** — the domain glossary / ubiquitous language. Use its
   terms in every identifier, issue title, test name, and PRD; never drift to the
   synonyms it marks _Avoid_. Hero = in-run avatar, Player = the OAuth account.
-- **`docs/adr/`** — architectural decisions and their rationale: 0001 English-only,
-  0002 Unity (WebGL) over Phaser 4 / web, 0003 data-driven attack pattern engine,
-  0004 custom backend + OAuth, 0005 trust-based leaderboard. If your work would
-  contradict an ADR, surface it explicitly rather than silently overriding.
-- **`docs/agents/`** — working standards: `issue-tracker.md` (GitHub + `gh` CLI),
-  `triage-labels.md` (triage label vocabulary), `domain.md` (how to consume the
-  domain docs).
+- **`Assets/docs/adr/`** — architectural decisions and their rationale: 0001
+  English-only, 0002 Unity (WebGL) over Phaser 4 / web, 0003 data-driven attack
+  pattern engine, 0004 custom backend + OAuth, 0005 trust-based leaderboard. If your
+  work would contradict an ADR, surface it explicitly rather than silently overriding.
+- **`Assets/docs/agents/`** — working standards: `issue-tracker.md` (GitHub + `gh`
+  CLI), `triage-labels.md` (triage label vocabulary), `domain.md` (how to consume
+  the domain docs).
 
-Documentation lives at the **repo root, not under `Assets/`** — Unity imports
-everything under `Assets/` as an asset and generates a `.meta` file per document.
+Documentation lives **under `Assets/`**, alongside the code it describes — that is
+the tree actually being edited. The cost is that Unity imports each document as an
+asset and generates a `.meta` file next to it; commit those `.meta` files with the
+docs. They are unreferenced assets, so they add nothing to a build.
 
 If a doc is absent, proceed silently — don't flag it or pre-create it.
 
