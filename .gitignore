@@ -105,3 +105,9 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# AI session handoffs — local working notes between agent sessions, deliberately
+# not part of the repo history. The folder's own .meta is ignored too, otherwise
+# Unity generating it would leave the tree permanently dirty.
+/[Aa]ssets/docs/handoffs/
+/[Aa]ssets/docs/handoffs.meta
