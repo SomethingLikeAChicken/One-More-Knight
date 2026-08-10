@@ -23,6 +23,8 @@ namespace OneMoreKnight.Enemies
         [Min(0f)] public float moveSpeed = 2.2f;
         [Min(0)] public int scoreValue = 100;
         [Min(0)] public int contactDamage = 1;
+        [Tooltip("Bestiary text on the website (#46).")]
+        [TextArea] public string description;
 
         [Header("Identity (applied to the one pooled prefab on spawn)")]
         public Sprite sprite;

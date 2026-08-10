@@ -16,6 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.8
   scoreValue: 250
   contactDamage: 1
+  description: Twin blades that snake as they fall. The wall bends - you must bend
+    more.
   sprite: {fileID: 9194384128470476769, guid: 180b40ed362f2704b9632e46631ac848, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

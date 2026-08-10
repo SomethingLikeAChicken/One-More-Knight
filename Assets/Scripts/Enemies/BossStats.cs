@@ -44,6 +44,8 @@ namespace OneMoreKnight.Enemies
         [Min(1)] public int maxHealth = 60;
         [Min(0)] public int contactDamage = 1;
         [Min(0)] public int scoreReward = 1000;
+        [Tooltip("Bestiary text on the website (#46).")]
+        [TextArea] public string description;
         [Tooltip("Rating against a stage's maximum difficulty - the boss-pool currency (issue #30).")]
         [Min(1)] public int difficulty = 1;
 

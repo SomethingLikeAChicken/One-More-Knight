@@ -16,6 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.2
   scoreValue: 250
   contactDamage: 1
+  description: A patient eye that leads its single shot straight at you. The first
+    enemy that aims.
   sprite: {fileID: -3592288180158252163, guid: 3bba9bacf35a34448b3a41cad701c16d, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

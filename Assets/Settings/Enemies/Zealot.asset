@@ -16,6 +16,8 @@ MonoBehaviour:
   moveSpeed: 2.6
   scoreValue: 350
   contactDamage: 1
+  description: A blade of white gold that dives like judgement. Its bolt accelerates
+    - so does it.
   sprite: {fileID: 940888875905898940, guid: 1ef3fea7ead00564cb6db7f870f49aad, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

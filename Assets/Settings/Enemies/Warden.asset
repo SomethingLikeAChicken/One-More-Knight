@@ -16,6 +16,8 @@ MonoBehaviour:
   moveSpeed: 0.8
   scoreValue: 350
   contactDamage: 1
+  description: A lantern that guards the walls. Hides behind shields and sends hunting
+    bolts around them.
   sprite: {fileID: -7124781682134005175, guid: a74d85805c9e07d4584092eec5b423d9, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

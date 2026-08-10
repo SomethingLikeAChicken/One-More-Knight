@@ -16,6 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.6
   scoreValue: 250
   contactDamage: 1
+  description: Curses the air with slow crossing bolts. Weak alone, monstrous in
+    a crowd.
   sprite: {fileID: 3736842188578861397, guid: 15237ae5705e5c949b47f1bf536810e8, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

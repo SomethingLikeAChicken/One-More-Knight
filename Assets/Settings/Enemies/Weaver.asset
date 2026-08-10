@@ -16,6 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.9
   scoreValue: 150
   contactDamage: 1
+  description: Drifts side to side on its way down, lobbing arcs that punish anyone
+    standing still.
   sprite: {fileID: -268855193751873569, guid: 047fc3cb0bae03649b56db3fc00731c4, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 1

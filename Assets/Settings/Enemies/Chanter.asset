@@ -16,6 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.3
   scoreValue: 300
   contactDamage: 1
+  description: Rings a warning before its circle of bells tolls. When it glows, be
+    elsewhere.
   sprite: {fileID: -816934195749433567, guid: 6127a1ea3ebb77a43b98f0b113755658, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

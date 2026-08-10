@@ -15,6 +15,7 @@ MonoBehaviour:
   maxHealth: 60
   contactDamage: 1
   scoreReward: 1000
+  description: The gatekeeper. Every knight meets it first, and most meet it again.
   difficulty: 1
   sprite: {fileID: -6248741079362886434, guid: d0c29e0047b99094cabc3a9d5ab2dadf, type: 3}
   scale: 1
@@ -31,6 +32,9 @@ MonoBehaviour:
     tint: {r: 1, g: 1, b: 1, a: 1}
     entryPulseScale: 1
     entryPulseDuration: 0.4
+    summonType: {fileID: 0}
+    summonCount: 2
+    summonInterval: 5
   - name: Enraged
     entersAtHpFraction: 0.5
     patterns:
@@ -41,3 +45,6 @@ MonoBehaviour:
     tint: {r: 1, g: 0.35, b: 0.3, a: 1}
     entryPulseScale: 1.45
     entryPulseDuration: 0.5
+    summonType: {fileID: 0}
+    summonCount: 2
+    summonInterval: 5

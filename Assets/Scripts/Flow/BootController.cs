@@ -17,6 +17,11 @@ namespace OneMoreKnight.Flow
             Application.runInBackground = true;
         }
 
-        private void Start() => SceneFlow.LoadMenu();
+        private void Start()
+        {
+            // The website's bestiary can boot straight into a duel (#46).
+            if (SceneFlow.ArenaTargetFromUrl() != null) SceneFlow.LoadArena();
+            else SceneFlow.LoadMenu();
+        }
     }
 }

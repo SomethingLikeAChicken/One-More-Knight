@@ -16,6 +16,8 @@ MonoBehaviour:
   moveSpeed: 0.9
   scoreValue: 200
   contactDamage: 1
+  description: A slab of iron with no gun and no fear. It exists to soak your bullets
+    while others do the work.
   sprite: {fileID: 2051653326483071087, guid: 1068786b9c6aa5843993c6388931aa8d, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

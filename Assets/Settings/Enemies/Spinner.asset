@@ -16,6 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.1
   scoreValue: 300
   contactDamage: 1
+  description: Trails a lazy spiral of shots behind it - the lane it leaves is never
+    the lane you remember.
   sprite: {fileID: 302528250548171635, guid: bc344893adad94a49be6e455fab2cee5, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

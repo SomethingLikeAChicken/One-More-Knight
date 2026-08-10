@@ -16,6 +16,8 @@ MonoBehaviour:
   moveSpeed: 4.4
   scoreValue: 100
   contactDamage: 1
+  description: Fast and fragile. It races down before you have time to think about
+    it.
   sprite: {fileID: -5144657336016355099, guid: 3378908d1022bae4d8ac675521f6b853, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

@@ -90,6 +90,7 @@ namespace OneMoreKnight.Enemies
             baseScale = Vector3.one * stats.scale;
             transform.localScale = baseScale;
             ColliderFit.FitCircle(circleCollider, spriteRenderer.sprite);
+            Run.Scoring.EncounterReporter.Report(stats.name);
 
             attackRunner.Initialize(bulletSpawner, heroMask);
             attackRunner.SetTarget(target);

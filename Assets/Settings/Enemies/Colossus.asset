@@ -16,6 +16,7 @@ MonoBehaviour:
   moveSpeed: 0.7
   scoreValue: 500
   contactDamage: 2
+  description: A fortress given legs. Nothing gets through it until everything does.
   sprite: {fileID: 6344468113124548594, guid: 412157cba3862204caa80956788fe7ba, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
