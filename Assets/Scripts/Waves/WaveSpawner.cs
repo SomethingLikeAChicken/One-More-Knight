@@ -37,6 +37,7 @@ namespace OneMoreKnight.Waves
         private ObjectPool<Enemy> pool;
         private Coroutine loop;
         private int alive;
+        private int waveNumber;
 
         private void Awake()
         {
@@ -65,8 +66,6 @@ namespace OneMoreKnight.Waves
 
         private IEnumerator RunWaves()
         {
-            int waveNumber = 0;
-
             while (true)
             {
                 waveNumber++;
@@ -116,13 +115,21 @@ namespace OneMoreKnight.Waves
             pool.Release(enemy);
         }
 
-        /// <summary>Ends the Wave loop when the Run ends. Enemies already on screen keep
-        /// falling; nothing new enters.</summary>
+        /// <summary>Pauses the Wave loop (Run over, or a Boss takes the stage). Enemies
+        /// already on screen keep falling; nothing new enters.</summary>
         public void StopSpawning()
         {
             if (loop == null) return;
             StopCoroutine(loop);
             loop = null;
+        }
+
+        /// <summary>Resumes after a pause. The Wave counter is a field, so escalation
+        /// continues where it stopped instead of restarting at Wave 1.</summary>
+        public void ResumeSpawning()
+        {
+            if (loop != null) return;
+            loop = StartCoroutine(RunWaves());
         }
     }
 }

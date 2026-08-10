@@ -15,6 +15,7 @@ namespace OneMoreKnight.Run
     {
         [SerializeField] private RunManager runManager;
         [SerializeField] private Health heroHealth;
+        [SerializeField] private BossDirector bossDirector;
 
         private GUIStyle readout;
 
@@ -39,6 +40,26 @@ namespace OneMoreKnight.Run
             GUILayout.Label($"WAVE   {runManager.Wave}", readout);
             GUILayout.Label($"HEALTH {new string('#', heroHealth.Current)}{new string('.', Mathf.Max(0, heroHealth.Max - heroHealth.Current))}", readout);
             GUILayout.EndArea();
+
+            DrawBossBar();
+        }
+
+        private void DrawBossBar()
+        {
+            var boss = bossDirector != null ? bossDirector.ActiveBoss : null;
+            if (boss == null || !boss.Health.IsAlive) return;
+
+            float w = Screen.width * 0.6f;
+            var back = new Rect((Screen.width - w) * 0.5f, 14f, w, 18f);
+            float fraction = Mathf.Clamp01((float)boss.Health.Current / boss.Health.Max);
+
+            Color previous = GUI.color;
+            GUI.color = new Color(0f, 0f, 0f, 0.6f);
+            GUI.DrawTexture(back, Texture2D.whiteTexture);
+            GUI.color = new Color(0.78f, 0.27f, 0.94f); // boss violet, per the color coding
+            GUI.DrawTexture(new Rect(back.x + 2f, back.y + 2f, (back.width - 4f) * fraction, back.height - 4f),
+                            Texture2D.whiteTexture);
+            GUI.color = previous;
         }
     }
 }
