@@ -89,7 +89,7 @@ namespace OneMoreKnight.Run
             // stays actor-agnostic - the wiring decides who is source and target.
             var hero = FindAnyObjectByType<HeroController>();
             ActiveBoss.Begin(definition, spawn, bounds.yMax - hoverLineFromTop, bulletSpawner,
-                             hero != null ? hero.transform : null);
+                             hero != null ? hero.transform : null, waveSpawner);
         }
 
         private void OnBossDefeated(Boss boss)

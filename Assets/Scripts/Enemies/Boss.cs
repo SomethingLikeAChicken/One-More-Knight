@@ -23,6 +23,8 @@ namespace OneMoreKnight.Enemies
         [SerializeField] private SpriteRenderer spriteRenderer;
 
         private CircleCollider2D circleCollider;
+        private Waves.WaveSpawner reinforcements;
+        private float nextSummonAt;
         private float hoverLineY;
         private float anchorX;
         private float hoverT;
@@ -70,8 +72,10 @@ namespace OneMoreKnight.Enemies
         /// only start once the hover is reached — firing during the entrance would be
         /// an unfair off-screen attack.</summary>
         public void Begin(BossStats definition, Vector2 spawnPosition, float hoverY,
-                          Combat.BulletSpawner bulletSpawner, Transform target)
+                          Combat.BulletSpawner bulletSpawner, Transform target,
+                          Waves.WaveSpawner reinforcementSpawner = null)
         {
+            reinforcements = reinforcementSpawner;
             stats = definition;
             transform.position = spawnPosition;
             anchorX = spawnPosition.x;
@@ -117,6 +121,24 @@ namespace OneMoreKnight.Enemies
             hoverT += Time.deltaTime * stats.hoverSpeed * speedMultiplier;
             float x = anchorX + Mathf.Sin(hoverT) * stats.hoverAmplitude;
             transform.position = new Vector3(x, hoverLineY, 0f);
+
+            // Summons: the Phase calls Enemies in beside the Boss while it keeps
+            // firing (a Summoner archetype is pure data on top of this).
+            if (currentPhase >= 0 && Time.time >= nextSummonAt)
+            {
+                BossPhase phase = stats.phases[currentPhase];
+                if (phase.summonType != null && reinforcements != null)
+                {
+                    for (int i = 0; i < phase.summonCount; i++)
+                    {
+                        float side = phase.summonCount == 1 ? 0f : i - (phase.summonCount - 1) * 0.5f;
+                        var pos = new Vector2(transform.position.x + side * 1.4f,
+                                              transform.position.y + 0.9f);
+                        reinforcements.SpawnReinforcement(phase.summonType, pos);
+                    }
+                }
+                nextSummonAt = Time.time + phase.summonInterval;
+            }
 
             // Entry pulse: scale spikes to the Phase's peak and eases back. Tick-driven
             // like the runner - no coroutine to die quietly.
@@ -169,6 +191,8 @@ namespace OneMoreKnight.Enemies
             currentPhase = index;
             BossPhase phase = stats.phases[index];
             attackRunner.SetPatterns(phase.patterns);
+            // First volley after one full interval — a Phase opens with bullets, not adds.
+            nextSummonAt = Time.time + phase.summonInterval;
 
             // The Phase change must be readable (CONTEXT.md: Telegraph): the look
             // changes with the behaviour, not silently alongside it.
