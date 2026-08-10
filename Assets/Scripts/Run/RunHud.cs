@@ -1,65 +1,69 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using OneMoreKnight.Combat;
 
 namespace OneMoreKnight.Run
 {
     /// <summary>
-    /// Throwaway HUD drawn with IMGUI.
+    /// The in-Run HUD, uGUI (decision recorded in issue #28: uGUI over UI Toolkit —
+    /// simple overlay, mature docs, no WebGL surprises). Score and Wave readouts,
+    /// Hero Health as pips, and the Boss HP bar while an encounter is active.
     ///
-    /// This is deliberate: AGENTS.md still lists uGUI vs UI Toolkit as an open decision
-    /// for M2, and a mockup should not quietly settle it. IMGUI has zero setup, ships
-    /// nothing to the real UI layer, and is trivial to delete once the choice is made.
-    /// Do not build on this.
+    /// Poll-based: the HUD reads state every frame instead of wiring events — at this
+    /// size the simplicity is worth more than the callbacks.
     /// </summary>
     public class RunHud : MonoBehaviour
     {
+        [Header("State sources")]
         [SerializeField] private RunManager runManager;
         [SerializeField] private Health heroHealth;
         [SerializeField] private BossDirector bossDirector;
 
-        private GUIStyle readout;
+        [Header("Widgets")]
+        [SerializeField] private Text scoreText;
+        [SerializeField] private Text waveText;
+        [SerializeField] private RectTransform healthPipContainer;
+        [SerializeField] private Image healthPipTemplate;
+        [SerializeField] private GameObject bossBar;
+        [SerializeField] private RectTransform bossBarFill;
 
-        private void EnsureStyles()
+        private static readonly Color PipFull = new Color(0.95f, 0.3f, 0.35f);
+        private static readonly Color PipEmpty = new Color(0.25f, 0.12f, 0.16f);
+
+        private readonly List<Image> pips = new List<Image>(8);
+
+        private void Update()
         {
-            if (readout != null) return;
+            scoreText.text = $"SCORE  {runManager.Score:n0}";
+            waveText.text = $"WAVE  {runManager.Wave}";
 
-            readout = new GUIStyle(GUI.skin.label)
-            {
-                fontSize = 20,
-                fontStyle = FontStyle.Bold
-            };
-            readout.normal.textColor = Color.white;
-        }
+            // Capped so debug health pools (or a future absurd Boon) cannot flood the
+            // canvas with pip objects; past the cap the row simply stays full-width.
+            EnsurePips(Mathf.Min(heroHealth.Max, 12));
+            for (int i = 0; i < pips.Count; i++)
+                pips[i].color = i < heroHealth.Current ? PipFull : PipEmpty;
 
-        private void OnGUI()
-        {
-            EnsureStyles();
-
-            GUILayout.BeginArea(new Rect(16f, 12f, 320f, 120f));
-            GUILayout.Label($"SCORE  {runManager.Score:n0}", readout);
-            GUILayout.Label($"WAVE   {runManager.Wave}", readout);
-            GUILayout.Label($"HEALTH {new string('#', heroHealth.Current)}{new string('.', Mathf.Max(0, heroHealth.Max - heroHealth.Current))}", readout);
-            GUILayout.EndArea();
-
-            DrawBossBar();
-        }
-
-        private void DrawBossBar()
-        {
             var boss = bossDirector != null ? bossDirector.ActiveBoss : null;
-            if (boss == null || !boss.Health.IsAlive) return;
+            bool bossActive = boss != null && boss.Health.IsAlive;
+            if (bossBar.activeSelf != bossActive) bossBar.SetActive(bossActive);
+            if (bossActive)
+            {
+                float fraction = Mathf.Clamp01((float)boss.Health.Current / boss.Health.Max);
+                bossBarFill.anchorMax = new Vector2(fraction, 1f);
+            }
+        }
 
-            float w = Screen.width * 0.6f;
-            var back = new Rect((Screen.width - w) * 0.5f, 14f, w, 18f);
-            float fraction = Mathf.Clamp01((float)boss.Health.Current / boss.Health.Max);
-
-            Color previous = GUI.color;
-            GUI.color = new Color(0f, 0f, 0f, 0.6f);
-            GUI.DrawTexture(back, Texture2D.whiteTexture);
-            GUI.color = new Color(0.78f, 0.27f, 0.94f); // boss violet, per the color coding
-            GUI.DrawTexture(new Rect(back.x + 2f, back.y + 2f, (back.width - 4f) * fraction, back.height - 4f),
-                            Texture2D.whiteTexture);
-            GUI.color = previous;
+        private void EnsurePips(int count)
+        {
+            while (pips.Count < count)
+            {
+                Image pip = Instantiate(healthPipTemplate, healthPipContainer);
+                pip.gameObject.SetActive(true);
+                pips.Add(pip);
+            }
+            for (int i = 0; i < pips.Count; i++)
+                pips[i].gameObject.SetActive(i < count);
         }
     }
 }
