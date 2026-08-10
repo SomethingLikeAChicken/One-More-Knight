@@ -17,6 +17,13 @@ namespace OneMoreKnight.Enemies
         [Range(0f, 1f)] public float entersAtHpFraction = 1f;
         public AttackPattern[] patterns;
         [Min(0f)] public float hoverSpeedMultiplier = 1f;
+
+        [Header("Visuals")]
+        [Tooltip("Multiplied onto the Boss sprite for the whole Phase. White = unchanged.")]
+        public Color tint = Color.white;
+        [Tooltip("Entry pulse peak as a scale multiplier. 1 = no pulse.")]
+        [Min(1f)] public float entryPulseScale = 1f;
+        [Min(0.05f)] public float entryPulseDuration = 0.4f;
     }
 
     /// <summary>
