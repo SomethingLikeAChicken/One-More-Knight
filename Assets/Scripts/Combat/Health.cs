@@ -41,6 +41,14 @@ namespace OneMoreKnight.Combat
             Changed?.Invoke(this);
         }
 
+        /// <summary>Restores current HP up to the ceiling (#67: the heart pickup).</summary>
+        public void Heal(int amount)
+        {
+            if (amount <= 0 || !IsAlive || Current >= maxHealth) return;
+            Current = Mathf.Min(maxHealth, Current + amount);
+            Changed?.Invoke(this);
+        }
+
         public void TakeDamage(int amount)
         {
             if (!IsAlive || amount <= 0) return;

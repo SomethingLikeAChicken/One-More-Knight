@@ -30,6 +30,7 @@ namespace OneMoreKnight.Run
         private System.Random rng;
         private BossStats lastPicked;
         private int stageIndex;
+        private int rewardScore; // paid-out boss rewards - excluded from stage checks (#68)
 
         public Boss ActiveBoss { get; private set; }
 
@@ -58,7 +59,9 @@ namespace OneMoreKnight.Run
         {
             if (ActiveBoss != null || runManager.IsOver || progression == null) return;
             progression.GetStage(stageIndex, out int threshold, out int maxDifficulty);
-            if (runManager.Score < threshold) return;
+            // Only EARNED score summons bosses - a big reward must not chain straight
+            // into the next fight (#68).
+            if (runManager.Score - rewardScore < threshold) return;
 
             BossStats pick = PickEligible(maxDifficulty);
             if (pick == null) return;
@@ -101,6 +104,7 @@ namespace OneMoreKnight.Run
             BossesDefeated++;
             BossDefeated?.Invoke();
             BossDefeatedAt?.Invoke(boss.transform.position);
+            rewardScore += boss.Stats.scoreReward;
             runManager.AddScore(boss.Stats.scoreReward);
             Destroy(boss.gameObject);
             ActiveBoss = null;
