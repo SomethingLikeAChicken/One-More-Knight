@@ -3,19 +3,21 @@ using UnityEngine;
 using UnityEngine.Pool;
 using OneMoreKnight.Combat;
 using OneMoreKnight.Enemies;
+using OneMoreKnight.Hero;
 using OneMoreKnight.Run;
 
 namespace OneMoreKnight.Waves
 {
     /// <summary>
-    /// Spawns endless Waves (CONTEXT.md: Wave) — a group of Enemies that enters together.
-    /// The next Wave starts once the previous one is cleared, and each Wave is slightly
-    /// larger and faster than the last, up to a cap.
+    /// Plays the Run's <see cref="WaveSequence"/>: authored Waves of choreographed
+    /// Enemy groups (CONTEXT.md: Wave), looping with capped multipliers once the
+    /// authored list is exhausted. The next Wave starts once the previous one is
+    /// cleared.
     ///
     /// The Wave loop is a coroutine on a scene object that is never deactivated. That
-    /// matters: coroutines stop when their GameObject is disabled, and pooling disables
-    /// objects — so this loop deliberately does not live on anything poolable
-    /// (AGENTS.md gotcha).
+    /// matters: coroutines stop when their GameObject is disabled, and pooling
+    /// disables objects — so this loop deliberately does not live on anything
+    /// poolable (AGENTS.md gotcha).
     /// </summary>
     public class WaveSpawner : MonoBehaviour
     {
@@ -24,18 +26,11 @@ namespace OneMoreKnight.Waves
         [SerializeField] private PlayArea playArea;
         [SerializeField] private RunManager runManager;
         [SerializeField] private BulletSpawner bulletSpawner;
-
-        [Header("Wave shape")]
-        [SerializeField] [Min(1)] private int baseEnemyCount = 4;
-        [SerializeField] [Min(0)] private int enemiesAddedPerWave = 2;
-        [SerializeField] [Min(1)] private int maxEnemiesPerWave = 24;
-        [SerializeField] [Min(0f)] private float speedIncreasePerWave = 0.07f;
-        [SerializeField] [Min(1f)] private float maxSpeedMultiplier = 2.5f;
-        [SerializeField] [Min(0f)] private float spawnInterval = 0.28f;
-        [SerializeField] [Min(0f)] private float intermission = 1.5f;
+        [SerializeField] private WaveSequence sequence;
 
         private ObjectPool<Enemy> pool;
         private Coroutine loop;
+        private Transform target;
         private int alive;
         private int waveNumber;
 
@@ -51,7 +46,14 @@ namespace OneMoreKnight.Waves
                 maxSize: 256);
         }
 
-        private void Start() => loop = StartCoroutine(RunWaves());
+        private void Start()
+        {
+            // The Hero is the target for AimedAtTarget Enemy Patterns. Wiring decides
+            // who is source and target; pattern code stays actor-agnostic (ADR-0003).
+            var hero = FindAnyObjectByType<HeroController>();
+            target = hero != null ? hero.transform : null;
+            loop = StartCoroutine(RunWaves());
+        }
 
         private Enemy CreateEnemy()
         {
@@ -60,7 +62,7 @@ namespace OneMoreKnight.Waves
             // times and per-spawn subscription would stack handlers.
             enemy.Killed += OnEnemyKilled;
             enemy.Retired += OnEnemyRetired;
-            enemy.Initialize(bulletSpawner);
+            enemy.Initialize(bulletSpawner, target);
             return enemy;
         }
 
@@ -68,42 +70,59 @@ namespace OneMoreKnight.Waves
         {
             while (true)
             {
+                WaveDefinition wave = sequence.Resolve(waveNumber, out float hpMult, out float speedMult);
+                if (wave == null) yield break;
+
                 waveNumber++;
                 runManager.ReportWave(waveNumber);
 
-                int count = Mathf.Min(
-                    baseEnemyCount + (waveNumber - 1) * enemiesAddedPerWave,
-                    maxEnemiesPerWave);
-
-                float speedMultiplier = Mathf.Min(
-                    1f + (waveNumber - 1) * speedIncreasePerWave,
-                    maxSpeedMultiplier);
-
-                for (int i = 0; i < count; i++)
+                foreach (EnemyGroup group in wave.groups)
                 {
-                    SpawnOne(i, count, speedMultiplier);
-                    yield return new WaitForSeconds(spawnInterval);
+                    if (group.type == null) continue;
+                    if (group.delayBeforeGroup > 0f) yield return new WaitForSeconds(group.delayBeforeGroup);
+
+                    for (int i = 0; i < group.count; i++)
+                    {
+                        SpawnOne(group, i, hpMult, speedMult);
+                        if (group.spawnInterval > 0f) yield return new WaitForSeconds(group.spawnInterval);
+                    }
                 }
 
                 while (alive > 0) yield return null;
 
-                yield return new WaitForSeconds(intermission);
+                yield return new WaitForSeconds(sequence.intermission);
             }
         }
 
-        private void SpawnOne(int index, int count, float speedMultiplier)
+        private void SpawnOne(EnemyGroup group, int index, float hpMultiplier, float speedMultiplier)
         {
             Rect bounds = playArea.Bounds;
+            float anchorX = Mathf.Lerp(bounds.center.x, group.anchor >= 0f ? bounds.xMax : bounds.xMin,
+                                       Mathf.Abs(group.anchor));
 
-            float t = (index + 0.5f) / count;
-            float x = Mathf.Lerp(bounds.xMin, bounds.xMax, t);
-
-            // Cosmetic jitter only. When ADR-0005's seeded run RNG lands, anything that
-            // affects the outcome moves onto that stream — this does not.
-            x = Mathf.Clamp(x + Random.Range(-0.35f, 0.35f), bounds.xMin, bounds.xMax);
+            float x;
+            switch (group.formation)
+            {
+                case GroupFormation.Vee:
+                    // 0 leads at the anchor; pairs step outward. Spawn order + interval
+                    // stagger the entry heights, so the wedge reads on screen.
+                    int side = index % 2 == 1 ? 1 : -1;
+                    int step = (index + 1) / 2;
+                    x = anchorX + side * step * group.spacing;
+                    break;
+                case GroupFormation.Column:
+                    x = anchorX;
+                    break;
+                default: // Line
+                    float t = (index + 0.5f) / group.count;
+                    x = Mathf.Lerp(bounds.xMin, bounds.xMax, t);
+                    break;
+            }
+            x = Mathf.Clamp(x, bounds.xMin, bounds.xMax);
 
             Enemy enemy = pool.Get();
-            enemy.Spawn(new Vector2(x, playArea.SpawnLineY), speedMultiplier, playArea.DespawnLineY);
+            enemy.Spawn(group.type, new Vector2(x, playArea.SpawnLineY), speedMultiplier, hpMultiplier,
+                        playArea.DespawnLineY);
             alive++;
         }
 
@@ -124,7 +143,7 @@ namespace OneMoreKnight.Waves
             loop = null;
         }
 
-        /// <summary>Resumes after a pause. The Wave counter is a field, so escalation
+        /// <summary>Resumes after a pause. The Wave counter is a field, so the sequence
         /// continues where it stopped instead of restarting at Wave 1.</summary>
         public void ResumeSpawning()
         {

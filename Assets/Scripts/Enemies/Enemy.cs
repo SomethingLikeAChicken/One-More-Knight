@@ -19,9 +19,12 @@ namespace OneMoreKnight.Enemies
         [SerializeField] private Health health;
         [SerializeField] private LayerMask heroMask;
         [SerializeField] private Combat.Patterns.AttackPatternRunner attackRunner;
+        [SerializeField] private SpriteRenderer spriteRenderer;
 
         private float speed;
         private float despawnY;
+        private float anchorX;
+        private float age;
         private bool retired;
 
         public EnemyStats Stats => stats;
@@ -37,6 +40,7 @@ namespace OneMoreKnight.Enemies
         private void Awake()
         {
             if (health == null) health = GetComponent<Health>();
+            if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
             health.Died += OnDied;
         }
 
@@ -45,19 +49,33 @@ namespace OneMoreKnight.Enemies
             if (health != null) health.Died -= OnDied;
         }
 
-        /// <summary>One-time wiring when the pool creates the instance — the spawner is
-        /// scene infrastructure, not per-life state.</summary>
-        public void Initialize(BulletSpawner spawner) => attackRunner.Initialize(spawner, heroMask);
-
-        /// <param name="speedMultiplier">Per-Wave difficulty scaling. Applied here rather
-        /// than written into the shared <see cref="EnemyStats"/> asset.</param>
-        public void Spawn(Vector2 position, float speedMultiplier, float despawnLineY)
+        /// <summary>One-time wiring when the pool creates the instance — spawner and
+        /// target are scene infrastructure, not per-life state. The target feeds
+        /// AimedAtTarget Patterns; pattern code itself stays actor-agnostic.</summary>
+        public void Initialize(BulletSpawner spawner, Transform target)
         {
+            attackRunner.Initialize(spawner, heroMask);
+            attackRunner.SetTarget(target);
+        }
+
+        /// <summary>Puts a pooled instance into play as <paramref name="type"/> — the
+        /// one prefab plays every Enemy type; identity is data (PRD §5.2).</summary>
+        /// <param name="speedMultiplier">Per-Wave scaling, applied here rather than
+        /// written into the shared asset. Same for <paramref name="hpMultiplier"/>.</param>
+        public void Spawn(EnemyStats type, Vector2 position, float speedMultiplier, float hpMultiplier,
+                          float despawnLineY)
+        {
+            stats = type;
             transform.position = position;
+            anchorX = position.x;
+            age = 0f;
             speed = stats.moveSpeed * speedMultiplier;
             despawnY = despawnLineY;
             retired = false;
-            health.ResetHealth(stats.maxHealth);
+            health.ResetHealth(Mathf.Max(1, Mathf.RoundToInt(stats.maxHealth * hpMultiplier)));
+
+            spriteRenderer.sprite = stats.sprite;
+            spriteRenderer.color = stats.tint;
 
             // Attacks are driven entirely by the type's Pattern asset (ADR-0003); the
             // runner resets all timing state here, so a recycled instance starts fresh.
@@ -68,9 +86,14 @@ namespace OneMoreKnight.Enemies
         {
             if (retired) return;
 
-            transform.position += Vector3.down * (speed * Time.deltaTime);
+            age += Time.deltaTime;
+            float y = transform.position.y - speed * Time.deltaTime;
+            float x = stats.movement == MovementProfile.Weave
+                ? anchorX + Mathf.Sin(age * stats.weaveFrequency) * stats.weaveAmplitude
+                : transform.position.x;
+            transform.position = new Vector3(x, y, 0f);
 
-            if (transform.position.y < despawnY) Retire();
+            if (y < despawnY) Retire();
         }
 
         private void OnTriggerEnter2D(Collider2D other)

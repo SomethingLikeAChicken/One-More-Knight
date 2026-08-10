@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
-  m_Name: Descender
+  m_Name: Sentinel
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
-  maxHealth: 3
-  moveSpeed: 2.2
-  scoreValue: 100
+  maxHealth: 6
+  moveSpeed: 1.2
+  scoreValue: 250
   contactDamage: 1
-  sprite: {fileID: 21300000, guid: d41d8528802ab9348b1d3a57530eafef, type: 3}
+  sprite: {fileID: -3592288180158252163, guid: 3bba9bacf35a34448b3a41cad701c16d, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5
   weaveFrequency: 2
-  attack: {fileID: 11400000, guid: 040eea6cdd2cf43468488e347cf339a0, type: 2}
+  attack: {fileID: 11400000, guid: d27974f3a92a77f468ff5e4f96574fa2, type: 2}

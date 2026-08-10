@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
-  m_Name: Descender
+  m_Name: Weaver
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
-  maxHealth: 3
-  moveSpeed: 2.2
-  scoreValue: 100
+  maxHealth: 2
+  moveSpeed: 1.9
+  scoreValue: 150
   contactDamage: 1
-  sprite: {fileID: 21300000, guid: d41d8528802ab9348b1d3a57530eafef, type: 3}
+  sprite: {fileID: -268855193751873569, guid: 047fc3cb0bae03649b56db3fc00731c4, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
-  movement: 0
-  weaveAmplitude: 1.5
-  weaveFrequency: 2
-  attack: {fileID: 11400000, guid: 040eea6cdd2cf43468488e347cf339a0, type: 2}
+  movement: 1
+  weaveAmplitude: 1.6
+  weaveFrequency: 2.1
+  attack: {fileID: 11400000, guid: c7d9391491d595642bbe8d2c7428896c, type: 2}
