@@ -28,13 +28,15 @@ namespace OneMoreKnight.Combat.Patterns
     public static class AttackPatternEngine
     {
         /// <summary>Computes one emission of <paramref name="pattern"/>.
-        /// <paramref name="target"/> is optional; AimedAtTarget falls back to Down.</summary>
+        /// <paramref name="target"/> is optional; AimedAtTarget falls back to Down.
+        /// <paramref name="angleOffset"/> rotates the base direction — the runner feeds
+        /// its per-slot emission counter times angleStepPerEmission here (spirals).</summary>
         public static void ComputeEmission(AttackPattern pattern, Vector2 source, Vector2? target,
-                                           List<Emission> results)
+                                           List<Emission> results, float angleOffset = 0f)
         {
             results.Clear();
 
-            Vector2 baseDirection = BaseDirection(pattern, source, target);
+            Vector2 baseDirection = Rotate(BaseDirection(pattern, source, target), angleOffset);
 
             switch (pattern.formation)
             {
@@ -63,6 +65,20 @@ namespace OneMoreKnight.Combat.Patterns
                     float step = 360f / count;
                     for (int i = 0; i < count; i++)
                         Add(results, pattern, source, Rotate(baseDirection, step * i));
+                    break;
+                }
+
+                case Formation.Wall:
+                {
+                    // Side by side perpendicular to the direction, all moving parallel.
+                    int count = pattern.bulletCount;
+                    var perp = new Vector2(-baseDirection.y, baseDirection.x);
+                    for (int i = 0; i < count; i++)
+                    {
+                        float offset = (i - (count - 1) * 0.5f) * pattern.wallSpacing;
+                        Vector2 origin = source + baseDirection * pattern.muzzleOffset + perp * offset;
+                        results.Add(new Emission(origin, baseDirection));
+                    }
                     break;
                 }
             }

@@ -47,6 +47,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: a492a8b45dab6bf499d14a461fdf1603, type: 2}
     - {fileID: 11400000, guid: b659cf286f40706418ba9395ce78d1e9, type: 2}
     - {fileID: 11400000, guid: 56388a9dc5046d6488d0537bb7834b24, type: 2}
+    - {fileID: 11400000, guid: 233f03791ae54654085c791dc95c9dee, type: 2}
     hoverSpeedMultiplier: 1.6
     tint: {r: 1, g: 0.35, b: 0.75, a: 1}
     entryPulseScale: 1.6
