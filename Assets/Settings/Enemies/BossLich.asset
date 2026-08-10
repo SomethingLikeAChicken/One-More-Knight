@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
+  m_Name: BossLich
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
+  maxHealth: 100
+  contactDamage: 1
+  scoreReward: 1500
+  difficulty: 2
+  sprite: {fileID: 5219372316874285534, guid: 6e1ef0a860b2abf4bbf200834a16f8a3, type: 3}
+  scale: 1
+  entrySpeed: 1.9
+  hoverSpeed: 0.9
+  hoverAmplitude: 2.4
+  phases:
+  - name: Dirge
+    entersAtHpFraction: 1
+    patterns:
+    - {fileID: 11400000, guid: 00de3d1101e983b4dbb35739d45b872b, type: 2}
+    - {fileID: 11400000, guid: 93e00a62ab828d448b0ce4e14a55afe6, type: 2}
+    hoverSpeedMultiplier: 1
+    tint: {r: 1, g: 1, b: 1, a: 1}
+    entryPulseScale: 1
+    entryPulseDuration: 0.4
+  - name: Requiem
+    entersAtHpFraction: 0.5
+    patterns:
+    - {fileID: 11400000, guid: 00de3d1101e983b4dbb35739d45b872b, type: 2}
+    - {fileID: 11400000, guid: 93e00a62ab828d448b0ce4e14a55afe6, type: 2}
+    - {fileID: 11400000, guid: 5d2345ddb2cb37044974e9ef008c526e, type: 2}
+    hoverSpeedMultiplier: 1.3
+    tint: {r: 0.6, g: 1, b: 0.65, a: 1}
+    entryPulseScale: 1.45
+    entryPulseDuration: 0.5
