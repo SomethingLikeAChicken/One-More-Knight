@@ -10,33 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
-  m_Name: FirstBoss
+  m_Name: BossSerpent
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
-  maxHealth: 60
+  maxHealth: 90
   contactDamage: 1
-  scoreReward: 1000
-  sprite: {fileID: -6248741079362886434, guid: d0c29e0047b99094cabc3a9d5ab2dadf, type: 3}
+  scoreReward: 1500
+  sprite: {fileID: -5961141700606603349, guid: 1b104fa172e758240bee3643aa56f63b, type: 3}
   scale: 1
-  entrySpeed: 2
-  hoverSpeed: 1.1
-  hoverAmplitude: 2.4
+  entrySpeed: 2.2
+  hoverSpeed: 1.4
+  hoverAmplitude: 3.2
   phases:
-  - name: Opening
+  - name: Coil
     entersAtHpFraction: 1
     patterns:
-    - {fileID: 11400000, guid: 344ef927f469f074a9ede4f6e73cedaf, type: 2}
-    - {fileID: 11400000, guid: b659cf286f40706418ba9395ce78d1e9, type: 2}
+    - {fileID: 11400000, guid: d18af483dc2a54348b7084307980c665, type: 2}
+    - {fileID: 11400000, guid: 6b1d9cef466d1f541a2744e2a175d56b, type: 2}
     hoverSpeedMultiplier: 1
     tint: {r: 1, g: 1, b: 1, a: 1}
     entryPulseScale: 1
     entryPulseDuration: 0.4
-  - name: Enraged
+  - name: Venom
     entersAtHpFraction: 0.5
     patterns:
-    - {fileID: 11400000, guid: 344ef927f469f074a9ede4f6e73cedaf, type: 2}
-    - {fileID: 11400000, guid: b659cf286f40706418ba9395ce78d1e9, type: 2}
-    - {fileID: 11400000, guid: 716e212ed21778242a0c5712dbb32f00, type: 2}
+    - {fileID: 11400000, guid: d18af483dc2a54348b7084307980c665, type: 2}
+    - {fileID: 11400000, guid: 6b1d9cef466d1f541a2744e2a175d56b, type: 2}
+    - {fileID: 11400000, guid: 93e00a62ab828d448b0ce4e14a55afe6, type: 2}
     hoverSpeedMultiplier: 1.5
-    tint: {r: 1, g: 0.35, b: 0.3, a: 1}
-    entryPulseScale: 1.45
+    tint: {r: 1, g: 0.95, b: 0.45, a: 1}
+    entryPulseScale: 1.4
     entryPulseDuration: 0.5

@@ -6,10 +6,19 @@ using OneMoreKnight.Waves;
 
 namespace OneMoreKnight.Run
 {
+    /// <summary>One roster slot: which Boss enters, and at what Score.</summary>
+    [System.Serializable]
+    public class BossEncounter
+    {
+        public BossStats boss;
+        [Min(1)] public int scoreThreshold = 1000;
+    }
+
     /// <summary>
-    /// Paces the Run's climax: when the Score crosses the threshold, Wave spawning
-    /// pauses and the Boss enters; when the Boss is Defeated, the reward is scored and
-    /// Waves resume where they left off. One Boss per Run in M3.
+    /// Paces the Run's climaxes: an ordered roster of Boss encounters at rising Score
+    /// thresholds. When the Score crosses the next threshold, Wave spawning pauses and
+    /// that Boss enters; on Defeated the reward is scored, Waves resume, and the
+    /// roster advances. After the last encounter the Run keeps escalating on Waves.
     /// </summary>
     public class BossDirector : MonoBehaviour
     {
@@ -20,11 +29,11 @@ namespace OneMoreKnight.Run
         [SerializeField] private BulletSpawner bulletSpawner;
         [SerializeField] private Boss bossPrefab;
 
-        [Header("Pacing")]
-        [SerializeField] [Min(1)] private int scoreThreshold = 1000;
+        [Header("Roster")]
+        [SerializeField] private BossEncounter[] encounters = new BossEncounter[0];
         [SerializeField] [Min(0f)] private float hoverLineFromTop = 1.6f;
 
-        private bool summoned;
+        private int nextEncounter;
 
         public Boss ActiveBoss { get; private set; }
 
@@ -38,13 +47,15 @@ namespace OneMoreKnight.Run
 
         private void OnRunChanged()
         {
-            if (summoned || runManager.IsOver || runManager.Score < scoreThreshold) return;
-            Summon();
+            if (ActiveBoss != null || runManager.IsOver) return;
+            if (nextEncounter >= encounters.Length) return;
+            if (runManager.Score < encounters[nextEncounter].scoreThreshold) return;
+            Summon(encounters[nextEncounter].boss);
+            nextEncounter++;
         }
 
-        private void Summon()
+        private void Summon(BossStats definition)
         {
-            summoned = true;
             waveSpawner.StopSpawning();
 
             Rect bounds = playArea.Bounds;
@@ -55,7 +66,7 @@ namespace OneMoreKnight.Run
             // The Hero is the target of AimedAtTarget Patterns. Pattern code itself
             // stays actor-agnostic - the wiring decides who is source and target.
             var hero = FindAnyObjectByType<HeroController>();
-            ActiveBoss.Begin(spawn, bounds.yMax - hoverLineFromTop, bulletSpawner,
+            ActiveBoss.Begin(definition, spawn, bounds.yMax - hoverLineFromTop, bulletSpawner,
                              hero != null ? hero.transform : null);
         }
 

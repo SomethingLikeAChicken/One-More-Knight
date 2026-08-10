@@ -47,7 +47,7 @@ namespace OneMoreKnight.Enemies
         {
             if (health == null) health = GetComponent<Health>();
             if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
-            baseScale = transform.localScale;
+            baseScale = transform.localScale; // Begin overrides this per Boss
             health.Died += OnDied;
             health.Changed += OnHealthChanged;
         }
@@ -61,12 +61,16 @@ namespace OneMoreKnight.Enemies
             }
         }
 
-        /// <summary>Starts the entrance: descend from <paramref name="spawnPosition"/>
-        /// to <paramref name="hoverY"/>, then hover around the spawn X. Attacks come
-        /// from the runner's Pattern assets and only start once the hover is reached —
-        /// firing during the entrance would be an unfair off-screen attack.</summary>
-        public void Begin(Vector2 spawnPosition, float hoverY, Combat.BulletSpawner bulletSpawner, Transform target)
+        /// <summary>Starts the entrance as <paramref name="definition"/> — the one Boss
+        /// prefab plays every Boss; identity is data, like the Enemy (#16). Descends
+        /// from <paramref name="spawnPosition"/> to <paramref name="hoverY"/>, then
+        /// hovers around the spawn X. Attacks come from the Phase Pattern assets and
+        /// only start once the hover is reached — firing during the entrance would be
+        /// an unfair off-screen attack.</summary>
+        public void Begin(BossStats definition, Vector2 spawnPosition, float hoverY,
+                          Combat.BulletSpawner bulletSpawner, Transform target)
         {
+            stats = definition;
             transform.position = spawnPosition;
             anchorX = spawnPosition.x;
             hoverLineY = hoverY;
@@ -74,6 +78,11 @@ namespace OneMoreKnight.Enemies
             entering = true;
             currentPhase = -1;
             health.ResetHealth(stats.maxHealth);
+
+            if (stats.sprite != null) spriteRenderer.sprite = stats.sprite;
+            spriteRenderer.color = Color.white;
+            baseScale = Vector3.one * stats.scale;
+            transform.localScale = baseScale;
 
             attackRunner.Initialize(bulletSpawner, heroMask);
             attackRunner.SetTarget(target);
