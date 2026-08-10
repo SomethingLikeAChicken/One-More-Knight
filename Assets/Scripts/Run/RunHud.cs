@@ -29,6 +29,8 @@ namespace OneMoreKnight.Run
         [SerializeField] private RectTransform bossBarFill;
         [SerializeField] private Text bossNameText;
         [SerializeField] private Image damageVignette;
+        [SerializeField] private Text curseText;
+        [SerializeField] private Hero.HeroUpgrades heroUpgrades;
         [SerializeField] [Min(0.05f)] private float vignetteFade = 0.5f;
         [Range(0f, 1f)] [SerializeField] private float vignettePeak = 0.55f;
 
@@ -62,6 +64,15 @@ namespace OneMoreKnight.Run
                 damageVignette.color = c;
                 if (damageVignette.enabled != vignetteStrength > 0f)
                     damageVignette.enabled = vignetteStrength > 0f;
+            }
+
+            // Curse readout (#55): name + seconds while a death-curse is active.
+            if (curseText != null)
+            {
+                var curse = heroUpgrades != null ? heroUpgrades.ActiveCurse : Hero.CurseType.None;
+                string label = curse == Hero.CurseType.None ? ""
+                    : $"CURSED — {curse.ToString().ToUpperInvariant()}  {heroUpgrades.CurseRemaining:0.0}s";
+                if (curseText.text != label) curseText.text = label;
             }
 
             var boss = bossDirector != null ? bossDirector.ActiveBoss : null;

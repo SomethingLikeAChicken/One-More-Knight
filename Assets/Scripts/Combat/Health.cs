@@ -31,6 +31,16 @@ namespace OneMoreKnight.Combat
             Changed?.Invoke(this);
         }
 
+        /// <summary>Raises the ceiling and grants the same amount of current HP —
+        /// deliberately NOT a full heal (#55's endless-balance guard).</summary>
+        public void IncreaseMax(int amount)
+        {
+            if (amount <= 0) return;
+            maxHealth += amount;
+            Current = Mathf.Min(maxHealth, Current + amount);
+            Changed?.Invoke(this);
+        }
+
         public void TakeDamage(int amount)
         {
             if (!IsAlive || amount <= 0) return;

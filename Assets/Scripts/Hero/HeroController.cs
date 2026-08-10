@@ -34,6 +34,7 @@ namespace OneMoreKnight.Hero
 
         private InputAction moveAction;
         private InputAction attackAction;
+        private HeroUpgrades upgrades;
         private float nextFireTime;
         private bool acceptsInput = true;
 
@@ -45,6 +46,7 @@ namespace OneMoreKnight.Hero
             InputActionMap player = inputActions.FindActionMap("Player", true);
             moveAction = player.FindAction("Move", true);
             attackAction = player.FindAction("Attack", true);
+            upgrades = GetComponent<HeroUpgrades>(); // optional (#55)
         }
 
         private void OnDestroy()
@@ -68,8 +70,9 @@ namespace OneMoreKnight.Hero
         {
             if (!acceptsInput) return;
 
+            float speedMult = upgrades != null ? upgrades.MoveSpeedMultiplier : 1f;
             Vector2 input = moveAction.ReadValue<Vector2>();
-            Vector2 target = (Vector2)transform.position + input * (moveSpeed * Time.deltaTime);
+            Vector2 target = (Vector2)transform.position + input * (moveSpeed * speedMult * Time.deltaTime);
             transform.position = playArea.Clamp(target);
 
             if (attackAction.IsPressed() && Time.time >= nextFireTime) Fire();
@@ -77,12 +80,14 @@ namespace OneMoreKnight.Hero
 
         private void Fire()
         {
-            nextFireTime = Time.time + fireCooldown;
+            float cooldownMult = upgrades != null ? upgrades.FireCooldownMultiplier : 1f;
+            int damage = bulletDamage + (upgrades != null ? upgrades.BonusDamage : 0);
+            nextFireTime = Time.time + fireCooldown * cooldownMult;
             bulletSpawner.Spawn(
                 (Vector2)transform.position + muzzleOffset,
                 Vector2.up,
                 bulletSpeed,
-                bulletDamage,
+                damage,
                 bulletHitMask);
         }
 
