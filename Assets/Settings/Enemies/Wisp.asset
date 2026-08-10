@@ -16,7 +16,13 @@ MonoBehaviour:
   moveSpeed: 3.4
   scoreValue: 50
   contactDamage: 1
-  description: A harmless-looking mote that kills by touch. Swarms are the point.
+  description: A pale mote that would be beautiful if it were not so numerous. One
+    Wisp is a firefly. Forty are a funeral.
+  tactics: Tiny, fast, weaving, no gun - kills by touch. Swarms fill lanes faster
+    than you can clear them; sweep them with your fire's natural spread while dealing
+    with real shooters. Never chase one into a crowd.
+  isMiniboss: 0
+  curseOnDeath: 0
   sprite: {fileID: 3586392811686792816, guid: 5c2efec8563aa6b4aa332cd175956fa4, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 1

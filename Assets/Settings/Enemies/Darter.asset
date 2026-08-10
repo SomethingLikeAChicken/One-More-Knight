@@ -16,8 +16,13 @@ MonoBehaviour:
   moveSpeed: 4.4
   scoreValue: 100
   contactDamage: 1
-  description: Fast and fragile. It races down before you have time to think about
-    it.
+  description: 'Fast, fragile, and utterly without fear. Darters are the host''s
+    messengers, and the message is always the same: you have less time than you think.'
+  tactics: Very fast, no gun - its body is the weapon. It crosses the screen in a
+    couple of seconds, so treat every Darter lane as briefly poisoned. One hit kills
+    it; snap shots work, but simply not being in its column is cheaper.
+  isMiniboss: 0
+  curseOnDeath: 0
   sprite: {fileID: -5144657336016355099, guid: 3378908d1022bae4d8ac675521f6b853, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

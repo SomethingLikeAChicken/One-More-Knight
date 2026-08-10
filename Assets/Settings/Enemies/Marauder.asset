@@ -16,8 +16,13 @@ MonoBehaviour:
   moveSpeed: 1.7
   scoreValue: 250
   contactDamage: 1
-  description: 'Pressure incarnate: twin arcs of red, over and over, until something
-    breaks.'
+  description: Pressure incarnate. Marauders do not duel; they lean on you, volley
+    after paired volley, until something - usually you - gives.
+  tactics: Fires green arcs in quick two-bursts. The second burst comes fast after
+    the first - never dodge into the space the first volley herded you toward. Mid
+    HP; focus fire between bursts.
+  isMiniboss: 0
+  curseOnDeath: 0
   sprite: {fileID: -7629736460727203308, guid: 38290b8cc4706054b83484f46469a89c, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

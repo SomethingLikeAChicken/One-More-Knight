@@ -16,7 +16,11 @@ MonoBehaviour:
   moveSpeed: 0.7
   scoreValue: 500
   contactDamage: 2
-  description: A fortress given legs. Nothing gets through it until everything does.
+  description: A fortress given legs and a grudge. Nothing gets through a Colossus
+    until everything does - the host builds them to define where the battle happens.
+  tactics: Massive HP (miniboss bar), heavy contact, slow walk, no gun. It is terrain
+    that moves. Do not duel it while anything else shoots - use its own shadow as
+    cover from enemies above it, and grind it down when the screen allows.
   isMiniboss: 1
   curseOnDeath: 0
   sprite: {fileID: 6344468113124548594, guid: 412157cba3862204caa80956788fe7ba, type: 3}

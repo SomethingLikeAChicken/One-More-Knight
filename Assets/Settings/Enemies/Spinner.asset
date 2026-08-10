@@ -16,8 +16,13 @@ MonoBehaviour:
   moveSpeed: 1.1
   scoreValue: 300
   contactDamage: 1
-  description: Trails a lazy spiral of shots behind it - the lane it leaves is never
-    the lane you remember.
+  description: It fell spinning once, by accident, and the host decided the terror
+    was worth keeping. The spiral it trails has a hypnotist's patience.
+  tactics: Sheds a slow rotating spiral of shots as it descends. Individual bullets
+    are slow; the danger is the lattice they leave across lanes you wanted later.
+    Cut it down early or accept fighting inside its web.
+  isMiniboss: 0
+  curseOnDeath: 0
   sprite: {fileID: 302528250548171635, guid: bc344893adad94a49be6e455fab2cee5, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

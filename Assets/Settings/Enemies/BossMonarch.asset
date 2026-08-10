@@ -16,7 +16,12 @@ MonoBehaviour:
   contactDamage: 2
   scoreReward: 3000
   description: The old king of the endless host. Three reigns, each crueller than
-    the last.
+    the last, and a court of bullets that never stops bowing.
+  tactics: Three phases stacking cross-quads, dense rings, and spirals. Phase entries
+    are pulsed and tinted - the moment it flashes, reposition to open space before
+    the new pattern's first volley. The dense ring's gaps are narrow but honest;
+    the spiral rewards circling with it.
+  displayName: 
   difficulty: 4
   sprite: {fileID: 3518599092611669162, guid: 01edbd68eb2febe40b68c8c19a3f1b39, type: 3}
   scale: 1.1

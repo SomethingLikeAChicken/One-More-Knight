@@ -49,7 +49,10 @@ namespace OneMoreKnight.EditorTools
                     .Append(",\"score\":").Append(e.scoreValue)
                     .Append(",\"contact\":").Append(e.contactDamage)
                     .Append(",\"shoots\":").Append(e.attack != null ? "true" : "false")
+                    .Append(",\"miniboss\":").Append(e.isMiniboss ? "true" : "false")
+                    .Append(",\"cursed\":").Append(e.curseOnDeath != OneMoreKnight.Hero.CurseType.None ? "true" : "false")
                     .Append(",\"description\":").Append(Quote(e.description))
+                    .Append(",\"tactics\":").Append(Quote(e.tactics))
                     .Append(",\"sprite\":\"").Append(e.name).Append(".png\"}");
                 WriteSprite(e.sprite, e.name);
             }
@@ -66,6 +69,7 @@ namespace OneMoreKnight.EditorTools
                     .Append(",\"contact\":").Append(b.contactDamage)
                     .Append(",\"phases\":").Append(b.phases.Length)
                     .Append(",\"description\":").Append(Quote(b.description))
+                    .Append(",\"tactics\":").Append(Quote(b.tactics))
                     .Append(",\"sprite\":\"").Append(b.name).Append(".png\"}");
                 WriteSprite(b.sprite, b.name);
             }

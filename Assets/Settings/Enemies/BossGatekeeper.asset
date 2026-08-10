@@ -15,7 +15,13 @@ MonoBehaviour:
   maxHealth: 60
   contactDamage: 1
   scoreReward: 1000
-  description: The gatekeeper. Every knight meets it first, and most meet it again.
+  description: The first bell of the Run. The Gatekeeper does not hate you; it simply
+    was built into the doorway, and you are knocking. Every knight meets it. Most
+    meet it again.
+  tactics: 'The tutorial boss: aimed shots, a modest fan, a phase flip at half HP.
+    Its openers are slow and generously spaced - use the fight to practice reading
+    telegraphs and phase tints. If the Gatekeeper is costing you hearts, later gates
+    will cost the run.'
   displayName: The Gatekeeper
   difficulty: 1
   sprite: {fileID: -6248741079362886434, guid: d0c29e0047b99094cabc3a9d5ab2dadf, type: 3}

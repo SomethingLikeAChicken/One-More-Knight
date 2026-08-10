@@ -16,8 +16,13 @@ MonoBehaviour:
   moveSpeed: 1.3
   scoreValue: 300
   contactDamage: 1
-  description: Rings a warning before its circle of bells tolls. When it glows, be
-    elsewhere.
+  description: It rings a warning before its circle of bells tolls - not out of fairness,
+    but ceremony. The host insists on its rituals.
+  tactics: 'Telegraphs (pulses violet-white) before releasing an eight-bullet ring.
+    The pulse is your timer: be moving AWAY when it fires, and the ring''s gaps carry
+    you through. Killing it mid-telegraph cancels the toll entirely.'
+  isMiniboss: 0
+  curseOnDeath: 0
   sprite: {fileID: -816934195749433567, guid: 6127a1ea3ebb77a43b98f0b113755658, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

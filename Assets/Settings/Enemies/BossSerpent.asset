@@ -15,8 +15,13 @@ MonoBehaviour:
   maxHealth: 90
   contactDamage: 1
   scoreReward: 1500
-  description: Spits from both fangs and crosses its own fire. The lattice tightens
-    as it bleeds.
+  description: Two fangs, one appetite. The Serpent crosses its own fire because
+    it long ago stopped distinguishing between the battlefield and its jaws.
+  tactics: Aimed spit from alternating fangs plus crossing diagonal volleys that
+    lattice the screen. The lattice tightens as it bleeds - the fight gets harder
+    as you win, so bank your dodging stamina. Stay off the centerline where the crosses
+    overlap.
+  displayName: 
   difficulty: 2
   sprite: {fileID: -5961141700606603349, guid: 1b104fa172e758240bee3643aa56f63b, type: 3}
   scale: 1
