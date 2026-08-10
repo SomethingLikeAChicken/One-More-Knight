@@ -27,11 +27,16 @@ namespace OneMoreKnight.Run
         [SerializeField] private Image healthPipTemplate;
         [SerializeField] private GameObject bossBar;
         [SerializeField] private RectTransform bossBarFill;
+        [SerializeField] private Image damageVignette;
+        [SerializeField] [Min(0.05f)] private float vignetteFade = 0.5f;
+        [Range(0f, 1f)] [SerializeField] private float vignettePeak = 0.55f;
 
         private static readonly Color PipFull = new Color(0.95f, 0.3f, 0.35f);
         private static readonly Color PipEmpty = new Color(0.25f, 0.12f, 0.16f);
 
         private readonly List<Image> pips = new List<Image>(8);
+        private int lastHeroHp = int.MaxValue;
+        private float vignetteStrength;
 
         private void Update()
         {
@@ -43,6 +48,20 @@ namespace OneMoreKnight.Run
             EnsurePips(Mathf.Min(heroHealth.Max, 12));
             for (int i = 0; i < pips.Count; i++)
                 pips[i].color = i < heroHealth.Current ? PipFull : PipEmpty;
+
+            // Damage vignette: spikes when the polled HP drops, fades every frame.
+            // A poll fits the HUD's design (no events) and a heal/reset stays silent.
+            if (heroHealth.Current < lastHeroHp) vignetteStrength = 1f;
+            lastHeroHp = heroHealth.Current;
+            if (damageVignette != null)
+            {
+                vignetteStrength = Mathf.Max(0f, vignetteStrength - Time.deltaTime / vignetteFade);
+                Color c = damageVignette.color;
+                c.a = vignettePeak * vignetteStrength;
+                damageVignette.color = c;
+                if (damageVignette.enabled != vignetteStrength > 0f)
+                    damageVignette.enabled = vignetteStrength > 0f;
+            }
 
             var boss = bossDirector != null ? bossDirector.ActiveBoss : null;
             bool bossActive = boss != null && boss.Health.IsAlive;
