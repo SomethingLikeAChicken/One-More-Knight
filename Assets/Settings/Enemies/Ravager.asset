@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
+  m_Name: Ravager
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
+  maxHealth: 7
+  moveSpeed: 1.2
+  scoreValue: 300
+  contactDamage: 2
+  sprite: {fileID: -4677365148177797994, guid: a66e1620d3d0fd54c9c60c54dc66618c, type: 3}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  movement: 0
+  weaveAmplitude: 1.5
+  weaveFrequency: 2
+  attack: {fileID: 11400000, guid: 775a336cd86fe0b4f990bcc81cec9072, type: 2}
