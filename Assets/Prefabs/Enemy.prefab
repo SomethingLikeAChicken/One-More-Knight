@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1723169582122329651}
   - component: {fileID: 2290403232948053456}
   - component: {fileID: 3809672146323850053}
+  - component: {fileID: 4855584811210089325}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -205,3 +206,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Combat.Patterns.AttackPatternRunner
   patterns: []
+--- !u!114 &4855584811210089325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584333458309741211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b5bb2c1ccf5ec74eb8c53022f0e73de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.MiniHealthBar
+  health: {fileID: 0}
+  width: 1.2
+  height: 0.12
+  yOffset: 0.55

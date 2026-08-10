@@ -22,6 +22,7 @@ namespace OneMoreKnight.Enemies
         [SerializeField] private SpriteRenderer spriteRenderer;
 
         private CircleCollider2D circleCollider;
+        private MiniHealthBar miniBar;
         private float speed;
         private float despawnY;
         private float anchorX;
@@ -43,6 +44,7 @@ namespace OneMoreKnight.Enemies
             if (health == null) health = GetComponent<Health>();
             if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
             circleCollider = GetComponent<CircleCollider2D>();
+            miniBar = GetComponent<MiniHealthBar>();
             health.Died += OnDied;
         }
 
@@ -79,6 +81,7 @@ namespace OneMoreKnight.Enemies
             spriteRenderer.sprite = stats.sprite;
             spriteRenderer.color = stats.tint;
             ColliderFit.FitCircle(circleCollider, stats.sprite);
+            if (miniBar != null) miniBar.SetVisible(stats.isMiniboss);
             Run.Scoring.EncounterReporter.Report(stats.name);
 
             // Attacks are driven entirely by the type's Pattern asset (ADR-0003); the

@@ -22,7 +22,8 @@ namespace OneMoreKnight.Flow
             "THE CROWN IS STILL UP THERE, WAITING.",
             "DODGING IS LEARNED. YOU JUST PAID THE TUITION.",
             "THE ENDLESS HOST BLINKED FIRST LAST TIME? MAKE IT BLINK.",
-            "SWORDS DULL. STUBBORNNESS DOESN'T."
+            "SWORDS DULL. STUBBORNNESS DOESN'T.",
+            "DU BIST GUT GENUUUUUG." // maintainer's easter egg - keep verbatim
         };
 
         private GUIStyle banner;

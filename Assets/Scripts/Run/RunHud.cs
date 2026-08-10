@@ -27,6 +27,7 @@ namespace OneMoreKnight.Run
         [SerializeField] private Image healthPipTemplate;
         [SerializeField] private GameObject bossBar;
         [SerializeField] private RectTransform bossBarFill;
+        [SerializeField] private Text bossNameText;
         [SerializeField] private Image damageVignette;
         [SerializeField] [Min(0.05f)] private float vignetteFade = 0.5f;
         [Range(0f, 1f)] [SerializeField] private float vignettePeak = 0.55f;
@@ -70,6 +71,18 @@ namespace OneMoreKnight.Run
             {
                 float fraction = Mathf.Clamp01((float)boss.Health.Current / boss.Health.Max);
                 bossBarFill.anchorMax = new Vector2(fraction, 1f);
+
+                // Name tag (#53): people want to know what they are fighting.
+                if (bossNameText != null)
+                {
+                    string title = boss.Stats.name.StartsWith("Boss")
+                        ? boss.Stats.name.Substring(4) : boss.Stats.name;
+                    if (boss.CurrentPhase >= 0 && boss.CurrentPhase < boss.Stats.phases.Length
+                        && !string.IsNullOrEmpty(boss.Stats.phases[boss.CurrentPhase].name))
+                        title += "  ·  " + boss.Stats.phases[boss.CurrentPhase].name;
+                    title = title.ToUpperInvariant();
+                    if (bossNameText.text != title) bossNameText.text = title;
+                }
             }
         }
 
