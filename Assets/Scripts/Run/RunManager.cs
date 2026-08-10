@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using OneMoreKnight.Combat;
 using OneMoreKnight.Flow;
+using OneMoreKnight.Run.Scoring;
 using OneMoreKnight.Waves;
 
 namespace OneMoreKnight.Run
@@ -18,6 +19,7 @@ namespace OneMoreKnight.Run
     {
         [SerializeField] private Health heroHealth;
         [SerializeField] private WaveSpawner waveSpawner;
+        [SerializeField] private BossDirector bossDirector;
         [SerializeField] [Min(0f)] private float gameOverDelay = 1.2f;
 
         public int Score { get; private set; }
@@ -56,6 +58,8 @@ namespace OneMoreKnight.Run
             LastRun.Score = Score;
             LastRun.Wave = Wave;
             waveSpawner.StopSpawning();
+            ScoreSubmitter.Create()
+                .Submit(Score, Wave, bossDirector != null ? bossDirector.BossesDefeated : 0);
             Changed?.Invoke();
         }
 

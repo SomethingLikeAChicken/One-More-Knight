@@ -894,6 +894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Run.RunManager
   heroHealth: {fileID: 2057006109}
   waveSpawner: {fileID: 251957308}
+  bossDirector: {fileID: 878119175}
   gameOverDelay: 1.2
 --- !u!114 &1283923271
 MonoBehaviour:
