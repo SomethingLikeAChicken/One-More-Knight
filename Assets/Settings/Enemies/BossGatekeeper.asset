@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
-  m_Name: FirstBoss
+  m_Name: BossGatekeeper
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
   maxHealth: 60
   contactDamage: 1
   scoreReward: 1000
   description: The gatekeeper. Every knight meets it first, and most meet it again.
+  displayName: The Gatekeeper
   difficulty: 1
   sprite: {fileID: -6248741079362886434, guid: d0c29e0047b99094cabc3a9d5ab2dadf, type: 3}
   scale: 1

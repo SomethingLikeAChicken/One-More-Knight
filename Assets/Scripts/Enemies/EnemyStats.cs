@@ -26,6 +26,10 @@ namespace OneMoreKnight.Enemies
         [Tooltip("Bestiary text on the website (#46).")]
         [TextArea] public string description;
 
+        [Header("Miniboss (#53)")]
+        [Tooltip("Minibosses carry a small tracking HP bar. Content flag, no other behaviour change.")]
+        public bool isMiniboss;
+
         [Header("Identity (applied to the one pooled prefab on spawn)")]
         public Sprite sprite;
         public Color tint = Color.white;
