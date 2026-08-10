@@ -15,6 +15,7 @@ MonoBehaviour:
   maxHealth: 130
   contactDamage: 2
   scoreReward: 2000
+  difficulty: 3
   sprite: {fileID: -6454399610971557207, guid: 78d0f06883905e24191464e5ec798215, type: 3}
   scale: 1.05
   entrySpeed: 1.8

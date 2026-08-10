@@ -38,6 +38,8 @@ namespace OneMoreKnight.Enemies
         [Min(1)] public int maxHealth = 60;
         [Min(0)] public int contactDamage = 1;
         [Min(0)] public int scoreReward = 1000;
+        [Tooltip("Rating against a stage's maximum difficulty - the boss-pool currency (issue #30).")]
+        [Min(1)] public int difficulty = 1;
 
         [Header("Identity (applied to the one Boss prefab on Begin)")]
         public Sprite sprite;
