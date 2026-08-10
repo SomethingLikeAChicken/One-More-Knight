@@ -23,22 +23,35 @@ namespace OneMoreKnight.Combat
         private ContactFilter2D filter;
         private SpriteRenderer spriteRenderer;
 
-        private Vector2 velocity;
+        private Vector2 direction;
+        private float speed;
+        private BulletMotion motion;
+        private Vector2 sineAnchor;
+        private float travelled;
         private int damage;
         private float lifetime;
         private float age;
         private Action<Bullet> release;
 
+        /// <summary>True while a Homing Bullet is still allowed to steer — exposed so
+        /// tests can verify the fairness cap instead of eyeballing it.</summary>
+        public bool IsSteering => motion.Type == BulletMotionType.Homing && age < motion.HomingDuration;
+
         private void Awake() => spriteRenderer = GetComponent<SpriteRenderer>();
 
-        /// <summary>Prepares a pooled Bullet for one flight. Resets all per-life state —
-        /// including the tint, or a recycled Enemy shot would leak its red onto a Hero shot.</summary>
-        public void Arm(Vector2 origin, Vector2 direction, float speed, int bulletDamage,
+        /// <summary>Prepares a pooled Bullet for one flight. Resets ALL per-life state —
+        /// tint, motion type, sine phase, homing target, speed — or a recycled Bullet
+        /// would inherit its previous life's behaviour (ADR-0003).</summary>
+        public void Arm(Vector2 origin, Vector2 spawnDirection, float spawnSpeed, int bulletDamage,
                         LayerMask hitMask, float maxLifetime, Action<Bullet> releaseCallback,
-                        Color? tint = null)
+                        Color? tint = null, BulletMotion? bulletMotion = null)
         {
             transform.position = origin;
-            velocity = direction.normalized * speed;
+            direction = spawnDirection.normalized;
+            speed = spawnSpeed;
+            motion = bulletMotion ?? BulletMotion.Linear();
+            sineAnchor = origin;
+            travelled = 0f;
             damage = bulletDamage;
             lifetime = maxLifetime;
             age = 0f;
@@ -57,9 +70,38 @@ namespace OneMoreKnight.Combat
         private void Update()
         {
             float dt = Time.deltaTime;
-            transform.position += (Vector3)(velocity * dt);
-
             age += dt;
+            speed += motion.Acceleration * dt;
+            if (speed < 0.1f) speed = 0.1f;
+
+            switch (motion.Type)
+            {
+                case BulletMotionType.Sine:
+                {
+                    // Anchor advances along the base direction; the Bullet oscillates
+                    // perpendicular to it. Fully parametric - one owner per position.
+                    travelled += speed * dt;
+                    sineAnchor += direction * (speed * dt);
+                    var perp = new Vector2(-direction.y, direction.x);
+                    transform.position = sineAnchor + perp * (Mathf.Sin(age * motion.SineFrequency) * motion.SineAmplitude);
+                    break;
+                }
+                case BulletMotionType.Homing:
+                {
+                    if (IsSteering && motion.Target != null)
+                    {
+                        Vector2 toTarget = ((Vector2)motion.Target.position - (Vector2)transform.position).normalized;
+                        float maxRadians = motion.HomingTurnSpeed * Mathf.Deg2Rad * dt;
+                        direction = Vector3.RotateTowards(direction, toTarget, maxRadians, 0f).normalized;
+                    }
+                    transform.position += (Vector3)(direction * (speed * dt));
+                    break;
+                }
+                default:
+                    transform.position += (Vector3)(direction * (speed * dt));
+                    break;
+            }
+
             if (age >= lifetime)
             {
                 Release();

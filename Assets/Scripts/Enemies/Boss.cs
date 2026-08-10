@@ -100,9 +100,11 @@ namespace OneMoreKnight.Enemies
                 {
                     transform.position = new Vector3(transform.position.x, hoverLineY, 0f);
                     entering = false;
-                    // The fight starts here: Phase 0 if Phases are authored, else the
+                    // The fight starts here: the Phase matching the CURRENT HP fraction
+                    // (Hero Bullets can already hit during the entrance), else the
                     // runner's own serialized Patterns with fresh clocks.
-                    if (stats.phases.Length > 0) EnterPhase(PhaseForFraction(1f));
+                    if (stats.phases.Length > 0)
+                        EnterPhase(PhaseForFraction((float)health.Current / health.Max));
                     else attackRunner.ResetState();
                 }
                 return;

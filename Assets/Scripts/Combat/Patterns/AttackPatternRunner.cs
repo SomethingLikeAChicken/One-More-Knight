@@ -22,6 +22,7 @@ namespace OneMoreKnight.Combat.Patterns
             public float NextFireAt;     // next burst may start at this time
             public int BurstRemaining;   // emissions left in the running burst
             public float NextEmissionAt; // next emission inside the running burst
+            public int EmissionCount;    // total emissions fired - drives spiral rotation
         }
 
         private readonly List<Emission> emissionBuffer = new List<Emission>(32);
@@ -59,6 +60,7 @@ namespace OneMoreKnight.Combat.Patterns
                 slots[i].NextFireAt = Time.time + (patterns[i] != null ? patterns[i].initialDelay : 0f);
                 slots[i].BurstRemaining = 0;
                 slots[i].NextEmissionAt = 0f;
+                slots[i].EmissionCount = 0;
             }
             firing = true;
         }
@@ -87,7 +89,7 @@ namespace OneMoreKnight.Combat.Patterns
                 if (slots[i].BurstRemaining > 0)
                 {
                     if (now < slots[i].NextEmissionAt) continue;
-                    Emit(pattern);
+                    Emit(pattern, ref slots[i]);
                     slots[i].BurstRemaining--;
                     slots[i].NextEmissionAt = now + pattern.burstSpacing;
                     continue;
@@ -95,21 +97,38 @@ namespace OneMoreKnight.Combat.Patterns
 
                 if (now < slots[i].NextFireAt) continue;
                 slots[i].NextFireAt = now + pattern.cooldown;
-                Emit(pattern);
+                Emit(pattern, ref slots[i]);
                 slots[i].BurstRemaining = pattern.burstCount - 1;
                 slots[i].NextEmissionAt = now + pattern.burstSpacing;
             }
         }
 
-        private void Emit(AttackPattern pattern)
+        private void Emit(AttackPattern pattern, ref SlotState slot)
         {
             Vector2? targetPos = target != null ? (Vector2?)target.position : null;
-            AttackPatternEngine.ComputeEmission(pattern, transform.position, targetPos, emissionBuffer);
+            float spin = pattern.angleStepPerEmission * slot.EmissionCount;
+            slot.EmissionCount++;
+            AttackPatternEngine.ComputeEmission(pattern, transform.position, targetPos, emissionBuffer, spin);
+
+            BulletMotion motion;
+            switch (pattern.motion)
+            {
+                case MotionType.Sine:
+                    motion = BulletMotion.Sine(pattern.sineAmplitude, pattern.sineFrequency, pattern.acceleration);
+                    break;
+                case MotionType.Homing:
+                    motion = BulletMotion.Homing(target, pattern.homingTurnSpeed, pattern.homingDuration, pattern.acceleration);
+                    break;
+                default:
+                    motion = BulletMotion.Linear(pattern.acceleration);
+                    break;
+            }
+
             for (int i = 0; i < emissionBuffer.Count; i++)
             {
                 Emission e = emissionBuffer[i];
                 bulletSpawner.Spawn(e.Origin, e.Direction, pattern.bulletSpeed, pattern.bulletDamage,
-                                    hitMask, pattern.bulletTint);
+                                    hitMask, pattern.bulletTint, motion);
             }
         }
     }

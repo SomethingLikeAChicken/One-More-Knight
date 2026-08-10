@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5908154f0bb25048afc91d126b1272b, type: 3}
-  m_Name: TyrantFanWide
+  m_Name: HomingBolt
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Combat.Patterns.AttackPattern
-  muzzleOffset: 0.8
-  formation: 1
-  bulletCount: 9
-  spreadAngle: 110
+  muzzleOffset: 0.5
+  formation: 0
+  bulletCount: 1
+  spreadAngle: 60
   wallSpacing: 0.8
-  direction: 0
+  direction: 2
   fixedAngle: 0
-  motion: 0
+  motion: 2
   sineAmplitude: 0.6
   sineFrequency: 6
-  homingTurnSpeed: 120
-  homingDuration: 1.5
-  cooldown: 5.2
-  initialDelay: 2.4
-  burstCount: 2
-  burstSpacing: 0.6
+  homingTurnSpeed: 110
+  homingDuration: 1.6
+  cooldown: 5.5
+  initialDelay: 1.8
+  burstCount: 1
+  burstSpacing: 0.2
   angleStepPerEmission: 0
-  bulletSpeed: 2.2
+  bulletSpeed: 3.4
   bulletDamage: 1
-  acceleration: 1.6
+  acceleration: 0
   bulletTint: {r: 1, g: 0.32, b: 0.38, a: 1}
