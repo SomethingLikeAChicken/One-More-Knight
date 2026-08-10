@@ -21,6 +21,10 @@ MonoBehaviour:
     maxDifficulty: 3
   - scoreThreshold: 10000
     maxDifficulty: 4
+  - scoreThreshold: 16000
+    maxDifficulty: 5
+  - scoreThreshold: 24000
+    maxDifficulty: 6
   pool:
   - {fileID: 11400000, guid: 7dcfd7a5200568a4ea5786293ce255e8, type: 2}
   - {fileID: 11400000, guid: 29455908fffa6d145a7a80298afc1b78, type: 2}
@@ -31,5 +35,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 89d395940745b3e4984e140d7b947341, type: 2}
   - {fileID: 11400000, guid: 630749fc376512f4fb3f86578680f75f, type: 2}
   - {fileID: 11400000, guid: a82c872c1b223ea489b847fc89f89a57, type: 2}
+  - {fileID: 11400000, guid: 914dc264a260c814cbf27b5055763a5e, type: 2}
+  - {fileID: 11400000, guid: af5b3922b85e75f4da4c3d618f5ccdae, type: 2}
   endlessScoreStep: 6000
-  endlessMaxDifficulty: 4
+  endlessMaxDifficulty: 6

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Waves.DifficultyProgression
   baseBudget: 8
   budgetPerWave: 3
-  maxBudget: 30
+  maxBudget: 42
   pool:
   - {fileID: 11400000, guid: a9b426c8c434681469e29aa64393dd59, type: 2}
   - {fileID: 11400000, guid: 382245a4d8bb06f409c32b4f5f74bd1e, type: 2}
@@ -37,6 +37,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 48c0a958d12c70444b387d25887b8314, type: 2}
   - {fileID: 11400000, guid: 107a0a08637649a4185b91c0a64efa8b, type: 2}
   - {fileID: 11400000, guid: 86364a732c6e5064aae9c1de6df1e439, type: 2}
+  - {fileID: 11400000, guid: 30687c74a9def6b468ee177af1e122d5, type: 2}
+  - {fileID: 11400000, guid: 296799278cfdcb643b5f6ccf2aec8a7c, type: 2}
+  - {fileID: 11400000, guid: a1f94a39dcf274f429d7af9db6443750, type: 2}
+  - {fileID: 11400000, guid: 5a9de0dd494575f4ea6f63c4fb3f30dd, type: 2}
+  - {fileID: 11400000, guid: 9795cb9dad02ada4c9069f6b87eefb85, type: 2}
+  - {fileID: 11400000, guid: bc464d7c7789f7048accf5e70c0ea204, type: 2}
   delayBetweenGroups: 2.2
   intermission: 1.75
   hpMultiplierStep: 1.04
