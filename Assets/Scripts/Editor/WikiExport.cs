@@ -58,9 +58,8 @@ namespace OneMoreKnight.EditorTools
                 if (b == null) continue;
                 if (!first) json.Append(',');
                 first = false;
-                string display = b.name.StartsWith("Boss") ? b.name.Substring(4) : b.name;
                 json.Append("{\"slug\":\"").Append(b.name)
-                    .Append("\",\"kind\":\"boss\",\"name\":\"").Append(display)
+                    .Append("\",\"kind\":\"boss\",\"name\":\"").Append(b.DisplayName)
                     .Append("\",\"hp\":").Append(b.maxHealth)
                     .Append(",\"difficulty\":").Append(b.difficulty)
                     .Append(",\"reward\":").Append(b.scoreReward)

@@ -75,8 +75,7 @@ namespace OneMoreKnight.Run
                 // Name tag (#53): people want to know what they are fighting.
                 if (bossNameText != null)
                 {
-                    string title = boss.Stats.name.StartsWith("Boss")
-                        ? boss.Stats.name.Substring(4) : boss.Stats.name;
+                    string title = boss.Stats.DisplayName;
                     if (boss.CurrentPhase >= 0 && boss.CurrentPhase < boss.Stats.phases.Length
                         && !string.IsNullOrEmpty(boss.Stats.phases[boss.CurrentPhase].name))
                         title += "  ·  " + boss.Stats.phases[boss.CurrentPhase].name;

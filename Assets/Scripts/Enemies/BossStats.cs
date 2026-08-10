@@ -46,6 +46,12 @@ namespace OneMoreKnight.Enemies
         [Min(0)] public int scoreReward = 1000;
         [Tooltip("Bestiary text on the website (#46).")]
         [TextArea] public string description;
+        [Tooltip("Shown on the HUD name tag and the bestiary. Empty = asset name minus the Boss prefix.")]
+        public string displayName;
+
+        /// <summary>The name players see (#53).</summary>
+        public string DisplayName => !string.IsNullOrEmpty(displayName) ? displayName
+            : name.StartsWith("Boss") ? name.Substring(4) : name;
         [Tooltip("Rating against a stage's maximum difficulty - the boss-pool currency (issue #30).")]
         [Min(1)] public int difficulty = 1;
 
