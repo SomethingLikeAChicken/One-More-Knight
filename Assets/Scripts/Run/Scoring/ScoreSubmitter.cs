@@ -23,7 +23,7 @@ namespace OneMoreKnight.Run.Scoring
 
         private sealed class NullScoreSubmitter : IScoreSubmitter
         {
-            public void Submit(int score, int wave, int bossesDefeated) { }
+            public void Submit(int score, string metaJson) { }
         }
 
 #if UNITY_WEBGL && !UNITY_EDITOR
@@ -32,10 +32,10 @@ namespace OneMoreKnight.Run.Scoring
             [DllImport("__Internal")]
             private static extern void OMK_SubmitScore(int score, string metaJson);
 
-            public void Submit(int score, int wave, int bossesDefeated)
+            public void Submit(int score, string metaJson)
             {
-                // Meta is the ADR-0005 run summary the backend stores for auditing.
-                OMK_SubmitScore(score, $"{{\"wave\":{wave},\"bosses\":{bossesDefeated}}}");
+                // Meta is the ADR-0005 run summary; RunStats builds it (#63).
+                OMK_SubmitScore(score, string.IsNullOrEmpty(metaJson) ? "{}" : metaJson);
             }
         }
 #endif

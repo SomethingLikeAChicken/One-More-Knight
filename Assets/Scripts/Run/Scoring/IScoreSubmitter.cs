@@ -7,7 +7,8 @@ namespace OneMoreKnight.Run.Scoring
     /// </summary>
     public interface IScoreSubmitter
     {
-        /// <summary>Fire-and-forget: report a finished Run. Never throws, never blocks.</summary>
-        void Submit(int score, int wave, int bossesDefeated);
+        /// <summary>Fire-and-forget: report a finished Run with its stats meta JSON
+        /// (see <see cref="RunStats.ToMetaJson"/>). Never throws, never blocks.</summary>
+        void Submit(int score, string metaJson);
     }
 }

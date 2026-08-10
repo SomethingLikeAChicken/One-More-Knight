@@ -201,6 +201,8 @@ MonoBehaviour:
   runManager: {fileID: 1283923270}
   bulletSpawner: {fileID: 685176717}
   progression: {fileID: 11400000, guid: ae95a65b5ef082140bfcd915d9298a48, type: 2}
+  modifiersFromWave: 16
+  modifierChance: 0.45
 --- !u!4 &251957309
 Transform:
   m_ObjectHideFlags: 0
@@ -1087,6 +1089,7 @@ GameObject:
   - component: {fileID: 1283923272}
   - component: {fileID: 1283923270}
   - component: {fileID: 1283923271}
+  - component: {fileID: 1283923273}
   m_Layer: 0
   m_Name: Run
   m_TagString: Untagged
@@ -1109,6 +1112,7 @@ MonoBehaviour:
   heroHealth: {fileID: 2057006109}
   waveSpawner: {fileID: 251957308}
   bossDirector: {fileID: 0}
+  runStats: {fileID: 1283923273}
   gameOverDelay: 1.2
 --- !u!114 &1283923271
 MonoBehaviour:
@@ -1152,6 +1156,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1283923273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283923269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 305658932f7335246a7a54ba27b3c666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Run.Scoring.RunStats
+  waveSpawner: {fileID: 251957308}
+  bossDirector: {fileID: 0}
+  runManager: {fileID: 1283923270}
+  heroHealth: {fileID: 2057006109}
+  heroUpgrades: {fileID: 2057006116}
 --- !u!1 &1352819511
 GameObject:
   m_ObjectHideFlags: 0

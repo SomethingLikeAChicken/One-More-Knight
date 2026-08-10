@@ -20,6 +20,7 @@ namespace OneMoreKnight.Run
         [SerializeField] private Health heroHealth;
         [SerializeField] private WaveSpawner waveSpawner;
         [SerializeField] private BossDirector bossDirector;
+        [SerializeField] private Scoring.RunStats runStats;
         [SerializeField] [Min(0f)] private float gameOverDelay = 1.2f;
 
         public int Score { get; private set; }
@@ -62,8 +63,9 @@ namespace OneMoreKnight.Run
             LastRun.Score = Score;
             LastRun.Wave = Wave;
             waveSpawner.StopSpawning();
-            ScoreSubmitter.Create()
-                .Submit(Score, Wave, bossDirector != null ? bossDirector.BossesDefeated : 0);
+            ScoreSubmitter.Create().Submit(Score,
+                runStats != null ? runStats.ToMetaJson()
+                    : $"{{\"wave\":{Wave},\"bosses\":{(bossDirector != null ? bossDirector.BossesDefeated : 0)}}}");
             Changed?.Invoke();
         }
 
