@@ -45,6 +45,12 @@ namespace OneMoreKnight.Hero
         private CurseType curse = CurseType.None;
         private float curseEndsAt;
 
+        /// <summary>A pickup landed (capped applications don't fire) — RunStats listens (#63).</summary>
+        public event System.Action<PowerupType> PowerupApplied;
+
+        /// <summary>A death-curse landed — RunStats listens (#63).</summary>
+        public event System.Action<CurseType> CurseApplied;
+
         public int BonusDamage => damageStacks;
         public float MoveSpeedMultiplier =>
             (1f + speedStacks * speedPerStack) * (ActiveCurse == CurseType.Leaden ? 0.6f : 1f);
@@ -58,26 +64,29 @@ namespace OneMoreKnight.Hero
         /// (the pickup is consumed either way — greed is not refunded).</summary>
         public bool Apply(PowerupType type)
         {
+            bool applied;
             switch (type)
             {
                 case PowerupType.Damage:
-                    if (damageStacks >= damageCap) return false;
-                    damageStacks++;
-                    return true;
+                    applied = damageStacks < damageCap;
+                    if (applied) damageStacks++;
+                    break;
                 case PowerupType.MaxHp:
                     var health = GetComponent<Combat.Health>();
-                    if (health == null || health.Max >= maxHpCap) return false;
-                    health.IncreaseMax(1); // +1 max AND +1 current - never a full heal
-                    return true;
+                    applied = health != null && health.Max < maxHpCap;
+                    if (applied) health.IncreaseMax(1); // +1 max AND +1 current - never a full heal
+                    break;
                 case PowerupType.MoveSpeed:
-                    if (speedStacks >= speedStackCap) return false;
-                    speedStacks++;
-                    return true;
+                    applied = speedStacks < speedStackCap;
+                    if (applied) speedStacks++;
+                    break;
                 default:
-                    if (fireStacks >= fireStackCap) return false;
-                    fireStacks++;
-                    return true;
+                    applied = fireStacks < fireStackCap;
+                    if (applied) fireStacks++;
+                    break;
             }
+            if (applied) PowerupApplied?.Invoke(type);
+            return applied;
         }
 
         public void ApplyCurse(CurseType type)
@@ -85,6 +94,7 @@ namespace OneMoreKnight.Hero
             if (type == CurseType.None) return;
             curse = type;
             curseEndsAt = Time.time + curseDuration;
+            CurseApplied?.Invoke(type);
         }
     }
 }
