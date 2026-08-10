@@ -26,6 +26,9 @@ namespace OneMoreKnight.Run
         public int Wave { get; private set; }
         public bool IsOver { get; private set; }
 
+        /// <summary>The active wave modifier's display label, "" when none (#57).</summary>
+        public string WaveModifierLabel { get; private set; } = "";
+
         private float gameOverAt;
 
         public event Action Changed;
@@ -44,9 +47,10 @@ namespace OneMoreKnight.Run
             Changed?.Invoke();
         }
 
-        public void ReportWave(int waveNumber)
+        public void ReportWave(int waveNumber, string modifierLabel = "")
         {
             Wave = waveNumber;
+            WaveModifierLabel = modifierLabel ?? "";
             Changed?.Invoke();
         }
 

@@ -43,6 +43,18 @@ namespace OneMoreKnight.Waves
         /// <summary>A kill happened — type + where. The spoils system (#55) listens.</summary>
         public event System.Action<EnemyStats, Vector2> EnemyKilled;
 
+        /// <summary>Test surface (#57): forces the next waves' modifier roll.</summary>
+        public WaveModifier? TestForceModifier { get; set; }
+
+        /// <summary>The running wave's modifier (#57).</summary>
+        public WaveModifier CurrentModifier { get; private set; } = WaveModifier.None;
+
+        [Header("Wave modifiers (#57)")]
+        [SerializeField] [Min(2)] private int modifiersFromWave = 16;
+        [Range(0f, 1f)] [SerializeField] private float modifierChance = 0.45f;
+
+        private float scoreMultiplier = 1f;
+
         private void Awake()
         {
             // Per-Run seed. When ADR-0005's Run Summary lands, this seed is what gets
@@ -80,8 +92,17 @@ namespace OneMoreKnight.Waves
             while (true)
             {
                 waveNumber++;
-                runManager.ReportWave(waveNumber);
+                CurrentModifier = RollModifier(waveNumber);
+                runManager.ReportWave(waveNumber,
+                    CurrentModifier == WaveModifier.None ? "" : CurrentModifier.ToString().ToUpperInvariant());
                 progression.MultipliersFor(waveNumber, out float hpMult, out float speedMult);
+
+                // Modifier levers (#57) - spikes on top of the bounded curve.
+                if (CurrentModifier == WaveModifier.Haste) speedMult *= 1.25f;
+                if (CurrentModifier == WaveModifier.Ironclad) hpMult *= 1.35f;
+                scoreMultiplier = CurrentModifier == WaveModifier.Gilded ? 1.5f : 1f;
+                Combat.Patterns.AttackPatternRunner.GlobalCooldownScale =
+                    CurrentModifier == WaveModifier.Frenzy ? 0.75f : 1f;
 
                 Compose(waveNumber);
                 for (int g = 0; g < plan.Count; g++)
@@ -98,10 +119,20 @@ namespace OneMoreKnight.Waves
 
         /// <summary>Spends the wave's budget on random eligible groups. Greedy but
         /// random: shuffle-pick anything affordable until nothing fits.</summary>
+        private WaveModifier RollModifier(int wave)
+        {
+            if (wave < modifiersFromWave) return WaveModifier.None;
+            if (TestForceModifier.HasValue) return TestForceModifier.Value;
+            if (rng.NextDouble() >= modifierChance) return WaveModifier.None;
+            return (WaveModifier)rng.Next(1, 6); // Haste..Swarm
+        }
+
         private void Compose(int wave)
         {
             plan.Clear();
             int remaining = progression.BudgetFor(wave);
+            if (CurrentModifier == WaveModifier.Swarm)
+                remaining = Mathf.RoundToInt(remaining * 1.3f);
 
             while (true)
             {
@@ -182,7 +213,7 @@ namespace OneMoreKnight.Waves
 
         private void OnEnemyKilled(Enemy enemy)
         {
-            runManager.AddScore(enemy.Stats.scoreValue);
+            runManager.AddScore(Mathf.RoundToInt(enemy.Stats.scoreValue * scoreMultiplier));
             EnemyKilled?.Invoke(enemy.Stats, enemy.transform.position);
         }
 
@@ -199,6 +230,8 @@ namespace OneMoreKnight.Waves
             if (loop == null) return;
             StopCoroutine(loop);
             loop = null;
+            // Bosses fight unmodified (#57).
+            Combat.Patterns.AttackPatternRunner.GlobalCooldownScale = 1f;
         }
 
         /// <summary>Resumes after a pause. The Wave counter is a field, so the curve

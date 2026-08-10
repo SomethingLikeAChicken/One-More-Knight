@@ -44,7 +44,9 @@ namespace OneMoreKnight.Run
         private void Update()
         {
             scoreText.text = $"SCORE  {runManager.Score:n0}";
-            waveText.text = $"WAVE  {runManager.Wave}";
+            waveText.text = string.IsNullOrEmpty(runManager.WaveModifierLabel)
+                ? $"WAVE  {runManager.Wave}"
+                : $"WAVE  {runManager.Wave}  —  {runManager.WaveModifierLabel}";
 
             // Capped so debug health pools (or a future absurd Boon) cannot flood the
             // canvas with pip objects; past the cap the row simply stays full-width.
