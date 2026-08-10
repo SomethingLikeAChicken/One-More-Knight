@@ -1,27 +1,30 @@
 using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using OneMoreKnight.Combat;
+using OneMoreKnight.Flow;
 using OneMoreKnight.Waves;
 
 namespace OneMoreKnight.Run
 {
     /// <summary>
     /// One playthrough, from start to the Hero's death (CONTEXT.md: Run). Owns the Score
-    /// and the current Wave number, and ends the Run when the Hero's Health hits zero.
+    /// and the current Wave number, and ends the Run when the Hero's Health hits zero —
+    /// after a short beat, the GameOver scene takes over with the final readout.
     ///
-    /// Permadeath: restarting reloads the scene, so nothing carries over. Meta-progression
-    /// (Relics) is a post-MVP concern and has no hook here yet.
+    /// Permadeath: playing again loads a fresh Game scene, so nothing carries over.
+    /// Meta-progression (Relics) is a post-MVP concern and has no hook here yet.
     /// </summary>
     public class RunManager : MonoBehaviour
     {
         [SerializeField] private Health heroHealth;
         [SerializeField] private WaveSpawner waveSpawner;
+        [SerializeField] [Min(0f)] private float gameOverDelay = 1.2f;
 
         public int Score { get; private set; }
         public int Wave { get; private set; }
         public bool IsOver { get; private set; }
+
+        private float gameOverAt;
 
         public event Action Changed;
 
@@ -49,20 +52,16 @@ namespace OneMoreKnight.Run
         {
             if (IsOver) return;
             IsOver = true;
+            gameOverAt = Time.time + gameOverDelay;
+            LastRun.Score = Score;
+            LastRun.Wave = Wave;
             waveSpawner.StopSpawning();
             Changed?.Invoke();
         }
 
         private void Update()
         {
-            if (!IsOver) return;
-
-            Keyboard keyboard = Keyboard.current;
-            if (keyboard == null) return;
-
-            if (keyboard.rKey.wasPressedThisFrame || keyboard.spaceKey.wasPressedThisFrame) Restart();
+            if (IsOver && Time.time >= gameOverAt) SceneFlow.LoadGameOver();
         }
-
-        public void Restart() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

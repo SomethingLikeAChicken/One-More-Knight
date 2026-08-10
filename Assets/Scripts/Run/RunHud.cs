@@ -17,8 +17,6 @@ namespace OneMoreKnight.Run
         [SerializeField] private Health heroHealth;
 
         private GUIStyle readout;
-        private GUIStyle banner;
-        private GUIStyle hint;
 
         private void EnsureStyles()
         {
@@ -30,21 +28,6 @@ namespace OneMoreKnight.Run
                 fontStyle = FontStyle.Bold
             };
             readout.normal.textColor = Color.white;
-
-            banner = new GUIStyle(GUI.skin.label)
-            {
-                fontSize = 44,
-                fontStyle = FontStyle.Bold,
-                alignment = TextAnchor.MiddleCenter
-            };
-            banner.normal.textColor = new Color(1f, 0.42f, 0.42f);
-
-            hint = new GUIStyle(GUI.skin.label)
-            {
-                fontSize = 18,
-                alignment = TextAnchor.MiddleCenter
-            };
-            hint.normal.textColor = new Color(0.85f, 0.85f, 0.9f);
         }
 
         private void OnGUI()
@@ -56,15 +39,6 @@ namespace OneMoreKnight.Run
             GUILayout.Label($"WAVE   {runManager.Wave}", readout);
             GUILayout.Label($"HEALTH {new string('#', heroHealth.Current)}{new string('.', Mathf.Max(0, heroHealth.Max - heroHealth.Current))}", readout);
             GUILayout.EndArea();
-
-            if (!runManager.IsOver) return;
-
-            float w = Screen.width;
-            float h = Screen.height;
-
-            GUI.Label(new Rect(0f, h * 0.5f - 70f, w, 60f), "THE RUN ENDS", banner);
-            GUI.Label(new Rect(0f, h * 0.5f - 8f, w, 30f), $"Score {runManager.Score:n0}   ·   Wave {runManager.Wave}", hint);
-            GUI.Label(new Rect(0f, h * 0.5f + 28f, w, 30f), "press SPACE or R to run again", hint);
         }
     }
 }
