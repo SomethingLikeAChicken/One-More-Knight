@@ -28,6 +28,17 @@ namespace OneMoreKnight.Combat.Patterns
         Homing
     }
 
+    public enum OriginMode
+    {
+        /// <summary>Bullets from the actor itself (default).</summary>
+        Muzzle,
+        /// <summary>A telegraphed RIFT opens at the target's position; the pattern
+        /// erupts from there (#70).</summary>
+        RiftAtTarget,
+        /// <summary>A telegraphed RIFT opens at a random point in the upper field.</summary>
+        RiftRandom
+    }
+
     /// <summary>
     /// One Attack Pattern (CONTEXT.md), composed of the six ADR-0003 axes:
     /// Origin / Formation / Direction / Motion / Timing / Bullet.
@@ -43,6 +54,10 @@ namespace OneMoreKnight.Combat.Patterns
         [Header("Origin")]
         [Tooltip("Distance from the source's centre along each Bullet's own direction.")]
         [Min(0f)] public float muzzleOffset = 0.35f;
+        [Tooltip("Rift modes open a telegraphed square elsewhere and erupt from it (#70).")]
+        public OriginMode originMode = OriginMode.Muzzle;
+        [Tooltip("Rift only: seconds the marker warns before the eruption.")]
+        [Min(0.2f)] public float riftTelegraph = 0.8f;
 
         [Header("Formation")]
         public Formation formation = Formation.Single;
