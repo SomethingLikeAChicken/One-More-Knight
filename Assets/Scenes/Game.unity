@@ -199,6 +199,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 2290403232948053456, guid: d75ecdd7fb688224582dd3ca4b077cdd, type: 3}
   playArea: {fileID: 66600934}
   runManager: {fileID: 1283923270}
+  bulletSpawner: {fileID: 685176717}
   baseEnemyCount: 4
   enemiesAddedPerWave: 2
   maxEnemiesPerWave: 24
@@ -543,6 +544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Run.RunManager
   heroHealth: {fileID: 2057006109}
   waveSpawner: {fileID: 251957308}
+  gameOverDelay: 1.2
 --- !u!114 &1283923271
 MonoBehaviour:
   m_ObjectHideFlags: 0

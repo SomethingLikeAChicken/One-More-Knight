@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Pool;
+using OneMoreKnight.Combat;
 using OneMoreKnight.Enemies;
 using OneMoreKnight.Run;
 
@@ -22,6 +23,7 @@ namespace OneMoreKnight.Waves
         [SerializeField] private Enemy enemyPrefab;
         [SerializeField] private PlayArea playArea;
         [SerializeField] private RunManager runManager;
+        [SerializeField] private BulletSpawner bulletSpawner;
 
         [Header("Wave shape")]
         [SerializeField] [Min(1)] private int baseEnemyCount = 4;
@@ -57,6 +59,7 @@ namespace OneMoreKnight.Waves
             // times and per-spawn subscription would stack handlers.
             enemy.Killed += OnEnemyKilled;
             enemy.Retired += OnEnemyRetired;
+            enemy.Initialize(bulletSpawner);
             return enemy;
         }
 

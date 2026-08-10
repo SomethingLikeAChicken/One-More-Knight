@@ -17,5 +17,12 @@ namespace OneMoreKnight.Enemies
         [Min(0f)] public float moveSpeed = 2.2f;
         [Min(0)] public int scoreValue = 100;
         [Min(0)] public int contactDamage = 1;
+
+        [Header("Shooting (0 cooldown = never shoots)")]
+        [Min(0f)] public float shotCooldown;
+        [Min(0f)] public float shotSpeed = 3.5f;
+        [Min(0)] public int shotDamage = 1;
+        // Readability rule (AGENTS.md): enemy shots are red/violet, never gold/blue.
+        public Color shotTint = new Color(1f, 0.32f, 0.38f);
     }
 }
