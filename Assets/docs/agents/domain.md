@@ -32,9 +32,11 @@ next to the code they describe.
 │   │   │   ├── 004-custom-backend-oauth.md
 │   │   │   └── 005-trust-based-leaderboard-v1.md
 │   │   └── agents/
+│   │       ├── workflow.md
 │   │       ├── issue-tracker.md
 │   │       ├── triage-labels.md
-│   │       └── domain.md
+│   │       ├── domain.md
+│   │       └── solid-unity.md
 │   ├── Scenes/
 │   ├── Scripts/                ← game code goes here
 │   └── Settings/
@@ -50,9 +52,10 @@ GUID on the next machine.
 ADR files are numbered with **three digits** (`001-`), while prose refers to them
 as `ADR-0001`. Both forms are in use; match the filenames on disk when linking.
 
-`Assets/Scripts/` does not exist yet — the project is still an empty URP 2D
-template (one scene, a camera, and a global light). Nothing in `CONTEXT.md` is
-implemented yet; the glossary describes the intended domain, not existing code.
+`Assets/Scripts/` exists since M1/M2 (Hero, Enemy, Bullet, Wave, Run code plus
+`Assets/Prefabs/`, `Assets/Art/`, `Assets/Settings/Enemies/`). Core `CONTEXT.md`
+terms (Hero, Enemy, Bullet, Wave, Score, Health, Object Pool) are implemented;
+Boss, Attack Pattern, Phase, and everything post-MVP are still intent only.
 
 ## Use the glossary's vocabulary
 

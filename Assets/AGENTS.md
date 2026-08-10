@@ -14,8 +14,10 @@ built as a university project (~180h budget).
 - **Not an MMO.** Single-player web game with an online leaderboard. Permadeath is
   per-run only (lose the run, not a persistent character).
 
-**Status:** the Unity project is an empty URP 2D template — one scene containing a
-camera and a global light. No game code exists yet. Everything below is intent.
+**Status (2026-08-10):** M1 + M2 of the milestone plan are done and play-tested —
+Hero movement/shooting, Waves, pooled Bullets, Health, Score, Game Over. M0 (WebGL
+build + deploy) is **not** done and overdue. No Boss, no Enemy fire, no backend yet.
+The living plan is the PRD: **GitHub issue #1** in this repo.
 
 ## Project Documentation & Decision Record
 
@@ -28,9 +30,11 @@ This repo is docs-driven. Read these before working, and honour them in all outp
   English-only, 0002 Unity (WebGL) over Phaser 4 / web, 0003 data-driven attack
   pattern engine, 0004 custom backend + OAuth, 0005 trust-based leaderboard. If your
   work would contradict an ADR, surface it explicitly rather than silently overriding.
-- **`Assets/docs/agents/`** — working standards: `issue-tracker.md` (GitHub + `gh`
-  CLI), `triage-labels.md` (triage label vocabulary), `domain.md` (how to consume
-  the domain docs).
+- **`Assets/docs/agents/`** — working standards: `workflow.md` (**the spec issue →
+  sub-issue → PR workflow — read before starting any feature**), `issue-tracker.md`
+  (GitHub + `gh` CLI), `triage-labels.md` (triage label vocabulary), `domain.md`
+  (how to consume the domain docs), `solid-unity.md` (SOLID applied pragmatically +
+  Unity best practices).
 
 Documentation lives **under `Assets/`**, alongside the code it describes — that is
 the tree actually being edited. The cost is that Unity imports each document as an
@@ -39,10 +43,10 @@ docs. They are unreferenced assets, so they add nothing to a build.
 
 If a doc is absent, proceed silently — don't flag it or pre-create it.
 
-**Workflow intent:** these docs are the foundation for a PRD. The PRD is broken
-into small, independently reviewable and testable issues (tracked per
-`docs/agents/issue-tracker.md`, labelled per `triage-labels.md`) that an agent
-implements one at a time for human review. Issues should name concepts using
+**Workflow:** the PRD lives as **GitHub issue #1** and is broken into small,
+independently reviewable and testable sub-issues; each sub-issue is created before
+work on its feature starts and is completed by exactly one linked PR. The full
+conventions are in `docs/agents/workflow.md`. Issues name concepts using
 `CONTEXT.md` vocabulary and reference the relevant ADR where a decision applies.
 
 ## Tech Stack
