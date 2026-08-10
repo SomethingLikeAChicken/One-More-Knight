@@ -540,7 +540,15 @@ MonoBehaviour:
   playArea: {fileID: 66600934}
   bulletSpawner: {fileID: 685176717}
   bossPrefab: {fileID: 138225418441586101, guid: 533478959f2bced47b46840514b5317d, type: 3}
-  scoreThreshold: 1000
+  encounters:
+  - boss: {fileID: 11400000, guid: 7dcfd7a5200568a4ea5786293ce255e8, type: 2}
+    scoreThreshold: 1000
+  - boss: {fileID: 11400000, guid: cae9d3f6c7745e141a58f60d36a1347a, type: 2}
+    scoreThreshold: 3000
+  - boss: {fileID: 11400000, guid: d09e215712b72bc429beedcdf06e4ae3, type: 2}
+    scoreThreshold: 6000
+  - boss: {fileID: 11400000, guid: 89d395940745b3e4984e140d7b947341, type: 2}
+    scoreThreshold: 10000
   hoverLineFromTop: 1.6
 --- !u!4 &878119176
 Transform:

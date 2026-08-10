@@ -39,6 +39,10 @@ namespace OneMoreKnight.Enemies
         [Min(0)] public int contactDamage = 1;
         [Min(0)] public int scoreReward = 1000;
 
+        [Header("Identity (applied to the one Boss prefab on Begin)")]
+        public Sprite sprite;
+        [Min(0.1f)] public float scale = 1f;
+
         [Header("Movement")]
         [Min(0f)] public float entrySpeed = 2f;
         [Min(0f)] public float hoverSpeed = 1.1f;

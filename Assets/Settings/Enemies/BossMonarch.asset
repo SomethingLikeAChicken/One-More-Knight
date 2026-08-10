@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
+  m_Name: BossMonarch
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
+  maxHealth: 180
+  contactDamage: 2
+  scoreReward: 3000
+  sprite: {fileID: 3518599092611669162, guid: 01edbd68eb2febe40b68c8c19a3f1b39, type: 3}
+  scale: 1.1
+  entrySpeed: 1.6
+  hoverSpeed: 1.2
+  hoverAmplitude: 2.8
+  phases:
+  - name: Court
+    entersAtHpFraction: 1
+    patterns:
+    - {fileID: 11400000, guid: 344ef927f469f074a9ede4f6e73cedaf, type: 2}
+    - {fileID: 11400000, guid: a492a8b45dab6bf499d14a461fdf1603, type: 2}
+    hoverSpeedMultiplier: 1
+    tint: {r: 1, g: 1, b: 1, a: 1}
+    entryPulseScale: 1
+    entryPulseDuration: 0.4
+  - name: Decree
+    entersAtHpFraction: 0.66
+    patterns:
+    - {fileID: 11400000, guid: 344ef927f469f074a9ede4f6e73cedaf, type: 2}
+    - {fileID: 11400000, guid: a492a8b45dab6bf499d14a461fdf1603, type: 2}
+    - {fileID: 11400000, guid: b659cf286f40706418ba9395ce78d1e9, type: 2}
+    hoverSpeedMultiplier: 1.25
+    tint: {r: 0.85, g: 0.55, b: 1, a: 1}
+    entryPulseScale: 1.35
+    entryPulseDuration: 0.45
+  - name: Oblivion
+    entersAtHpFraction: 0.33
+    patterns:
+    - {fileID: 11400000, guid: 344ef927f469f074a9ede4f6e73cedaf, type: 2}
+    - {fileID: 11400000, guid: a492a8b45dab6bf499d14a461fdf1603, type: 2}
+    - {fileID: 11400000, guid: b659cf286f40706418ba9395ce78d1e9, type: 2}
+    - {fileID: 11400000, guid: 56388a9dc5046d6488d0537bb7834b24, type: 2}
+    hoverSpeedMultiplier: 1.6
+    tint: {r: 1, g: 0.35, b: 0.75, a: 1}
+    entryPulseScale: 1.6
+    entryPulseDuration: 0.6
