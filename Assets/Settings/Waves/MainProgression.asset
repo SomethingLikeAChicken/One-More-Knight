@@ -28,6 +28,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 419ae2033fded184ea41a9435c993c79, type: 2}
   - {fileID: 11400000, guid: 609d9653ca774984ca10e4bef511064a, type: 2}
   - {fileID: 11400000, guid: 5427e881d4d3fe74d954de92f42af255, type: 2}
+  - {fileID: 11400000, guid: 4a4bb960a57a95649868587d034e48d9, type: 2}
+  - {fileID: 11400000, guid: f0222406950fc094096595fb15dfbe04, type: 2}
+  - {fileID: 11400000, guid: 56049b26aa6234f48ad5c82921e14292, type: 2}
+  - {fileID: 11400000, guid: c7b28461a8a5a67498de15a5c8f064a2, type: 2}
+  - {fileID: 11400000, guid: a0a62da94b0fcf8459c35f1dfc699b7a, type: 2}
+  - {fileID: 11400000, guid: 2948bddcfb0053d448688ba05824fe1e, type: 2}
+  - {fileID: 11400000, guid: 48c0a958d12c70444b387d25887b8314, type: 2}
+  - {fileID: 11400000, guid: 107a0a08637649a4185b91c0a64efa8b, type: 2}
+  - {fileID: 11400000, guid: 86364a732c6e5064aae9c1de6df1e439, type: 2}
   delayBetweenGroups: 2.2
   intermission: 1.75
   hpMultiplierStep: 1.04
