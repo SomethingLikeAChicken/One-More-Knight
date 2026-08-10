@@ -151,6 +151,14 @@ namespace OneMoreKnight.Combat.Patterns
             slot.NextEmissionAt = now + pattern.burstSpacing;
         }
 
+        /// <summary>Motion is colour-coded (#48): the tint tells the player how the
+        /// Bullet MOVES, engine-enforced so no asset can break the code. Green flies
+        /// straight, violet snakes, red hunts. Authored bulletTint no longer applies;
+        /// hero Bullets bypass the runner entirely and keep gold.</summary>
+        private static readonly Color LinearTint = new Color(0.45f, 1f, 0.4f);
+        private static readonly Color SineTint = new Color(0.8f, 0.45f, 1f);
+        private static readonly Color HomingTint = new Color(1f, 0.3f, 0.32f);
+
         private void Emit(AttackPattern pattern, ref SlotState slot)
         {
             Vector2? targetPos = target != null ? (Vector2?)target.position : null;
@@ -159,16 +167,20 @@ namespace OneMoreKnight.Combat.Patterns
             AttackPatternEngine.ComputeEmission(pattern, transform.position, targetPos, emissionBuffer, spin);
 
             BulletMotion motion;
+            Color tint;
             switch (pattern.motion)
             {
                 case MotionType.Sine:
                     motion = BulletMotion.Sine(pattern.sineAmplitude, pattern.sineFrequency, pattern.acceleration);
+                    tint = SineTint;
                     break;
                 case MotionType.Homing:
                     motion = BulletMotion.Homing(target, pattern.homingTurnSpeed, pattern.homingDuration, pattern.acceleration);
+                    tint = HomingTint;
                     break;
                 default:
                     motion = BulletMotion.Linear(pattern.acceleration);
+                    tint = LinearTint;
                     break;
             }
 
@@ -176,7 +188,7 @@ namespace OneMoreKnight.Combat.Patterns
             {
                 Emission e = emissionBuffer[i];
                 bulletSpawner.Spawn(e.Origin, e.Direction, pattern.bulletSpeed, pattern.bulletDamage,
-                                    hitMask, pattern.bulletTint, motion);
+                                    hitMask, tint, motion);
             }
         }
     }

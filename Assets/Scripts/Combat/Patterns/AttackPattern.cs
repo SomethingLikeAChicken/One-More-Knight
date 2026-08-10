@@ -89,7 +89,9 @@ namespace OneMoreKnight.Combat.Patterns
         [Min(1)] public int bulletDamage = 1;
         [Tooltip("Speed change per second over the Bullet's lifetime. Negative = decelerating.")]
         public float acceleration;
-        [Tooltip("Readability rule: Enemy attacks are red/violet, never gold/blue.")]
+        [Tooltip("Superseded by motion colour-coding (#48): the runner tints by motion " +
+                 "(green straight, violet sine, red homing). Kept for tooling/tests that " +
+                 "spawn outside the runner.")]
         public Color bulletTint = new Color(1f, 0.32f, 0.38f);
     }
 }
