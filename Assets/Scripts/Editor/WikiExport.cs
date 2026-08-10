@@ -1,3 +1,7 @@
+// The Scripts folder is one assembly (OneMoreKnight.asmdef), so the Editor/
+// special-folder rule does not apply - this file must exclude itself from
+// player builds explicitly.
+#if UNITY_EDITOR
 using System.IO;
 using System.Text;
 using UnityEditor;
@@ -99,3 +103,5 @@ namespace OneMoreKnight.EditorTools
         }
     }
 }
+
+#endif
