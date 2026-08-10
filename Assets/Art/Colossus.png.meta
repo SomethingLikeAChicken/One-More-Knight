@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 38dc9f76328c5894884b6115542e85b9
+guid: 412157cba3862204caa80956788fe7ba
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3629204534960827949
-    second: BossSummoner_0
+      213: 6344468113124548594
+    second: Colossus_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BossSummoner_0
+      name: Colossus_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 0
-        width: 36
-        height: 44
+        x: 0
+        y: 1
+        width: 52
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3d15c6c24b972adc0800000000000000
-      internalID: -3629204534960827949
+      spriteID: 2ffd49b62241c0850800000000000000
+      internalID: 6344468113124548594
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BossSummoner_0: -3629204534960827949
+      Colossus_0: 6344468113124548594
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
