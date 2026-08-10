@@ -2,6 +2,12 @@ using UnityEngine;
 
 namespace OneMoreKnight.Enemies
 {
+    public enum MovementProfile
+    {
+        Descend,
+        Weave
+    }
+
     /// <summary>
     /// Tuning for one Enemy type, held in an asset rather than as magic numbers inside a
     /// MonoBehaviour (AGENTS.md seam for M4).
@@ -17,6 +23,17 @@ namespace OneMoreKnight.Enemies
         [Min(0f)] public float moveSpeed = 2.2f;
         [Min(0)] public int scoreValue = 100;
         [Min(0)] public int contactDamage = 1;
+
+        [Header("Identity (applied to the one pooled prefab on spawn)")]
+        public Sprite sprite;
+        public Color tint = Color.white;
+
+        [Header("Movement")]
+        public MovementProfile movement = MovementProfile.Descend;
+        [Tooltip("Weave only: horizontal amplitude in world units.")]
+        [Min(0f)] public float weaveAmplitude = 1.5f;
+        [Tooltip("Weave only: oscillations in radians per second.")]
+        [Min(0f)] public float weaveFrequency = 2f;
 
         [Header("Attack")]
         [Tooltip("The Attack Pattern this Enemy type fires (ADR-0003). Null = never shoots.")]

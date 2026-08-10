@@ -200,13 +200,7 @@ MonoBehaviour:
   playArea: {fileID: 66600934}
   runManager: {fileID: 1283923270}
   bulletSpawner: {fileID: 685176717}
-  baseEnemyCount: 4
-  enemiesAddedPerWave: 2
-  maxEnemiesPerWave: 24
-  speedIncreasePerWave: 0.07
-  maxSpeedMultiplier: 2.5
-  spawnInterval: 0.28
-  intermission: 1.5
+  sequence: {fileID: 11400000, guid: 57fc82b5f9860cb4481eadede8bb3c58, type: 2}
 --- !u!4 &251957309
 Transform:
   m_ObjectHideFlags: 0
