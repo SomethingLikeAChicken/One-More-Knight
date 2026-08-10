@@ -31,11 +31,13 @@ namespace OneMoreKnight.Combat
         }
 
         /// <summary>Spawns one Bullet. Actor-agnostic: it takes an origin and a direction,
-        /// not a Hero or an Enemy (ADR-0003).</summary>
-        public Bullet Spawn(Vector2 origin, Vector2 direction, float speed, int damage, LayerMask hitMask)
+        /// not a Hero or an Enemy (ADR-0003). The tint carries the readability color code
+        /// (Hero gold/blue, Enemy red/violet); null keeps the prefab's own look.</summary>
+        public Bullet Spawn(Vector2 origin, Vector2 direction, float speed, int damage, LayerMask hitMask,
+                            Color? tint = null)
         {
             Bullet bullet = pool.Get();
-            bullet.Arm(origin, direction, speed, damage, hitMask, bulletLifetime, pool.Release);
+            bullet.Arm(origin, direction, speed, damage, hitMask, bulletLifetime, pool.Release, tint);
             return bullet;
         }
     }

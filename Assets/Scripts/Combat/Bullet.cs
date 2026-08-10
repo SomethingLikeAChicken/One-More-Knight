@@ -21,6 +21,7 @@ namespace OneMoreKnight.Combat
 
         private readonly List<Collider2D> overlaps = new List<Collider2D>(4);
         private ContactFilter2D filter;
+        private SpriteRenderer spriteRenderer;
 
         private Vector2 velocity;
         private int damage;
@@ -28,9 +29,13 @@ namespace OneMoreKnight.Combat
         private float age;
         private Action<Bullet> release;
 
-        /// <summary>Prepares a pooled Bullet for one flight. Resets all per-life state.</summary>
+        private void Awake() => spriteRenderer = GetComponent<SpriteRenderer>();
+
+        /// <summary>Prepares a pooled Bullet for one flight. Resets all per-life state —
+        /// including the tint, or a recycled Enemy shot would leak its red onto a Hero shot.</summary>
         public void Arm(Vector2 origin, Vector2 direction, float speed, int bulletDamage,
-                        LayerMask hitMask, float maxLifetime, Action<Bullet> releaseCallback)
+                        LayerMask hitMask, float maxLifetime, Action<Bullet> releaseCallback,
+                        Color? tint = null)
         {
             transform.position = origin;
             velocity = direction.normalized * speed;
@@ -38,6 +43,7 @@ namespace OneMoreKnight.Combat
             lifetime = maxLifetime;
             age = 0f;
             release = releaseCallback;
+            spriteRenderer.color = tint ?? Color.white;
 
             filter = new ContactFilter2D
             {
