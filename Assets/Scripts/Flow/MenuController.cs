@@ -51,6 +51,10 @@ namespace OneMoreKnight.Flow
 
             GUI.Label(new Rect(0f, h * 0.35f - 40f, w, 80f), "ONE MORE KNIGHT", title);
             GUI.Label(new Rect(0f, h * 0.55f, w, 30f), "press SPACE to start the Run", hint);
+
+            var version = new GUIStyle(GUI.skin.label) { fontSize = 14, alignment = TextAnchor.LowerRight };
+            version.normal.textColor = new Color(0.6f, 0.6f, 0.7f);
+            GUI.Label(new Rect(0f, h - 30f, w - 12f, 24f), GameVersion.Current, version);
         }
     }
 }
