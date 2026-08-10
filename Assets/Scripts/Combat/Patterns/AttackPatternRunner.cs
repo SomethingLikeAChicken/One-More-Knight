@@ -19,10 +19,11 @@ namespace OneMoreKnight.Combat.Patterns
 
         private struct SlotState
         {
-            public float NextFireAt;     // next burst may start at this time
-            public int BurstRemaining;   // emissions left in the running burst
-            public float NextEmissionAt; // next emission inside the running burst
-            public int EmissionCount;    // total emissions fired - drives spiral rotation
+            public float NextFireAt;      // next burst may start at this time
+            public int BurstRemaining;    // emissions left in the running burst
+            public float NextEmissionAt;  // next emission inside the running burst
+            public int EmissionCount;     // total emissions fired - drives spiral rotation
+            public float TelegraphUntil;  // > now while this slot is telegraphing
         }
 
         private readonly List<Emission> emissionBuffer = new List<Emission>(32);
@@ -31,6 +32,9 @@ namespace OneMoreKnight.Combat.Patterns
         private LayerMask hitMask;
         private SlotState[] slots = new SlotState[0];
         private bool firing;
+        private SpriteRenderer visual;
+        private Color visualBaseColor;
+        private int telegraphingSlots; // how many slots currently hold the pulse
 
         /// <summary>One-time wiring — scene infrastructure, not per-life state.</summary>
         public void Initialize(BulletSpawner spawner, LayerMask mask)
@@ -51,7 +55,7 @@ namespace OneMoreKnight.Combat.Patterns
         }
 
         /// <summary>Resets every per-life clock. Called on (re)spawn — a pooled actor
-        /// recycled mid-burst must not inherit or truncate anything.</summary>
+        /// recycled mid-burst or mid-telegraph must not inherit or truncate anything.</summary>
         public void ResetState()
         {
             if (slots.Length != patterns.Length) slots = new SlotState[patterns.Length];
@@ -61,13 +65,24 @@ namespace OneMoreKnight.Combat.Patterns
                 slots[i].BurstRemaining = 0;
                 slots[i].NextEmissionAt = 0f;
                 slots[i].EmissionCount = 0;
+                slots[i].TelegraphUntil = 0f;
             }
+            telegraphingSlots = 0;
+            if (visual == null) visual = GetComponent<SpriteRenderer>();
             firing = true;
         }
 
         /// <summary>Gates emission without touching timing state (e.g. a Boss still
         /// entering, or a Run that just ended).</summary>
-        public void SetFiring(bool value) => firing = value;
+        public void SetFiring(bool value)
+        {
+            firing = value;
+            if (!value && telegraphingSlots > 0)
+            {
+                telegraphingSlots = 0;
+                if (visual != null) visual.color = visualBaseColor;
+            }
+        }
 
         private void OnEnable()
         {
@@ -95,12 +110,45 @@ namespace OneMoreKnight.Combat.Patterns
                     continue;
                 }
 
+                if (slots[i].TelegraphUntil > 0f)
+                {
+                    // Holding fire while the warning shows; the burst aims when it
+                    // actually starts, so dodging during the telegraph is honest.
+                    if (now < slots[i].TelegraphUntil) continue;
+                    slots[i].TelegraphUntil = 0f;
+                    telegraphingSlots--;
+                    if (telegraphingSlots == 0 && visual != null) visual.color = visualBaseColor;
+                    StartBurst(pattern, ref slots[i], now);
+                    continue;
+                }
+
                 if (now < slots[i].NextFireAt) continue;
-                slots[i].NextFireAt = now + pattern.cooldown;
-                Emit(pattern, ref slots[i]);
-                slots[i].BurstRemaining = pattern.burstCount - 1;
-                slots[i].NextEmissionAt = now + pattern.burstSpacing;
+                if (pattern.telegraphDuration > 0f)
+                {
+                    if (telegraphingSlots == 0 && visual != null) visualBaseColor = visual.color;
+                    telegraphingSlots++;
+                    slots[i].TelegraphUntil = now + pattern.telegraphDuration;
+                    telegraphColor = pattern.telegraphColor;
+                    continue;
+                }
+                StartBurst(pattern, ref slots[i], now);
             }
+
+            if (telegraphingSlots > 0 && visual != null)
+            {
+                float t = Mathf.PingPong(Time.time * 7f, 1f);
+                visual.color = Color.Lerp(visualBaseColor, telegraphColor, t);
+            }
+        }
+
+        private Color telegraphColor = Color.white;
+
+        private void StartBurst(AttackPattern pattern, ref SlotState slot, float now)
+        {
+            slot.NextFireAt = now + pattern.cooldown;
+            Emit(pattern, ref slot);
+            slot.BurstRemaining = pattern.burstCount - 1;
+            slot.NextEmissionAt = now + pattern.burstSpacing;
         }
 
         private void Emit(AttackPattern pattern, ref SlotState slot)

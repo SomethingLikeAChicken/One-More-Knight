@@ -16,13 +16,22 @@ MonoBehaviour:
   formation: 2
   bulletCount: 16
   spreadAngle: 60
+  wallSpacing: 0.8
   direction: 3
   fixedAngle: 0
   motion: 0
+  sineAmplitude: 0.6
+  sineFrequency: 6
+  homingTurnSpeed: 120
+  homingDuration: 1.5
   cooldown: 7
   initialDelay: 4.5
   burstCount: 1
   burstSpacing: 0.2
+  angleStepPerEmission: 0
+  telegraphDuration: 0.8
+  telegraphColor: {r: 0.9, g: 0.55, b: 1, a: 1}
   bulletSpeed: 2.6
   bulletDamage: 1
+  acceleration: 0
   bulletTint: {r: 0.78, g: 0.27, b: 0.94, a: 1}

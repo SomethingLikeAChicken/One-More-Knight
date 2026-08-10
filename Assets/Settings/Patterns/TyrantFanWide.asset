@@ -29,6 +29,8 @@ MonoBehaviour:
   burstCount: 2
   burstSpacing: 0.6
   angleStepPerEmission: 0
+  telegraphDuration: 0.7
+  telegraphColor: {r: 1, g: 0.55, b: 0.5, a: 1}
   bulletSpeed: 2.2
   bulletDamage: 1
   acceleration: 1.6
