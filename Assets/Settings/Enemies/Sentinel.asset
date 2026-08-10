@@ -16,8 +16,15 @@ MonoBehaviour:
   moveSpeed: 1.2
   scoreValue: 250
   contactDamage: 1
-  description: A patient eye that leads its single shot straight at you. The first
-    enemy that aims.
+  description: A patient eye in a bronze shell. Sentinels were the first of the host
+    to look down and see YOU rather than a battlefield - and they have not looked
+    away since.
+  tactics: 'Descends slowly and fires single green bolts aimed at your position when
+    it shoots. The bolt flies straight after launch: sidestep AFTER it fires, not
+    before, or you dodge into the next one. Low HP - a priority target while it is
+    still high on the screen.'
+  isMiniboss: 0
+  curseOnDeath: 0
   sprite: {fileID: -3592288180158252163, guid: 3bba9bacf35a34448b3a41cad701c16d, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

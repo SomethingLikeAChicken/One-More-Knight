@@ -16,8 +16,13 @@ MonoBehaviour:
   moveSpeed: 2.6
   scoreValue: 350
   contactDamage: 1
-  description: A blade of white gold that dives like judgement. Its bolt accelerates
-    - so does it.
+  description: A blade of white gold that dives like judgement. Zealots believe -
+    in what, nobody has survived long enough to ask.
+  tactics: 'Very fast diver with an aimed bolt that accelerates viciously. Two threats
+    in one: the bolt commits you to a dodge, and the diving body punishes the dodge.
+    Kill it at the top of the screen or give its lane away entirely.'
+  isMiniboss: 0
+  curseOnDeath: 0
   sprite: {fileID: 940888875905898940, guid: 1ef3fea7ead00564cb6db7f870f49aad, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

@@ -16,7 +16,13 @@ MonoBehaviour:
   moveSpeed: 1
   scoreValue: 800
   contactDamage: 2
-  description: 
+  description: The host's field officer, all black iron and gold plume. Captains
+    do not fall with their soldiers. They arrive where the fighting is worst, on
+    purpose.
+  tactics: 'A 40-HP MINIBOSS (tracked bar) firing telegraphed aimed triple-volleys
+    in bursts of three. The volleys converge on your position - strafe THROUGH them,
+    not away. Its slow march gives you time; its escort usually does not. Priority:
+    escorts first, then the long grind.'
   isMiniboss: 1
   curseOnDeath: 0
   sprite: {fileID: 7515716579499400884, guid: 441debd56e965054aa242dd5b488cd25, type: 3}

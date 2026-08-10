@@ -16,7 +16,14 @@ MonoBehaviour:
   moveSpeed: 2.2
   scoreValue: 200
   contactDamage: 1
-  description: A weaving sniper that never stops moving and never stops aiming.
+  description: A kite of red-brown leather that refuses to hold still. Skirmishers
+    weave because a moving sniper is a living sniper - and they aim because living
+    is not enough.
+  tactics: 'Weaves while firing aimed green bolts. The weave makes it annoying to
+    hit - lead its sine, or wait for the turnaround points where it briefly hangs.
+    Its shots come at YOUR position: keep moving and they land behind you.'
+  isMiniboss: 0
+  curseOnDeath: 0
   sprite: {fileID: 8125670880829888781, guid: f431245428e79a8408b2dfb21ae19faa, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 1

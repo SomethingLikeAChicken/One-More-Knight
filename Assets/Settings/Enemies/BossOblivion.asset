@@ -15,8 +15,13 @@ MonoBehaviour:
   maxHealth: 450
   contactDamage: 2
   scoreReward: 8000
-  description: The last thing far runs see. Dense rings, a turning spiral, and the
-    dark that follows you home.
+  description: The last thing most far runs see. A near-black orb with a violet rim,
+    dense rings, a turning spiral, and the dark that follows you home.
+  tactics: Dense rings with aimed spit, then a spiral (Maw, plus Hexblade summons),
+    then cross-quads with homing bolts and a Ravager (Oblivion phase). The rings
+    are the rhythm section - everything else syncopates around them. Below 30% the
+    hover doubles; stop aiming at where it is.
+  displayName: 
   difficulty: 6
   sprite: {fileID: 9166750712835155100, guid: 812a49d4b1381154c8833b86d6b9dac0, type: 3}
   scale: 1.25

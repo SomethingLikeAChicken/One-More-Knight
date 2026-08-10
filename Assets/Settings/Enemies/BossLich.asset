@@ -15,8 +15,13 @@ MonoBehaviour:
   maxHealth: 100
   contactDamage: 1
   scoreReward: 1500
-  description: Green curtains of grave-light, swaying as they fall. Below half, the
-    phalanx marches.
+  description: Green curtains of grave-light, swaying as they fall. The Lich conducts
+    them like a choir, and below half health the phalanx begins to march.
+  tactics: 'Sine curtains (violet snaking walls) with fast aimed spit underneath.
+    The curtains breathe - their gaps slide in waves; move WITH the wave, not against
+    it. Requiem (below half) adds a snaking phalanx wall: keep to the screen''s lower
+    third and thread the oscillation.'
+  displayName: 
   difficulty: 2
   sprite: {fileID: 5219372316874285534, guid: 6e1ef0a860b2abf4bbf200834a16f8a3, type: 3}
   scale: 1

@@ -15,7 +15,13 @@ MonoBehaviour:
   maxHealth: 900
   contactDamage: 2
   scoreReward: 20000
-  description: 
+  description: A white void ring that was here before the host and intends to be
+    here after. Stillness. Motion. Eternity. It has only ever needed three words.
+  tactics: Stillness lays cross-quads through sine curtains - deceptively calm; learn
+    its spacing. Motion (65%) adds a spiral and Hexblade summons. Eternity (35%)
+    is dense rings, storm crosses, and the gyre at 1.6x hover with Ravagers hunting
+    you. The hardest fight in the game; every powerup cap and every color rule you
+    have learned is the entry fee.
   displayName: Eternity
   difficulty: 8
   sprite: {fileID: 8249993087537524717, guid: 2a016ca036d7d9b49aa1514db71253ac, type: 3}

@@ -16,8 +16,14 @@ MonoBehaviour:
   moveSpeed: 1.2
   scoreValue: 300
   contactDamage: 2
-  description: Slow, heavy, and patient. Its bolt hunts you for a moment before flying
-    true - outrun it.
+  description: Slow, heavy, patient. A Ravager has never hurried in its existence,
+    because its bolt does the hurrying - for a little while.
+  tactics: 'Fires a red HOMING bolt that hunts you for about a second before flying
+    straight. Red means hunted: move perpendicular and keep moving until it gives
+    up the chase, then let it pass. High HP and heavy contact - respect its body
+    too.'
+  isMiniboss: 0
+  curseOnDeath: 0
   sprite: {fileID: -4677365148177797994, guid: a66e1620d3d0fd54c9c60c54dc66618c, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

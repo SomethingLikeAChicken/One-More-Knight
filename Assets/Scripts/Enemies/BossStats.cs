@@ -44,8 +44,10 @@ namespace OneMoreKnight.Enemies
         [Min(1)] public int maxHealth = 60;
         [Min(0)] public int contactDamage = 1;
         [Min(0)] public int scoreReward = 1000;
-        [Tooltip("Bestiary text on the website (#46).")]
+        [Tooltip("Bestiary lore on the website (#46).")]
         [TextArea] public string description;
+        [Tooltip("Bestiary tactics: how it behaves and how to beat it (#60).")]
+        [TextArea] public string tactics;
         [Tooltip("Shown on the HUD name tag and the bestiary. Empty = asset name minus the Boss prefix.")]
         public string displayName;
 

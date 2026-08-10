@@ -16,8 +16,14 @@ MonoBehaviour:
   moveSpeed: 1.8
   scoreValue: 250
   contactDamage: 1
-  description: Twin blades that snake as they fall. The wall bends - you must bend
-    more.
+  description: Twin blades that fell from the same forge and never separated. They
+    snake as they fall, and the wall they draw between you and the sky bends like
+    a living thing.
+  tactics: 'Fires paired green walls that snake (sine motion - violet bullets). The
+    wall''s gap oscillates: watch one full period before committing to a lane. The
+    Hexblade itself weaves fast; it dies in three hits if you can pin it.'
+  isMiniboss: 0
+  curseOnDeath: 0
   sprite: {fileID: 9194384128470476769, guid: 180b40ed362f2704b9632e46631ac848, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

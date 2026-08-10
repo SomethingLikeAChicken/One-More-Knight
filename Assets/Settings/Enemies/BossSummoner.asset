@@ -16,7 +16,12 @@ MonoBehaviour:
   contactDamage: 1
   scoreReward: 2600
   description: It does not fight you. It invites others to - and rings its bell while
-    you drown.
+    you drown in guests. The glowing core is the invitation list.
+  tactics: 'Fights entirely through adds: Wisps in Ritual, Skirmishers in Legion
+    (below 55%), with aimed spit and a telegraphed ring for punctuation. Kill the
+    summons FIRST or they multiply past control - but watch your fire discipline
+    near its ring telegraph. Its own HP melts fast once the court is empty.'
+  displayName: 
   difficulty: 3
   sprite: {fileID: -3629204534960827949, guid: 38dc9f76328c5894884b6115542e85b9, type: 3}
   scale: 1.05

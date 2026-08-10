@@ -16,8 +16,13 @@ MonoBehaviour:
   moveSpeed: 1.4
   scoreValue: 300
   contactDamage: 1
-  description: Carries a ring of violet fire and lets it loose all at once. Keep
-    your distance from the blast.
+  description: It carries a ring of violet fire the way a monk carries a prayer -
+    constantly, and for someone else's benefit. The detonation is the sermon.
+  tactics: Descends and periodically releases a full ring of bullets in every direction.
+    The ring is dense near the Warlock and sparse far away - distance is armor. Kill
+    it between rings, and never fight it point-blank.
+  isMiniboss: 0
+  curseOnDeath: 0
   sprite: {fileID: -845045197500901298, guid: 1fcb214d84e9470439b58e75e3597bf4, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

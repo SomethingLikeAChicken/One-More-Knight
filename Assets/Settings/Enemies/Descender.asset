@@ -16,8 +16,15 @@ MonoBehaviour:
   moveSpeed: 2.2
   scoreValue: 100
   contactDamage: 1
-  description: The rank and file of the endless host. Falls straight, fires straight,
-    and dies fast - but never comes alone.
+  description: The rank and file of the endless host. Nobody remembers mustering
+    them; they were simply always falling, rank after rank, like violet rain that
+    learned to hold a spear. Alone, one is nothing. The host has never sent one alone.
+  tactics: Falls straight down at a steady pace and fires a single green bolt straight
+    ahead on a fixed cooldown. It never aims, so standing anywhere but directly beneath
+    it is safe. Two hits end it - clear them early before bigger threats arrive,
+    and never let a row of them fence you in.
+  isMiniboss: 0
+  curseOnDeath: 0
   sprite: {fileID: 21300000, guid: d41d8528802ab9348b1d3a57530eafef, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

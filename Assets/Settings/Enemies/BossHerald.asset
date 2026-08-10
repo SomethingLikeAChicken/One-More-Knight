@@ -15,8 +15,14 @@ MonoBehaviour:
   maxHealth: 70
   contactDamage: 1
   scoreReward: 1000
-  description: It announces the wall, then becomes it. Walk through the gaps it deigns
-    to leave.
+  description: It announces the wall, then becomes it. The Herald believes a proclamation
+    should be legible from anywhere on the battlefield - so it writes in bullets,
+    edge to edge.
+  tactics: Sweeping telegraphed walls with deliberate gaps, plus aimed jabs to herd
+    you. Find the gap EARLY - the wall crosses slowly but totally. Below half HP
+    (Judgement, white tint) a rotating cross joins; track the cross's turn and treat
+    the walls as the metronome.
+  displayName: 
   difficulty: 1
   sprite: {fileID: -4914971879475612404, guid: fb93ba454748a39429a1fcd8ca294113, type: 3}
   scale: 1

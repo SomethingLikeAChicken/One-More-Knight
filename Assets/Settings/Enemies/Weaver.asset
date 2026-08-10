@@ -16,8 +16,14 @@ MonoBehaviour:
   moveSpeed: 1.9
   scoreValue: 150
   contactDamage: 1
-  description: Drifts side to side on its way down, lobbing arcs that punish anyone
-    standing still.
+  description: A Descender that learned doubt. It swings across the sky as it falls,
+    never quite committing to a lane, scattering short arcs of shot as if sowing
+    a field.
+  tactics: Weaves side to side while dropping and lobs a small green arc downward.
+    Its position is predictable - a smooth sine - so lead it slightly when you shoot.
+    The arc punishes you for standing still; keep drifting and it never touches you.
+  isMiniboss: 0
+  curseOnDeath: 0
   sprite: {fileID: -268855193751873569, guid: 047fc3cb0bae03649b56db3fc00731c4, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 1

@@ -16,8 +16,14 @@ MonoBehaviour:
   moveSpeed: 0.8
   scoreValue: 300
   contactDamage: 2
-  description: The Bulwark's big sibling. A shield that walks, built to make you
-    waste time you don't have.
+  description: The Bulwark's big sibling - a shield that walks, built by someone
+    who believed the best weapon is the enemy's wasted time.
+  tactics: Fourteen HP of pure blockade with painful contact damage. Aegis walls
+    come escorted - Wardens hide behind them lobbing homing bolts. Breaking the shield
+    head-on costs seconds you may not have; going around costs position. Decide fast,
+    commit fully.
+  isMiniboss: 0
+  curseOnDeath: 0
   sprite: {fileID: -5680690562175239864, guid: a50fd1873322e2d4d9ccd997d507ffb5, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

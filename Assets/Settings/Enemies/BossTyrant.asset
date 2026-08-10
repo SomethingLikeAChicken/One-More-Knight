@@ -15,8 +15,12 @@ MonoBehaviour:
   maxHealth: 130
   contactDamage: 2
   scoreReward: 2000
-  description: Triple-aimed volleys and a ring it wears like a crown. It does not
-    tolerate standing still.
+  description: It wears its ring of fire like a crown, and its triple volleys are
+    decrees. The Tyrant does not tolerate standing still. It barely tolerates moving.
+  tactics: Aimed triple volleys plus a wide fan, with an offset ring in its late
+    phase. The triples come at your position - constant strafing beats reaction dodging.
+    When the ring appears, the safe wedges rotate; find one and migrate with it.
+  displayName: 
   difficulty: 3
   sprite: {fileID: -6454399610971557207, guid: 78d0f06883905e24191464e5ec798215, type: 3}
   scale: 1.05

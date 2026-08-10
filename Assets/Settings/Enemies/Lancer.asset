@@ -16,8 +16,14 @@ MonoBehaviour:
   moveSpeed: 3
   scoreValue: 150
   contactDamage: 1
-  description: Its bolt leaves the barrel lazy and arrives like a thunderclap. Dodge
-    early, not late.
+  description: A splinter of steel with a single idea. The bolt it fires leaves the
+    barrel almost lazily, as if stretching - then remembers its purpose all at once.
+  tactics: Fires a green bolt that starts slow and accelerates hard. Your instinct
+    calibrates on the launch speed and is wrong by the time it reaches you - dodge
+    EARLY, when the bolt is born, not when it looks close. The Lancer itself dives
+    fast; two hits kill it.
+  isMiniboss: 0
+  curseOnDeath: 0
   sprite: {fileID: 3272805312411629707, guid: 9b27336e205b19747b49fece850fbe01, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

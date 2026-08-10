@@ -16,8 +16,13 @@ MonoBehaviour:
   moveSpeed: 1.3
   scoreValue: 250
   contactDamage: 1
-  description: Pins the airspace with a cross of four bolts. The gaps are your lanes
-    - learn them.
+  description: A violet ring that pins airspace the way a nail pins a map. The cross
+    it fires is not aimed at you; it is aimed at everywhere you might want to go.
+  tactics: Fires four bolts in a fixed diagonal cross, claiming lanes rather than
+    chasing you. The gaps between the cross arms are always safe - learn the X shape
+    and sit in its blind wedges while you burn it down.
+  isMiniboss: 0
+  curseOnDeath: 0
   sprite: {fileID: -4128447770939529247, guid: 17dbeae2e1e7ec74e8670dc8797a4faf, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
