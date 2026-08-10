@@ -200,7 +200,7 @@ MonoBehaviour:
   playArea: {fileID: 66600934}
   runManager: {fileID: 1283923270}
   bulletSpawner: {fileID: 685176717}
-  sequence: {fileID: 11400000, guid: 57fc82b5f9860cb4481eadede8bb3c58, type: 2}
+  progression: {fileID: 11400000, guid: ae95a65b5ef082140bfcd915d9298a48, type: 2}
 --- !u!4 &251957309
 Transform:
   m_ObjectHideFlags: 0

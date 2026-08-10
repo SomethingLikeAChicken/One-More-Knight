@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 using OneMoreKnight.Combat;
@@ -9,15 +10,14 @@ using OneMoreKnight.Run;
 namespace OneMoreKnight.Waves
 {
     /// <summary>
-    /// Plays the Run's <see cref="WaveSequence"/>: authored Waves of choreographed
-    /// Enemy groups (CONTEXT.md: Wave), looping with capped multipliers once the
-    /// authored list is exhausted. The next Wave starts once the previous one is
-    /// cleared.
+    /// Composes each Wave from the <see cref="DifficultyProgression"/>'s group pool
+    /// (issue #24): the wave's budget is spent on random eligible groups, spawned
+    /// sequentially with a layering delay. The difficulty curve is fixed; the
+    /// composition is not — logical randomness.
     ///
-    /// The Wave loop is a coroutine on a scene object that is never deactivated. That
-    /// matters: coroutines stop when their GameObject is disabled, and pooling
-    /// disables objects — so this loop deliberately does not live on anything
-    /// poolable (AGENTS.md gotcha).
+    /// Randomness draws from an <b>owned System.Random seeded per Run</b> — the
+    /// ADR-0005 seam; never UnityEngine.Random. The Wave loop is a coroutine on a
+    /// scene object that is never deactivated (AGENTS.md gotcha).
     /// </summary>
     public class WaveSpawner : MonoBehaviour
     {
@@ -26,16 +26,26 @@ namespace OneMoreKnight.Waves
         [SerializeField] private PlayArea playArea;
         [SerializeField] private RunManager runManager;
         [SerializeField] private BulletSpawner bulletSpawner;
-        [SerializeField] private WaveSequence sequence;
+        [SerializeField] private DifficultyProgression progression;
 
         private ObjectPool<Enemy> pool;
         private Coroutine loop;
         private Transform target;
+        private System.Random rng;
+        private readonly List<GroupDefinition> plan = new List<GroupDefinition>(8);
+        private readonly List<GroupDefinition> eligible = new List<GroupDefinition>(16);
         private int alive;
         private int waveNumber;
 
+        /// <summary>The groups composed for the current Wave — read-only test surface.</summary>
+        public string LastWavePlan { get; private set; } = "";
+
         private void Awake()
         {
+            // Per-Run seed. When ADR-0005's Run Summary lands, this seed is what gets
+            // recorded; System.Environment keeps it off UnityEngine.Random entirely.
+            rng = new System.Random(System.Environment.TickCount);
+
             pool = new ObjectPool<Enemy>(
                 createFunc: CreateEnemy,
                 actionOnGet: e => e.gameObject.SetActive(true),
@@ -48,8 +58,6 @@ namespace OneMoreKnight.Waves
 
         private void Start()
         {
-            // The Hero is the target for AimedAtTarget Enemy Patterns. Wiring decides
-            // who is source and target; pattern code stays actor-agnostic (ADR-0003).
             var hero = FindAnyObjectByType<HeroController>();
             target = hero != null ? hero.transform : null;
             loop = StartCoroutine(RunWaves());
@@ -58,8 +66,6 @@ namespace OneMoreKnight.Waves
         private Enemy CreateEnemy()
         {
             Enemy enemy = Instantiate(enemyPrefab, transform);
-            // Subscribed once per instance, not per spawn — a pooled Enemy is reused many
-            // times and per-spawn subscription would stack handlers.
             enemy.Killed += OnEnemyKilled;
             enemy.Retired += OnEnemyRetired;
             enemy.Initialize(bulletSpawner, target);
@@ -70,58 +76,89 @@ namespace OneMoreKnight.Waves
         {
             while (true)
             {
-                WaveDefinition wave = sequence.Resolve(waveNumber, out float hpMult, out float speedMult);
-                if (wave == null) yield break;
-
                 waveNumber++;
                 runManager.ReportWave(waveNumber);
+                progression.MultipliersFor(waveNumber, out float hpMult, out float speedMult);
 
-                foreach (EnemyGroup group in wave.groups)
+                Compose(waveNumber);
+                for (int g = 0; g < plan.Count; g++)
                 {
-                    if (group.type == null) continue;
-                    if (group.delayBeforeGroup > 0f) yield return new WaitForSeconds(group.delayBeforeGroup);
-
-                    for (int i = 0; i < group.count; i++)
-                    {
-                        SpawnOne(group, i, hpMult, speedMult);
-                        if (group.spawnInterval > 0f) yield return new WaitForSeconds(group.spawnInterval);
-                    }
+                    if (g > 0) yield return new WaitForSeconds(progression.delayBetweenGroups);
+                    yield return SpawnGroup(plan[g], hpMult, speedMult);
                 }
 
                 while (alive > 0) yield return null;
 
-                yield return new WaitForSeconds(sequence.intermission);
+                yield return new WaitForSeconds(progression.intermission);
             }
         }
 
-        private void SpawnOne(EnemyGroup group, int index, float hpMultiplier, float speedMultiplier)
+        /// <summary>Spends the wave's budget on random eligible groups. Greedy but
+        /// random: shuffle-pick anything affordable until nothing fits.</summary>
+        private void Compose(int wave)
+        {
+            plan.Clear();
+            int remaining = progression.BudgetFor(wave);
+
+            while (true)
+            {
+                eligible.Clear();
+                foreach (GroupDefinition g in progression.pool)
+                    if (g != null && g.minWave <= wave && g.difficulty <= remaining)
+                        eligible.Add(g);
+                if (eligible.Count == 0) break;
+
+                GroupDefinition pick = eligible[rng.Next(eligible.Count)];
+                plan.Add(pick);
+                remaining -= pick.difficulty;
+            }
+
+            var names = new System.Text.StringBuilder();
+            foreach (GroupDefinition g in plan) names.Append(g.name).Append('(').Append(g.difficulty).Append(") ");
+            LastWavePlan = "wave " + wave + " budget " + progression.BudgetFor(wave) + ": " + names;
+        }
+
+        private IEnumerator SpawnGroup(GroupDefinition group, float hpMultiplier, float speedMultiplier)
+        {
+            foreach (GroupSlot slot in group.slots)
+            {
+                if (slot.type == null) continue;
+                if (slot.delayBeforeSlot > 0f) yield return new WaitForSeconds(slot.delayBeforeSlot);
+
+                for (int i = 0; i < slot.count; i++)
+                {
+                    SpawnOne(slot, i, hpMultiplier, speedMultiplier);
+                    if (slot.spawnInterval > 0f) yield return new WaitForSeconds(slot.spawnInterval);
+                }
+            }
+        }
+
+        private void SpawnOne(GroupSlot slot, int index, float hpMultiplier, float speedMultiplier)
         {
             Rect bounds = playArea.Bounds;
-            float anchorX = Mathf.Lerp(bounds.center.x, group.anchor >= 0f ? bounds.xMax : bounds.xMin,
-                                       Mathf.Abs(group.anchor));
+            float anchorX = Mathf.Lerp(bounds.center.x, slot.anchor >= 0f ? bounds.xMax : bounds.xMin,
+                                       Mathf.Abs(slot.anchor));
 
             float x;
-            switch (group.formation)
+            switch (slot.formation)
             {
                 case GroupFormation.Vee:
-                    // 0 leads at the anchor; pairs step outward. Spawn order + interval
-                    // stagger the entry heights, so the wedge reads on screen.
                     int side = index % 2 == 1 ? 1 : -1;
                     int step = (index + 1) / 2;
-                    x = anchorX + side * step * group.spacing;
+                    x = anchorX + side * step * slot.spacing;
                     break;
                 case GroupFormation.Column:
                     x = anchorX;
                     break;
-                default: // Line
-                    float t = (index + 0.5f) / group.count;
+                default:
+                    float t = (index + 0.5f) / slot.count;
                     x = Mathf.Lerp(bounds.xMin, bounds.xMax, t);
                     break;
             }
             x = Mathf.Clamp(x, bounds.xMin, bounds.xMax);
 
             Enemy enemy = pool.Get();
-            enemy.Spawn(group.type, new Vector2(x, playArea.SpawnLineY), speedMultiplier, hpMultiplier,
+            enemy.Spawn(slot.type, new Vector2(x, playArea.SpawnLineY), speedMultiplier, hpMultiplier,
                         playArea.DespawnLineY);
             alive++;
         }
@@ -143,7 +180,7 @@ namespace OneMoreKnight.Waves
             loop = null;
         }
 
-        /// <summary>Resumes after a pause. The Wave counter is a field, so the sequence
+        /// <summary>Resumes after a pause. The Wave counter is a field, so the curve
         /// continues where it stopped instead of restarting at Wave 1.</summary>
         public void ResumeSpawning()
         {

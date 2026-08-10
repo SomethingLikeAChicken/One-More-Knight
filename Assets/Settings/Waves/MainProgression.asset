@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a67d7fdc3f5e6764d84cde44b9415650, type: 3}
+  m_Name: MainProgression
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Waves.DifficultyProgression
+  baseBudget: 8
+  budgetPerWave: 3
+  maxBudget: 30
+  pool:
+  - {fileID: 11400000, guid: a9b426c8c434681469e29aa64393dd59, type: 2}
+  - {fileID: 11400000, guid: 382245a4d8bb06f409c32b4f5f74bd1e, type: 2}
+  - {fileID: 11400000, guid: 6c816e4e9c62fc24c88ceff4905a5132, type: 2}
+  - {fileID: 11400000, guid: a17aa77ed3c40664e95c341d1384d274, type: 2}
+  - {fileID: 11400000, guid: 145126c0e28a4d64b87661c5944e4596, type: 2}
+  - {fileID: 11400000, guid: 07fe3ad477620a345ac179ae733f5b7d, type: 2}
+  - {fileID: 11400000, guid: ea4b98450fa6ff3419f44e7a84c7324c, type: 2}
+  - {fileID: 11400000, guid: afe67fc9b75d0e9479eba474b1d9d658, type: 2}
+  - {fileID: 11400000, guid: 85f5cf5e149cd5d449e7072da6bbe84e, type: 2}
+  - {fileID: 11400000, guid: 419ae2033fded184ea41a9435c993c79, type: 2}
+  - {fileID: 11400000, guid: 609d9653ca774984ca10e4bef511064a, type: 2}
+  - {fileID: 11400000, guid: 5427e881d4d3fe74d954de92f42af255, type: 2}
+  delayBetweenGroups: 2.2
+  intermission: 1.75
+  hpMultiplierStep: 1.04
+  speedMultiplierStep: 1.01
+  maxHpMultiplier: 4
+  maxSpeedMultiplier: 1.5
