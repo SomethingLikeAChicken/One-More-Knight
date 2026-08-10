@@ -40,6 +40,9 @@ namespace OneMoreKnight.Waves
         /// <summary>The groups composed for the current Wave — read-only test surface.</summary>
         public string LastWavePlan { get; private set; } = "";
 
+        /// <summary>A kill happened — type + where. The spoils system (#55) listens.</summary>
+        public event System.Action<EnemyStats, Vector2> EnemyKilled;
+
         private void Awake()
         {
             // Per-Run seed. When ADR-0005's Run Summary lands, this seed is what gets
@@ -177,7 +180,11 @@ namespace OneMoreKnight.Waves
             alive++;
         }
 
-        private void OnEnemyKilled(Enemy enemy) => runManager.AddScore(enemy.Stats.scoreValue);
+        private void OnEnemyKilled(Enemy enemy)
+        {
+            runManager.AddScore(enemy.Stats.scoreValue);
+            EnemyKilled?.Invoke(enemy.Stats, enemy.transform.position);
+        }
 
         private void OnEnemyRetired(Enemy enemy)
         {

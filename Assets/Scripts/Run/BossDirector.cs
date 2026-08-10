@@ -38,6 +38,9 @@ namespace OneMoreKnight.Run
 
         public event System.Action BossDefeated;
 
+        /// <summary>Defeat with the death position — the spoils system (#55) listens.</summary>
+        public event System.Action<Vector2> BossDefeatedAt;
+
         private void Awake()
         {
             // Per-Run seed, owned System.Random - the ADR-0005 seam, like the waves.
@@ -97,6 +100,7 @@ namespace OneMoreKnight.Run
             boss.Defeated -= OnBossDefeated;
             BossesDefeated++;
             BossDefeated?.Invoke();
+            BossDefeatedAt?.Invoke(boss.transform.position);
             runManager.AddScore(boss.Stats.scoreReward);
             Destroy(boss.gameObject);
             ActiveBoss = null;

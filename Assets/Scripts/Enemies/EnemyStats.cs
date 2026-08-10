@@ -30,6 +30,11 @@ namespace OneMoreKnight.Enemies
         [Tooltip("Minibosses carry a small tracking HP bar. Content flag, no other behaviour change.")]
         public bool isMiniboss;
 
+        [Header("Curse (#55)")]
+        [Tooltip("KILLING this type inflicts the curse - holding fire is the counter. " +
+                 "Cursed types pulse a dark aura so the threat is readable.")]
+        public Hero.CurseType curseOnDeath = Hero.CurseType.None;
+
         [Header("Identity (applied to the one pooled prefab on spawn)")]
         public Sprite sprite;
         public Color tint = Color.white;

@@ -41,12 +41,23 @@ namespace OneMoreKnight.Hero
             lastHp = source.Current;
         }
 
+        private static readonly Color CurseColor = new Color(0.6f, 0.3f, 0.9f);
+        private HeroUpgrades upgrades;
+
         private void Update()
         {
+            if (upgrades == null) upgrades = GetComponent<HeroUpgrades>();
+
             if (Time.time < flashUntil)
             {
                 float pulse = Mathf.PingPong(Time.time * 14f, 1f);
                 spriteRenderer.color = Color.Lerp(baseColor, flashColor, pulse);
+            }
+            else if (upgrades != null && upgrades.ActiveCurse != CurseType.None)
+            {
+                // Cursed (#55): a slower violet pulse - clearly not the red hit strobe.
+                float pulse = 0.5f + 0.5f * Mathf.Sin(Time.time * 6f);
+                spriteRenderer.color = Color.Lerp(baseColor, CurseColor, pulse * 0.7f);
             }
             else if (spriteRenderer.color != baseColor)
             {

@@ -89,6 +89,8 @@ namespace OneMoreKnight.Enemies
             attackRunner.SetPatterns(stats.attack);
         }
 
+        private static readonly Color CurseAura = new Color(0.25f, 0.05f, 0.35f);
+
         private void Update()
         {
             if (retired) return;
@@ -99,6 +101,12 @@ namespace OneMoreKnight.Enemies
                 ? anchorX + Mathf.Sin(age * stats.weaveFrequency) * stats.weaveAmplitude
                 : transform.position.x;
             transform.position = new Vector3(x, y, 0f);
+
+            // Cursed types pulse a dark aura (#55): "killing me costs you" must be
+            // readable before the trigger is pulled.
+            if (stats.curseOnDeath != Hero.CurseType.None)
+                spriteRenderer.color = Color.Lerp(stats.tint, CurseAura,
+                    0.5f + 0.5f * Mathf.Sin(age * 5f));
 
             if (y < despawnY) Retire();
         }
