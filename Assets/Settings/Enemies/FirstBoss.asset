@@ -18,3 +18,17 @@ MonoBehaviour:
   entrySpeed: 2
   hoverSpeed: 1.1
   hoverAmplitude: 2.4
+  phases:
+  - name: Opening
+    entersAtHpFraction: 1
+    patterns:
+    - {fileID: 11400000, guid: 344ef927f469f074a9ede4f6e73cedaf, type: 2}
+    - {fileID: 11400000, guid: b659cf286f40706418ba9395ce78d1e9, type: 2}
+    hoverSpeedMultiplier: 1
+  - name: Enraged
+    entersAtHpFraction: 0.5
+    patterns:
+    - {fileID: 11400000, guid: 344ef927f469f074a9ede4f6e73cedaf, type: 2}
+    - {fileID: 11400000, guid: b659cf286f40706418ba9395ce78d1e9, type: 2}
+    - {fileID: 11400000, guid: 716e212ed21778242a0c5712dbb32f00, type: 2}
+    hoverSpeedMultiplier: 1.5

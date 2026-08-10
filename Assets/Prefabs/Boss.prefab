@@ -203,7 +203,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd5606b7c6fe18409dc1cefa1330227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Combat.Patterns.AttackPatternRunner
-  patterns:
-  - {fileID: 11400000, guid: 344ef927f469f074a9ede4f6e73cedaf, type: 2}
-  - {fileID: 11400000, guid: b659cf286f40706418ba9395ce78d1e9, type: 2}
-  - {fileID: 11400000, guid: 716e212ed21778242a0c5712dbb32f00, type: 2}
+  patterns: []

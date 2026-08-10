@@ -111,3 +111,6 @@ InitTestScene*.unity*
 # Unity generating it would leave the tree permanently dirty.
 /[Aa]ssets/docs/handoffs/
 /[Aa]ssets/docs/handoffs.meta
+
+# JetBrains Rider project layout (generated per machine)
+/.idea/

@@ -1,10 +1,29 @@
+using System;
 using UnityEngine;
+using OneMoreKnight.Combat.Patterns;
 
 namespace OneMoreKnight.Enemies
 {
     /// <summary>
+    /// One Boss state gated by an HP band (CONTEXT.md: Phase), with its own Patterns
+    /// and movement feel. Ordered on <see cref="BossStats.phases"/>; the first entry
+    /// should enter at fraction 1 (fight start).
+    /// </summary>
+    [Serializable]
+    public class BossPhase
+    {
+        public string name = "Phase";
+        [Tooltip("The Phase begins when the HP fraction drops to or below this. First Phase = 1.")]
+        [Range(0f, 1f)] public float entersAtHpFraction = 1f;
+        public AttackPattern[] patterns;
+        [Min(0f)] public float hoverSpeedMultiplier = 1f;
+    }
+
+    /// <summary>
     /// Tuning for one Boss, held in an asset like <see cref="EnemyStats"/>. Shared and
     /// read-only at runtime (ADR-0003) — per-fight state lives on the <see cref="Boss"/>.
+    /// This asset IS the per-Boss definition: PRD §5.3's "BossDefinition" folded in
+    /// here rather than split across a second asset type (noted in issue #12).
     /// </summary>
     [CreateAssetMenu(menuName = "One More Knight/Boss Stats", fileName = "BossStats")]
     public class BossStats : ScriptableObject
@@ -17,5 +36,8 @@ namespace OneMoreKnight.Enemies
         [Min(0f)] public float entrySpeed = 2f;
         [Min(0f)] public float hoverSpeed = 1.1f;
         [Min(0f)] public float hoverAmplitude = 2.4f;
+
+        [Header("Phases (ordered; empty = the runner's own serialized Patterns)")]
+        public BossPhase[] phases = new BossPhase[0];
     }
 }
