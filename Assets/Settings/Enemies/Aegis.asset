@@ -16,6 +16,8 @@ MonoBehaviour:
   moveSpeed: 0.8
   scoreValue: 300
   contactDamage: 2
+  description: The Bulwark's big sibling. A shield that walks, built to make you
+    waste time you don't have.
   sprite: {fileID: -5680690562175239864, guid: a50fd1873322e2d4d9ccd997d507ffb5, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

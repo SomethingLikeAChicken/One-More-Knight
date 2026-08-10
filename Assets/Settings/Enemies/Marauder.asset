@@ -16,6 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.7
   scoreValue: 250
   contactDamage: 1
+  description: 'Pressure incarnate: twin arcs of red, over and over, until something
+    breaks.'
   sprite: {fileID: -7629736460727203308, guid: 38290b8cc4706054b83484f46469a89c, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

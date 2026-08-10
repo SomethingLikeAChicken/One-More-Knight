@@ -16,6 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.6
   scoreValue: 250
   contactDamage: 1
+  description: Its fan of fire starts lazy and pounces. The safe spot you see now
+    is already gone.
   sprite: {fileID: -8280930210256813200, guid: 9829bb0610edb1c41b4b138917565763, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

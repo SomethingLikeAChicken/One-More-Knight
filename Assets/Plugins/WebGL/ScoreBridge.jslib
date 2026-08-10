@@ -2,6 +2,13 @@
 // window.__omk.submitScore(score, meta) (repo one-more-knight-web); pages without
 // the bridge (stock index.html, index-dev.html) make this a silent no-op.
 mergeInto(LibraryManager.library, {
+  OMK_ReportEncounter: function (slugPtr) {
+    try {
+      var omk = typeof window !== "undefined" && window.__omk;
+      if (!omk || typeof omk.encounter !== "function") return;
+      omk.encounter(UTF8ToString(slugPtr));
+    } catch (e) {}
+  },
   OMK_SubmitScore: function (score, metaJsonPtr) {
     try {
       var omk = typeof window !== "undefined" && window.__omk;

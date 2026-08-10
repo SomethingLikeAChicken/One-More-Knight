@@ -16,6 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.4
   scoreValue: 300
   contactDamage: 1
+  description: Carries a ring of violet fire and lets it loose all at once. Keep
+    your distance from the blast.
   sprite: {fileID: -845045197500901298, guid: 1fcb214d84e9470439b58e75e3597bf4, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

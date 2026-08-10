@@ -16,6 +16,8 @@ MonoBehaviour:
   moveSpeed: 3
   scoreValue: 150
   contactDamage: 1
+  description: Its bolt leaves the barrel lazy and arrives like a thunderclap. Dodge
+    early, not late.
   sprite: {fileID: 3272805312411629707, guid: 9b27336e205b19747b49fece850fbe01, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

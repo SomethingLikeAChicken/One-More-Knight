@@ -16,6 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.3
   scoreValue: 250
   contactDamage: 1
+  description: Pins the airspace with a cross of four bolts. The gaps are your lanes
+    - learn them.
   sprite: {fileID: -4128447770939529247, guid: 17dbeae2e1e7ec74e8670dc8797a4faf, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

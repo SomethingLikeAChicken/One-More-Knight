@@ -16,6 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.2
   scoreValue: 300
   contactDamage: 2
+  description: Slow, heavy, and patient. Its bolt hunts you for a moment before flying
+    true - outrun it.
   sprite: {fileID: -4677365148177797994, guid: a66e1620d3d0fd54c9c60c54dc66618c, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

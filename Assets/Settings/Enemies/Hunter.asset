@@ -16,6 +16,7 @@ MonoBehaviour:
   moveSpeed: 2.3
   scoreValue: 250
   contactDamage: 1
+  description: 'Tracks your position and dives. If you hear nothing else: keep moving.'
   sprite: {fileID: -3085747607584028519, guid: a160ede6bdc1ed2499aa4e333bef9884, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 1

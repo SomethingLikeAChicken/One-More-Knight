@@ -15,6 +15,8 @@ MonoBehaviour:
   maxHealth: 140
   contactDamage: 2
   scoreReward: 2000
+  description: The storm follows you. Crosses of violet lightning turn about it as
+    it hunts.
   difficulty: 3
   sprite: {fileID: 2980227943750080533, guid: 37efb6f9b75bab0429250e38d8302237, type: 3}
   scale: 1.05
@@ -31,6 +33,9 @@ MonoBehaviour:
     tint: {r: 1, g: 1, b: 1, a: 1}
     entryPulseScale: 1
     entryPulseDuration: 0.4
+    summonType: {fileID: 0}
+    summonCount: 2
+    summonInterval: 5
   - name: Tempest
     entersAtHpFraction: 0.55
     patterns:
@@ -41,3 +46,6 @@ MonoBehaviour:
     tint: {r: 0.9, g: 0.6, b: 1, a: 1}
     entryPulseScale: 1.5
     entryPulseDuration: 0.55
+    summonType: {fileID: 0}
+    summonCount: 2
+    summonInterval: 5

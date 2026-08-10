@@ -16,6 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.1
   scoreValue: 450
   contactDamage: 1
+  description: A turning wheel of violet omens. Its gyre rotates - the safe angle
+    never stays.
   sprite: {fileID: 5924172039620091632, guid: 31225a27ca9d90847b72ab86fd468dc3, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

@@ -16,6 +16,7 @@ MonoBehaviour:
   moveSpeed: 2.2
   scoreValue: 200
   contactDamage: 1
+  description: A weaving sniper that never stops moving and never stops aiming.
   sprite: {fileID: 8125670880829888781, guid: f431245428e79a8408b2dfb21ae19faa, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 1

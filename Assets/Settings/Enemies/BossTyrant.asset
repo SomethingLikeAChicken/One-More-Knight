@@ -15,6 +15,8 @@ MonoBehaviour:
   maxHealth: 130
   contactDamage: 2
   scoreReward: 2000
+  description: Triple-aimed volleys and a ring it wears like a crown. It does not
+    tolerate standing still.
   difficulty: 3
   sprite: {fileID: -6454399610971557207, guid: 78d0f06883905e24191464e5ec798215, type: 3}
   scale: 1.05
@@ -31,6 +33,9 @@ MonoBehaviour:
     tint: {r: 1, g: 1, b: 1, a: 1}
     entryPulseScale: 1
     entryPulseDuration: 0.4
+    summonType: {fileID: 0}
+    summonCount: 2
+    summonInterval: 5
   - name: Wrath
     entersAtHpFraction: 0.55
     patterns:
@@ -42,3 +47,6 @@ MonoBehaviour:
     tint: {r: 1, g: 0.45, b: 0.4, a: 1}
     entryPulseScale: 1.5
     entryPulseDuration: 0.55
+    summonType: {fileID: 0}
+    summonCount: 2
+    summonInterval: 5

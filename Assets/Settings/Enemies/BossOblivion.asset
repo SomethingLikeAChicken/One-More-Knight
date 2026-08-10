@@ -15,6 +15,8 @@ MonoBehaviour:
   maxHealth: 450
   contactDamage: 2
   scoreReward: 8000
+  description: The last thing far runs see. Dense rings, a turning spiral, and the
+    dark that follows you home.
   difficulty: 6
   sprite: {fileID: 9166750712835155100, guid: 812a49d4b1381154c8833b86d6b9dac0, type: 3}
   scale: 1.25

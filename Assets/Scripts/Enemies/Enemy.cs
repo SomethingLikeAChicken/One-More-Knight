@@ -79,6 +79,7 @@ namespace OneMoreKnight.Enemies
             spriteRenderer.sprite = stats.sprite;
             spriteRenderer.color = stats.tint;
             ColliderFit.FitCircle(circleCollider, stats.sprite);
+            Run.Scoring.EncounterReporter.Report(stats.name);
 
             // Attacks are driven entirely by the type's Pattern asset (ADR-0003); the
             // runner resets all timing state here, so a recycled instance starts fresh.
