@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6910173991430293396}
   - component: {fileID: 1723169582122329651}
   - component: {fileID: 2290403232948053456}
+  - component: {fileID: 3809672146323850053}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -189,3 +190,17 @@ MonoBehaviour:
   heroMask:
     serializedVersion: 2
     m_Bits: 64
+  attackRunner: {fileID: 3809672146323850053}
+--- !u!114 &3809672146323850053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584333458309741211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd5606b7c6fe18409dc1cefa1330227, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Combat.Patterns.AttackPatternRunner
+  patterns: []
