@@ -25,9 +25,13 @@ namespace OneMoreKnight.Enemies
         private float anchorX;
         private float hoverT;
         private bool entering;
+        private int currentPhase = -1;
 
         public BossStats Stats => stats;
         public Health Health => health;
+
+        /// <summary>Index into <see cref="BossStats.phases"/>; -1 until the fight starts.</summary>
+        public int CurrentPhase => currentPhase;
 
         /// <summary>Died to damage — the Run scores the reward and Waves resume.</summary>
         public event Action<Boss> Defeated;
@@ -38,11 +42,16 @@ namespace OneMoreKnight.Enemies
         {
             if (health == null) health = GetComponent<Health>();
             health.Died += OnDied;
+            health.Changed += OnHealthChanged;
         }
 
         private void OnDestroy()
         {
-            if (health != null) health.Died -= OnDied;
+            if (health != null)
+            {
+                health.Died -= OnDied;
+                health.Changed -= OnHealthChanged;
+            }
         }
 
         /// <summary>Starts the entrance: descend from <paramref name="spawnPosition"/>
@@ -56,6 +65,7 @@ namespace OneMoreKnight.Enemies
             hoverLineY = hoverY;
             hoverT = 0f;
             entering = true;
+            currentPhase = -1;
             health.ResetHealth(stats.maxHealth);
 
             attackRunner.Initialize(bulletSpawner, heroMask);
@@ -74,13 +84,16 @@ namespace OneMoreKnight.Enemies
                 {
                     transform.position = new Vector3(transform.position.x, hoverLineY, 0f);
                     entering = false;
-                    // Fresh clocks from the moment the fight actually starts.
-                    attackRunner.ResetState();
+                    // The fight starts here: Phase 0 if Phases are authored, else the
+                    // runner's own serialized Patterns with fresh clocks.
+                    if (stats.phases.Length > 0) EnterPhase(PhaseForFraction(1f));
+                    else attackRunner.ResetState();
                 }
                 return;
             }
 
-            hoverT += Time.deltaTime * stats.hoverSpeed;
+            float speedMultiplier = currentPhase >= 0 ? stats.phases[currentPhase].hoverSpeedMultiplier : 1f;
+            hoverT += Time.deltaTime * stats.hoverSpeed * speedMultiplier;
             float x = anchorX + Mathf.Sin(hoverT) * stats.hoverAmplitude;
             transform.position = new Vector3(x, hoverLineY, 0f);
         }
@@ -95,6 +108,33 @@ namespace OneMoreKnight.Enemies
 
             // Unlike a basic Enemy, the Boss is not consumed by contact.
             hero.TakeDamage(stats.contactDamage);
+        }
+
+        /// <summary>Deepest Phase whose entry threshold the fraction has reached —
+        /// later Phases win, so a 50% band outranks the 100% opener below half HP.</summary>
+        private int PhaseForFraction(float fraction)
+        {
+            int phase = 0;
+            for (int i = 1; i < stats.phases.Length; i++)
+                if (fraction <= stats.phases[i].entersAtHpFraction) phase = i;
+            return phase;
+        }
+
+        private void OnHealthChanged(Health _)
+        {
+            // Phases only move while the fight is on. SetPatterns resets every burst
+            // and cooldown clock, so the previous Phase's in-flight bursts cancel
+            // cleanly (ADR-0003) — and an equal index never re-triggers.
+            if (entering || currentPhase < 0 || !health.IsAlive) return;
+
+            int next = PhaseForFraction((float)health.Current / health.Max);
+            if (next != currentPhase) EnterPhase(next);
+        }
+
+        private void EnterPhase(int index)
+        {
+            currentPhase = index;
+            attackRunner.SetPatterns(stats.phases[index].patterns);
         }
 
         private void OnDied(Health _)
