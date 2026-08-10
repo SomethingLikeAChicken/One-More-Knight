@@ -143,9 +143,14 @@ namespace OneMoreKnight.Combat.Patterns
 
         private Color telegraphColor = Color.white;
 
+        /// <summary>Wave-modifier hook (#57): FRENZY scales every runner's cooldowns.
+        /// The WaveSpawner sets it per wave and resets it to 1 when waves stop, so
+        /// Boss fights (waves paused) always run unscaled.</summary>
+        public static float GlobalCooldownScale = 1f;
+
         private void StartBurst(AttackPattern pattern, ref SlotState slot, float now)
         {
-            slot.NextFireAt = now + pattern.cooldown;
+            slot.NextFireAt = now + pattern.cooldown * GlobalCooldownScale;
             Emit(pattern, ref slot);
             slot.BurstRemaining = pattern.burstCount - 1;
             slot.NextEmissionAt = now + pattern.burstSpacing;
