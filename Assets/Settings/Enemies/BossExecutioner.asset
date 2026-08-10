@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
+  m_Name: BossExecutioner
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
+  maxHealth: 520
+  contactDamage: 2
+  scoreReward: 8000
+  description: An axe-head the size of a doorway with a verdict already written.
+    The squares it opens are not warnings. They are appointments.
+  tactics: 'Random rift crosses plus muzzle homing bolts (difficulty 6). The crosses
+    claim diagonals from wherever a square opens - the moment one appears, note its
+    lanes and leave them. Verdict (55%) adds sweeping walls and Zealot summons: kill
+    the Zealots between wall passes.'
+  displayName: The Executioner
+  difficulty: 6
+  sprite: {fileID: 4086565562712893355, guid: 2ea48d08fe7b0c2428eb56da262b8f86, type: 3}
+  scale: 1.15
+  entrySpeed: 2
+  hoverSpeed: 1.05
+  hoverAmplitude: 2.7
+  phases:
+  - name: Sentence
+    entersAtHpFraction: 1
+    patterns:
+    - {fileID: 11400000, guid: d6103e25d16dbb94796d071cdc9446a3, type: 2}
+    - {fileID: 11400000, guid: fa487b5561bb4504bafa7d44b7da86de, type: 2}
+    hoverSpeedMultiplier: 1
+    tint: {r: 1, g: 1, b: 1, a: 1}
+    entryPulseScale: 1
+    entryPulseDuration: 0.4
+    summonType: {fileID: 0}
+    summonCount: 2
+    summonInterval: 5
+  - name: Verdict
+    entersAtHpFraction: 0.55
+    patterns:
+    - {fileID: 11400000, guid: d6103e25d16dbb94796d071cdc9446a3, type: 2}
+    - {fileID: 11400000, guid: 1a59d8f3755c0c043b2da47e740b49ba, type: 2}
+    - {fileID: 11400000, guid: 203c818f6d050a24caf98f243ff8afdf, type: 2}
+    hoverSpeedMultiplier: 1.35
+    tint: {r: 1, g: 0.5, b: 0.5, a: 1}
+    entryPulseScale: 1.4
+    entryPulseDuration: 0.55
+    summonType: {fileID: 11400000, guid: a8ac09dd2863d1e4da6aefdb2875369c, type: 2}
+    summonCount: 2
+    summonInterval: 8

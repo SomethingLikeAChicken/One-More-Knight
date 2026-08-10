@@ -43,5 +43,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: af5b3922b85e75f4da4c3d618f5ccdae, type: 2}
   - {fileID: 11400000, guid: 9874a46761f1d5c43a6eb5dda53959dd, type: 2}
   - {fileID: 11400000, guid: 4c877d1cd2112da4e9420ce8971aa0c2, type: 2}
+  - {fileID: 11400000, guid: 4c5be7e1f635e7741bbfa7f54185f5d6, type: 2}
+  - {fileID: 11400000, guid: 1e9a480842cf79e40a6abefb115da8fc, type: 2}
+  - {fileID: 11400000, guid: c31c744e61418624d9ca7551d6be93b9, type: 2}
+  - {fileID: 11400000, guid: 1bcdcfa6efc24c24cbb76a241536c28b, type: 2}
+  - {fileID: 11400000, guid: 68cf2c1df1c67b045a0424a3bbccf422, type: 2}
   endlessScoreStep: 8000
   endlessMaxDifficulty: 8

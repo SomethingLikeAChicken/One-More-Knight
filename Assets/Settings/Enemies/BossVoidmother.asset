@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
+  m_Name: BossVoidmother
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
+  maxHealth: 700
+  contactDamage: 2
+  scoreReward: 12000
+  description: A pale orb with five eyes, none of which blink. What it births is
+    small, hungry, and shockingly numerous.
+  tactics: 'The swarm boss (difficulty 7): rift squares erupt HOMING volleys - five
+    hunters from a point of your recent past - while Locusts spill continuously.
+    Clear Locusts with your natural spread; save deliberate aim for the mother. Womb
+    of Nothing (30%) adds dense rift rings: the squares now demand immediate evacuation.'
+  displayName: The Voidmother
+  difficulty: 7
+  sprite: {fileID: -3706276703203598709, guid: 25100186fc1528444866a6efca108407, type: 3}
+  scale: 1.25
+  entrySpeed: 2
+  hoverSpeed: 0.9
+  hoverAmplitude: 2.7
+  phases:
+  - name: Brood
+    entersAtHpFraction: 1
+    patterns:
+    - {fileID: 11400000, guid: 479e326385a4bc941a6b8713a14fe3d3, type: 2}
+    - {fileID: 11400000, guid: 00de3d1101e983b4dbb35739d45b872b, type: 2}
+    hoverSpeedMultiplier: 1
+    tint: {r: 1, g: 1, b: 1, a: 1}
+    entryPulseScale: 1
+    entryPulseDuration: 0.4
+    summonType: {fileID: 11400000, guid: 122ab5353081c8143b5b83d77b493a02, type: 2}
+    summonCount: 3
+    summonInterval: 7
+  - name: Swarm
+    entersAtHpFraction: 0.6
+    patterns:
+    - {fileID: 11400000, guid: 479e326385a4bc941a6b8713a14fe3d3, type: 2}
+    - {fileID: 11400000, guid: 1a59d8f3755c0c043b2da47e740b49ba, type: 2}
+    - {fileID: 11400000, guid: 93e00a62ab828d448b0ce4e14a55afe6, type: 2}
+    hoverSpeedMultiplier: 1.3
+    tint: {r: 0.9, g: 0.7, b: 1, a: 1}
+    entryPulseScale: 1.4
+    entryPulseDuration: 0.5
+    summonType: {fileID: 11400000, guid: 122ab5353081c8143b5b83d77b493a02, type: 2}
+    summonCount: 4
+    summonInterval: 6
+  - name: Womb of Nothing
+    entersAtHpFraction: 0.3
+    patterns:
+    - {fileID: 11400000, guid: 479e326385a4bc941a6b8713a14fe3d3, type: 2}
+    - {fileID: 11400000, guid: 5617f9432a685d14196c1047c89c9086, type: 2}
+    - {fileID: 11400000, guid: fa487b5561bb4504bafa7d44b7da86de, type: 2}
+    hoverSpeedMultiplier: 1.5
+    tint: {r: 0.6, g: 0.3, b: 0.9, a: 1}
+    entryPulseScale: 1.5
+    entryPulseDuration: 0.6
+    summonType: {fileID: 11400000, guid: 12dac487918cff8429185ac9ffc5ea22, type: 2}
+    summonCount: 1
+    summonInterval: 9
