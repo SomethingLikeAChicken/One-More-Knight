@@ -25,8 +25,8 @@ namespace OneMoreKnight.Run
         [Range(0f, 1f)] [SerializeField] private float dropChance = 0.05f;
         [Tooltip("Sprites indexed by PowerupType: Damage, MaxHp, MoveSpeed, FireRate.")]
         [SerializeField] private Sprite[] typeSprites = new Sprite[4];
-        [Tooltip("Relative weights per PowerupType - hearts stay rare.")]
-        [SerializeField] private float[] typeWeights = { 1f, 0.35f, 1f, 1f };
+        [Tooltip("Relative weights per PowerupType - hearts stay RARE (nerfed on live feedback).")]
+        [SerializeField] private float[] typeWeights = { 1f, 0.12f, 1f, 1f };
 
         private System.Random rng;
 

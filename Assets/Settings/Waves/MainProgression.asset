@@ -49,6 +49,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 711f445e1d61e8740ac87a1b42e70b78, type: 2}
   - {fileID: 11400000, guid: c384afc976ba907488849bc91e386e38, type: 2}
   - {fileID: 11400000, guid: 811f282bfd9a61640ac9786677d2f35b, type: 2}
+  - {fileID: 11400000, guid: 00d7d957f4082ee4badf87675a1546e2, type: 2}
+  - {fileID: 11400000, guid: 5fe3a93a736c1b948a0c62cd9767f59f, type: 2}
+  - {fileID: 11400000, guid: de91dc115f3eb774591b29c767dd8721, type: 2}
+  - {fileID: 11400000, guid: e3a64a838ecc5c84ba0a8356e9822a3b, type: 2}
+  - {fileID: 11400000, guid: 56ccfb367ab72fd4fbafe67e34deeac7, type: 2}
+  - {fileID: 11400000, guid: c7e7d0b3c1b9e33438cc1519559b0a50, type: 2}
   delayBetweenGroups: 2.2
   intermission: 1.75
   hpMultiplierStep: 1.04

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
+  m_Name: Vulture
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
+  maxHealth: 5
+  moveSpeed: 1.5
+  scoreValue: 350
+  contactDamage: 1
+  description: Wings of night with a red appetite. It circles because everything
+    beneath it is, eventually, carrion.
+  tactics: 'Fires a homing PAIR in a narrow arc - two hunters with slightly different
+    angles. Splitting them is the trick: drift one way until they commit, then cut
+    back between them. It weaves; snapshot at the turnarounds.'
+  isMiniboss: 0
+  curseOnDeath: 0
+  sprite: {fileID: 2708881489621747757, guid: 9b73928af96ecb64eb1cac1a3175e867, type: 3}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  movement: 1
+  weaveAmplitude: 1.5
+  weaveFrequency: 2
+  attack: {fileID: 11400000, guid: 9f545b435295aaa43a8736edbcad3d53, type: 2}

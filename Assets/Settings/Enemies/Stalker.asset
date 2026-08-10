@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
+  m_Name: Stalker
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
+  maxHealth: 3
+  moveSpeed: 1.6
+  scoreValue: 250
+  contactDamage: 1
+  description: A slit of red light on a falling shard of night. It has exactly one
+    thought, and the thought is your coordinates.
+  tactics: 'Fires a single red homing bolt that hunts you for about a second. Red
+    means hunted: move perpendicular, let it commit, and step aside as it straightens.
+    One at a time is practice; three at once is a lesson.'
+  isMiniboss: 0
+  curseOnDeath: 0
+  sprite: {fileID: 2389856339642955073, guid: 53d7f5343e6534d4694a5632da7a67ad, type: 3}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  movement: 0
+  weaveAmplitude: 1.5
+  weaveFrequency: 2
+  attack: {fileID: 11400000, guid: 05dca2cd04a231246842beccba3d37f5, type: 2}

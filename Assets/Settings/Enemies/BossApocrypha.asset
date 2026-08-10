@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
+  m_Name: BossApocrypha
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
+  maxHealth: 1000
+  contactDamage: 2
+  scoreReward: 24000
+  description: The book the host reads before it falls. Nobody wrote it. It accumulates.
+    Its last word is a hound.
+  tactics: 'The rift endgame (difficulty 8, 1000 HP): crosses through curtains, then
+    rift homing volleys over a spiral with Hexblade adds, and in the Last Word -
+    dense rift rings, rift gyres, homing bolts, and a DIREHOUND MINIBOSS summoned
+    into the fight. Bring full buffs, read every square, and never fight the hound
+    inside a ring eruption.'
+  displayName: Apocrypha
+  difficulty: 8
+  sprite: {fileID: -7075410459160680530, guid: b52fd062390a7544eb7f92655f387e69, type: 3}
+  scale: 1.3
+  entrySpeed: 2
+  hoverSpeed: 0.85
+  hoverAmplitude: 2.7
+  phases:
+  - name: Forbidden Page
+    entersAtHpFraction: 1
+    patterns:
+    - {fileID: 11400000, guid: d6103e25d16dbb94796d071cdc9446a3, type: 2}
+    - {fileID: 11400000, guid: 00de3d1101e983b4dbb35739d45b872b, type: 2}
+    hoverSpeedMultiplier: 1
+    tint: {r: 1, g: 1, b: 1, a: 1}
+    entryPulseScale: 1
+    entryPulseDuration: 0.4
+    summonType: {fileID: 0}
+    summonCount: 2
+    summonInterval: 5
+  - name: Torn Binding
+    entersAtHpFraction: 0.65
+    patterns:
+    - {fileID: 11400000, guid: d6103e25d16dbb94796d071cdc9446a3, type: 2}
+    - {fileID: 11400000, guid: 479e326385a4bc941a6b8713a14fe3d3, type: 2}
+    - {fileID: 11400000, guid: 233f03791ae54654085c791dc95c9dee, type: 2}
+    hoverSpeedMultiplier: 1.3
+    tint: {r: 0.8, g: 0.6, b: 1, a: 1}
+    entryPulseScale: 1.4
+    entryPulseDuration: 0.55
+    summonType: {fileID: 11400000, guid: 751a68be852da5449b9396e3449eb642, type: 2}
+    summonCount: 2
+    summonInterval: 6
+  - name: Last Word
+    entersAtHpFraction: 0.35
+    patterns:
+    - {fileID: 11400000, guid: 5617f9432a685d14196c1047c89c9086, type: 2}
+    - {fileID: 11400000, guid: 58665587a7f50a64ea3b3f40fb4eacd6, type: 2}
+    - {fileID: 11400000, guid: fa487b5561bb4504bafa7d44b7da86de, type: 2}
+    hoverSpeedMultiplier: 1.55
+    tint: {r: 0.55, g: 0.3, b: 0.95, a: 1}
+    entryPulseScale: 1.55
+    entryPulseDuration: 0.65
+    summonType: {fileID: 11400000, guid: 1683f9cb230a58d45b8dc7a6504b8679, type: 2}
+    summonCount: 1
+    summonInterval: 14

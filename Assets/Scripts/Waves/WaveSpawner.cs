@@ -95,6 +95,9 @@ namespace OneMoreKnight.Waves
                 CurrentModifier = RollModifier(waveNumber);
                 runManager.ReportWave(waveNumber,
                     CurrentModifier == WaveModifier.None ? "" : CurrentModifier.ToString().ToUpperInvariant());
+                // The bestiary's modifier encyclopedia unlocks on first sight (#72).
+                if (CurrentModifier != WaveModifier.None)
+                    Run.Scoring.EncounterReporter.Report("Mod" + CurrentModifier);
                 progression.MultipliersFor(waveNumber, out float hpMult, out float speedMult);
 
                 // Modifier levers (#57) - spikes on top of the bounded curve.

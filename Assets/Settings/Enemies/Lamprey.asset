@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
+  m_Name: Lamprey
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
+  maxHealth: 6
+  moveSpeed: 1
+  scoreValue: 350
+  contactDamage: 1
+  description: A pale worm that has never hurried and never let go. Its bolt remembers
+    you longer than most friendships last.
+  tactics: Its slow red bolt hunts for over TWO seconds - you cannot simply sidestep
+    it once. Drag it in a wide circle until it dies of old age, and mind the wave
+    around you while you babysit it. Kill the Lamprey first when possible.
+  isMiniboss: 0
+  curseOnDeath: 0
+  sprite: {fileID: -840892440093548623, guid: 05c3e9fac652cd447b58d474f881c760, type: 3}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  movement: 0
+  weaveAmplitude: 1.5
+  weaveFrequency: 2
+  attack: {fileID: 11400000, guid: c1b99c0420a2380478d137e43ec2db0c, type: 2}
