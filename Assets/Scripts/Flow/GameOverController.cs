@@ -9,9 +9,28 @@ namespace OneMoreKnight.Flow
     /// </summary>
     public class GameOverController : MonoBehaviour
     {
+        // The title is the game's thesis: a death is an invitation, not an ending.
+        // One random line per Game Over (#49).
+        private static readonly string[] Quotes =
+        {
+            "EVERY KNIGHT FALLS. THE GOOD ONES GET UP.",
+            "THE BOSS REMEMBERS NOTHING. YOU REMEMBER EVERYTHING.",
+            "THAT WALL HAS A GAP. YOU'VE SEEN IT NOW.",
+            "DEATH IS JUST THE LOADING SCREEN FOR REVENGE.",
+            "ONE MORE KNIGHT. IT'S IN THE NAME.",
+            "YOU DIDN'T LOSE. YOU SCOUTED.",
+            "THE CROWN IS STILL UP THERE, WAITING.",
+            "DODGING IS LEARNED. YOU JUST PAID THE TUITION.",
+            "THE ENDLESS HOST BLINKED FIRST LAST TIME? MAKE IT BLINK.",
+            "SWORDS DULL. STUBBORNNESS DOESN'T."
+        };
+
         private GUIStyle banner;
         private GUIStyle readout;
         private GUIStyle hint;
+        private string quote;
+
+        private void Awake() => quote = Quotes[Random.Range(0, Quotes.Length)];
 
         public void PlayAgain() => SceneFlow.LoadGame();
 
@@ -32,9 +51,10 @@ namespace OneMoreKnight.Flow
 
             banner = new GUIStyle(GUI.skin.label)
             {
-                fontSize = 44,
+                fontSize = 30,
                 fontStyle = FontStyle.Bold,
-                alignment = TextAnchor.MiddleCenter
+                alignment = TextAnchor.MiddleCenter,
+                wordWrap = true
             };
             banner.normal.textColor = new Color(1f, 0.42f, 0.42f);
 
@@ -60,7 +80,7 @@ namespace OneMoreKnight.Flow
             float w = Screen.width;
             float h = Screen.height;
 
-            GUI.Label(new Rect(0f, h * 0.5f - 90f, w, 60f), "THE RUN ENDS", banner);
+            GUI.Label(new Rect(w * 0.08f, h * 0.5f - 110f, w * 0.84f, 80f), quote, banner);
             GUI.Label(new Rect(0f, h * 0.5f - 20f, w, 30f), $"Score {LastRun.Score:n0}   ·   Wave {LastRun.Wave}", readout);
             GUI.Label(new Rect(0f, h * 0.5f + 24f, w, 30f), "SPACE / R — one more run", hint);
             GUI.Label(new Rect(0f, h * 0.5f + 52f, w, 30f), "ESC / M — back to the menu", hint);
