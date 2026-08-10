@@ -16,7 +16,4 @@ MonoBehaviour:
   moveSpeed: 2.2
   scoreValue: 100
   contactDamage: 1
-  shotCooldown: 3.2
-  shotSpeed: 3.5
-  shotDamage: 1
-  shotTint: {r: 1, g: 0.32, b: 0.38, a: 1}
+  attack: {fileID: 11400000, guid: 040eea6cdd2cf43468488e347cf339a0, type: 2}

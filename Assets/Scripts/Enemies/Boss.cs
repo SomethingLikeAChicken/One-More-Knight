@@ -19,6 +19,7 @@ namespace OneMoreKnight.Enemies
         [SerializeField] private BossStats stats;
         [SerializeField] private Health health;
         [SerializeField] private LayerMask heroMask;
+        [SerializeField] private Combat.Patterns.AttackPatternRunner attackRunner;
 
         private float hoverLineY;
         private float anchorX;
@@ -45,8 +46,10 @@ namespace OneMoreKnight.Enemies
         }
 
         /// <summary>Starts the entrance: descend from <paramref name="spawnPosition"/>
-        /// to <paramref name="hoverY"/>, then hover around the spawn X.</summary>
-        public void Begin(Vector2 spawnPosition, float hoverY)
+        /// to <paramref name="hoverY"/>, then hover around the spawn X. Attacks come
+        /// from the runner's Pattern assets and only start once the hover is reached —
+        /// firing during the entrance would be an unfair off-screen attack.</summary>
+        public void Begin(Vector2 spawnPosition, float hoverY, Combat.BulletSpawner bulletSpawner, Transform target)
         {
             transform.position = spawnPosition;
             anchorX = spawnPosition.x;
@@ -54,6 +57,10 @@ namespace OneMoreKnight.Enemies
             hoverT = 0f;
             entering = true;
             health.ResetHealth(stats.maxHealth);
+
+            attackRunner.Initialize(bulletSpawner, heroMask);
+            attackRunner.SetTarget(target);
+            attackRunner.SetFiring(false);
         }
 
         private void Update()
@@ -67,6 +74,8 @@ namespace OneMoreKnight.Enemies
                 {
                     transform.position = new Vector3(transform.position.x, hoverLineY, 0f);
                     entering = false;
+                    // Fresh clocks from the moment the fight actually starts.
+                    attackRunner.ResetState();
                 }
                 return;
             }
@@ -88,6 +97,10 @@ namespace OneMoreKnight.Enemies
             hero.TakeDamage(stats.contactDamage);
         }
 
-        private void OnDied(Health _) => Defeated?.Invoke(this);
+        private void OnDied(Health _)
+        {
+            attackRunner.SetFiring(false);
+            Defeated?.Invoke(this);
+        }
     }
 }

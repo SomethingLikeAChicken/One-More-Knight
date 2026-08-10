@@ -1,5 +1,7 @@
 using UnityEngine;
+using OneMoreKnight.Combat;
 using OneMoreKnight.Enemies;
+using OneMoreKnight.Hero;
 using OneMoreKnight.Waves;
 
 namespace OneMoreKnight.Run
@@ -15,6 +17,7 @@ namespace OneMoreKnight.Run
         [SerializeField] private RunManager runManager;
         [SerializeField] private WaveSpawner waveSpawner;
         [SerializeField] private PlayArea playArea;
+        [SerializeField] private BulletSpawner bulletSpawner;
         [SerializeField] private Boss bossPrefab;
 
         [Header("Pacing")]
@@ -48,7 +51,12 @@ namespace OneMoreKnight.Run
             var spawn = new Vector2(bounds.center.x, playArea.SpawnLineY);
             ActiveBoss = Instantiate(bossPrefab, spawn, Quaternion.identity);
             ActiveBoss.Defeated += OnBossDefeated;
-            ActiveBoss.Begin(spawn, bounds.yMax - hoverLineFromTop);
+
+            // The Hero is the target of AimedAtTarget Patterns. Pattern code itself
+            // stays actor-agnostic - the wiring decides who is source and target.
+            var hero = FindAnyObjectByType<HeroController>();
+            ActiveBoss.Begin(spawn, bounds.yMax - hoverLineFromTop, bulletSpawner,
+                             hero != null ? hero.transform : null);
         }
 
         private void OnBossDefeated(Boss boss)

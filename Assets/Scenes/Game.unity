@@ -544,6 +544,7 @@ MonoBehaviour:
   runManager: {fileID: 1283923270}
   waveSpawner: {fileID: 251957308}
   playArea: {fileID: 66600934}
+  bulletSpawner: {fileID: 685176717}
   bossPrefab: {fileID: 138225418441586101, guid: 533478959f2bced47b46840514b5317d, type: 3}
   scoreThreshold: 1000
   hoverLineFromTop: 1.6
