@@ -24,7 +24,11 @@ namespace OneMoreKnight.Combat.Patterns
             public float NextEmissionAt;  // next emission inside the running burst
             public int EmissionCount;     // total emissions fired - drives spiral rotation
             public float TelegraphUntil;  // > now while this slot is telegraphing
+            public Vector2 RiftPoint;     // where a rift burst erupts from (#70)
+            public bool RiftArmed;        // this slot fires from RiftPoint, not the actor
         }
+
+        private System.Random riftRng;
 
         private readonly List<Emission> emissionBuffer = new List<Emission>(32);
         private BulletSpawner bulletSpawner;
@@ -66,6 +70,7 @@ namespace OneMoreKnight.Combat.Patterns
                 slots[i].NextEmissionAt = 0f;
                 slots[i].EmissionCount = 0;
                 slots[i].TelegraphUntil = 0f;
+                slots[i].RiftArmed = false;
             }
             telegraphingSlots = 0;
             if (visual == null) visual = GetComponent<SpriteRenderer>();
@@ -116,13 +121,27 @@ namespace OneMoreKnight.Combat.Patterns
                     // actually starts, so dodging during the telegraph is honest.
                     if (now < slots[i].TelegraphUntil) continue;
                     slots[i].TelegraphUntil = 0f;
-                    telegraphingSlots--;
-                    if (telegraphingSlots == 0 && visual != null) visual.color = visualBaseColor;
+                    if (!slots[i].RiftArmed)
+                    {
+                        // Rifts warn with their marker, not the actor pulse.
+                        telegraphingSlots--;
+                        if (telegraphingSlots == 0 && visual != null) visual.color = visualBaseColor;
+                    }
                     StartBurst(pattern, ref slots[i], now);
                     continue;
                 }
 
                 if (now < slots[i].NextFireAt) continue;
+                if (pattern.originMode != OriginMode.Muzzle)
+                {
+                    // Rift cast (#70): open the marker where the pattern will erupt
+                    // and hold the burst until it resolves. The marker IS the warning.
+                    slots[i].RiftPoint = PickRiftPoint(pattern);
+                    slots[i].RiftArmed = true;
+                    slots[i].TelegraphUntil = now + pattern.riftTelegraph;
+                    RiftMarker.Spawn(slots[i].RiftPoint, pattern.riftTelegraph);
+                    continue;
+                }
                 if (pattern.telegraphDuration > 0f)
                 {
                     if (telegraphingSlots == 0 && visual != null) visualBaseColor = visual.color;
@@ -164,12 +183,32 @@ namespace OneMoreKnight.Combat.Patterns
         private static readonly Color SineTint = new Color(0.8f, 0.45f, 1f);
         private static readonly Color HomingTint = new Color(1f, 0.3f, 0.32f);
 
+        /// <summary>Where a rift opens: at the target's position at cast time
+        /// (dodgeable — it does not follow), or a random point in the upper field.</summary>
+        private Vector2 PickRiftPoint(AttackPattern pattern)
+        {
+            if (pattern.originMode == OriginMode.RiftAtTarget && target != null)
+                return target.position;
+
+            if (riftRng == null) riftRng = new System.Random(gameObject.GetHashCode() ^ System.Environment.TickCount);
+            var cam = Camera.main;
+            if (cam == null) return (Vector2)transform.position + Vector2.down * 3f;
+            float halfH = cam.orthographicSize;
+            float halfW = halfH * cam.aspect;
+            Vector2 c = cam.transform.position;
+            float x = c.x + ((float)riftRng.NextDouble() * 2f - 1f) * (halfW - 1.2f);
+            float y = c.y + ((float)riftRng.NextDouble() * 0.55f + 0.05f) * halfH;
+            return new Vector2(x, y);
+        }
+
         private void Emit(AttackPattern pattern, ref SlotState slot)
         {
             Vector2? targetPos = target != null ? (Vector2?)target.position : null;
             float spin = pattern.angleStepPerEmission * slot.EmissionCount;
             slot.EmissionCount++;
-            AttackPatternEngine.ComputeEmission(pattern, transform.position, targetPos, emissionBuffer, spin);
+            Vector2 source = slot.RiftArmed && pattern.originMode != OriginMode.Muzzle
+                ? slot.RiftPoint : (Vector2)transform.position;
+            AttackPatternEngine.ComputeEmission(pattern, source, targetPos, emissionBuffer, spin);
 
             BulletMotion motion;
             Color tint;
