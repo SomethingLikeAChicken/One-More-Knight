@@ -20,12 +20,17 @@ namespace OneMoreKnight.Enemies
         [SerializeField] private Health health;
         [SerializeField] private LayerMask heroMask;
         [SerializeField] private Combat.Patterns.AttackPatternRunner attackRunner;
+        [SerializeField] private SpriteRenderer spriteRenderer;
 
         private float hoverLineY;
         private float anchorX;
         private float hoverT;
         private bool entering;
         private int currentPhase = -1;
+        private Vector3 baseScale;
+        private float pulseEndsAt;
+        private float pulsePeak = 1f;
+        private float pulseDuration = 1f;
 
         public BossStats Stats => stats;
         public Health Health => health;
@@ -41,6 +46,8 @@ namespace OneMoreKnight.Enemies
         private void Awake()
         {
             if (health == null) health = GetComponent<Health>();
+            if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
+            baseScale = transform.localScale;
             health.Died += OnDied;
             health.Changed += OnHealthChanged;
         }
@@ -96,6 +103,18 @@ namespace OneMoreKnight.Enemies
             hoverT += Time.deltaTime * stats.hoverSpeed * speedMultiplier;
             float x = anchorX + Mathf.Sin(hoverT) * stats.hoverAmplitude;
             transform.position = new Vector3(x, hoverLineY, 0f);
+
+            // Entry pulse: scale spikes to the Phase's peak and eases back. Tick-driven
+            // like the runner - no coroutine to die quietly.
+            if (Time.time < pulseEndsAt)
+            {
+                float remaining = (pulseEndsAt - Time.time) / pulseDuration;
+                transform.localScale = baseScale * Mathf.Lerp(1f, pulsePeak, remaining);
+            }
+            else if (transform.localScale != baseScale)
+            {
+                transform.localScale = baseScale;
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -134,7 +153,18 @@ namespace OneMoreKnight.Enemies
         private void EnterPhase(int index)
         {
             currentPhase = index;
-            attackRunner.SetPatterns(stats.phases[index].patterns);
+            BossPhase phase = stats.phases[index];
+            attackRunner.SetPatterns(phase.patterns);
+
+            // The Phase change must be readable (CONTEXT.md: Telegraph): the look
+            // changes with the behaviour, not silently alongside it.
+            spriteRenderer.color = phase.tint;
+            if (phase.entryPulseScale > 1f)
+            {
+                pulsePeak = phase.entryPulseScale;
+                pulseDuration = phase.entryPulseDuration;
+                pulseEndsAt = Time.time + phase.entryPulseDuration;
+            }
         }
 
         private void OnDied(Health _)

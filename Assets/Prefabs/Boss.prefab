@@ -191,6 +191,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   attackRunner: {fileID: 4313456096541221815}
+  spriteRenderer: {fileID: 7630543946358401938}
 --- !u!114 &4313456096541221815
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,6 +25,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 344ef927f469f074a9ede4f6e73cedaf, type: 2}
     - {fileID: 11400000, guid: b659cf286f40706418ba9395ce78d1e9, type: 2}
     hoverSpeedMultiplier: 1
+    tint: {r: 1, g: 1, b: 1, a: 1}
+    entryPulseScale: 1
+    entryPulseDuration: 0.4
   - name: Enraged
     entersAtHpFraction: 0.5
     patterns:
@@ -32,3 +35,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: b659cf286f40706418ba9395ce78d1e9, type: 2}
     - {fileID: 11400000, guid: 716e212ed21778242a0c5712dbb32f00, type: 2}
     hoverSpeedMultiplier: 1.5
+    tint: {r: 1, g: 0.35, b: 0.3, a: 1}
+    entryPulseScale: 1.45
+    entryPulseDuration: 0.5
