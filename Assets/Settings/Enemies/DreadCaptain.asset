@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
-  m_Name: Colossus
+  m_Name: DreadCaptain
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
-  maxHealth: 22
-  moveSpeed: 0.7
-  scoreValue: 500
+  maxHealth: 40
+  moveSpeed: 1
+  scoreValue: 800
   contactDamage: 2
-  description: A fortress given legs. Nothing gets through it until everything does.
+  description: 
   isMiniboss: 1
   curseOnDeath: 0
-  sprite: {fileID: 6344468113124548594, guid: 412157cba3862204caa80956788fe7ba, type: 3}
+  sprite: {fileID: 7515716579499400884, guid: 441debd56e965054aa242dd5b488cd25, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5
   weaveFrequency: 2
-  attack: {fileID: 0}
+  attack: {fileID: 11400000, guid: 28f97ce2a90488b4489c04fe26754fc2, type: 2}

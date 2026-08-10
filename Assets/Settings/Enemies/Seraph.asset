@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
-  m_Name: Colossus
+  m_Name: Seraph
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
-  maxHealth: 22
-  moveSpeed: 0.7
-  scoreValue: 500
-  contactDamage: 2
-  description: A fortress given legs. Nothing gets through it until everything does.
-  isMiniboss: 1
+  maxHealth: 12
+  moveSpeed: 1.5
+  scoreValue: 600
+  contactDamage: 1
+  description: 
+  isMiniboss: 0
   curseOnDeath: 0
-  sprite: {fileID: 6344468113124548594, guid: 412157cba3862204caa80956788fe7ba, type: 3}
+  sprite: {fileID: 3879108691304168583, guid: 73981af3dcf383c4686571777f6cf0f9, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
-  movement: 0
+  movement: 1
   weaveAmplitude: 1.5
   weaveFrequency: 2
-  attack: {fileID: 0}
+  attack: {fileID: 11400000, guid: 5e598201f5e63db40979e4154c6748a7, type: 2}
