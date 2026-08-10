@@ -22,6 +22,7 @@ namespace OneMoreKnight.Enemies
         [SerializeField] private Combat.Patterns.AttackPatternRunner attackRunner;
         [SerializeField] private SpriteRenderer spriteRenderer;
 
+        private CircleCollider2D circleCollider;
         private float hoverLineY;
         private float anchorX;
         private float hoverT;
@@ -47,6 +48,7 @@ namespace OneMoreKnight.Enemies
         {
             if (health == null) health = GetComponent<Health>();
             if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
+            circleCollider = GetComponent<CircleCollider2D>();
             baseScale = transform.localScale; // Begin overrides this per Boss
             health.Died += OnDied;
             health.Changed += OnHealthChanged;
@@ -83,6 +85,7 @@ namespace OneMoreKnight.Enemies
             spriteRenderer.color = Color.white;
             baseScale = Vector3.one * stats.scale;
             transform.localScale = baseScale;
+            ColliderFit.FitCircle(circleCollider, spriteRenderer.sprite);
 
             attackRunner.Initialize(bulletSpawner, heroMask);
             attackRunner.SetTarget(target);
