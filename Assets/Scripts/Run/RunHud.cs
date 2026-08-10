@@ -30,7 +30,16 @@ namespace OneMoreKnight.Run
         [SerializeField] private Text bossNameText;
         [SerializeField] private Image damageVignette;
         [SerializeField] private Text curseText;
+        [SerializeField] private Text buffText;
         [SerializeField] private Hero.HeroUpgrades heroUpgrades;
+
+        private static readonly (Hero.PowerupType type, string label)[] BuffLabels =
+        {
+            (Hero.PowerupType.Damage, "SWORD"),
+            (Hero.PowerupType.MoveSpeed, "WING"),
+            (Hero.PowerupType.FireRate, "BOLT")
+        };
+        private readonly System.Text.StringBuilder buffBuilder = new System.Text.StringBuilder(64);
         [SerializeField] [Min(0.05f)] private float vignetteFade = 0.5f;
         [Range(0f, 1f)] [SerializeField] private float vignettePeak = 0.55f;
 
@@ -61,11 +70,13 @@ namespace OneMoreKnight.Run
             if (damageVignette != null)
             {
                 vignetteStrength = Mathf.Max(0f, vignetteStrength - Time.deltaTime / vignetteFade);
-                Color c = damageVignette.color;
-                c.a = vignettePeak * vignetteStrength;
+                // Blind curse (#68): the vignette holds shut, near-black, for the duration.
+                bool blind = heroUpgrades != null && heroUpgrades.ActiveCurse == Hero.CurseType.Blind;
+                Color c = blind ? new Color(0.12f, 0.02f, 0.2f, 0.92f)
+                                : new Color(1f, 1f, 1f, vignettePeak * vignetteStrength);
                 damageVignette.color = c;
-                if (damageVignette.enabled != vignetteStrength > 0f)
-                    damageVignette.enabled = vignetteStrength > 0f;
+                bool visible = blind || vignetteStrength > 0f;
+                if (damageVignette.enabled != visible) damageVignette.enabled = visible;
             }
 
             // Curse readout (#55): name + seconds while a death-curse is active.
@@ -75,6 +86,21 @@ namespace OneMoreKnight.Run
                 string label = curse == Hero.CurseType.None ? ""
                     : $"CURSED — {curse.ToString().ToUpperInvariant()}  {heroUpgrades.CurseRemaining:0.0}s";
                 if (curseText.text != label) curseText.text = label;
+            }
+
+            // Buff readout (#67): the timed blessings, in gold.
+            if (buffText != null && heroUpgrades != null)
+            {
+                buffBuilder.Length = 0;
+                foreach (var (type, name) in BuffLabels)
+                {
+                    if (!heroUpgrades.BuffActive(type)) continue;
+                    if (buffBuilder.Length > 0) buffBuilder.Append("   ");
+                    buffBuilder.Append(name).Append(' ')
+                        .Append(heroUpgrades.BuffRemaining(type).ToString("0.0")).Append('s');
+                }
+                string buffs = buffBuilder.ToString();
+                if (buffText.text != buffs) buffText.text = buffs;
             }
 
             var boss = bossDirector != null ? bossDirector.ActiveBoss : null;

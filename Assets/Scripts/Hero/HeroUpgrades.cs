@@ -5,7 +5,7 @@ namespace OneMoreKnight.Hero
     public enum PowerupType
     {
         Damage,
-        MaxHp,
+        MaxHp,   // kept for pickup identity: acts as an instant +1 heal (#67)
         MoveSpeed,
         FireRate
     }
@@ -16,77 +16,76 @@ namespace OneMoreKnight.Hero
         /// <summary>Move speed ×0.6 while active.</summary>
         Leaden,
         /// <summary>Fire cooldown ×1.8 while active.</summary>
-        Jammed
+        Jammed,
+        /// <summary>The screen edges close in — vision shrinks while active (#68).</summary>
+        Blind,
+        /// <summary>Bullet damage −1 (min 1) while active (#68).</summary>
+        Weakness
     }
 
     /// <summary>
-    /// The Hero's per-Run modifier state (#55): powerup stacks (capped — the heart
-    /// cap is the endless-balance guard) and the active curse. Scene-lifetime state:
-    /// a fresh Run loads a fresh Game scene, so everything resets by construction.
+    /// The Hero's modifier state. Buffs are 10-second TIMED effects (#67 hotfix —
+    /// permanent stacks let testers coast to 120k): picking the same type again
+    /// refreshes the clock. The heart is an instant +1 heal instead. Curses are the
+    /// timed debuff mirror (#55/#68). Scene-lifetime state.
     /// </summary>
     public class HeroUpgrades : MonoBehaviour
     {
-        [Header("Caps")]
-        [SerializeField] [Min(0)] private int damageCap = 3;
-        [SerializeField] [Min(1)] private int maxHpCap = 6;
-        [SerializeField] [Min(0)] private int speedStackCap = 3;
-        [SerializeField] [Min(0)] private int fireStackCap = 3;
-
-        [Header("Per-stack strength")]
-        [SerializeField] private float speedPerStack = 0.12f;
-        [SerializeField] private float fireCooldownPerStack = 0.15f;
+        [Header("Buffs (#67)")]
+        [SerializeField] [Min(1f)] private float buffDuration = 10f;
+        [SerializeField] [Min(0)] private int swordBonusDamage = 2;
+        [SerializeField] private float wingSpeedMultiplier = 1.3f;
+        [SerializeField] private float boltCooldownMultiplier = 0.65f;
 
         [Header("Curses")]
         [SerializeField] [Min(0.5f)] private float curseDuration = 4f;
 
-        private int damageStacks;
-        private int speedStacks;
-        private int fireStacks;
+        private readonly float[] buffEndsAt = new float[4];
         private CurseType curse = CurseType.None;
         private float curseEndsAt;
 
-        /// <summary>A pickup landed (capped applications don't fire) — RunStats listens (#63).</summary>
+        /// <summary>A pickup landed — RunStats listens (#63).</summary>
         public event System.Action<PowerupType> PowerupApplied;
 
         /// <summary>A death-curse landed — RunStats listens (#63).</summary>
         public event System.Action<CurseType> CurseApplied;
 
-        public int BonusDamage => damageStacks;
-        public float MoveSpeedMultiplier =>
-            (1f + speedStacks * speedPerStack) * (ActiveCurse == CurseType.Leaden ? 0.6f : 1f);
-        public float FireCooldownMultiplier =>
-            (1f - fireStacks * fireCooldownPerStack) * (ActiveCurse == CurseType.Jammed ? 1.8f : 1f);
+        public bool BuffActive(PowerupType type) => Time.time < buffEndsAt[(int)type];
+        public float BuffRemaining(PowerupType type) => Mathf.Max(0f, buffEndsAt[(int)type] - Time.time);
 
         public CurseType ActiveCurse => Time.time < curseEndsAt ? curse : CurseType.None;
         public float CurseRemaining => Mathf.Max(0f, curseEndsAt - Time.time);
 
-        /// <summary>Applies one pickup. Returns false when the relevant cap is hit
-        /// (the pickup is consumed either way — greed is not refunded).</summary>
+        /// <summary>Added to the Hero's bullet damage. Weakness can push it negative —
+        /// the controller clamps the final damage to at least 1.</summary>
+        public int BonusDamage =>
+            (BuffActive(PowerupType.Damage) ? swordBonusDamage : 0)
+            - (ActiveCurse == CurseType.Weakness ? 1 : 0);
+
+        public float MoveSpeedMultiplier =>
+            (BuffActive(PowerupType.MoveSpeed) ? wingSpeedMultiplier : 1f)
+            * (ActiveCurse == CurseType.Leaden ? 0.6f : 1f);
+
+        public float FireCooldownMultiplier =>
+            (BuffActive(PowerupType.FireRate) ? boltCooldownMultiplier : 1f)
+            * (ActiveCurse == CurseType.Jammed ? 1.8f : 1f);
+
+        /// <summary>Applies one pickup: hearts heal +1 current (never past max), the
+        /// rest start/refresh their 10s clock. Returns false only for a full-HP heart.</summary>
         public bool Apply(PowerupType type)
         {
-            bool applied;
-            switch (type)
+            if (type == PowerupType.MaxHp)
             {
-                case PowerupType.Damage:
-                    applied = damageStacks < damageCap;
-                    if (applied) damageStacks++;
-                    break;
-                case PowerupType.MaxHp:
-                    var health = GetComponent<Combat.Health>();
-                    applied = health != null && health.Max < maxHpCap;
-                    if (applied) health.IncreaseMax(1); // +1 max AND +1 current - never a full heal
-                    break;
-                case PowerupType.MoveSpeed:
-                    applied = speedStacks < speedStackCap;
-                    if (applied) speedStacks++;
-                    break;
-                default:
-                    applied = fireStacks < fireStackCap;
-                    if (applied) fireStacks++;
-                    break;
+                var health = GetComponent<Combat.Health>();
+                if (health == null || health.Current >= health.Max) return false;
+                health.Heal(1);
             }
-            if (applied) PowerupApplied?.Invoke(type);
-            return applied;
+            else
+            {
+                buffEndsAt[(int)type] = Time.time + buffDuration;
+            }
+            PowerupApplied?.Invoke(type);
+            return true;
         }
 
         public void ApplyCurse(CurseType type)

@@ -81,7 +81,7 @@ namespace OneMoreKnight.Hero
         private void Fire()
         {
             float cooldownMult = upgrades != null ? upgrades.FireCooldownMultiplier : 1f;
-            int damage = bulletDamage + (upgrades != null ? upgrades.BonusDamage : 0);
+            int damage = Mathf.Max(1, bulletDamage + (upgrades != null ? upgrades.BonusDamage : 0));
             nextFireTime = Time.time + fireCooldown * cooldownMult;
             bulletSpawner.Spawn(
                 (Vector2)transform.position + muzzleOffset,
