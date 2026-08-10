@@ -35,6 +35,8 @@ This repo is docs-driven. Read these before working, and honour them in all outp
   (GitHub + `gh` CLI), `triage-labels.md` (triage label vocabulary), `domain.md`
   (how to consume the domain docs), `solid-unity.md` (SOLID applied pragmatically +
   Unity best practices).
+- **`Assets/docs/content-authoring.md`** — how to add enemies, Attack Patterns,
+  groups, waves, and Bosses as pure assets (no code). Read before authoring content.
 
 Documentation lives **under `Assets/`**, alongside the code it describes — that is
 the tree actually being edited. The cost is that Unity imports each document as an
