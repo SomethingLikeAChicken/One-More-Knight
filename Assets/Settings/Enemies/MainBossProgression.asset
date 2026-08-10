@@ -23,8 +23,12 @@ MonoBehaviour:
     maxDifficulty: 4
   pool:
   - {fileID: 11400000, guid: 7dcfd7a5200568a4ea5786293ce255e8, type: 2}
+  - {fileID: 11400000, guid: 29455908fffa6d145a7a80298afc1b78, type: 2}
   - {fileID: 11400000, guid: cae9d3f6c7745e141a58f60d36a1347a, type: 2}
+  - {fileID: 11400000, guid: cf5119b6df3c0e342bd2d4ad55cfbd5a, type: 2}
   - {fileID: 11400000, guid: d09e215712b72bc429beedcdf06e4ae3, type: 2}
+  - {fileID: 11400000, guid: 49d2956cd0eae7943880887c1b30e2ea, type: 2}
   - {fileID: 11400000, guid: 89d395940745b3e4984e140d7b947341, type: 2}
+  - {fileID: 11400000, guid: 630749fc376512f4fb3f86578680f75f, type: 2}
   endlessScoreStep: 6000
   endlessMaxDifficulty: 4
