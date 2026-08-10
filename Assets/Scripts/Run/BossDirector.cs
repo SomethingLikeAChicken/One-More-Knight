@@ -6,19 +6,11 @@ using OneMoreKnight.Waves;
 
 namespace OneMoreKnight.Run
 {
-    /// <summary>One roster slot: which Boss enters, and at what Score.</summary>
-    [System.Serializable]
-    public class BossEncounter
-    {
-        public BossStats boss;
-        [Min(1)] public int scoreThreshold = 1000;
-    }
-
     /// <summary>
-    /// Paces the Run's climaxes: an ordered roster of Boss encounters at rising Score
-    /// thresholds. When the Score crosses the next threshold, Wave spawning pauses and
-    /// that Boss enters; on Defeated the reward is scored, Waves resume, and the
-    /// roster advances. After the last encounter the Run keeps escalating on Waves.
+    /// Paces the Run's climaxes from a <see cref="BossProgression"/> (issue #30):
+    /// at each stage's Score threshold a random eligible Boss (difficulty ≤ the
+    /// stage cap) enters; on Defeated the reward is scored, Waves resume, and the
+    /// stage advances — endlessly, per the progression's endless rule.
     /// </summary>
     public class BossDirector : MonoBehaviour
     {
@@ -28,16 +20,30 @@ namespace OneMoreKnight.Run
         [SerializeField] private PlayArea playArea;
         [SerializeField] private BulletSpawner bulletSpawner;
         [SerializeField] private Boss bossPrefab;
+        [SerializeField] private BossProgression progression;
 
-        [Header("Roster")]
-        [SerializeField] private BossEncounter[] encounters = new BossEncounter[0];
+        [Header("Pacing")]
         [SerializeField] [Min(0f)] private float hoverLineFromTop = 1.6f;
 
-        private int nextEncounter;
+        private readonly System.Collections.Generic.List<BossStats> eligible =
+            new System.Collections.Generic.List<BossStats>(8);
+        private System.Random rng;
+        private BossStats lastPicked;
+        private int stageIndex;
 
         public Boss ActiveBoss { get; private set; }
 
-        private void Awake() => runManager.Changed += OnRunChanged;
+        /// <summary>Kills so far this Run — drives the backdrop palette.</summary>
+        public int BossesDefeated { get; private set; }
+
+        public event System.Action BossDefeated;
+
+        private void Awake()
+        {
+            // Per-Run seed, owned System.Random - the ADR-0005 seam, like the waves.
+            rng = new System.Random(System.Environment.TickCount ^ 0x5f3759df);
+            runManager.Changed += OnRunChanged;
+        }
 
         private void OnDestroy()
         {
@@ -47,11 +53,27 @@ namespace OneMoreKnight.Run
 
         private void OnRunChanged()
         {
-            if (ActiveBoss != null || runManager.IsOver) return;
-            if (nextEncounter >= encounters.Length) return;
-            if (runManager.Score < encounters[nextEncounter].scoreThreshold) return;
-            Summon(encounters[nextEncounter].boss);
-            nextEncounter++;
+            if (ActiveBoss != null || runManager.IsOver || progression == null) return;
+            progression.GetStage(stageIndex, out int threshold, out int maxDifficulty);
+            if (runManager.Score < threshold) return;
+
+            BossStats pick = PickEligible(maxDifficulty);
+            if (pick == null) return;
+            Summon(pick);
+            lastPicked = pick;
+            stageIndex++;
+        }
+
+        /// <summary>Random pool Boss with difficulty ≤ the cap, avoiding the
+        /// immediately previous Boss when alternatives exist.</summary>
+        private BossStats PickEligible(int maxDifficulty)
+        {
+            eligible.Clear();
+            foreach (BossStats b in progression.pool)
+                if (b != null && b.difficulty <= maxDifficulty) eligible.Add(b);
+            if (eligible.Count == 0) return null;
+            if (eligible.Count > 1 && lastPicked != null) eligible.Remove(lastPicked);
+            return eligible[rng.Next(eligible.Count)];
         }
 
         private void Summon(BossStats definition)
@@ -73,6 +95,8 @@ namespace OneMoreKnight.Run
         private void OnBossDefeated(Boss boss)
         {
             boss.Defeated -= OnBossDefeated;
+            BossesDefeated++;
+            BossDefeated?.Invoke();
             runManager.AddScore(boss.Stats.scoreReward);
             Destroy(boss.gameObject);
             ActiveBoss = null;
