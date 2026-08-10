@@ -79,6 +79,11 @@ namespace OneMoreKnight.Combat.Patterns
         [Tooltip("Rotates the base direction by this many degrees per emission - spirals and rotating fans. 0 = off.")]
         public float angleStepPerEmission;
 
+        [Header("Telegraph (CONTEXT.md: the warning before a strong attack)")]
+        [Tooltip("Seconds the actor pulses before the burst fires. 0 = no telegraph.")]
+        [Min(0f)] public float telegraphDuration;
+        public Color telegraphColor = Color.white;
+
         [Header("Bullet")]
         [Min(0.1f)] public float bulletSpeed = 3.5f;
         [Min(1)] public int bulletDamage = 1;
