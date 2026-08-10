@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d547249a33096479b8a2fd1c64dbbd, type: 3}
+  m_Name: TheHost
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Waves.GroupDefinition
+  difficulty: 40
+  minWave: 22
+  slots:
+  - type: {fileID: 11400000, guid: e89c4c99aef52b4418d4f46381a641f7, type: 2}
+    count: 2
+    formation: 0
+    anchor: 0
+    spacing: 1.3
+    spawnInterval: 0.6
+    delayBeforeSlot: 0
+  - type: {fileID: 11400000, guid: 9c3e19e8f8d62d64cba2d47c3ca44d7a, type: 2}
+    count: 1
+    formation: 2
+    anchor: -0.5
+    spacing: 1.3
+    spawnInterval: 0.3
+    delayBeforeSlot: 0.9
+  - type: {fileID: 11400000, guid: 9c3e19e8f8d62d64cba2d47c3ca44d7a, type: 2}
+    count: 1
+    formation: 2
+    anchor: 0.5
+    spacing: 1.3
+    spawnInterval: 0.3
+    delayBeforeSlot: 0
+  - type: {fileID: 11400000, guid: 5eac855f75562f44baf8859438ae6b29, type: 2}
+    count: 1
+    formation: 2
+    anchor: -0.5
+    spacing: 1.3
+    spawnInterval: 0.3
+    delayBeforeSlot: 1.1
+  - type: {fileID: 11400000, guid: 5eac855f75562f44baf8859438ae6b29, type: 2}
+    count: 1
+    formation: 2
+    anchor: 0.5
+    spacing: 1.3
+    spawnInterval: 0.3
+    delayBeforeSlot: 0
+  - type: {fileID: 11400000, guid: e2ecf5ee33ea8c747b971eaba88c8d55, type: 2}
+    count: 1
+    formation: 2
+    anchor: 0
+    spacing: 1.3
+    spawnInterval: 0.4
+    delayBeforeSlot: 1
+  - type: {fileID: 11400000, guid: d54fe61f6206fe448906ee8021b51f83, type: 2}
+    count: 3
+    formation: 1
+    anchor: 0
+    spacing: 1.3
+    spawnInterval: 0.3
+    delayBeforeSlot: 1.2
