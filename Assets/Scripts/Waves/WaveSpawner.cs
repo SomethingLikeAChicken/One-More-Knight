@@ -163,6 +163,20 @@ namespace OneMoreKnight.Waves
             alive++;
         }
 
+        /// <summary>Spawns one Enemy outside the Wave plan — the Boss summon seam.
+        /// Same pool, scoring, and despawn wiring as Wave spawns; no Wave multipliers,
+        /// and it counts toward <c>alive</c> so a resumed Wave still waits for it.</summary>
+        public void SpawnReinforcement(EnemyStats type, Vector2 position)
+        {
+            if (type == null) return;
+            Rect bounds = playArea.Bounds;
+            position.x = Mathf.Clamp(position.x, bounds.xMin, bounds.xMax);
+
+            Enemy enemy = pool.Get();
+            enemy.Spawn(type, position, 1f, 1f, playArea.DespawnLineY);
+            alive++;
+        }
+
         private void OnEnemyKilled(Enemy enemy) => runManager.AddScore(enemy.Stats.scoreValue);
 
         private void OnEnemyRetired(Enemy enemy)

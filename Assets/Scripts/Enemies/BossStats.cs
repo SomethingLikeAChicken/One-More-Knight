@@ -24,6 +24,12 @@ namespace OneMoreKnight.Enemies
         [Tooltip("Entry pulse peak as a scale multiplier. 1 = no pulse.")]
         [Min(1f)] public float entryPulseScale = 1f;
         [Min(0.05f)] public float entryPulseDuration = 0.4f;
+
+        [Header("Summons (null = the Phase summons nothing)")]
+        [Tooltip("Enemy type this Phase calls in beside the Boss while it keeps firing.")]
+        public EnemyStats summonType;
+        [Min(1)] public int summonCount = 2;
+        [Min(0.5f)] public float summonInterval = 5f;
     }
 
     /// <summary>
