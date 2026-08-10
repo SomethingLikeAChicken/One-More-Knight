@@ -21,6 +21,7 @@ namespace OneMoreKnight.Enemies
         [SerializeField] private Combat.Patterns.AttackPatternRunner attackRunner;
         [SerializeField] private SpriteRenderer spriteRenderer;
 
+        private CircleCollider2D circleCollider;
         private float speed;
         private float despawnY;
         private float anchorX;
@@ -41,6 +42,7 @@ namespace OneMoreKnight.Enemies
         {
             if (health == null) health = GetComponent<Health>();
             if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
+            circleCollider = GetComponent<CircleCollider2D>();
             health.Died += OnDied;
         }
 
@@ -76,6 +78,7 @@ namespace OneMoreKnight.Enemies
 
             spriteRenderer.sprite = stats.sprite;
             spriteRenderer.color = stats.tint;
+            ColliderFit.FitCircle(circleCollider, stats.sprite);
 
             // Attacks are driven entirely by the type's Pattern asset (ADR-0003); the
             // runner resets all timing state here, so a recycled instance starts fresh.
