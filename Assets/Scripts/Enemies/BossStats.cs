@@ -66,6 +66,15 @@ namespace OneMoreKnight.Enemies
         [Min(0f)] public float hoverSpeed = 1.1f;
         [Min(0f)] public float hoverAmplitude = 2.4f;
 
+        [Header("Shield (#79 - 0 = no ward)")]
+        [Tooltip("Ward points broken before HP takes damage. The HUD bar shows the " +
+                 "ward in blue; phases wait for the break because the HP fraction " +
+                 "does not move while the ward holds.")]
+        [Min(0)] public int shieldHealth;
+        [Tooltip("Sprite held in front of the Boss while the ward holds (Bulwark's " +
+                 "slab is the house style). Tinted blue at runtime.")]
+        public Sprite shieldSprite;
+
         [Header("Phases (ordered; empty = the runner's own serialized Patterns)")]
         public BossPhase[] phases = new BossPhase[0];
     }

@@ -23,6 +23,7 @@ namespace OneMoreKnight.Enemies
         [SerializeField] private SpriteRenderer spriteRenderer;
 
         private CircleCollider2D circleCollider;
+        private BossShield shieldVisual;
         private Waves.WaveSpawner reinforcements;
         private float nextSummonAt;
         private float hoverLineY;
@@ -54,6 +55,7 @@ namespace OneMoreKnight.Enemies
             baseScale = transform.localScale; // Begin overrides this per Boss
             health.Died += OnDied;
             health.Changed += OnHealthChanged;
+            health.ShieldBroken += OnShieldBroken;
         }
 
         private void OnDestroy()
@@ -62,6 +64,7 @@ namespace OneMoreKnight.Enemies
             {
                 health.Died -= OnDied;
                 health.Changed -= OnHealthChanged;
+                health.ShieldBroken -= OnShieldBroken;
             }
         }
 
@@ -84,6 +87,14 @@ namespace OneMoreKnight.Enemies
             entering = true;
             currentPhase = -1;
             health.ResetHealth(stats.maxHealth);
+
+            // The ward (#79): damage breaks it before HP moves; the visual shatters
+            // via ShieldBroken. Phases wait naturally - the HP fraction is frozen.
+            if (stats.shieldHealth > 0)
+            {
+                health.SetShield(stats.shieldHealth);
+                shieldVisual = BossShield.Spawn(transform, stats.shieldSprite);
+            }
 
             if (stats.sprite != null) spriteRenderer.sprite = stats.sprite;
             spriteRenderer.color = Color.white;
@@ -204,6 +215,17 @@ namespace OneMoreKnight.Enemies
                 pulseDuration = phase.entryPulseDuration;
                 pulseEndsAt = Time.time + phase.entryPulseDuration;
             }
+        }
+
+        private void OnShieldBroken(Health _)
+        {
+            // The unlock must be unmissable (CONTEXT.md: Telegraph): the ward
+            // shatters and the Boss itself kicks, like a phase entry.
+            if (shieldVisual != null) shieldVisual.Break();
+            shieldVisual = null;
+            pulsePeak = 1.35f;
+            pulseDuration = 0.5f;
+            pulseEndsAt = Time.time + pulseDuration;
         }
 
         private void OnDied(Health _)
