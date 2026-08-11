@@ -38,6 +38,18 @@ namespace OneMoreKnight.EditorTools
                     if (x >= 0 && x < W && y >= 0 && y < H) px[y * W + x] = c;
         }
 
+        private static void Ellipse(float cx, float cy, float rx, float ry, Color c)
+        {
+            float px0 = cx * (W - 1), py0 = cy * (H - 1);
+            float ax = Mathf.Max(0.5f, rx * (W - 1)), ay = Mathf.Max(0.5f, ry * (H - 1));
+            for (int y = 0; y < H; y++)
+                for (int x = 0; x < W; x++)
+                {
+                    float nx = (x - px0) / ax, ny = (y - py0) / ay;
+                    if (nx * nx + ny * ny <= 1f) px[y * W + x] = c;
+                }
+        }
+
         private static void Disc(float cx, float cy, float radius, Color c)
         {
             float r = radius * (W - 1);
@@ -369,12 +381,12 @@ namespace OneMoreKnight.EditorTools
             { "HeroMageVerdant", () => Mage(Verdant, new Color(0.85f, 1f, 0.6f)) },
             { "HeroMagePale", () => Mage(Storm, new Color(0.6f, 0.85f, 1f)) },
             { "RiftKnight", () => Mage(Voidp, new Color(1f, 0.6f, 0.95f)) },
-            // the Hero's flame bolt: bright core so per-skin tints multiply cleanly
+            // the Hero's bolt (#109): a clean SYMMETRIC oval - outline, warm fill,
+            // white core - still near-white so per-skin fireTints multiply cleanly
             { "bullet-hero", () => {
-                Disc(0.5f, 0.42f, 0.3f, new Color(1f, 0.92f, 0.75f));
-                Disc(0.5f, 0.42f, 0.18f, Color.white);
-                R(0.42f, 0.6f, 0.58f, 0.8f, new Color(1f, 0.92f, 0.75f));
-                R(0.46f, 0.78f, 0.54f, 0.95f, new Color(1f, 0.92f, 0.75f, 0.7f));
+                Ellipse(0.5f, 0.5f, 0.46f, 0.46f, Ink);
+                Ellipse(0.5f, 0.5f, 0.36f, 0.38f, new Color(1f, 0.92f, 0.75f));
+                Ellipse(0.5f, 0.5f, 0.2f, 0.24f, Color.white);
             } },
             // original roster - Descender lives in the M1-era "enemy.png" and The
             // Gatekeeper in "Boss.png" (#103); the map targets the REAL filenames.
@@ -508,6 +520,10 @@ namespace OneMoreKnight.EditorTools
                 var importer = (TextureImporter)AssetImporter.GetAtPath(path);
                 if (importer == null) continue;
                 importer.textureType = TextureImporterType.Sprite;
+                // Single, explicitly (#109 postmortem): fresh textures default to
+                // auto-sliced Multiple here, and the first island of a mage is his
+                // STAFF - which is all the wardrobe then showed.
+                importer.spriteImportMode = SpriteImportMode.Single;
                 importer.spritePixelsPerUnit = 32;
                 importer.filterMode = FilterMode.Point;
                 importer.textureCompression = TextureImporterCompression.Uncompressed;

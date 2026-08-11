@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkinVerdant
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Hero.HeroSkin
   displayName: Verdant Knight
-  sprite: {fileID: 7662638834221855042, guid: d6a3b79310f8c86418c5ff7e66cf6886, type: 3}
+  sprite: {fileID: 21300000, guid: d6a3b79310f8c86418c5ff7e66cf6886, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   fireTint: {r: 0.85, g: 1, b: 0.6, a: 1}
   unlockAchievement: cursed-collector
