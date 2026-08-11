@@ -37,7 +37,8 @@ namespace OneMoreKnight.Run
         {
             (Hero.PowerupType.Damage, "SWORD"),
             (Hero.PowerupType.MoveSpeed, "WING"),
-            (Hero.PowerupType.FireRate, "BOLT")
+            (Hero.PowerupType.FireRate, "BOLT"),
+            (Hero.PowerupType.Aegis, "AEGIS")
         };
         private readonly System.Text.StringBuilder buffBuilder = new System.Text.StringBuilder(64);
         [SerializeField] [Min(0.05f)] private float vignetteFade = 0.5f;
