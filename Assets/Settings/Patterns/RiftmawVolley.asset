@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5908154f0bb25048afc91d126b1272b, type: 3}
+  m_Name: RiftmawVolley
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Combat.Patterns.AttackPattern
+  muzzleOffset: 0.35
+  originMode: 1
+  riftTelegraph: 1
+  formation: 1
+  bulletCount: 3
+  spreadAngle: 30
+  wallSpacing: 0.8
+  direction: 0
+  fixedAngle: 0
+  motion: 2
+  sineAmplitude: 0.6
+  sineFrequency: 6
+  homingTurnSpeed: 100
+  homingDuration: 1
+  cooldown: 6.5
+  initialDelay: 2
+  burstCount: 2
+  burstSpacing: 0.4
+  angleStepPerEmission: 0
+  telegraphDuration: 0
+  telegraphColor: {r: 1, g: 1, b: 1, a: 1}
+  bulletSpeed: 2.8
+  bulletDamage: 1
+  acceleration: 0
+  bulletTint: {r: 1, g: 0.32, b: 0.38, a: 1}

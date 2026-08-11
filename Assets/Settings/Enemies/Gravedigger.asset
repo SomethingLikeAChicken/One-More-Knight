@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
+  m_Name: Gravedigger
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
+  maxHealth: 4
+  moveSpeed: 1.6
+  scoreValue: 350
+  contactDamage: 1
+  description: Dug graves for the host until he noticed nobody was filling his. The
+    shovel still works either way.
+  tactics: CURSED - killing it drops Leaden on you (move speed crushed). The dark
+    aura is the warning. Kill it only with room to be slow in, or route around it
+    entirely.
+  isMiniboss: 0
+  guaranteedDrop: 0
+  curseOnDeath: 1
+  sprite: {fileID: -3284151758808637668, guid: fb6cf07a3513786459a45ffd9bbc0c6d, type: 3}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  movement: 0
+  weaveAmplitude: 1.5
+  weaveFrequency: 2
+  attack: {fileID: 11400000, guid: 040eea6cdd2cf43468488e347cf339a0, type: 2}

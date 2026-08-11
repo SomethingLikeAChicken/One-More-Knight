@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
+  m_Name: Martyr
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
+  maxHealth: 5
+  moveSpeed: 1.4
+  scoreValue: 400
+  contactDamage: 1
+  description: Died for the cause once already. The cause was not grateful. Now everyone
+    gets to share the experience.
+  tactics: CURSED - its death inflicts Weakness (-1 damage) for the duration. A weaving
+    arc-shooter you often WANT to leave alive while heavier targets need full swords.
+    Fire discipline.
+  isMiniboss: 0
+  guaranteedDrop: 0
+  curseOnDeath: 4
+  sprite: {fileID: 7987554248615341447, guid: 7bb9392be3daec945b6375376036304c, type: 3}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  movement: 1
+  weaveAmplitude: 1.5
+  weaveFrequency: 2
+  attack: {fileID: 11400000, guid: c7d9391491d595642bbe8d2c7428896c, type: 2}

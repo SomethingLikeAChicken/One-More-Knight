@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
+  m_Name: StandardBearer
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
+  maxHealth: 18
+  moveSpeed: 1
+  scoreValue: 900
+  contactDamage: 2
+  description: The standard has fallen eleven times. He picks it up every time. It
+    is starting to look personal.
+  tactics: An 18-HP MINIBOSS (tracked bar) firing telegraphed aimed volleys - a fair,
+    killable duel that ALWAYS drops a wing. Strafe through the volleys and take the
+    speed you will need.
+  isMiniboss: 1
+  guaranteedDrop: 3
+  curseOnDeath: 0
+  sprite: {fileID: -7499839902384475461, guid: 258b86ec2a4dc3a479a3cc6817d30a2e, type: 3}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  movement: 0
+  weaveAmplitude: 1.5
+  weaveFrequency: 2
+  attack: {fileID: 11400000, guid: 28f97ce2a90488b4489c04fe26754fc2, type: 2}
