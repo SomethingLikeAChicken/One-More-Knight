@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9859ed56bb2a2bd4e888a5f7f229edd8, type: 3}
+  m_Name: MainSkinCatalog
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Hero.SkinCatalog
+  skins:
+  - {fileID: 11400000, guid: 57458a3b6d2be60408e81392147b2079, type: 2}
+  - {fileID: 11400000, guid: 7e5c99c3d4b99a24a981721cfaa66249, type: 2}
+  - {fileID: 11400000, guid: 524ba30d68addf044bb5443f947a73f7, type: 2}
+  - {fileID: 11400000, guid: 9a89c2d867fe47743840d54693f41c6a, type: 2}
+  - {fileID: 11400000, guid: 9d035661d8417684f85fb80e2ab9f853, type: 2}
+  - {fileID: 11400000, guid: 591316568eb60864080a696f87f96655, type: 2}
+  - {fileID: 11400000, guid: c6f08d4011ba0294081cebd3c5f7d6f7, type: 2}
+  - {fileID: 11400000, guid: 0e65f2d075606db44a456ba60a4bc7ab, type: 2}

@@ -23,10 +23,16 @@ namespace OneMoreKnight.Hero
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
-            baseColor = spriteRenderer.color;
             if (health == null) health = GetComponent<Health>();
             health.Changed += OnHealthChanged;
             lastHp = health.Current;
+        }
+
+        private void Start()
+        {
+            // Captured in Start, after HeroSkinApplier's Awake (#89): the flash and
+            // curse pulses must return to the SKIN's tint, not to white.
+            baseColor = spriteRenderer.color;
         }
 
         private void OnDestroy()

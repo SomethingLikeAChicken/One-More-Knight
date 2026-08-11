@@ -1531,6 +1531,7 @@ GameObject:
   - component: {fileID: 2057006110}
   - component: {fileID: 2057006115}
   - component: {fileID: 2057006116}
+  - component: {fileID: 2057006117}
   m_Layer: 6
   m_Name: Hero
   m_TagString: Untagged
@@ -1745,6 +1746,19 @@ MonoBehaviour:
   wingSpeedMultiplier: 1.3
   boltCooldownMultiplier: 0.65
   curseDuration: 4
+--- !u!114 &2057006117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057006108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a8f926fd28d4897a5daab0eed033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Hero.HeroSkinApplier
+  catalog: {fileID: 11400000, guid: 2654cc7778785ce408faa6139afe022d, type: 2}
 --- !u!1 &2102539940
 GameObject:
   m_ObjectHideFlags: 0
