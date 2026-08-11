@@ -217,6 +217,17 @@ namespace OneMoreKnight.Enemies
             }
         }
 
+        /// <summary>Ends the guarded state (#81): the last lackey fell, the Boss is
+        /// vulnerable and announces it with a phase-entry-style kick. The director
+        /// owns WHEN; the Boss owns how it looks.</summary>
+        public void Unleash()
+        {
+            health.Invulnerable = false;
+            pulsePeak = 1.4f;
+            pulseDuration = 0.6f;
+            pulseEndsAt = Time.time + pulseDuration;
+        }
+
         private void OnShieldBroken(Health _)
         {
             // The unlock must be unmissable (CONTEXT.md: Telegraph): the ward
