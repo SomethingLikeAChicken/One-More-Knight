@@ -49,6 +49,10 @@ namespace OneMoreKnight.Run
         /// <summary>Defeat with the death position — the spoils system (#55) listens.</summary>
         public event System.Action<Vector2> BossDefeatedAt;
 
+        /// <summary>Defeat with the identity (#91) — RunStats tallies WHICH boss fell,
+        /// mains and lackeys alike, so "slay the Pale King" can be an achievement.</summary>
+        public event System.Action<BossStats> BossSlain;
+
         private void Awake()
         {
             // Per-Run seed, owned System.Random - the ADR-0005 seam, like the waves.
@@ -142,6 +146,7 @@ namespace OneMoreKnight.Run
 
             // A lackey pays like a boss (reward outside the stage thresholds, #68,
             // and a guaranteed drop) but does not count as one (#81).
+            BossSlain?.Invoke(lackey.Stats);
             BossDefeatedAt?.Invoke(lackey.transform.position);
             rewardScore += lackey.Stats.scoreReward;
             runManager.AddScore(lackey.Stats.scoreReward);
@@ -164,6 +169,7 @@ namespace OneMoreKnight.Run
             }
             activeLackeys.Clear();
             BossesDefeated++;
+            BossSlain?.Invoke(boss.Stats);
             BossDefeated?.Invoke();
             BossDefeatedAt?.Invoke(boss.transform.position);
             rewardScore += boss.Stats.scoreReward;
