@@ -20,13 +20,18 @@ namespace OneMoreKnight.Run
         [SerializeField] private Pickup pickupPrefab;
         [SerializeField] private HeroUpgrades heroUpgrades;
         [SerializeField] private LayerMask heroMask;
+        [SerializeField] private RunManager runManager;
+        [SerializeField] private BulletSpawner bulletSpawner;
 
         [Header("Drops")]
         [Range(0f, 1f)] [SerializeField] private float dropChance = 0.05f;
-        [Tooltip("Sprites indexed by PowerupType: Damage, MaxHp, MoveSpeed, FireRate.")]
-        [SerializeField] private Sprite[] typeSprites = new Sprite[4];
-        [Tooltip("Relative weights per PowerupType - hearts stay RARE (nerfed on live feedback).")]
-        [SerializeField] private float[] typeWeights = { 1f, 0.12f, 1f, 1f };
+        [Tooltip("Sprites indexed by PowerupType: Damage, MaxHp, MoveSpeed, FireRate, Aegis, Purge.")]
+        [SerializeField] private Sprite[] typeSprites = new Sprite[6];
+        [Tooltip("Relative weights per PowerupType - hearts stay RARE (nerfed on live feedback), " +
+                 "the defensive pair (#83) rarer than swords.")]
+        [SerializeField] private float[] typeWeights = { 1f, 0.12f, 1f, 1f, 0.3f, 0.25f };
+        [Tooltip("Aegis/Purge only roll from this wave (#83) - the early game does not need them.")]
+        [SerializeField] [Min(1)] private int lateTypesMinWave = 12;
 
         private System.Random rng;
 
@@ -35,12 +40,22 @@ namespace OneMoreKnight.Run
             rng = new System.Random(System.Environment.TickCount ^ 0x2b992ddf);
             if (waveSpawner != null) waveSpawner.EnemyKilled += OnEnemyKilled;
             if (bossDirector != null) bossDirector.BossDefeatedAt += OnBossDefeatedAt;
+            if (heroUpgrades != null) heroUpgrades.PowerupApplied += OnPowerupApplied;
         }
 
         private void OnDestroy()
         {
             if (waveSpawner != null) waveSpawner.EnemyKilled -= OnEnemyKilled;
             if (bossDirector != null) bossDirector.BossDefeatedAt -= OnBossDefeatedAt;
+            if (heroUpgrades != null) heroUpgrades.PowerupApplied -= OnPowerupApplied;
+        }
+
+        /// <summary>Purge (#83) is a world effect, so the spoils system executes it —
+        /// HeroUpgrades stays hero-local.</summary>
+        private void OnPowerupApplied(PowerupType type)
+        {
+            if (type == PowerupType.Purge && bulletSpawner != null)
+                bulletSpawner.ClearThreatening(heroMask);
         }
 
         private void OnEnemyKilled(EnemyStats stats, Vector2 position)
@@ -81,10 +96,16 @@ namespace OneMoreKnight.Run
 
         private PowerupType RollType()
         {
+            // The defensive pair (#83) joins the table late - early waves keep the
+            // original four-type roll.
+            int rollable = runManager != null && runManager.Wave >= lateTypesMinWave
+                ? typeWeights.Length
+                : Mathf.Min(typeWeights.Length, (int)PowerupType.Aegis);
+
             float total = 0f;
-            foreach (float w in typeWeights) total += w;
+            for (int i = 0; i < rollable; i++) total += typeWeights[i];
             double roll = rng.NextDouble() * total;
-            for (int i = 0; i < typeWeights.Length; i++)
+            for (int i = 0; i < rollable; i++)
             {
                 roll -= typeWeights[i];
                 if (roll <= 0) return (PowerupType)i;

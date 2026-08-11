@@ -979,17 +979,24 @@ MonoBehaviour:
   heroMask:
     serializedVersion: 2
     m_Bits: 64
+  runManager: {fileID: 1283923270}
+  bulletSpawner: {fileID: 685176717}
   dropChance: 0.05
   typeSprites:
   - {fileID: 5234911950723891054, guid: 7723d7046e113fb4b82a450448c085d9, type: 3}
   - {fileID: -3142739962884015420, guid: 9e820e6215cda914e9774d051b2a2b9e, type: 3}
   - {fileID: -2742439556841864147, guid: ba1b9eb5c00c3ca4ab6605815e47aa06, type: 3}
   - {fileID: -713744381404633200, guid: 71e433127f4bdbb458252d6376f556ac, type: 3}
+  - {fileID: -8710925743015331092, guid: 791d2de23a3ecce44b3b2eb9d7ea0462, type: 3}
+  - {fileID: -8726450358302700877, guid: c67bd5e2e4e14764a9d12185ae373e23, type: 3}
   typeWeights:
   - 1
   - 0.12
   - 1
   - 1
+  - 0.3
+  - 0.25
+  lateTypesMinWave: 12
 --- !u!4 &1173818853
 Transform:
   m_ObjectHideFlags: 0

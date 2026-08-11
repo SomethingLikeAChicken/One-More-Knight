@@ -37,6 +37,14 @@ namespace OneMoreKnight.Combat
         /// tests can verify the fairness cap instead of eyeballing it.</summary>
         public bool IsSteering => motion.Type == BulletMotionType.Homing && age < motion.HomingDuration;
 
+        /// <summary>Whether this Bullet can hit anything on <paramref name="mask"/> —
+        /// how Purge (#83) tells hostile Bullets from the Hero's own.</summary>
+        public bool Threatens(LayerMask mask) => (filter.layerMask.value & mask.value) != 0;
+
+        /// <summary>Removes the Bullet mid-flight (#83 Purge) — the same guarded
+        /// release as lifetime expiry, safe against double-release.</summary>
+        public void Vanish() => Release();
+
         private void Awake() => spriteRenderer = GetComponent<SpriteRenderer>();
 
         /// <summary>Prepares a pooled Bullet for one flight. Resets ALL per-life state —

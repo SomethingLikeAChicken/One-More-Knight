@@ -7,7 +7,11 @@ namespace OneMoreKnight.Hero
         Damage,
         MaxHp,   // kept for pickup identity: acts as an instant +1 heal (#67)
         MoveSpeed,
-        FireRate
+        FireRate,
+        /// <summary>One-hit ward via Health.Shield (#83) - late-game only.</summary>
+        Aegis,
+        /// <summary>Instant: clears every hostile Bullet on screen (#83) - late-game only.</summary>
+        Purge
     }
 
     public enum CurseType
@@ -40,9 +44,11 @@ namespace OneMoreKnight.Hero
         [Header("Curses")]
         [SerializeField] [Min(0.5f)] private float curseDuration = 4f;
 
-        private readonly float[] buffEndsAt = new float[4];
+        private readonly float[] buffEndsAt = new float[6];
         private CurseType curse = CurseType.None;
         private float curseEndsAt;
+        private Combat.Health health;
+        private AegisAura aura;
 
         /// <summary>A pickup landed — RunStats listens (#63).</summary>
         public event System.Action<PowerupType> PowerupApplied;
@@ -50,8 +56,23 @@ namespace OneMoreKnight.Hero
         /// <summary>A death-curse landed — RunStats listens (#63).</summary>
         public event System.Action<CurseType> CurseApplied;
 
-        public bool BuffActive(PowerupType type) => Time.time < buffEndsAt[(int)type];
+        // Aegis is over the moment its ward is spent, timer or not (#83).
+        public bool BuffActive(PowerupType type) => Time.time < buffEndsAt[(int)type]
+            && (type != PowerupType.Aegis || (health != null && health.Shield > 0));
         public float BuffRemaining(PowerupType type) => Mathf.Max(0f, buffEndsAt[(int)type] - Time.time);
+
+        private void Awake() => health = GetComponent<Combat.Health>();
+
+        private void Update()
+        {
+            // An unspent Aegis ward expires with its clock (#83).
+            if (health != null && health.Shield > 0
+                && buffEndsAt[(int)PowerupType.Aegis] > 0f && !BuffActive(PowerupType.Aegis))
+            {
+                health.SetShield(0);
+                buffEndsAt[(int)PowerupType.Aegis] = 0f;
+            }
+        }
 
         public CurseType ActiveCurse => Time.time < curseEndsAt ? curse : CurseType.None;
         public float CurseRemaining => Mathf.Max(0f, curseEndsAt - Time.time);
@@ -70,19 +91,28 @@ namespace OneMoreKnight.Hero
             (BuffActive(PowerupType.FireRate) ? boltCooldownMultiplier : 1f)
             * (ActiveCurse == CurseType.Jammed ? 1.8f : 1f);
 
-        /// <summary>Applies one pickup: hearts heal +1 current (never past max), the
-        /// rest start/refresh their 10s clock. Returns false only for a full-HP heart.</summary>
+        /// <summary>Applies one pickup: hearts heal +1 current (never past max), Aegis
+        /// raises the one-hit ward (#83), Purge is instant (the spoils system executes
+        /// the clear via <see cref="PowerupApplied"/>), the rest start/refresh their
+        /// 10s clock. Returns false only for a full-HP heart.</summary>
         public bool Apply(PowerupType type)
         {
-            if (type == PowerupType.MaxHp)
+            switch (type)
             {
-                var health = GetComponent<Combat.Health>();
-                if (health == null || health.Current >= health.Max) return false;
-                health.Heal(1);
-            }
-            else
-            {
-                buffEndsAt[(int)type] = Time.time + buffDuration;
+                case PowerupType.MaxHp:
+                    if (health == null || health.Current >= health.Max) return false;
+                    health.Heal(1);
+                    break;
+                case PowerupType.Aegis:
+                    health.SetShield(1);
+                    buffEndsAt[(int)type] = Time.time + buffDuration;
+                    if (aura == null) aura = AegisAura.Attach(transform, health);
+                    break;
+                case PowerupType.Purge:
+                    break; // world effect - PowerupDirector listens
+                default:
+                    buffEndsAt[(int)type] = Time.time + buffDuration;
+                    break;
             }
             PowerupApplied?.Invoke(type);
             return true;

@@ -41,5 +41,22 @@ namespace OneMoreKnight.Combat
             bullet.Arm(origin, direction, speed, damage, hitMask, bulletLifetime, pool.Release, tint, motion);
             return bullet;
         }
+
+        /// <summary>Purge (#83): releases every active Bullet that could hit
+        /// <paramref name="mask"/>. Pooled Bullets are all children of this spawner,
+        /// so the sweep is a child walk, not a scene search.</summary>
+        public int ClearThreatening(LayerMask mask)
+        {
+            int cleared = 0;
+            foreach (Transform child in transform)
+            {
+                if (!child.gameObject.activeSelf) continue;
+                var bullet = child.GetComponent<Bullet>();
+                if (bullet == null || !bullet.Threatens(mask)) continue;
+                bullet.Vanish();
+                cleared++;
+            }
+            return cleared;
+        }
     }
 }
