@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
+  m_Name: BossWarlord
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
+  maxHealth: 160
+  contactDamage: 1
+  scoreReward: 2500
+  description: Won every siege he ever laid by the simple expedient of never once
+    going home.
+  tactics: 'A 45-point iron ward - the blue bar - fronts a wall-thrower. Break the
+    ward through sweeping walls and aimed shots, then the true Onslaught starts at
+    FULL health: wide fans between the walls. Flank the walls; they sweep, they do
+    not chase.'
+  displayName: The Warlord
+  difficulty: 4
+  sprite: {fileID: -6585689496698272637, guid: 071f765755a20864bafc97902b47c7dc, type: 3}
+  scale: 1.2
+  entrySpeed: 2.2
+  hoverSpeed: 1.1
+  hoverAmplitude: 2.6
+  lackeys: []
+  shieldHealth: 45
+  shieldSprite: {fileID: 307852957207225814, guid: 0ecd6ad4cf9e76d4d86dcb438bce8975, type: 3}
+  phases:
+  - name: Siegecraft
+    entersAtHpFraction: 1
+    patterns:
+    - {fileID: 11400000, guid: 203c818f6d050a24caf98f243ff8afdf, type: 2}
+    - {fileID: 11400000, guid: 344ef927f469f074a9ede4f6e73cedaf, type: 2}
+    hoverSpeedMultiplier: 1
+    tint: {r: 1, g: 1, b: 1, a: 1}
+    entryPulseScale: 1
+    entryPulseDuration: 0.4
+    summonType: {fileID: 0}
+    summonCount: 2
+    summonInterval: 7
+  - name: Onslaught
+    entersAtHpFraction: 0.5
+    patterns:
+    - {fileID: 11400000, guid: 203c818f6d050a24caf98f243ff8afdf, type: 2}
+    - {fileID: 11400000, guid: 8e2247d3d7fd4834c8156572a5c8722e, type: 2}
+    hoverSpeedMultiplier: 1.4
+    tint: {r: 1, g: 0.75, b: 0.6, a: 1}
+    entryPulseScale: 1.45
+    entryPulseDuration: 0.5
+    summonType: {fileID: 0}
+    summonCount: 2
+    summonInterval: 7

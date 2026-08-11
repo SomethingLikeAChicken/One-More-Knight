@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
+  m_Name: BossPaleKing
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
+  maxHealth: 1200
+  contactDamage: 1
+  scoreReward: 12000
+  description: The throne was empty for a hundred years. Something patient sat down
+    in it anyway. The host was never marching TOWARD anything - it was marching AWAY
+    from him, and you are what is left in between.
+  tactics: 'The d9 summit, every mechanic at once: two rift-casting Heralds guard
+    him (grey bar), then a 150-point ward (blue bar), THEN three phases of ruin -
+    dense rings into storm crosses into rift gyres with homing volleys while Riftlings
+    pour in. Bank every Aegis and Purge you can carry. There is no trick. There is
+    only being good enough. DU BIST GUT GENUUUUUG.'
+  displayName: The Pale King
+  difficulty: 9
+  sprite: {fileID: -4217974436711909721, guid: a23c561d81c42bf4197c30d923d167f2, type: 3}
+  scale: 1.35
+  entrySpeed: 2.2
+  hoverSpeed: 1.1
+  hoverAmplitude: 2.6
+  lackeys:
+  - {fileID: 11400000, guid: 029f0adb266855846aada13d6879f475, type: 2}
+  - {fileID: 11400000, guid: 029f0adb266855846aada13d6879f475, type: 2}
+  shieldHealth: 150
+  shieldSprite: {fileID: -985360278708841933, guid: 699c9087eb6d97e4387b3d33663593e9, type: 3}
+  phases:
+  - name: Coronation
+    entersAtHpFraction: 1
+    patterns:
+    - {fileID: 11400000, guid: 56388a9dc5046d6488d0537bb7834b24, type: 2}
+    - {fileID: 11400000, guid: d6103e25d16dbb94796d071cdc9446a3, type: 2}
+    hoverSpeedMultiplier: 1
+    tint: {r: 1, g: 1, b: 1, a: 1}
+    entryPulseScale: 1
+    entryPulseDuration: 0.4
+    summonType: {fileID: 0}
+    summonCount: 2
+    summonInterval: 7
+  - name: Dominion
+    entersAtHpFraction: 0.6
+    patterns:
+    - {fileID: 11400000, guid: 5617f9432a685d14196c1047c89c9086, type: 2}
+    - {fileID: 11400000, guid: c2309df7990210a4fbcb4244b255503b, type: 2}
+    - {fileID: 11400000, guid: 203c818f6d050a24caf98f243ff8afdf, type: 2}
+    hoverSpeedMultiplier: 1.3
+    tint: {r: 0.85, g: 0.9, b: 1, a: 1}
+    entryPulseScale: 1.45
+    entryPulseDuration: 0.5
+    summonType: {fileID: 0}
+    summonCount: 2
+    summonInterval: 7
+  - name: Ruin
+    entersAtHpFraction: 0.3
+    patterns:
+    - {fileID: 11400000, guid: 58665587a7f50a64ea3b3f40fb4eacd6, type: 2}
+    - {fileID: 11400000, guid: 479e326385a4bc941a6b8713a14fe3d3, type: 2}
+    - {fileID: 11400000, guid: 8e2247d3d7fd4834c8156572a5c8722e, type: 2}
+    hoverSpeedMultiplier: 1.5
+    tint: {r: 1, g: 0.5, b: 0.55, a: 1}
+    entryPulseScale: 1.6
+    entryPulseDuration: 0.5
+    summonType: {fileID: 11400000, guid: 8bb01688f3acad84398bd8ce43f5aaf3, type: 2}
+    summonCount: 2
+    summonInterval: 9
