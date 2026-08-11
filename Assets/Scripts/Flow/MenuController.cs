@@ -45,7 +45,9 @@ namespace OneMoreKnight.Flow
             scaler.referenceResolution = new Vector2(960f, 600f);
             canvasGo.AddComponent<GraphicRaycaster>();
 
-            if (Object.FindFirstObjectByType<UnityEngine.EventSystems.EventSystem>() == null)
+            // FindAnyObjectByType: FindFirst is obsolete-as-warning in the BUILD
+            // compile (zero-warnings gate) even though the editor accepts it.
+            if (Object.FindAnyObjectByType<UnityEngine.EventSystems.EventSystem>() == null)
             {
                 var es = new GameObject("EventSystem");
                 es.AddComponent<UnityEngine.EventSystems.EventSystem>();
