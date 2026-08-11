@@ -22,6 +22,7 @@ namespace OneMoreKnight.Run.Scoring
         [SerializeField] private HeroUpgrades heroUpgrades;
 
         private readonly Dictionary<string, int> kills = new Dictionary<string, int>(32);
+        private readonly Dictionary<string, int> bossKills = new Dictionary<string, int>(8);
         private int damageTaken;
         private int firstHitWave = -1; // -1 = never hit
         private int powerupsCollected;
@@ -31,6 +32,7 @@ namespace OneMoreKnight.Run.Scoring
         private void Awake()
         {
             if (waveSpawner != null) waveSpawner.EnemyKilled += OnEnemyKilled;
+            if (bossDirector != null) bossDirector.BossSlain += OnBossSlain;
             if (heroHealth != null) heroHealth.Changed += OnHeroHealthChanged;
             if (heroUpgrades != null)
             {
@@ -42,6 +44,7 @@ namespace OneMoreKnight.Run.Scoring
         private void OnDestroy()
         {
             if (waveSpawner != null) waveSpawner.EnemyKilled -= OnEnemyKilled;
+            if (bossDirector != null) bossDirector.BossSlain -= OnBossSlain;
             if (heroHealth != null) heroHealth.Changed -= OnHeroHealthChanged;
             if (heroUpgrades != null)
             {
@@ -53,6 +56,13 @@ namespace OneMoreKnight.Run.Scoring
         private void OnEnemyKilled(EnemyStats stats, Vector2 _)
         {
             kills[stats.name] = kills.TryGetValue(stats.name, out int c) ? c + 1 : 1;
+        }
+
+        private void OnBossSlain(BossStats stats)
+        {
+            // Keyed by asset name like the enemy kills (#91) - the site's
+            // slay-achievements read these slugs.
+            bossKills[stats.name] = bossKills.TryGetValue(stats.name, out int c) ? c + 1 : 1;
         }
 
         private void OnHeroHealthChanged(Health health)
@@ -88,6 +98,14 @@ namespace OneMoreKnight.Run.Scoring
               .Append(",\"kills\":{");
             bool first = true;
             foreach (var kv in kills)
+            {
+                if (!first) sb.Append(',');
+                first = false;
+                sb.Append('"').Append(kv.Key).Append("\":").Append(kv.Value);
+            }
+            sb.Append("},\"bossKills\":{");
+            first = true;
+            foreach (var kv in bossKills)
             {
                 if (!first) sb.Append(',');
                 first = false;
