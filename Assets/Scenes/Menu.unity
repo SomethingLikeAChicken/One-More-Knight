@@ -119,6 +119,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &418114395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 418114397}
+  - component: {fileID: 418114396}
+  m_Layer: 0
+  m_Name: Unlocks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &418114396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418114395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be6c1a7ab1833c5418c4217c73e7ea93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Flow.UnlockReceiver
+--- !u!4 &418114397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418114395}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1470811010
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f2ab5c3b903fa46b21e25db1dfb8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Flow.MenuController
+  catalog: {fileID: 11400000, guid: 2654cc7778785ce408faa6139afe022d, type: 2}
 --- !u!4 &1617419810
 Transform:
   m_ObjectHideFlags: 0
@@ -252,3 +297,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 1470811012}
   - {fileID: 1617419810}
+  - {fileID: 418114397}

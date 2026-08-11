@@ -20,4 +20,11 @@ mergeInto(LibraryManager.library, {
       omk.submitScore(score, meta);
     } catch (e) {}
   },
+  OMK_RequestUnlocks: function () {
+    try {
+      var omk = typeof window !== "undefined" && window.__omk;
+      if (!omk || typeof omk.requestUnlocks !== "function") return;
+      omk.requestUnlocks();
+    } catch (e) {}
+  },
 });
