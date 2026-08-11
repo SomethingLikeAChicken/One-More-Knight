@@ -53,6 +53,10 @@ namespace OneMoreKnight.Run
         /// mains and lackeys alike, so "slay the Pale King" can be an achievement.</summary>
         public event System.Action<BossStats> BossSlain;
 
+        /// <summary>The MAIN boss entered a phase (#95) — the spoils system feeds
+        /// long d8+ fights on this. Lackey phases do not relay.</summary>
+        public event System.Action<Boss> BossPhaseEntered;
+
         private void Awake()
         {
             // Per-Run seed, owned System.Random - the ADR-0005 seam, like the waves.
@@ -63,7 +67,11 @@ namespace OneMoreKnight.Run
         private void OnDestroy()
         {
             if (runManager != null) runManager.Changed -= OnRunChanged;
-            if (ActiveBoss != null) ActiveBoss.Defeated -= OnBossDefeated;
+            if (ActiveBoss != null)
+            {
+                ActiveBoss.Defeated -= OnBossDefeated;
+                ActiveBoss.PhaseEntered -= OnBossPhaseEntered;
+            }
             foreach (Boss lackey in activeLackeys)
                 if (lackey != null) lackey.Defeated -= OnLackeyDefeated;
         }
@@ -111,6 +119,7 @@ namespace OneMoreKnight.Run
             ActiveBoss = SpawnBossInstance(definition, bounds.center.x,
                                            bounds.yMax - hoverLineFromTop, target);
             ActiveBoss.Defeated += OnBossDefeated;
+            ActiveBoss.PhaseEntered += OnBossPhaseEntered;
 
             // Lackeys (#81): the guard spawns flanking the main Boss on a lower hover
             // line, and the main Boss is untouchable until the guard falls.
@@ -156,9 +165,12 @@ namespace OneMoreKnight.Run
                 ActiveBoss.Unleash();
         }
 
+        private void OnBossPhaseEntered(Boss boss, int _) => BossPhaseEntered?.Invoke(boss);
+
         private void OnBossDefeated(Boss boss)
         {
             boss.Defeated -= OnBossDefeated;
+            boss.PhaseEntered -= OnBossPhaseEntered;
             // Defensive: a guarded Boss cannot die, but leave no orphaned lackeys
             // if a future data combination finds a way.
             foreach (Boss lackey in activeLackeys)

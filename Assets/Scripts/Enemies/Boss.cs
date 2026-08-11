@@ -45,6 +45,10 @@ namespace OneMoreKnight.Enemies
         /// <summary>Died to damage — the Run scores the reward and Waves resume.</summary>
         public event Action<Boss> Defeated;
 
+        /// <summary>A Phase just began, including the first at fight start (#95) —
+        /// the spoils system feeds long d8+ fights through this.</summary>
+        public event Action<Boss, int> PhaseEntered;
+
         private void Reset() => health = GetComponent<Health>();
 
         private void Awake()
@@ -215,6 +219,8 @@ namespace OneMoreKnight.Enemies
                 pulseDuration = phase.entryPulseDuration;
                 pulseEndsAt = Time.time + phase.entryPulseDuration;
             }
+
+            PhaseEntered?.Invoke(this, index);
         }
 
         /// <summary>Ends the guarded state (#81): the last lackey fell, the Boss is
