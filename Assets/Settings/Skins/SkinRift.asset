@@ -16,4 +16,4 @@ MonoBehaviour:
   sprite: {fileID: 1583607174203507217, guid: ce80dcf188c55014f85029615a65ce44, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   unlockAchievement: chronicler-all
-  lockHint: Chronicle all 61 entries.
+  lockHint: Chronicle all 92 entries.
