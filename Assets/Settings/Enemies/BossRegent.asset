@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
+  m_Name: BossRegent
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
+  maxHealth: 500
+  contactDamage: 1
+  scoreReward: 5000
+  description: Rules on behalf of a king nobody has seen in years. The arrangement
+    suits him. The knight asking questions does not.
+  tactics: 'Guarded by two Blades - he is untouchable and firing the whole time you
+    duel them. Then three courts: fans and triples, dense rings below 55%, and a
+    Scorched Court under a quarter where storm crosses sweep between walls. The endgame
+    drill: kill the guard, bank a ward, spend it late.'
+  displayName: The Regent
+  difficulty: 7
+  sprite: {fileID: -7443173994732345091, guid: f9e6a31d1733b9c40bdacfea98e9aec9, type: 3}
+  scale: 1.25
+  entrySpeed: 2.2
+  hoverSpeed: 1.1
+  hoverAmplitude: 2.6
+  lackeys:
+  - {fileID: 11400000, guid: 40dee20c66e626c41aa9668f52cc9f80, type: 2}
+  - {fileID: 11400000, guid: 40dee20c66e626c41aa9668f52cc9f80, type: 2}
+  shieldHealth: 0
+  shieldSprite: {fileID: 0}
+  phases:
+  - name: Stewardship
+    entersAtHpFraction: 1
+    patterns:
+    - {fileID: 11400000, guid: b659cf286f40706418ba9395ce78d1e9, type: 2}
+    - {fileID: 11400000, guid: ead253804c30099449ee443b4182c9d9, type: 2}
+    hoverSpeedMultiplier: 1
+    tint: {r: 1, g: 1, b: 1, a: 1}
+    entryPulseScale: 1
+    entryPulseDuration: 0.4
+    summonType: {fileID: 0}
+    summonCount: 2
+    summonInterval: 7
+  - name: Tyranny
+    entersAtHpFraction: 0.55
+    patterns:
+    - {fileID: 11400000, guid: 56388a9dc5046d6488d0537bb7834b24, type: 2}
+    - {fileID: 11400000, guid: 8e2247d3d7fd4834c8156572a5c8722e, type: 2}
+    hoverSpeedMultiplier: 1.3
+    tint: {r: 1, g: 0.8, b: 0.5, a: 1}
+    entryPulseScale: 1.4
+    entryPulseDuration: 0.5
+    summonType: {fileID: 0}
+    summonCount: 2
+    summonInterval: 7
+  - name: Scorched Court
+    entersAtHpFraction: 0.25
+    patterns:
+    - {fileID: 11400000, guid: c2309df7990210a4fbcb4244b255503b, type: 2}
+    - {fileID: 11400000, guid: 203c818f6d050a24caf98f243ff8afdf, type: 2}
+    hoverSpeedMultiplier: 1.5
+    tint: {r: 1, g: 0.55, b: 0.4, a: 1}
+    entryPulseScale: 1.5
+    entryPulseDuration: 0.5
+    summonType: {fileID: 0}
+    summonCount: 2
+    summonInterval: 7

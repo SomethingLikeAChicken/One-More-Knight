@@ -29,6 +29,8 @@ MonoBehaviour:
     maxDifficulty: 7
   - scoreThreshold: 48000
     maxDifficulty: 8
+  - scoreThreshold: 64000
+    maxDifficulty: 9
   pool:
   - {fileID: 11400000, guid: 7dcfd7a5200568a4ea5786293ce255e8, type: 2}
   - {fileID: 11400000, guid: 29455908fffa6d145a7a80298afc1b78, type: 2}
@@ -50,5 +52,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 68cf2c1df1c67b045a0424a3bbccf422, type: 2}
   - {fileID: 11400000, guid: 5896214c26e75e94593f2f0f3286370c, type: 2}
   - {fileID: 11400000, guid: 638ea7dcb152d1b4486a9518b6268583, type: 2}
+  - {fileID: 11400000, guid: 4f16977e98a88c64e837d7e481bd4d9d, type: 2}
+  - {fileID: 11400000, guid: 756fc7183b57efb49a010e99de048ef0, type: 2}
+  - {fileID: 11400000, guid: d1fe618c27612484688dee4886a72947, type: 2}
+  - {fileID: 11400000, guid: 8d49af741498d0d409beeed1b4d16d51, type: 2}
+  - {fileID: 11400000, guid: 35d94eec21f93a247a6467f39678e331, type: 2}
+  - {fileID: 11400000, guid: 379a4b2e5ee22bc4da0749cd377004d0, type: 2}
+  - {fileID: 11400000, guid: 7037127438c49ec48b0256b55761e580, type: 2}
+  - {fileID: 11400000, guid: 03ebf02795fbb7c42abb28eee7bb25c6, type: 2}
   endlessScoreStep: 8000
-  endlessMaxDifficulty: 8
+  endlessMaxDifficulty: 9
