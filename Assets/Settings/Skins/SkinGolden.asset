@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SkinGolden
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Hero.HeroSkin
   displayName: Golden Knight
-  sprite: {fileID: 21300000, guid: 16f76407b6b65234d86f766f460e5bd7, type: 3}
-  tint: {r: 1, g: 0.85, b: 0.4, a: 1}
+  sprite: {fileID: -1833921789902614259, guid: 8b32bc224daca664b9ec1ce874c1705b, type: 3}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  fireTint: {r: 1, g: 0.9, b: 0.5, a: 1}
   unlockAchievement: score-100k
   lockHint: Reach 100,000 score.

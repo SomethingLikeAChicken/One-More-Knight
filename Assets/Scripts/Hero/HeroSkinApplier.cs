@@ -12,6 +12,10 @@ namespace OneMoreKnight.Hero
     {
         [SerializeField] private SkinCatalog catalog;
 
+        /// <summary>The applied skin's flame color (#105) — HeroController tints
+        /// the fire bolts with it. Gold flame until a skin is applied.</summary>
+        public Color FireTint { get; private set; } = new Color(1f, 0.8f, 0.35f);
+
         private void Awake()
         {
             HeroSkin skin = SkinSelection.Selected(catalog);
@@ -19,6 +23,7 @@ namespace OneMoreKnight.Hero
             var spriteRenderer = GetComponent<SpriteRenderer>();
             if (skin.sprite != null) spriteRenderer.sprite = skin.sprite;
             spriteRenderer.color = skin.tint;
+            FireTint = skin.fireTint;
             // HeroHitFlash captures its base color in Start, after this Awake -
             // the flash and curse pulses return to the skin's tint, not white.
         }

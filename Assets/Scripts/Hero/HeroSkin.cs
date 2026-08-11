@@ -15,6 +15,9 @@ namespace OneMoreKnight.Hero
         [Tooltip("Sprite override; null keeps the scene's default Hero sprite.")]
         public Sprite sprite;
         public Color tint = Color.white;
+        [Tooltip("The Hero's fire (#105): tints the flame bolts. Stays in the hero " +
+                 "gold/blue color-law family - never the enemy red/violet/green.")]
+        public Color fireTint = new Color(1f, 0.8f, 0.35f);
         [Tooltip("Achievement slug (site vocabulary, #63) that unlocks this skin. " +
                  "Empty = always unlocked.")]
         public string unlockAchievement;
