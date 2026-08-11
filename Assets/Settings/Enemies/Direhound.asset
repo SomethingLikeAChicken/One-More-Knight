@@ -12,16 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
   m_Name: Direhound
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
-  maxHealth: 45
+  maxHealth: 35
   moveSpeed: 1.1
   scoreValue: 900
   contactDamage: 2
   description: The host's kennel-master lost the argument about whether this one
     should be let out. Gold fangs, red eyes, miniboss bar.
-  tactics: A 45-HP MINIBOSS howling telegraphed triple-bursts of homing bolts. The
+  tactics: A 35-HP MINIBOSS howling telegraphed triple-bursts of homing bolts. The
     bursts track sequentially - keep a steady circle and they trail behind you like
-    a comet tail. Its escort dies first; the hound is a long, patient grind.
+    a comet tail. Its escort dies first; the hound is a patient grind that always
+    drops a sword.
   isMiniboss: 1
+  guaranteedDrop: 1
   curseOnDeath: 0
   sprite: {fileID: 1041903633626607429, guid: 96ababd516ab77e41856c07dac911acd, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
