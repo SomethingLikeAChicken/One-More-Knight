@@ -21,6 +21,8 @@ namespace OneMoreKnight.Hero
         [SerializeField] private PlayArea playArea;
         [SerializeField] private BulletSpawner bulletSpawner;
         [SerializeField] private Health health;
+        [Tooltip("Optional mobile input (#97) - additive next to the action bindings.")]
+        [SerializeField] private TouchControls touch;
 
         [Header("Movement")]
         [SerializeField] [Min(0f)] private float moveSpeed = 8f;
@@ -72,10 +74,19 @@ namespace OneMoreKnight.Hero
 
             float speedMult = upgrades != null ? upgrades.MoveSpeedMultiplier : 1f;
             Vector2 input = moveAction.ReadValue<Vector2>();
+            bool firePressed = attackAction.IsPressed();
+            // Touch (#97) adds on top of the bindings; the clamp keeps a keyboard +
+            // thumb combination from doubling the speed.
+            if (touch != null)
+            {
+                input += touch.Move;
+                firePressed |= touch.Firing;
+            }
+            if (input.sqrMagnitude > 1f) input.Normalize();
             Vector2 target = (Vector2)transform.position + input * (moveSpeed * speedMult * Time.deltaTime);
             transform.position = playArea.Clamp(target);
 
-            if (attackAction.IsPressed() && Time.time >= nextFireTime) Fire();
+            if (firePressed && Time.time >= nextFireTime) Fire();
         }
 
         private void Fire()

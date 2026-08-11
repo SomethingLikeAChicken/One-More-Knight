@@ -56,8 +56,9 @@ namespace OneMoreKnight.Flow
 
             Label(canvasGo.transform, "Title", "ONE MORE KNIGHT", 52, Gold, FontStyle.Bold,
                   new Vector2(0.5f, 0.78f), new Vector2(800f, 70f));
-            Label(canvasGo.transform, "Hint", "press SPACE to start the Run", 20, Parchment, FontStyle.Normal,
-                  new Vector2(0.5f, 0.62f), new Vector2(600f, 30f));
+            Label(canvasGo.transform, "Hint", "press SPACE — or tap below", 20, Parchment, FontStyle.Normal,
+                  new Vector2(0.5f, 0.66f), new Vector2(600f, 30f));
+            BuildStartButton(canvasGo.transform);
             var version = Label(canvasGo.transform, "Version", GameVersion.Current, 14, Muted, FontStyle.Normal,
                   new Vector2(1f, 0f), new Vector2(300f, 24f));
             version.alignment = TextAnchor.LowerRight;
@@ -83,6 +84,29 @@ namespace OneMoreKnight.Flow
             rt.sizeDelta = sizeDelta;
             rt.anchoredPosition = Vector2.zero;
             return t;
+        }
+
+        /// <summary>The mouse/touch way in (#97) — Space and Enter keep working.</summary>
+        private void BuildStartButton(Transform parent)
+        {
+            var go = new GameObject("StartButton");
+            go.transform.SetParent(parent, false);
+            var bg = go.AddComponent<Image>();
+            bg.color = new Color(0.16f, 0.15f, 0.22f, 0.95f);
+            var rt = go.GetComponent<RectTransform>();
+            rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0.56f);
+            rt.sizeDelta = new Vector2(280f, 54f);
+            var outline = go.AddComponent<Outline>();
+            outline.effectColor = Gold;
+            outline.effectDistance = new Vector2(2f, 2f);
+
+            var label = Label(go.transform, "Label", "BEGIN THE RUN", 22, Gold, FontStyle.Bold,
+                              new Vector2(0.5f, 0.5f), new Vector2(280f, 54f));
+            label.raycastTarget = false;
+
+            var button = go.AddComponent<Button>();
+            button.targetGraphic = bg;
+            button.onClick.AddListener(StartGame);
         }
 
         private void BuildWardrobe(Transform parent)

@@ -39,6 +39,14 @@ namespace OneMoreKnight.Flow
 
         private void Update()
         {
+            // A tap is "one more run" on touch devices (#97).
+            Touchscreen touchscreen = Touchscreen.current;
+            if (touchscreen != null && touchscreen.primaryTouch.press.wasPressedThisFrame)
+            {
+                PlayAgain();
+                return;
+            }
+
             Keyboard keyboard = Keyboard.current;
             if (keyboard == null) return;
 
@@ -83,7 +91,7 @@ namespace OneMoreKnight.Flow
 
             GUI.Label(new Rect(w * 0.08f, h * 0.5f - 110f, w * 0.84f, 80f), quote, banner);
             GUI.Label(new Rect(0f, h * 0.5f - 20f, w, 30f), $"Score {LastRun.Score:n0}   ·   Wave {LastRun.Wave}", readout);
-            GUI.Label(new Rect(0f, h * 0.5f + 24f, w, 30f), "SPACE / R — one more run", hint);
+            GUI.Label(new Rect(0f, h * 0.5f + 24f, w, 30f), "SPACE / R / TAP — one more run", hint);
             GUI.Label(new Rect(0f, h * 0.5f + 52f, w, 30f), "ESC / M — back to the menu", hint);
         }
     }
