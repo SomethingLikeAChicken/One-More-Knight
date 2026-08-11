@@ -342,8 +342,10 @@ namespace OneMoreKnight.EditorTools
             // hero + skins
             { "hero", () => Soldier(HeroPal, Weapon.Sword, heavy: true, plume: true) },
             { "RiftKnight", () => Soldier(Voidp, Weapon.Sword, heavy: true, plume: true) },
-            // original roster
-            { "Descender", () => Soldier(Steel, Weapon.Sword) },
+            // original roster - Descender lives in the M1-era "enemy.png" and The
+            // Gatekeeper in "Boss.png" (#103); the map targets the REAL filenames.
+            { "enemy", () => Soldier(Steel, Weapon.Sword) },
+            { "Boss", () => Siege(Steel, gate: true) },
             { "Weaver", () => Witch(Teal) },
             { "Sentinel", () => Soldier(Steel, Weapon.Pike, heavy: true) },
             { "Darter", () => Crow(Black) },
@@ -401,7 +403,6 @@ namespace OneMoreKnight.EditorTools
             { "Ossuary", () => Slab(Bone, skull: true) },
             { "Riftmaw", () => Serpent(Voidp, maw: true) },
             // bosses
-            { "BossGatekeeper", () => Siege(Steel, gate: true) },
             { "BossSerpent", () => Serpent(Verdant, maw: true) },
             { "BossTyrant", () => CrownedLord(Crimson, 3) },
             { "BossMonarch", () => CrownedLord(Amber, 5) },
@@ -421,7 +422,8 @@ namespace OneMoreKnight.EditorTools
             { "BossSummoner", () => WitchQueen(Verdant) },
             // BossCastellan and BossBaron keep their 1.2.0 sprites - the keep-tower
             // and crowned knight were already unique; forging them again would only
-            // create the clones this issue removes.
+            // create the clones this issue removes. BossGatekeeper is the "Boss"
+            // entry above (#103).
             { "BossSquire", () => Soldier(Storm, Weapon.Sword) },
             { "BossPlaguebearer", () => DemonLord(Verdant) },
             { "BossRunesmith", () => WitchQueen(Teal) },
