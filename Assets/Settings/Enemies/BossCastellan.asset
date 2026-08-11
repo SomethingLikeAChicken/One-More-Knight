@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
+  m_Name: BossCastellan
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
+  maxHealth: 75
+  contactDamage: 1
+  scoreReward: 1500
+  description: The outer gate's warden-stone, animated by a garrison oath nobody
+    was left alive to release it from. It did not abandon its post. It brought the
+    post to you.
+  tactics: 'The first warded Boss: a 30-point blue ward soaks every hit before its
+    health moves - the blue bar is the ward, not the boss. Break it through the steady
+    fans, watch the shatter, then the real fight begins at FULL health. Below half
+    it is Unbarred: wide fans and offset rings, quicker on the hover. Patience through
+    the blue, aggression after.'
+  displayName: The Castellan
+  difficulty: 2
+  sprite: {fileID: 1879355326188070566, guid: 264670a359034f34096ca80f470fe80b, type: 3}
+  scale: 1.15
+  entrySpeed: 2.2
+  hoverSpeed: 0.9
+  hoverAmplitude: 2.2
+  shieldHealth: 30
+  shieldSprite: {fileID: 2051653326483071087, guid: 1068786b9c6aa5843993c6388931aa8d, type: 3}
+  phases:
+  - name: Steadfast
+    entersAtHpFraction: 1
+    patterns:
+    - {fileID: 11400000, guid: b659cf286f40706418ba9395ce78d1e9, type: 2}
+    - {fileID: 11400000, guid: 344ef927f469f074a9ede4f6e73cedaf, type: 2}
+    hoverSpeedMultiplier: 1
+    tint: {r: 1, g: 1, b: 1, a: 1}
+    entryPulseScale: 1
+    entryPulseDuration: 0.4
+    summonType: {fileID: 0}
+    summonCount: 2
+    summonInterval: 5
+  - name: Unbarred
+    entersAtHpFraction: 0.5
+    patterns:
+    - {fileID: 11400000, guid: 8e2247d3d7fd4834c8156572a5c8722e, type: 2}
+    - {fileID: 11400000, guid: 91fef18a9025a82499b9b5f2a7721141, type: 2}
+    hoverSpeedMultiplier: 1.4
+    tint: {r: 1, g: 0.88, b: 0.55, a: 1}
+    entryPulseScale: 1.4
+    entryPulseDuration: 0.5
+    summonType: {fileID: 0}
+    summonCount: 2
+    summonInterval: 5

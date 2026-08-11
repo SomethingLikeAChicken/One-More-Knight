@@ -15,8 +15,15 @@ namespace OneMoreKnight.Combat
         public int Current { get; private set; }
         public bool IsAlive => Current > 0;
 
+        /// <summary>Ward points consumed before HP (#79). 0 = unwarded. Actor-agnostic:
+        /// a Boss ward and the Hero's Aegis blessing are the same mechanic.</summary>
+        public int Shield { get; private set; }
+
         public event Action<Health> Changed;
         public event Action<Health> Died;
+
+        /// <summary>The moment the last shield point breaks — visuals listen.</summary>
+        public event Action<Health> ShieldBroken;
 
         private void Awake() => ResetHealth();
 
@@ -28,6 +35,15 @@ namespace OneMoreKnight.Combat
         {
             if (newMax > 0) maxHealth = newMax;
             Current = maxHealth;
+            Shield = 0;
+            Changed?.Invoke(this);
+        }
+
+        /// <summary>Sets the ward outright (#79) — not additive, so re-applying a
+        /// one-hit Aegis refreshes rather than stacks.</summary>
+        public void SetShield(int amount)
+        {
+            Shield = Mathf.Max(0, amount);
             Changed?.Invoke(this);
         }
 
@@ -52,6 +68,16 @@ namespace OneMoreKnight.Combat
         public void TakeDamage(int amount)
         {
             if (!IsAlive || amount <= 0) return;
+
+            // The ward eats the whole hit — no bleed-through (#79). A hit that breaks
+            // the last point is fully spent breaking it; fairness over bookkeeping.
+            if (Shield > 0)
+            {
+                Shield = Mathf.Max(0, Shield - amount);
+                Changed?.Invoke(this);
+                if (Shield == 0) ShieldBroken?.Invoke(this);
+                return;
+            }
 
             Current = Mathf.Max(0, Current - amount);
             Changed?.Invoke(this);

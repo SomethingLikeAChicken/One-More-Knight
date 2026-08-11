@@ -48,5 +48,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c31c744e61418624d9ca7551d6be93b9, type: 2}
   - {fileID: 11400000, guid: 1bcdcfa6efc24c24cbb76a241536c28b, type: 2}
   - {fileID: 11400000, guid: 68cf2c1df1c67b045a0424a3bbccf422, type: 2}
+  - {fileID: 11400000, guid: 5896214c26e75e94593f2f0f3286370c, type: 2}
   endlessScoreStep: 8000
   endlessMaxDifficulty: 8

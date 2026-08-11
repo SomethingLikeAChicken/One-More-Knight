@@ -46,9 +46,13 @@ namespace OneMoreKnight.Run
         private static readonly Color PipFull = new Color(0.95f, 0.3f, 0.35f);
         private static readonly Color PipEmpty = new Color(0.25f, 0.12f, 0.16f);
 
+        private static readonly Color WardBarBlue = new Color(0.4f, 0.68f, 1f);
+
         private readonly List<Image> pips = new List<Image>(8);
         private int lastHeroHp = int.MaxValue;
         private float vignetteStrength;
+        private Image bossBarFillImage;
+        private Color bossBarBaseColor;
 
         private void Update()
         {
@@ -108,8 +112,22 @@ namespace OneMoreKnight.Run
             if (bossBar.activeSelf != bossActive) bossBar.SetActive(bossActive);
             if (bossActive)
             {
-                float fraction = Mathf.Clamp01((float)boss.Health.Current / boss.Health.Max);
+                // Lazy-cached so the ward colouring (#79) needs no scene rewiring.
+                if (bossBarFillImage == null)
+                {
+                    bossBarFillImage = bossBarFill.GetComponent<Image>();
+                    bossBarBaseColor = bossBarFillImage.color;
+                }
+
+                // While the ward holds, the bar IS the ward: blue, draining to the
+                // break (#79). Then it flips to the violet HP fill, which is full.
+                bool warded = boss.Health.Shield > 0;
+                float fraction = warded
+                    ? Mathf.Clamp01((float)boss.Health.Shield / Mathf.Max(1, boss.Stats.shieldHealth))
+                    : Mathf.Clamp01((float)boss.Health.Current / boss.Health.Max);
                 bossBarFill.anchorMax = new Vector2(fraction, 1f);
+                Color barColor = warded ? WardBarBlue : bossBarBaseColor;
+                if (bossBarFillImage.color != barColor) bossBarFillImage.color = barColor;
 
                 // Name tag (#53): people want to know what they are fighting.
                 if (bossNameText != null)
@@ -118,6 +136,7 @@ namespace OneMoreKnight.Run
                     if (boss.CurrentPhase >= 0 && boss.CurrentPhase < boss.Stats.phases.Length
                         && !string.IsNullOrEmpty(boss.Stats.phases[boss.CurrentPhase].name))
                         title += "  ·  " + boss.Stats.phases[boss.CurrentPhase].name;
+                    if (warded) title += "  ·  SHIELD";
                     title = title.ToUpperInvariant();
                     if (bossNameText.text != title) bossNameText.text = title;
                 }
