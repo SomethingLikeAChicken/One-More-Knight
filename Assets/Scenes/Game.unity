@@ -997,6 +997,7 @@ MonoBehaviour:
   - 0.3
   - 0.25
   lateTypesMinWave: 12
+  bossPhaseDropMinDifficulty: 8
 --- !u!4 &1173818853
 Transform:
   m_ObjectHideFlags: 0
@@ -1089,6 +1090,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1197900587}
   m_CullTransparentMesh: 1
+--- !u!1 &1211516794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1211516796}
+  - component: {fileID: 1211516795}
+  m_Layer: 0
+  m_Name: TouchControls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1211516795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211516794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f5140c2a2fe4f4a885d8087c04d8ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Hero.TouchControls
+  radiusScreenFraction: 0.11
+  deadzone: 0.12
+--- !u!4 &1211516796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211516794}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1283923269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,6 +1615,7 @@ MonoBehaviour:
   playArea: {fileID: 66600934}
   bulletSpawner: {fileID: 685176717}
   health: {fileID: 2057006109}
+  touch: {fileID: 1211516795}
   moveSpeed: 8
   fireCooldown: 0.14
   bulletSpeed: 16
@@ -1906,3 +1954,4 @@ SceneRoots:
   - {fileID: 1436772214}
   - {fileID: 2102539942}
   - {fileID: 1173818853}
+  - {fileID: 1211516796}
