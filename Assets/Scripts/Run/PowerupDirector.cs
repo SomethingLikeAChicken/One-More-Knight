@@ -32,6 +32,9 @@ namespace OneMoreKnight.Run
         [SerializeField] private float[] typeWeights = { 1f, 0.12f, 1f, 1f, 0.3f, 0.25f };
         [Tooltip("Aegis/Purge only roll from this wave (#83) - the early game does not need them.")]
         [SerializeField] [Min(1)] private int lateTypesMinWave = 12;
+        [Tooltip("Bosses at or above this difficulty drop one powerup per phase entered " +
+                 "(#95) - long endgame fights feed the player instead of just eating time.")]
+        [SerializeField] [Min(1)] private int bossPhaseDropMinDifficulty = 8;
 
         private System.Random rng;
 
@@ -39,15 +42,32 @@ namespace OneMoreKnight.Run
         {
             rng = new System.Random(System.Environment.TickCount ^ 0x2b992ddf);
             if (waveSpawner != null) waveSpawner.EnemyKilled += OnEnemyKilled;
-            if (bossDirector != null) bossDirector.BossDefeatedAt += OnBossDefeatedAt;
+            if (bossDirector != null)
+            {
+                bossDirector.BossDefeatedAt += OnBossDefeatedAt;
+                bossDirector.BossPhaseEntered += OnBossPhaseEntered;
+            }
             if (heroUpgrades != null) heroUpgrades.PowerupApplied += OnPowerupApplied;
         }
 
         private void OnDestroy()
         {
             if (waveSpawner != null) waveSpawner.EnemyKilled -= OnEnemyKilled;
-            if (bossDirector != null) bossDirector.BossDefeatedAt -= OnBossDefeatedAt;
+            if (bossDirector != null)
+            {
+                bossDirector.BossDefeatedAt -= OnBossDefeatedAt;
+                bossDirector.BossPhaseEntered -= OnBossPhaseEntered;
+            }
             if (heroUpgrades != null) heroUpgrades.PowerupApplied -= OnPowerupApplied;
+        }
+
+        /// <summary>Endgame pacing (#95): a d8+ boss pays one powerup per phase it
+        /// enters (the first included), dropped just below it so the fight funds the
+        /// dodging it demands.</summary>
+        private void OnBossPhaseEntered(Enemies.Boss boss)
+        {
+            if (boss.Stats == null || boss.Stats.difficulty < bossPhaseDropMinDifficulty) return;
+            Drop((Vector2)boss.transform.position + Vector2.down * 1.2f, RollType());
         }
 
         /// <summary>Purge (#83) is a world effect, so the spoils system executes it —

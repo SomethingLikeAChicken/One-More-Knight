@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
   m_Name: BossPaleKing
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
-  maxHealth: 1200
+  maxHealth: 1000
   contactDamage: 1
   scoreReward: 12000
   description: The throne was empty for a hundred years. Something patient sat down
