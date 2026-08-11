@@ -55,6 +55,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e3a64a838ecc5c84ba0a8356e9822a3b, type: 2}
   - {fileID: 11400000, guid: 56ccfb367ab72fd4fbafe67e34deeac7, type: 2}
   - {fileID: 11400000, guid: c7e7d0b3c1b9e33438cc1519559b0a50, type: 2}
+  - {fileID: 11400000, guid: ed8d32e63d9db7045a16f3d08e6afda9, type: 2}
+  - {fileID: 11400000, guid: 06e52edb970f0a9489b988970c2d9283, type: 2}
+  - {fileID: 11400000, guid: 266dd93f0cada324da3f3c6b41c1ffcc, type: 2}
+  - {fileID: 11400000, guid: c9acd5f83ac23cc41979fccb5c06c1d1, type: 2}
+  - {fileID: 11400000, guid: d5711ac3d187a6c4b849d8c28f34b601, type: 2}
+  - {fileID: 11400000, guid: 3b8d003b9b3982744b60b0f4bd5f12eb, type: 2}
+  - {fileID: 11400000, guid: ac9e7a63814e3e94ab18016eea9f24d2, type: 2}
+  - {fileID: 11400000, guid: f286cb865c42bc24ca8f87e594a77bdd, type: 2}
+  - {fileID: 11400000, guid: 3fd58d84c00c2b54085480f9573ad18f, type: 2}
+  - {fileID: 11400000, guid: 1e2cde7fa198c9c42bb299f23f8379b7, type: 2}
   delayBetweenGroups: 2.2
   intermission: 1.75
   hpMultiplierStep: 1.04

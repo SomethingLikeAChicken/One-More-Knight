@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
+  m_Name: Falconer
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
+  maxHealth: 4
+  moveSpeed: 1.8
+  scoreValue: 300
+  contactDamage: 1
+  description: The bird is dead. He throws it anyway, and something in the dark keeps
+    bringing it back.
+  tactics: A weaving handler loosing red hunting bolts. Short sharp dodges beat wide
+    arcs - the falcon gives up quickly. Kill him mid-weave when he drifts to an edge.
+  isMiniboss: 0
+  guaranteedDrop: 0
+  curseOnDeath: 0
+  sprite: {fileID: 827741359786194289, guid: 80daef11f6430a7478ed8dc45bd4e4db, type: 3}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  movement: 1
+  weaveAmplitude: 1.5
+  weaveFrequency: 2
+  attack: {fileID: 11400000, guid: fa487b5561bb4504bafa7d44b7da86de, type: 2}

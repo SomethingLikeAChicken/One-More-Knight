@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
+  m_Name: Trebuchet
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
+  maxHealth: 10
+  moveSpeed: 0.9
+  scoreValue: 450
+  contactDamage: 2
+  description: Someone taught a siege engine to walk. Nobody taught it to stop.
+  tactics: A slow engine hurling sweeping walls. The wall is level with its arm -
+    flank it and the volley never reaches you. Ten HP of wood burns eventually.
+  isMiniboss: 0
+  guaranteedDrop: 0
+  curseOnDeath: 0
+  sprite: {fileID: -5713240772493197408, guid: 7b3a3012e5400d141859c3a0baf4e4af, type: 3}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  movement: 0
+  weaveAmplitude: 1.5
+  weaveFrequency: 2
+  attack: {fileID: 11400000, guid: 3e6bf75ccc7f9e141bca5056e16588d6, type: 2}
