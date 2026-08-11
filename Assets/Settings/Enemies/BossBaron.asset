@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
+  m_Name: BossBaron
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
+  maxHealth: 110
+  contactDamage: 1
+  scoreReward: 2000
+  description: 'A minor lord with a major opinion of himself, fighting the way he
+    governed: from behind two people paid less than he is. The crown is real gold.
+    The courage is outsourced.'
+  tactics: 'The first guarded Boss: his bar is GREY and he cannot be hurt while either
+    Squire lives - do not waste a single arrow on him early. Drop both Squires (each
+    pays out a powerup), watch him rage as the bar lights violet, then duel him honestly:
+    aimed triples first, wide fans and rings below half. He hits harder than he deserves
+    to.'
+  displayName: The Baron
+  difficulty: 3
+  sprite: {fileID: 2515924802082538597, guid: 77186e392d5971548a0ac037eab8ac4b, type: 3}
+  scale: 1.1
+  entrySpeed: 2.2
+  hoverSpeed: 1
+  hoverAmplitude: 2.6
+  lackeys:
+  - {fileID: 11400000, guid: fa6aa9d08b065a840b7e2ef56f08fb10, type: 2}
+  - {fileID: 11400000, guid: fa6aa9d08b065a840b7e2ef56f08fb10, type: 2}
+  shieldHealth: 0
+  shieldSprite: {fileID: 0}
+  phases:
+  - name: Held Court
+    entersAtHpFraction: 1
+    patterns:
+    - {fileID: 11400000, guid: 344ef927f469f074a9ede4f6e73cedaf, type: 2}
+    - {fileID: 11400000, guid: ead253804c30099449ee443b4182c9d9, type: 2}
+    hoverSpeedMultiplier: 1
+    tint: {r: 1, g: 1, b: 1, a: 1}
+    entryPulseScale: 1
+    entryPulseDuration: 0.4
+    summonType: {fileID: 0}
+    summonCount: 2
+    summonInterval: 5
+  - name: Furious Court
+    entersAtHpFraction: 0.55
+    patterns:
+    - {fileID: 11400000, guid: 8e2247d3d7fd4834c8156572a5c8722e, type: 2}
+    - {fileID: 11400000, guid: 716e212ed21778242a0c5712dbb32f00, type: 2}
+    hoverSpeedMultiplier: 1.5
+    tint: {r: 1, g: 0.72, b: 0.6, a: 1}
+    entryPulseScale: 1.45
+    entryPulseDuration: 0.5
+    summonType: {fileID: 0}
+    summonCount: 2
+    summonInterval: 5

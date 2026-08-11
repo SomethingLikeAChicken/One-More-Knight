@@ -34,7 +34,14 @@ namespace OneMoreKnight.Run
 
         public Boss ActiveBoss { get; private set; }
 
-        /// <summary>Kills so far this Run — drives the backdrop palette.</summary>
+        private readonly System.Collections.Generic.List<Boss> activeLackeys =
+            new System.Collections.Generic.List<Boss>(2);
+
+        /// <summary>Live lackeys of the current encounter (#81) — the HUD draws a bar per entry.</summary>
+        public System.Collections.Generic.IReadOnlyList<Boss> ActiveLackeys => activeLackeys;
+
+        /// <summary>Kills so far this Run — drives the backdrop palette. Main bosses
+        /// only; lackey deaths (#81) pay rewards and drops but do not advance this.</summary>
         public int BossesDefeated { get; private set; }
 
         public event System.Action BossDefeated;
@@ -53,6 +60,8 @@ namespace OneMoreKnight.Run
         {
             if (runManager != null) runManager.Changed -= OnRunChanged;
             if (ActiveBoss != null) ActiveBoss.Defeated -= OnBossDefeated;
+            foreach (Boss lackey in activeLackeys)
+                if (lackey != null) lackey.Defeated -= OnLackeyDefeated;
         }
 
         private void OnRunChanged()
@@ -82,25 +91,78 @@ namespace OneMoreKnight.Run
             return eligible[rng.Next(eligible.Count)];
         }
 
-        private void Summon(BossStats definition)
+        /// <summary>Starts an encounter with <paramref name="definition"/> now. Public
+        /// as the seam for the Arena and for staged play-mode tests; the Run itself
+        /// always arrives here through the Score thresholds.</summary>
+        public void Summon(BossStats definition)
         {
             waveSpawner.StopSpawning();
 
             Rect bounds = playArea.Bounds;
-            var spawn = new Vector2(bounds.center.x, playArea.SpawnLineY);
-            ActiveBoss = Instantiate(bossPrefab, spawn, Quaternion.identity);
-            ActiveBoss.Defeated += OnBossDefeated;
-
             // The Hero is the target of AimedAtTarget Patterns. Pattern code itself
             // stays actor-agnostic - the wiring decides who is source and target.
             var hero = FindAnyObjectByType<HeroController>();
-            ActiveBoss.Begin(definition, spawn, bounds.yMax - hoverLineFromTop, bulletSpawner,
-                             hero != null ? hero.transform : null, waveSpawner);
+            Transform target = hero != null ? hero.transform : null;
+
+            ActiveBoss = SpawnBossInstance(definition, bounds.center.x,
+                                           bounds.yMax - hoverLineFromTop, target);
+            ActiveBoss.Defeated += OnBossDefeated;
+
+            // Lackeys (#81): the guard spawns flanking the main Boss on a lower hover
+            // line, and the main Boss is untouchable until the guard falls.
+            if (definition.lackeys != null && definition.lackeys.Length > 0)
+            {
+                ActiveBoss.Health.Invulnerable = true;
+                for (int i = 0; i < definition.lackeys.Length; i++)
+                {
+                    BossStats lackeyDef = definition.lackeys[i];
+                    if (lackeyDef == null) continue;
+                    float side = definition.lackeys.Length == 1 ? 0f
+                        : (i - (definition.lackeys.Length - 1) * 0.5f) * 2f;
+                    Boss lackey = SpawnBossInstance(lackeyDef, bounds.center.x + side * 2.3f,
+                                                    bounds.yMax - hoverLineFromTop - 1.3f, target);
+                    lackey.Defeated += OnLackeyDefeated;
+                    activeLackeys.Add(lackey);
+                }
+            }
+        }
+
+        private Boss SpawnBossInstance(BossStats definition, float x, float hoverY, Transform target)
+        {
+            var spawn = new Vector2(x, playArea.SpawnLineY);
+            Boss boss = Instantiate(bossPrefab, spawn, Quaternion.identity);
+            boss.Begin(definition, spawn, hoverY, bulletSpawner, target, waveSpawner);
+            return boss;
+        }
+
+        private void OnLackeyDefeated(Boss lackey)
+        {
+            lackey.Defeated -= OnLackeyDefeated;
+            activeLackeys.Remove(lackey);
+
+            // A lackey pays like a boss (reward outside the stage thresholds, #68,
+            // and a guaranteed drop) but does not count as one (#81).
+            BossDefeatedAt?.Invoke(lackey.transform.position);
+            rewardScore += lackey.Stats.scoreReward;
+            runManager.AddScore(lackey.Stats.scoreReward);
+            Destroy(lackey.gameObject);
+
+            if (activeLackeys.Count == 0 && ActiveBoss != null && ActiveBoss.Health.IsAlive)
+                ActiveBoss.Unleash();
         }
 
         private void OnBossDefeated(Boss boss)
         {
             boss.Defeated -= OnBossDefeated;
+            // Defensive: a guarded Boss cannot die, but leave no orphaned lackeys
+            // if a future data combination finds a way.
+            foreach (Boss lackey in activeLackeys)
+            {
+                if (lackey == null) continue;
+                lackey.Defeated -= OnLackeyDefeated;
+                Destroy(lackey.gameObject);
+            }
+            activeLackeys.Clear();
             BossesDefeated++;
             BossDefeated?.Invoke();
             BossDefeatedAt?.Invoke(boss.transform.position);

@@ -47,12 +47,22 @@ namespace OneMoreKnight.Run
         private static readonly Color PipEmpty = new Color(0.25f, 0.12f, 0.16f);
 
         private static readonly Color WardBarBlue = new Color(0.4f, 0.68f, 1f);
+        private static readonly Color GuardedGrey = new Color(0.42f, 0.42f, 0.48f);
 
         private readonly List<Image> pips = new List<Image>(8);
         private int lastHeroHp = int.MaxValue;
         private float vignetteStrength;
         private Image bossBarFillImage;
         private Color bossBarBaseColor;
+
+        private struct LackeyBar
+        {
+            public GameObject Root;
+            public RectTransform Fill;
+            public Image FillImage;
+            public Text Name;
+        }
+        private readonly List<LackeyBar> lackeyBars = new List<LackeyBar>(2);
 
         private void Update()
         {
@@ -120,13 +130,15 @@ namespace OneMoreKnight.Run
                 }
 
                 // While the ward holds, the bar IS the ward: blue, draining to the
-                // break (#79). Then it flips to the violet HP fill, which is full.
+                // break (#79). Guarded by lackeys (#81): grey until the guard falls.
+                // Then the violet HP fill.
                 bool warded = boss.Health.Shield > 0;
+                bool guarded = boss.Health.Invulnerable;
                 float fraction = warded
                     ? Mathf.Clamp01((float)boss.Health.Shield / Mathf.Max(1, boss.Stats.shieldHealth))
                     : Mathf.Clamp01((float)boss.Health.Current / boss.Health.Max);
                 bossBarFill.anchorMax = new Vector2(fraction, 1f);
-                Color barColor = warded ? WardBarBlue : bossBarBaseColor;
+                Color barColor = guarded ? GuardedGrey : warded ? WardBarBlue : bossBarBaseColor;
                 if (bossBarFillImage.color != barColor) bossBarFillImage.color = barColor;
 
                 // Name tag (#53): people want to know what they are fighting.
@@ -136,10 +148,57 @@ namespace OneMoreKnight.Run
                     if (boss.CurrentPhase >= 0 && boss.CurrentPhase < boss.Stats.phases.Length
                         && !string.IsNullOrEmpty(boss.Stats.phases[boss.CurrentPhase].name))
                         title += "  ·  " + boss.Stats.phases[boss.CurrentPhase].name;
-                    if (warded) title += "  ·  SHIELD";
+                    if (guarded) title += "  ·  GUARDED";
+                    else if (warded) title += "  ·  SHIELD";
                     title = title.ToUpperInvariant();
                     if (bossNameText.text != title) bossNameText.text = title;
                 }
+            }
+
+            UpdateLackeyBars(bossActive);
+        }
+
+        /// <summary>One small bar per live lackey (#81), cloned from the main BossBar
+        /// like the pips clone their template — no scene rewiring.</summary>
+        private void UpdateLackeyBars(bool bossActive)
+        {
+            var lackeys = bossDirector != null ? bossDirector.ActiveLackeys : null;
+            int liveCount = bossActive && lackeys != null ? lackeys.Count : 0;
+
+            while (lackeyBars.Count < liveCount)
+            {
+                GameObject clone = Instantiate(bossBar, bossBar.transform.parent);
+                clone.name = "LackeyBar" + lackeyBars.Count;
+                var rt = clone.GetComponent<RectTransform>();
+                var templateRt = bossBar.GetComponent<RectTransform>();
+                float width = templateRt.rect.width;
+                rt.localScale = new Vector3(0.42f, 0.75f, 1f);
+                rt.anchoredPosition = templateRt.anchoredPosition
+                    + new Vector2((lackeyBars.Count == 0 ? -1f : 1f) * width * 0.24f,
+                                  -templateRt.rect.height * 0.75f - 14f);
+                lackeyBars.Add(new LackeyBar
+                {
+                    Root = clone,
+                    Fill = (RectTransform)clone.transform.Find("Fill"),
+                    FillImage = clone.transform.Find("Fill").GetComponent<Image>(),
+                    Name = clone.GetComponentInChildren<Text>(true)
+                });
+            }
+
+            for (int i = 0; i < lackeyBars.Count; i++)
+            {
+                bool used = i < liveCount && lackeys[i] != null && lackeys[i].Health.IsAlive;
+                if (lackeyBars[i].Root.activeSelf != used) lackeyBars[i].Root.SetActive(used);
+                if (!used) continue;
+
+                var lackey = lackeys[i];
+                float fraction = Mathf.Clamp01((float)lackey.Health.Current / lackey.Health.Max);
+                lackeyBars[i].Fill.anchorMax = new Vector2(fraction, 1f);
+                if (lackeyBars[i].FillImage.color != bossBarBaseColor)
+                    lackeyBars[i].FillImage.color = bossBarBaseColor;
+                string title = lackey.Stats.DisplayName.ToUpperInvariant();
+                if (lackeyBars[i].Name != null && lackeyBars[i].Name.text != title)
+                    lackeyBars[i].Name.text = title;
             }
         }
 

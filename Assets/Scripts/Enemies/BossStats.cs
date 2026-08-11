@@ -66,6 +66,12 @@ namespace OneMoreKnight.Enemies
         [Min(0f)] public float hoverSpeed = 1.1f;
         [Min(0f)] public float hoverAmplitude = 2.4f;
 
+        [Header("Lackeys (#81 - empty = fights alone)")]
+        [Tooltip("Boss definitions spawned flanking this Boss; it is INVULNERABLE " +
+                 "until every lackey falls. Lackey assets stay out of the progression " +
+                 "pool - they exist only through this reference. Not recursive.")]
+        public BossStats[] lackeys = new BossStats[0];
+
         [Header("Shield (#79 - 0 = no ward)")]
         [Tooltip("Ward points broken before HP takes damage. The HUD bar shows the " +
                  "ward in blue; phases wait for the break because the HP fraction " +

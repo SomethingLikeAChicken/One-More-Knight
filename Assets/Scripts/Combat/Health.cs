@@ -19,6 +19,10 @@ namespace OneMoreKnight.Combat
         /// a Boss ward and the Hero's Aegis blessing are the same mechanic.</summary>
         public int Shield { get; private set; }
 
+        /// <summary>While set, damage is ignored outright (#81) — distinct from the
+        /// ward, which drains. A guarded lackey Boss sets this until its guard falls.</summary>
+        public bool Invulnerable { get; set; }
+
         public event Action<Health> Changed;
         public event Action<Health> Died;
 
@@ -36,6 +40,7 @@ namespace OneMoreKnight.Combat
             if (newMax > 0) maxHealth = newMax;
             Current = maxHealth;
             Shield = 0;
+            Invulnerable = false;
             Changed?.Invoke(this);
         }
 
@@ -67,7 +72,7 @@ namespace OneMoreKnight.Combat
 
         public void TakeDamage(int amount)
         {
-            if (!IsAlive || amount <= 0) return;
+            if (!IsAlive || amount <= 0 || Invulnerable) return;
 
             // The ward eats the whole hit — no bleed-through (#79). A hit that breaks
             // the last point is fully spent breaking it; fairness over bookkeeping.
