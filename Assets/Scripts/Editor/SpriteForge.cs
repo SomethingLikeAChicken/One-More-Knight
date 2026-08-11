@@ -102,6 +102,26 @@ namespace OneMoreKnight.EditorTools
             }
         }
 
+        /// <summary>The Hero (#105): a battle-mage — trimmed robe, wizard hat, staff
+        /// with a flame orb. Robe palette and flame color are the skin axes.</summary>
+        private static void Mage(Pal p, Color flame)
+        {
+            R(0.26f, 0.03f, 0.74f, 0.14f, p.O); R(0.29f, 0.05f, 0.71f, 0.13f, p.A);      // trimmed hem
+            R(0.3f, 0.12f, 0.7f, 0.56f, p.O); R(0.33f, 0.14f, 0.67f, 0.54f, p.M);        // robe
+            R(0.55f, 0.14f, 0.67f, 0.54f, p.D);
+            R(0.33f, 0.3f, 0.67f, 0.36f, p.O); R(0.36f, 0.31f, 0.64f, 0.35f, p.A);       // belt
+            R(0.4f, 0.54f, 0.6f, 0.68f, p.O); R(0.42f, 0.56f, 0.58f, 0.66f, p.L);        // face
+            R(0.44f, 0.6f, 0.47f, 0.63f, Ink); R(0.53f, 0.6f, 0.56f, 0.63f, Ink);        // eyes
+            R(0.26f, 0.66f, 0.74f, 0.72f, p.O); R(0.29f, 0.67f, 0.71f, 0.71f, p.M);      // brim
+            R(0.38f, 0.72f, 0.62f, 0.8f, p.O); R(0.41f, 0.72f, 0.59f, 0.78f, p.M);       // hat cone
+            R(0.43f, 0.8f, 0.57f, 0.88f, p.O); R(0.45f, 0.8f, 0.55f, 0.86f, p.M);
+            R(0.47f, 0.88f, 0.53f, 0.97f, p.O);
+            R(0.5f, 0.84f, 0.54f, 0.88f, p.A);                                            // hat star
+            R(0.09f, 0.12f, 0.14f, 0.74f, p.O); R(0.1f, 0.15f, 0.13f, 0.7f, Wood.M);     // staff
+            Disc(0.115f, 0.8f, 0.075f, Ink); Disc(0.115f, 0.8f, 0.055f, flame);          // flame orb
+            Disc(0.115f, 0.81f, 0.025f, Color.white);
+        }
+
         private static void Archer(Pal p)
         {
             R(0.4f, 0.02f, 0.47f, 0.2f, p.O); R(0.55f, 0.02f, 0.62f, 0.2f, p.O);
@@ -339,9 +359,23 @@ namespace OneMoreKnight.EditorTools
         // ---------- the roster ----------
         private static readonly Dictionary<string, System.Action> Map = new Dictionary<string, System.Action>
         {
-            // hero + skins
-            { "hero", () => Soldier(HeroPal, Weapon.Sword, heavy: true, plume: true) },
-            { "RiftKnight", () => Soldier(Voidp, Weapon.Sword, heavy: true, plume: true) },
+            // hero + skins (#105: the Hero is a MAGE; one sprite per wardrobe skin,
+            // flame orb colored to match each skin's fireTint)
+            { "hero", () => Mage(HeroPal, new Color(1f, 0.8f, 0.35f)) },
+            { "HeroMageGolden", () => Mage(Amber, new Color(1f, 0.9f, 0.5f)) },
+            { "HeroMageCrimson", () => Mage(Crimson, new Color(1f, 0.55f, 0.25f)) },
+            { "HeroMageVoid", () => Mage(Indigo, new Color(0.55f, 0.5f, 1f)) },
+            { "HeroMageSpectral", () => Mage(Pale, new Color(0.95f, 0.97f, 1f)) },
+            { "HeroMageVerdant", () => Mage(Verdant, new Color(0.85f, 1f, 0.6f)) },
+            { "HeroMagePale", () => Mage(Storm, new Color(0.6f, 0.85f, 1f)) },
+            { "RiftKnight", () => Mage(Voidp, new Color(1f, 0.6f, 0.95f)) },
+            // the Hero's flame bolt: bright core so per-skin tints multiply cleanly
+            { "bullet-hero", () => {
+                Disc(0.5f, 0.42f, 0.3f, new Color(1f, 0.92f, 0.75f));
+                Disc(0.5f, 0.42f, 0.18f, Color.white);
+                R(0.42f, 0.6f, 0.58f, 0.8f, new Color(1f, 0.92f, 0.75f));
+                R(0.46f, 0.78f, 0.54f, 0.95f, new Color(1f, 0.92f, 0.75f, 0.7f));
+            } },
             // original roster - Descender lives in the M1-era "enemy.png" and The
             // Gatekeeper in "Boss.png" (#103); the map targets the REAL filenames.
             { "enemy", () => Soldier(Steel, Weapon.Sword) },

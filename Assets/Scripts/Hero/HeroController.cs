@@ -37,6 +37,7 @@ namespace OneMoreKnight.Hero
         private InputAction moveAction;
         private InputAction attackAction;
         private HeroUpgrades upgrades;
+        private HeroSkinApplier skinApplier;
         private float nextFireTime;
         private bool acceptsInput = true;
 
@@ -49,6 +50,7 @@ namespace OneMoreKnight.Hero
             moveAction = player.FindAction("Move", true);
             attackAction = player.FindAction("Attack", true);
             upgrades = GetComponent<HeroUpgrades>(); // optional (#55)
+            skinApplier = GetComponent<HeroSkinApplier>(); // optional (#105)
         }
 
         private void OnDestroy()
@@ -94,12 +96,15 @@ namespace OneMoreKnight.Hero
             float cooldownMult = upgrades != null ? upgrades.FireCooldownMultiplier : 1f;
             int damage = Mathf.Max(1, bulletDamage + (upgrades != null ? upgrades.BonusDamage : 0));
             nextFireTime = Time.time + fireCooldown * cooldownMult;
+            // The mage's fire carries the skin's flame color (#105) - the tint seam
+            // has existed since #48; the Hero side finally uses it.
             bulletSpawner.Spawn(
                 (Vector2)transform.position + muzzleOffset,
                 Vector2.up,
                 bulletSpeed,
                 damage,
-                bulletHitMask);
+                bulletHitMask,
+                skinApplier != null ? skinApplier.FireTint : (Color?)null);
         }
 
         private void OnDied(Health _)

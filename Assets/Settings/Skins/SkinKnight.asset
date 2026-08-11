@@ -15,5 +15,6 @@ MonoBehaviour:
   displayName: Knight
   sprite: {fileID: 21300000, guid: 16f76407b6b65234d86f766f460e5bd7, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
+  fireTint: {r: 1, g: 0.8, b: 0.35, a: 1}
   unlockAchievement: 
   lockHint: 

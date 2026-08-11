@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 0db679dfc42e1994a822425b1004f318
+guid: 00265868c8ac4f647a9108863cd0de5a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8963489748410557637
-    second: bullet-hero_0
+      213: 7941338378395256700
+    second: HeroMageCrimson_0
+  - first:
+      213: 4625737708190606074
+    second: HeroMageCrimson_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bullet-hero_0
+      name: HeroMageCrimson_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 8
-        height: 20
+        y: 2
+        width: 6
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c4edd18f66b46c70800000000000000
-      internalID: 8963489748410557637
+      spriteID: c770d6d1e2d453e60800000000000000
+      internalID: 7941338378395256700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroMageCrimson_1
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af2a4d8ffebe13040800000000000000
+      internalID: 4625737708190606074
       vertices: []
       indices: 
       edges: []
@@ -138,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bullet-hero_0: 8963489748410557637
+      HeroMageCrimson_0: 7941338378395256700
+      HeroMageCrimson_1: 4625737708190606074
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
