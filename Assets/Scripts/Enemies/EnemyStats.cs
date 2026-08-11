@@ -9,6 +9,20 @@ namespace OneMoreKnight.Enemies
     }
 
     /// <summary>
+    /// A guaranteed on-death powerup drop (#76). Mirrors <see cref="Hero.PowerupType"/>
+    /// plus <c>None</c>; mapped explicitly in PowerupDirector so the two enums may
+    /// evolve independently.
+    /// </summary>
+    public enum GuaranteedDrop
+    {
+        None,
+        Damage,
+        MaxHp,
+        MoveSpeed,
+        FireRate
+    }
+
+    /// <summary>
     /// Tuning for one Enemy type, held in an asset rather than as magic numbers inside a
     /// MonoBehaviour (AGENTS.md seam for M4).
     ///
@@ -31,6 +45,11 @@ namespace OneMoreKnight.Enemies
         [Header("Miniboss (#53)")]
         [Tooltip("Minibosses carry a small tracking HP bar. Content flag, no other behaviour change.")]
         public bool isMiniboss;
+
+        [Header("Drops (#76)")]
+        [Tooltip("None = the normal drop-chance roll. Anything else ALWAYS drops that " +
+                 "powerup on death - makes minibosses worth the detour.")]
+        public GuaranteedDrop guaranteedDrop = GuaranteedDrop.None;
 
         [Header("Curse (#55)")]
         [Tooltip("KILLING this type inflicts the curse - holding fire is the counter. " +

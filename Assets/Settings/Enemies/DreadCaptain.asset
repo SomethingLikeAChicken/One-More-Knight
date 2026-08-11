@@ -12,18 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
   m_Name: DreadCaptain
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
-  maxHealth: 40
+  maxHealth: 30
   moveSpeed: 1
   scoreValue: 800
   contactDamage: 2
   description: The host's field officer, all black iron and gold plume. Captains
     do not fall with their soldiers. They arrive where the fighting is worst, on
     purpose.
-  tactics: 'A 40-HP MINIBOSS (tracked bar) firing telegraphed aimed triple-volleys
+  tactics: 'A 30-HP MINIBOSS (tracked bar) firing telegraphed aimed triple-volleys
     in bursts of three. The volleys converge on your position - strafe THROUGH them,
     not away. Its slow march gives you time; its escort usually does not. Priority:
-    escorts first, then the long grind.'
+    escorts first, then the grind - it always drops a sword.'
   isMiniboss: 1
+  guaranteedDrop: 1
   curseOnDeath: 0
   sprite: {fileID: 7515716579499400884, guid: 441debd56e965054aa242dd5b488cd25, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
