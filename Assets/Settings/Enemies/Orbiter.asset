@@ -22,8 +22,9 @@ MonoBehaviour:
     chasing you. The gaps between the cross arms are always safe - learn the X shape
     and sit in its blind wedges while you burn it down.
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: 17dbeae2e1e7ec74e8670dc8797a4faf, type: 3}
+  sprite: {fileID: 21300000, guid: 8908fec4f1fcd2a4ba26068270fca8e0, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

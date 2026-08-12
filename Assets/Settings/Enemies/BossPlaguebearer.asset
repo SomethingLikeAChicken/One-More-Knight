@@ -22,7 +22,7 @@ MonoBehaviour:
     Below half it Blooms: rings join the song.'
   displayName: The Plaguebearer
   difficulty: 2
-  sprite: {fileID: 21300000, guid: 95f129b229f99754788a0290253e05bf, type: 3}
+  sprite: {fileID: 21300000, guid: 150657e94ff28594e8acddc3bbe90f70, type: 3}
   scale: 1.1
   entrySpeed: 2.2
   hoverSpeed: 1.1

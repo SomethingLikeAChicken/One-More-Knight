@@ -23,11 +23,14 @@ MonoBehaviour:
     hover doubles; stop aiming at where it is.
   displayName: 
   difficulty: 6
-  sprite: {fileID: 21300000, guid: 812a49d4b1381154c8833b86d6b9dac0, type: 3}
+  sprite: {fileID: 21300000, guid: c9d2d8816f08d3e41a4378b5f02b83ed, type: 3}
   scale: 1.25
   entrySpeed: 2
   hoverSpeed: 0.9
   hoverAmplitude: 2.6
+  lackeys: []
+  shieldHealth: 0
+  shieldSprite: {fileID: 0}
   phases:
   - name: Eclipse
     entersAtHpFraction: 1

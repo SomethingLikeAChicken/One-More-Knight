@@ -23,8 +23,9 @@ MonoBehaviour:
     you did not ask for. Fire discipline: shoot around it, or accept dull steel at
     a safe moment.'
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 4
-  sprite: {fileID: 21300000, guid: 48306926931c4cd48b4c4c030a6c3cf3, type: 3}
+  sprite: {fileID: 21300000, guid: c0fffd15ca37bb2419e67bce98213af9, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 1
   weaveAmplitude: 1.5

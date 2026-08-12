@@ -23,8 +23,9 @@ MonoBehaviour:
     the wall dies - so either break the wall fast or dodge the bolts and starve it
     of a target. Red bullets hunt; keep moving perpendicular.'
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: a74d85805c9e07d4584092eec5b423d9, type: 3}
+  sprite: {fileID: 21300000, guid: bea6538d082ea724d827f153b449a409, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

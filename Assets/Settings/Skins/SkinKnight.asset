@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkinKnight
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Hero.HeroSkin
   displayName: Knight
-  sprite: {fileID: 21300000, guid: 16f76407b6b65234d86f766f460e5bd7, type: 3}
+  sprite: {fileID: 21300000, guid: 097e144bf21cf4e45b3bb866b5abf70c, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   fireTint: {r: 1, g: 0.8, b: 0.35, a: 1}
   unlockAchievement: 

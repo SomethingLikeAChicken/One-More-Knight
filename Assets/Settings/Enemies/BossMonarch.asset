@@ -23,11 +23,14 @@ MonoBehaviour:
     the spiral rewards circling with it.
   displayName: 
   difficulty: 4
-  sprite: {fileID: 21300000, guid: 01edbd68eb2febe40b68c8c19a3f1b39, type: 3}
+  sprite: {fileID: 21300000, guid: 55781762cf1d3374ba392fa993f6f3fa, type: 3}
   scale: 1.1
   entrySpeed: 1.6
   hoverSpeed: 1.2
   hoverAmplitude: 2.8
+  lackeys: []
+  shieldHealth: 0
+  shieldSprite: {fileID: 0}
   phases:
   - name: Court
     entersAtHpFraction: 1

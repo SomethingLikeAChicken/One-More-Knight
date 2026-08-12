@@ -23,11 +23,14 @@ MonoBehaviour:
     overlap.
   displayName: 
   difficulty: 2
-  sprite: {fileID: 21300000, guid: 1b104fa172e758240bee3643aa56f63b, type: 3}
+  sprite: {fileID: 21300000, guid: fcea5357840518c4280aa298fef63a47, type: 3}
   scale: 1
   entrySpeed: 2.2
   hoverSpeed: 1.4
   hoverAmplitude: 3.2
+  lackeys: []
+  shieldHealth: 0
+  shieldSprite: {fileID: 0}
   phases:
   - name: Coil
     entersAtHpFraction: 1

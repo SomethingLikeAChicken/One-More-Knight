@@ -23,8 +23,9 @@ MonoBehaviour:
     Its position is predictable - a smooth sine - so lead it slightly when you shoot.
     The arc punishes you for standing still; keep drifting and it never touches you.
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: 047fc3cb0bae03649b56db3fc00731c4, type: 3}
+  sprite: {fileID: 21300000, guid: be23aaf4ad120a345ae647b8d5bf1e73, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 1
   weaveAmplitude: 1.6

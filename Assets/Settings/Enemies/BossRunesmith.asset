@@ -22,7 +22,7 @@ MonoBehaviour:
     the gap starts moving twice.'
   displayName: The Runesmith
   difficulty: 3
-  sprite: {fileID: 21300000, guid: eb257e309c5582b4daf767dd98621fb3, type: 3}
+  sprite: {fileID: 21300000, guid: 91295eb2d41e47e4a9189b22bc965303, type: 3}
   scale: 1.1
   entrySpeed: 2.2
   hoverSpeed: 1.1

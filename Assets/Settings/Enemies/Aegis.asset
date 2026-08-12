@@ -23,8 +23,9 @@ MonoBehaviour:
     head-on costs seconds you may not have; going around costs position. Decide fast,
     commit fully.
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: a50fd1873322e2d4d9ccd997d507ffb5, type: 3}
+  sprite: {fileID: 21300000, guid: c4971dbbf586c7f49ac7b417ae246fbc, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

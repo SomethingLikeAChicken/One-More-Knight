@@ -23,8 +23,9 @@ MonoBehaviour:
     breaking the wall fast or hold your fire and slip around; half-measures waste
     your damage into iron while the escort works.
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: 1068786b9c6aa5843993c6388931aa8d, type: 3}
+  sprite: {fileID: 21300000, guid: c8861b4e583f4534b8e1403b8bc1ea6c, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

@@ -22,8 +22,9 @@ MonoBehaviour:
     The pulse is your timer: be moving AWAY when it fires, and the ring''s gaps carry
     you through. Killing it mid-telegraph cancels the toll entirely.'
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: 6127a1ea3ebb77a43b98f0b113755658, type: 3}
+  sprite: {fileID: 21300000, guid: 71ddf670415d8dd42927629452b41587, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

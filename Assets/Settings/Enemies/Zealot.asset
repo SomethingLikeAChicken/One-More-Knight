@@ -22,8 +22,9 @@ MonoBehaviour:
     in one: the bolt commits you to a dodge, and the diving body punishes the dodge.
     Kill it at the top of the screen or give its lane away entirely.'
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: 1ef3fea7ead00564cb6db7f870f49aad, type: 3}
+  sprite: {fileID: 21300000, guid: 749ba98ae0d279a4188c3af5d12731b4, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

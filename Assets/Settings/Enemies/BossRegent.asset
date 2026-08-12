@@ -23,7 +23,7 @@ MonoBehaviour:
     drill: kill the guard, bank a ward, spend it late.'
   displayName: The Regent
   difficulty: 7
-  sprite: {fileID: 21300000, guid: f9e6a31d1733b9c40bdacfea98e9aec9, type: 3}
+  sprite: {fileID: 21300000, guid: c04e470d829368244bc38fb102a0da67, type: 3}
   scale: 1.25
   entrySpeed: 2.2
   hoverSpeed: 1.1

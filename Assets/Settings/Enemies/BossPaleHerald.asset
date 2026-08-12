@@ -22,7 +22,7 @@ MonoBehaviour:
     fast or the marker density alone will end you. Each pays out and drops.
   displayName: Pale Herald
   difficulty: 1
-  sprite: {fileID: 21300000, guid: dfeae3425d5883547865989835ca6597, type: 3}
+  sprite: {fileID: 21300000, guid: 658deead0b78f4b46b21a30b818b14e7, type: 3}
   scale: 0.9
   entrySpeed: 2.2
   hoverSpeed: 1.5

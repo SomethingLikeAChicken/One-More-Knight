@@ -23,8 +23,9 @@ MonoBehaviour:
     it is constant - but time your kill for a calm moment, or dodge around it and
     leave the seal alone. The aura pulse marks the price.'
   isMiniboss: 1
+  guaranteedDrop: 0
   curseOnDeath: 1
-  sprite: {fileID: 21300000, guid: b2ecc0a6bb2dfc4448603878919e9e22, type: 3}
+  sprite: {fileID: 21300000, guid: ecbd0aab029d4464ca0d7739aa47f092, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

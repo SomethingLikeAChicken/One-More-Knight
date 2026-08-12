@@ -23,11 +23,14 @@ MonoBehaviour:
     mostly bullets, so pre-plan lanes.
   displayName: 
   difficulty: 4
-  sprite: {fileID: 21300000, guid: e810d4b310a617340bbbfdbf23a56414, type: 3}
+  sprite: {fileID: 21300000, guid: 40143a57df774a2408e425abd1fac83a, type: 3}
   scale: 1.15
   entrySpeed: 1.4
   hoverSpeed: 0.7
   hoverAmplitude: 2
+  lackeys: []
+  shieldHealth: 0
+  shieldSprite: {fileID: 0}
   phases:
   - name: Advance
     entersAtHpFraction: 1

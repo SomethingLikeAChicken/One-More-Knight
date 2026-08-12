@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkinCrimson
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Hero.HeroSkin
   displayName: Crimson Knight
-  sprite: {fileID: 21300000, guid: 00265868c8ac4f647a9108863cd0de5a, type: 3}
+  sprite: {fileID: 21300000, guid: 318c739efb35574458a06b430b91bde6, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   fireTint: {r: 1, g: 0.55, b: 0.25, a: 1}
   unlockAchievement: slay-warbringer

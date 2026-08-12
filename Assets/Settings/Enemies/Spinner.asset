@@ -22,8 +22,9 @@ MonoBehaviour:
     are slow; the danger is the lattice they leave across lanes you wanted later.
     Cut it down early or accept fighting inside its web.
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: bc344893adad94a49be6e455fab2cee5, type: 3}
+  sprite: {fileID: 21300000, guid: 971acb4b00d9ab946a34fa87da23528d, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

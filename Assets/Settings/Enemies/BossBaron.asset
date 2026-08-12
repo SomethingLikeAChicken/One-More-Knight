@@ -25,7 +25,7 @@ MonoBehaviour:
     to.'
   displayName: The Baron
   difficulty: 3
-  sprite: {fileID: 2515924802082538597, guid: 77186e392d5971548a0ac037eab8ac4b, type: 3}
+  sprite: {fileID: 21300000, guid: 233f95d17cb6e1149847f9c77f26836d, type: 3}
   scale: 1.1
   entrySpeed: 2.2
   hoverSpeed: 1

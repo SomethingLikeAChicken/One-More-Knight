@@ -22,8 +22,9 @@ MonoBehaviour:
     the first - never dodge into the space the first volley herded you toward. Mid
     HP; focus fire between bursts.
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: 38290b8cc4706054b83484f46469a89c, type: 3}
+  sprite: {fileID: 21300000, guid: 661965b0cdad3c54b91db38edaef7e5a, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

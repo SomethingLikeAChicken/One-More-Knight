@@ -22,8 +22,9 @@ MonoBehaviour:
     that moves. Do not duel it while anything else shoots - use its own shadow as
     cover from enemies above it, and grind it down when the screen allows.
   isMiniboss: 1
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: 412157cba3862204caa80956788fe7ba, type: 3}
+  sprite: {fileID: 21300000, guid: ece077e847b078d4c92d893dfccf98eb, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

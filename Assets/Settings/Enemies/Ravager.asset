@@ -23,8 +23,9 @@ MonoBehaviour:
     up the chase, then let it pass. High HP and heavy contact - respect its body
     too.'
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: a66e1620d3d0fd54c9c60c54dc66618c, type: 3}
+  sprite: {fileID: 21300000, guid: db387c54b2f6ef549ba2cdd9af903b3b, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5
