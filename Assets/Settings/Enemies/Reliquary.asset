@@ -24,7 +24,7 @@ MonoBehaviour:
     leave the seal alone. The aura pulse marks the price.'
   isMiniboss: 1
   curseOnDeath: 1
-  sprite: {fileID: -8200773883855569100, guid: b2ecc0a6bb2dfc4448603878919e9e22, type: 3}
+  sprite: {fileID: 21300000, guid: b2ecc0a6bb2dfc4448603878919e9e22, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

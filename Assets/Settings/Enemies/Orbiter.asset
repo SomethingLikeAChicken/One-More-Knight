@@ -23,7 +23,7 @@ MonoBehaviour:
     and sit in its blind wedges while you burn it down.
   isMiniboss: 0
   curseOnDeath: 0
-  sprite: {fileID: -4128447770939529247, guid: 17dbeae2e1e7ec74e8670dc8797a4faf, type: 3}
+  sprite: {fileID: 21300000, guid: 17dbeae2e1e7ec74e8670dc8797a4faf, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

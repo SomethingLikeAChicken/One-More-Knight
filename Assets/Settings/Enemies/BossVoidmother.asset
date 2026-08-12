@@ -23,7 +23,7 @@ MonoBehaviour:
     of Nothing (30%) adds dense rift rings: the squares now demand immediate evacuation.'
   displayName: The Voidmother
   difficulty: 7
-  sprite: {fileID: -3706276703203598709, guid: 25100186fc1528444866a6efca108407, type: 3}
+  sprite: {fileID: 21300000, guid: 25100186fc1528444866a6efca108407, type: 3}
   scale: 1.25
   entrySpeed: 2
   hoverSpeed: 0.9

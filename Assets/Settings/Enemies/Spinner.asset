@@ -23,7 +23,7 @@ MonoBehaviour:
     Cut it down early or accept fighting inside its web.
   isMiniboss: 0
   curseOnDeath: 0
-  sprite: {fileID: 302528250548171635, guid: bc344893adad94a49be6e455fab2cee5, type: 3}
+  sprite: {fileID: 21300000, guid: bc344893adad94a49be6e455fab2cee5, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

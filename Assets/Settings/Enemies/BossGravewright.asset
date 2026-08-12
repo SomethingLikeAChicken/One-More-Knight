@@ -23,7 +23,7 @@ MonoBehaviour:
     help.'
   displayName: The Gravewright
   difficulty: 4
-  sprite: {fileID: 6589158706347804702, guid: d12025709ce145542b6f9610d0a6b717, type: 3}
+  sprite: {fileID: 21300000, guid: d12025709ce145542b6f9610d0a6b717, type: 3}
   scale: 1.15
   entrySpeed: 2.2
   hoverSpeed: 1.1

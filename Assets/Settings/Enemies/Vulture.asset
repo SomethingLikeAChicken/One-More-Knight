@@ -23,7 +23,7 @@ MonoBehaviour:
     back between them. It weaves; snapshot at the turnarounds.'
   isMiniboss: 0
   curseOnDeath: 0
-  sprite: {fileID: 2708881489621747757, guid: 9b73928af96ecb64eb1cac1a3175e867, type: 3}
+  sprite: {fileID: 21300000, guid: 9b73928af96ecb64eb1cac1a3175e867, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 1
   weaveAmplitude: 1.5

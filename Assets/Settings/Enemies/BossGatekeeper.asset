@@ -24,7 +24,7 @@ MonoBehaviour:
     will cost the run.'
   displayName: The Gatekeeper
   difficulty: 1
-  sprite: {fileID: -6248741079362886434, guid: d0c29e0047b99094cabc3a9d5ab2dadf, type: 3}
+  sprite: {fileID: 21300000, guid: d0c29e0047b99094cabc3a9d5ab2dadf, type: 3}
   scale: 1
   entrySpeed: 2
   hoverSpeed: 1.1

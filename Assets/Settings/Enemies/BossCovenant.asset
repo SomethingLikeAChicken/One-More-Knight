@@ -22,7 +22,7 @@ MonoBehaviour:
     watching the boss, watch the floor. Move off every square before it blooms.'
   displayName: The Covenant
   difficulty: 5
-  sprite: {fileID: 4627303675726389187, guid: 74dc05fa47d8fc443a8a73760abc0ccc, type: 3}
+  sprite: {fileID: 21300000, guid: 74dc05fa47d8fc443a8a73760abc0ccc, type: 3}
   scale: 1.2
   entrySpeed: 2.2
   hoverSpeed: 1.1

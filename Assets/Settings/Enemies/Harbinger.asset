@@ -24,7 +24,7 @@ MonoBehaviour:
     telegraph pauses.
   isMiniboss: 0
   curseOnDeath: 0
-  sprite: {fileID: 5924172039620091632, guid: 31225a27ca9d90847b72ab86fd468dc3, type: 3}
+  sprite: {fileID: 21300000, guid: 31225a27ca9d90847b72ab86fd468dc3, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

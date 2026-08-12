@@ -23,7 +23,7 @@ MonoBehaviour:
     White tint means final phase: maximum speed, keep to the bottom corners.'
   displayName: 
   difficulty: 5
-  sprite: {fileID: -5026696212614533462, guid: 177dd41cb3db3f7469a493fc2b3c268c, type: 3}
+  sprite: {fileID: 21300000, guid: 177dd41cb3db3f7469a493fc2b3c268c, type: 3}
   scale: 1.15
   entrySpeed: 2
   hoverSpeed: 1

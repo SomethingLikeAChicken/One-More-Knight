@@ -23,7 +23,7 @@ MonoBehaviour:
     near its ring telegraph. Its own HP melts fast once the court is empty.'
   displayName: 
   difficulty: 3
-  sprite: {fileID: -3629204534960827949, guid: 38dc9f76328c5894884b6115542e85b9, type: 3}
+  sprite: {fileID: 21300000, guid: 38dc9f76328c5894884b6115542e85b9, type: 3}
   scale: 1.05
   entrySpeed: 2
   hoverSpeed: 0.9

@@ -23,7 +23,7 @@ MonoBehaviour:
     overlap.
   displayName: 
   difficulty: 2
-  sprite: {fileID: -5961141700606603349, guid: 1b104fa172e758240bee3643aa56f63b, type: 3}
+  sprite: {fileID: 21300000, guid: 1b104fa172e758240bee3643aa56f63b, type: 3}
   scale: 1
   entrySpeed: 2.2
   hoverSpeed: 1.4

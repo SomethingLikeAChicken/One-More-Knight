@@ -24,7 +24,7 @@ MonoBehaviour:
     have learned is the entry fee.
   displayName: Eternity
   difficulty: 8
-  sprite: {fileID: 8249993087537524717, guid: 2a016ca036d7d9b49aa1514db71253ac, type: 3}
+  sprite: {fileID: 21300000, guid: 2a016ca036d7d9b49aa1514db71253ac, type: 3}
   scale: 1.35
   entrySpeed: 1.8
   hoverSpeed: 0.85

@@ -23,7 +23,7 @@ MonoBehaviour:
     the Zealots between wall passes.'
   displayName: The Executioner
   difficulty: 6
-  sprite: {fileID: 4086565562712893355, guid: 2ea48d08fe7b0c2428eb56da262b8f86, type: 3}
+  sprite: {fileID: 21300000, guid: 2ea48d08fe7b0c2428eb56da262b8f86, type: 3}
   scale: 1.15
   entrySpeed: 2
   hoverSpeed: 1.05

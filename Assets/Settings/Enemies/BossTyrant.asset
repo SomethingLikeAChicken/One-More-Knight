@@ -22,7 +22,7 @@ MonoBehaviour:
     When the ring appears, the safe wedges rotate; find one and migrate with it.
   displayName: 
   difficulty: 3
-  sprite: {fileID: -6454399610971557207, guid: 78d0f06883905e24191464e5ec798215, type: 3}
+  sprite: {fileID: 21300000, guid: 78d0f06883905e24191464e5ec798215, type: 3}
   scale: 1.05
   entrySpeed: 1.8
   hoverSpeed: 0.9

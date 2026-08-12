@@ -23,7 +23,7 @@ MonoBehaviour:
     with real shooters. Never chase one into a crowd.
   isMiniboss: 0
   curseOnDeath: 0
-  sprite: {fileID: 3586392811686792816, guid: 5c2efec8563aa6b4aa332cd175956fa4, type: 3}
+  sprite: {fileID: 21300000, guid: 5c2efec8563aa6b4aa332cd175956fa4, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 1
   weaveAmplitude: 1.8
