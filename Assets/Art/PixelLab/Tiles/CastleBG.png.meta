@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7e240e2174d2f2c4da3f1d4a385a163f
+guid: b20a16967c3d5a7479e805694a0f6a68
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4115148030085921558
-    second: FieldsSheet_0
+      213: 7446556078223747115
+    second: CastleBG_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FieldsSheet_0
+      name: CastleBG_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 960
+        height: 1280
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 61b7b639451fb1930800000000000000
-      internalID: 4115148030085921558
+      spriteID: b286d82bc4b775760800000000000000
+      internalID: 7446556078223747115
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FieldsSheet_0: 4115148030085921558
+      CastleBG_0: 7446556078223747115
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

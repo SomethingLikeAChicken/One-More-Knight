@@ -663,6 +663,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527233026}
   m_CullTransparentMesh: 1
+--- !u!1 &555528278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 555528280}
+  - component: {fileID: 555528279}
+  m_Layer: 0
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &555528279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555528278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acab376d671012043b07e3ccbb134e7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Run.ScrollingBackground
+  biomes:
+  - {fileID: 21300000, guid: f69d940a96246194bb3457c456accedc, type: 3}
+  - {fileID: 21300000, guid: a6a2f4aa8bbd5ba419184ec31c285d1f, type: 3}
+  - {fileID: 21300000, guid: b18f51d8efa1f3c47a683746b46925fb, type: 3}
+  - {fileID: 21300000, guid: b20a16967c3d5a7479e805694a0f6a68, type: 3}
+  - {fileID: 21300000, guid: 9cae70ee62acbac488b3b10311dca7c7, type: 3}
+  scrollSpeed: 1.6
+  dim: {r: 0.52, g: 0.52, b: 0.58, a: 1}
+  bossDirector: {fileID: 878119175}
+--- !u!4 &555528280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555528278}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,3 +2008,4 @@ SceneRoots:
   - {fileID: 2102539942}
   - {fileID: 1173818853}
   - {fileID: 1211516796}
+  - {fileID: 555528280}

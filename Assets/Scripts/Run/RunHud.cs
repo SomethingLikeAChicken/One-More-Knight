@@ -65,6 +65,37 @@ namespace OneMoreKnight.Run
         }
         private readonly List<LackeyBar> lackeyBars = new List<LackeyBar>(2);
 
+        private void Start()
+        {
+            // PixelLab skin (#115): generated font on every readout, iron frame
+            // around the boss bar. Cloned lackey bars inherit both for free.
+            var theme = Flow.UiTheme.Instance;
+            if (theme == null) return;
+            if (theme.font != null)
+            {
+                foreach (var t in new[] { scoreText, waveText, bossNameText, curseText, buffText })
+                    if (t != null) t.font = theme.font;
+                if (bossBar != null)
+                    foreach (var t in bossBar.GetComponentsInChildren<Text>(true))
+                        t.font = theme.font;
+            }
+            if (theme.bossBarFrame != null && bossBar != null && bossBar.transform.Find("Frame") == null)
+            {
+                var frameGo = new GameObject("Frame");
+                frameGo.transform.SetParent(bossBar.transform, false);
+                frameGo.transform.SetSiblingIndex(0);
+                var frame = frameGo.AddComponent<Image>();
+                frame.sprite = theme.bossBarFrame;
+                frame.type = Image.Type.Sliced;
+                frame.raycastTarget = false;
+                var rt = frame.rectTransform;
+                rt.anchorMin = Vector2.zero;
+                rt.anchorMax = Vector2.one;
+                rt.offsetMin = new Vector2(-12f, -10f);
+                rt.offsetMax = new Vector2(12f, 10f);
+            }
+        }
+
         private void Update()
         {
             scoreText.text = $"SCORE  {runManager.Score:n0}";

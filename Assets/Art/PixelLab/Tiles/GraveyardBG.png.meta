@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7e240e2174d2f2c4da3f1d4a385a163f
+guid: b18f51d8efa1f3c47a683746b46925fb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4115148030085921558
-    second: FieldsSheet_0
+      213: -8720625792482215922
+    second: GraveyardBG_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FieldsSheet_0
+      name: GraveyardBG_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 960
+        height: 1280
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 61b7b639451fb1930800000000000000
-      internalID: 4115148030085921558
+      spriteID: e08fcfbab0d1af680800000000000000
+      internalID: -8720625792482215922
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FieldsSheet_0: 4115148030085921558
+      GraveyardBG_0: -8720625792482215922
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

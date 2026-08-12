@@ -58,6 +58,9 @@ namespace OneMoreKnight.Flow
         {
             if (banner != null) return;
 
+            UiTheme theme = UiTheme.Instance;
+            Font themeFont = theme != null ? theme.font : null;
+
             banner = new GUIStyle(GUI.skin.label)
             {
                 fontSize = 30,
@@ -66,6 +69,7 @@ namespace OneMoreKnight.Flow
                 wordWrap = true
             };
             banner.normal.textColor = new Color(1f, 0.42f, 0.42f);
+            if (themeFont != null) banner.font = themeFont;
 
             readout = new GUIStyle(GUI.skin.label)
             {
@@ -73,6 +77,7 @@ namespace OneMoreKnight.Flow
                 alignment = TextAnchor.MiddleCenter
             };
             readout.normal.textColor = Color.white;
+            if (themeFont != null) readout.font = themeFont;
 
             hint = new GUIStyle(GUI.skin.label)
             {
@@ -80,6 +85,7 @@ namespace OneMoreKnight.Flow
                 alignment = TextAnchor.MiddleCenter
             };
             hint.normal.textColor = new Color(0.85f, 0.85f, 0.9f);
+            if (themeFont != null) hint.font = themeFont;
         }
 
         private void OnGUI()

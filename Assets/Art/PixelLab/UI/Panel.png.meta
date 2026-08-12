@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 7e240e2174d2f2c4da3f1d4a385a163f
+guid: a4b1f012eaf888045aa49bc44eee667d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4115148030085921558
-    second: FieldsSheet_0
+      213: -1198477067713850731
+    second: Panel_0
+  - first:
+      213: -3732398871244758080
+    second: Panel_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,8 +54,8 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 26, y: 26, z: 26, w: 26}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FieldsSheet_0
+      name: Panel_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 5
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 61b7b639451fb1930800000000000000
-      internalID: 4115148030085921558
+      spriteID: 592d67be4772e5fe0800000000000000
+      internalID: -1198477067713850731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel_1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 3
+        width: 322
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c3236f600bd33cc0800000000000000
+      internalID: -3732398871244758080
       vertices: []
       indices: 
       edges: []
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FieldsSheet_0: 4115148030085921558
+      Panel_0: -1198477067713850731
+      Panel_1: -3732398871244758080
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
