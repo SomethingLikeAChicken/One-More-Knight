@@ -23,7 +23,7 @@ MonoBehaviour:
     a gap; ride it.'
   displayName: 
   difficulty: 3
-  sprite: {fileID: 2980227943750080533, guid: 37efb6f9b75bab0429250e38d8302237, type: 3}
+  sprite: {fileID: 21300000, guid: 37efb6f9b75bab0429250e38d8302237, type: 3}
   scale: 1.05
   entrySpeed: 2.4
   hoverSpeed: 1.6

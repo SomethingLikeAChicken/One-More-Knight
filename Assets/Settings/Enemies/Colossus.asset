@@ -23,7 +23,7 @@ MonoBehaviour:
     cover from enemies above it, and grind it down when the screen allows.
   isMiniboss: 1
   curseOnDeath: 0
-  sprite: {fileID: 6344468113124548594, guid: 412157cba3862204caa80956788fe7ba, type: 3}
+  sprite: {fileID: 21300000, guid: 412157cba3862204caa80956788fe7ba, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

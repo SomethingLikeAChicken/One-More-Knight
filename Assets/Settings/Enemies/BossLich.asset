@@ -23,7 +23,7 @@ MonoBehaviour:
     third and thread the oscillation.'
   displayName: 
   difficulty: 2
-  sprite: {fileID: 5219372316874285534, guid: 6e1ef0a860b2abf4bbf200834a16f8a3, type: 3}
+  sprite: {fileID: 21300000, guid: 6e1ef0a860b2abf4bbf200834a16f8a3, type: 3}
   scale: 1
   entrySpeed: 1.9
   hoverSpeed: 0.9

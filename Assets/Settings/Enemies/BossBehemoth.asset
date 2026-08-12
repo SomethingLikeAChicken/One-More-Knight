@@ -23,7 +23,7 @@ MonoBehaviour:
     mostly bullets, so pre-plan lanes.
   displayName: 
   difficulty: 4
-  sprite: {fileID: -5510549319715328724, guid: e810d4b310a617340bbbfdbf23a56414, type: 3}
+  sprite: {fileID: 21300000, guid: e810d4b310a617340bbbfdbf23a56414, type: 3}
   scale: 1.15
   entrySpeed: 1.4
   hoverSpeed: 0.7

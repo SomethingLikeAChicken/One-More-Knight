@@ -23,7 +23,7 @@ MonoBehaviour:
     Kill it at the top of the screen or give its lane away entirely.'
   isMiniboss: 0
   curseOnDeath: 0
-  sprite: {fileID: 940888875905898940, guid: 1ef3fea7ead00564cb6db7f870f49aad, type: 3}
+  sprite: {fileID: 21300000, guid: 1ef3fea7ead00564cb6db7f870f49aad, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

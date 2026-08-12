@@ -23,7 +23,7 @@ MonoBehaviour:
     it early spares you the pressure entirely.
   isMiniboss: 0
   curseOnDeath: 0
-  sprite: {fileID: -3085747607584028519, guid: a160ede6bdc1ed2499aa4e333bef9884, type: 3}
+  sprite: {fileID: 21300000, guid: a160ede6bdc1ed2499aa4e333bef9884, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 1
   weaveAmplitude: 1.2

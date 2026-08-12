@@ -23,7 +23,7 @@ MonoBehaviour:
     hits kill it; do it before the third pounce.
   isMiniboss: 0
   curseOnDeath: 0
-  sprite: {fileID: 1127398676692545597, guid: 062e3fd6f3beeb245b60b28adcb7d145, type: 3}
+  sprite: {fileID: 21300000, guid: 062e3fd6f3beeb245b60b28adcb7d145, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

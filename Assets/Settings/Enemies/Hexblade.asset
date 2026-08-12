@@ -24,7 +24,7 @@ MonoBehaviour:
     Hexblade itself weaves fast; it dies in three hits if you can pin it.'
   isMiniboss: 0
   curseOnDeath: 0
-  sprite: {fileID: 9194384128470476769, guid: 180b40ed362f2704b9632e46631ac848, type: 3}
+  sprite: {fileID: 21300000, guid: 180b40ed362f2704b9632e46631ac848, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

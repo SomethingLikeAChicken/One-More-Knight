@@ -23,7 +23,7 @@ MonoBehaviour:
     One at a time is practice; three at once is a lesson.'
   isMiniboss: 0
   curseOnDeath: 0
-  sprite: {fileID: 2389856339642955073, guid: 53d7f5343e6534d4694a5632da7a67ad, type: 3}
+  sprite: {fileID: 21300000, guid: 53d7f5343e6534d4694a5632da7a67ad, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

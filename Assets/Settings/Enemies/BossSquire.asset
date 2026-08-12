@@ -23,7 +23,7 @@ MonoBehaviour:
     a reward and drops a powerup for the real fight.
   displayName: Baron's Squire
   difficulty: 1
-  sprite: {fileID: 308957425386107708, guid: 1436de90492319847af5276157b7b668, type: 3}
+  sprite: {fileID: 21300000, guid: 1436de90492319847af5276157b7b668, type: 3}
   scale: 0.75
   entrySpeed: 2.6
   hoverSpeed: 1.5

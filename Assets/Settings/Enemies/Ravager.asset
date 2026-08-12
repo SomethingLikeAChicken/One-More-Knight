@@ -24,7 +24,7 @@ MonoBehaviour:
     too.'
   isMiniboss: 0
   curseOnDeath: 0
-  sprite: {fileID: -4677365148177797994, guid: a66e1620d3d0fd54c9c60c54dc66618c, type: 3}
+  sprite: {fileID: 21300000, guid: a66e1620d3d0fd54c9c60c54dc66618c, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

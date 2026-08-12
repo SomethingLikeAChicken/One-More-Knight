@@ -23,14 +23,14 @@ MonoBehaviour:
     not chase.'
   displayName: The Warlord
   difficulty: 4
-  sprite: {fileID: -6585689496698272637, guid: 071f765755a20864bafc97902b47c7dc, type: 3}
+  sprite: {fileID: 21300000, guid: 071f765755a20864bafc97902b47c7dc, type: 3}
   scale: 1.2
   entrySpeed: 2.2
   hoverSpeed: 1.1
   hoverAmplitude: 2.6
   lackeys: []
   shieldHealth: 45
-  shieldSprite: {fileID: 307852957207225814, guid: 0ecd6ad4cf9e76d4d86dcb438bce8975, type: 3}
+  shieldSprite: {fileID: 21300000, guid: 0ecd6ad4cf9e76d4d86dcb438bce8975, type: 3}
   phases:
   - name: Siegecraft
     entersAtHpFraction: 1

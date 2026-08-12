@@ -31,7 +31,7 @@ MonoBehaviour:
   hoverSpeed: 0.9
   hoverAmplitude: 2.2
   shieldHealth: 30
-  shieldSprite: {fileID: 2051653326483071087, guid: 1068786b9c6aa5843993c6388931aa8d, type: 3}
+  shieldSprite: {fileID: 21300000, guid: 1068786b9c6aa5843993c6388931aa8d, type: 3}
   phases:
   - name: Steadfast
     entersAtHpFraction: 1

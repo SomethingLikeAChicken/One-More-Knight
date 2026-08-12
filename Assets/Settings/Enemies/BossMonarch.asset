@@ -23,7 +23,7 @@ MonoBehaviour:
     the spiral rewards circling with it.
   displayName: 
   difficulty: 4
-  sprite: {fileID: 3518599092611669162, guid: 01edbd68eb2febe40b68c8c19a3f1b39, type: 3}
+  sprite: {fileID: 21300000, guid: 01edbd68eb2febe40b68c8c19a3f1b39, type: 3}
   scale: 1.1
   entrySpeed: 1.6
   hoverSpeed: 1.2

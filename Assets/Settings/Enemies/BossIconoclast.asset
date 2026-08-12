@@ -22,14 +22,14 @@ MonoBehaviour:
     Purge for the second half.'
   displayName: The Iconoclast
   difficulty: 6
-  sprite: {fileID: -6308520890894486544, guid: 3c98206e9c6b9244b84d19b6f09f8cc3, type: 3}
+  sprite: {fileID: 21300000, guid: 3c98206e9c6b9244b84d19b6f09f8cc3, type: 3}
   scale: 1.25
   entrySpeed: 2.2
   hoverSpeed: 1.1
   hoverAmplitude: 2.6
   lackeys: []
   shieldHealth: 80
-  shieldSprite: {fileID: -985360278708841933, guid: 699c9087eb6d97e4387b3d33663593e9, type: 3}
+  shieldSprite: {fileID: 21300000, guid: 699c9087eb6d97e4387b3d33663593e9, type: 3}
   phases:
   - name: Defacement
     entersAtHpFraction: 1
