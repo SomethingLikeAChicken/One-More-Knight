@@ -17,7 +17,7 @@ namespace OneMoreKnight.Run
         [Tooltip("World units per second the ground moves DOWN.")]
         [SerializeField] private float scrollSpeed = 1.6f;
         [Tooltip("Multiplied onto the panels so gameplay stays readable on top.")]
-        [SerializeField] private Color dim = new Color(0.52f, 0.52f, 0.58f, 1f);
+        [SerializeField] private Color dim = new Color(0.34f, 0.34f, 0.42f, 1f);
         [SerializeField] private BossDirector bossDirector;
 
         private readonly SpriteRenderer[] panels = new SpriteRenderer[2];

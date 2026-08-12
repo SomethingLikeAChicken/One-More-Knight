@@ -699,7 +699,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b20a16967c3d5a7479e805694a0f6a68, type: 3}
   - {fileID: 21300000, guid: 9cae70ee62acbac488b3b10311dca7c7, type: 3}
   scrollSpeed: 1.6
-  dim: {r: 0.52, g: 0.52, b: 0.58, a: 1}
+  dim: {r: 0.34, g: 0.34, b: 0.42, a: 1}
   bossDirector: {fileID: 878119175}
 --- !u!4 &555528280
 Transform:
@@ -1632,6 +1632,7 @@ GameObject:
   - component: {fileID: 2057006115}
   - component: {fileID: 2057006116}
   - component: {fileID: 2057006117}
+  - component: {fileID: 2057006118}
   m_Layer: 6
   m_Name: Hero
   m_TagString: Untagged
@@ -1860,6 +1861,92 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Hero.HeroSkinApplier
   catalog: {fileID: 11400000, guid: 2654cc7778785ce408faa6139afe022d, type: 2}
+--- !u!114 &2057006118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057006108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0968bbb15ec6924388babe22b9cd3fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Hero.HeroWalkAnimation
+  east:
+  - {fileID: 21300000, guid: 34e4da544bdd2d949b464c1261d88093, type: 3}
+  - {fileID: 21300000, guid: d55282321e2b8b94d82f8fb212c6f54b, type: 3}
+  - {fileID: 21300000, guid: 87f4ce5ed6c5ccf478ea7432d2ec2f69, type: 3}
+  - {fileID: 21300000, guid: 83e4652dcdfed0a41a5df60933b05ce8, type: 3}
+  - {fileID: 21300000, guid: 2a3763fbc8e790149999ac7dc228ee18, type: 3}
+  - {fileID: 21300000, guid: d4640575ddafe524a993a8735261385e, type: 3}
+  - {fileID: 21300000, guid: c11a5a94210024049abafa87245d9592, type: 3}
+  - {fileID: 21300000, guid: f5d3d2134e32fc34db258909eb305efb, type: 3}
+  northEast:
+  - {fileID: 21300000, guid: f32d7bcb2afb2d445a9284a5f7d3465f, type: 3}
+  - {fileID: 21300000, guid: b22f6263a943b834fa4a214f85276488, type: 3}
+  - {fileID: 21300000, guid: 4b4e1ffaf7a9dbb409673f336bccb0bb, type: 3}
+  - {fileID: 21300000, guid: 3500764604889844882d2b86b529b60b, type: 3}
+  - {fileID: 21300000, guid: e06ae1dffae559a45a821d8be178d59f, type: 3}
+  - {fileID: 21300000, guid: a62c71f128233344a8c8e4aa7be0bcbd, type: 3}
+  - {fileID: 21300000, guid: 47f71a2fe9826604a838ffa4d2a4a1fc, type: 3}
+  - {fileID: 21300000, guid: 101f9ad51aa00fb41af192ce9a87d7e6, type: 3}
+  north:
+  - {fileID: 21300000, guid: 57b438b890755904896daaa5bcaf99f6, type: 3}
+  - {fileID: 21300000, guid: c170bdeb191f2f8488ebe92f9db7f6b8, type: 3}
+  - {fileID: 21300000, guid: 3f95bd5ac539b4340b05adb373379b1e, type: 3}
+  - {fileID: 21300000, guid: 061ec33781e3d744a88714ea9d5b15b2, type: 3}
+  - {fileID: 21300000, guid: 6f1c472314719254ab04ceebf5197c8b, type: 3}
+  - {fileID: 21300000, guid: c57d388a80bddd7449d333947e3516a7, type: 3}
+  - {fileID: 21300000, guid: a5446eac80db00040862acb0bada24fe, type: 3}
+  - {fileID: 21300000, guid: 96e74c945be0ab54480298ad7a65d68b, type: 3}
+  northWest:
+  - {fileID: 21300000, guid: 03935c37c88c0744c86b0ea26ef06b9d, type: 3}
+  - {fileID: 21300000, guid: a63164df2575ca643998bd0f619642c4, type: 3}
+  - {fileID: 21300000, guid: bc591132bd2bfad4f892a081a1b7a64f, type: 3}
+  - {fileID: 21300000, guid: c05ce2ae56ac6ef4c8b4008e2ef54674, type: 3}
+  - {fileID: 21300000, guid: bdadacd2533dd204bbdfbd244f214e26, type: 3}
+  - {fileID: 21300000, guid: 2aa53b864937914469bb82baa8b5355f, type: 3}
+  - {fileID: 21300000, guid: 03e68fa4d2e918b4faf2ca9937280e39, type: 3}
+  - {fileID: 21300000, guid: f5a4162ee5c289c448dca6cb859d0eff, type: 3}
+  west:
+  - {fileID: 21300000, guid: 855c74ad1502842458f363865f38c91d, type: 3}
+  - {fileID: 21300000, guid: 2b4992123287fd546aa549cd127a26d7, type: 3}
+  - {fileID: 21300000, guid: d3de4a8c1daf808428d8b8cc8fd5da14, type: 3}
+  - {fileID: 21300000, guid: 3c3d75197d668c141b6c6e0c6dfe6da1, type: 3}
+  - {fileID: 21300000, guid: 872c38fe8f2eb8a419969fe206d6bac3, type: 3}
+  - {fileID: 21300000, guid: 3777819109fb621439dc38898021b9f9, type: 3}
+  - {fileID: 21300000, guid: faafd8118e5a06c4983bb004dbde0634, type: 3}
+  - {fileID: 21300000, guid: f7f04ce05796aa64e9fb6cd6a21d6b44, type: 3}
+  southWest:
+  - {fileID: 21300000, guid: 57d780083e442bd4cabbe89ead0c776d, type: 3}
+  - {fileID: 21300000, guid: 855d10938b80597468f0be8c054fe1f8, type: 3}
+  - {fileID: 21300000, guid: 9c90c1abae27b744890d157b1d097da8, type: 3}
+  - {fileID: 21300000, guid: f3c052da5aa900b46ae52b9613889881, type: 3}
+  - {fileID: 21300000, guid: f10d6246b2e57784ebd7cb80bbc67d76, type: 3}
+  - {fileID: 21300000, guid: 44269e5c7063b0942aa80123193cae30, type: 3}
+  - {fileID: 21300000, guid: bcbec4faf5c335c4ca61873b1efd7c06, type: 3}
+  - {fileID: 21300000, guid: 85680e1c2d1157a428c88f9eca2b124e, type: 3}
+  south:
+  - {fileID: 21300000, guid: 056ecb8b8a062db4483535d0060c4657, type: 3}
+  - {fileID: 21300000, guid: ec1a1de51b371c440a78d0978ad29916, type: 3}
+  - {fileID: 21300000, guid: 2ded0a108516a16428e5c332ac24c70b, type: 3}
+  - {fileID: 21300000, guid: 6cb954463338bcf48975cbcf547a35b6, type: 3}
+  - {fileID: 21300000, guid: d792b6664a253f442ad786c04d7f9c0f, type: 3}
+  - {fileID: 21300000, guid: becf08e3e18262d428dee137aaf174e2, type: 3}
+  - {fileID: 21300000, guid: 134dfa8e74410474c8bab44c795e5d20, type: 3}
+  - {fileID: 21300000, guid: 36daf498fd6b6cb4a82745c362ec3342, type: 3}
+  southEast:
+  - {fileID: 21300000, guid: 6bbe6a7b068b5cb46af567c047f501d5, type: 3}
+  - {fileID: 21300000, guid: 7b08b403c03a2fe44a0e541518072889, type: 3}
+  - {fileID: 21300000, guid: cd5be2bb783d6b340a111184e9e23a9c, type: 3}
+  - {fileID: 21300000, guid: 107743e7dfacdb543ac00e3bfd6b01d0, type: 3}
+  - {fileID: 21300000, guid: abfce58f544b625438653fcaeb89480a, type: 3}
+  - {fileID: 21300000, guid: 427f214d4cf6ad44e9775bb51b989901, type: 3}
+  - {fileID: 21300000, guid: ff34e52bf1f32c847a5d8dc04660194d, type: 3}
+  - {fileID: 21300000, guid: a9b9064f25a1c6441a548c7214bd47df, type: 3}
+  framesPerSecond: 10
+  idleSpeed: 0.4
 --- !u!1 &2102539940
 GameObject:
   m_ObjectHideFlags: 0
