@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.5
   scoreValue: 600
   contactDamage: 1
-  description: A white-violet wheel that sings when it turns. The host does not know
-    where the Seraphs came from either. They arrived; the host made room.
+  description: Four wings the color of ash and a spear that remembers being light.
+    The host does not know where it fell from, and it will not say.
   tactics: Weaves while releasing a rotating TEN-bolt wheel (telegraphed, violet).
     Dense but slow - hug the rim of one gap and rotate with it. The weave makes its
     position drift, so re-anchor after every volley. Twelve HP; commit real fire

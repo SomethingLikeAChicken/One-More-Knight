@@ -16,9 +16,8 @@ MonoBehaviour:
   moveSpeed: 1
   scoreValue: 800
   contactDamage: 2
-  description: The host's field officer, all black iron and gold plume. Captains
-    do not fall with their soldiers. They arrive where the fighting is worst, on
-    purpose.
+  description: The host's field officer, greatcoat still dripping from a sea nobody
+    here has seen. The hand-cannon was against regulations. So was coming back.
   tactics: 'A 30-HP MINIBOSS (tracked bar) firing telegraphed aimed triple-volleys
     in bursts of three. The volleys converge on your position - strafe THROUGH them,
     not away. Its slow march gives you time; its escort usually does not. Priority:

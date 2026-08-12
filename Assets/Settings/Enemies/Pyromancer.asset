@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.6
   scoreValue: 250
   contactDamage: 1
-  description: Its fan of fire starts lazy, almost decorative - and then pounces
-    like a cat that was only pretending to sleep.
+  description: The fireball starts lazy above her palm, almost decorative - and then
+    pounces.
   tactics: Fires an aimed three-bolt fan that ACCELERATES. The safe gap you see at
     launch closes fast - pick your dodge lane immediately and commit. Kill it high;
     an accelerating fan from low altitude is nearly unreactable.

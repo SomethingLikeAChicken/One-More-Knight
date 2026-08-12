@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 2.2
   scoreValue: 150
   contactDamage: 1
-  description: Rank and file of the host. The pike is longer than his patience and
-    considerably longer than his life expectancy.
+  description: Rank and file of the host. The spear is thrown, the next one is already
+    in his hand, and his patience was never the long part.
   tactics: A straight bolt on a steady march. Sidestep and cull - Pikemen only matter
     when something meaner hides behind their line.
   isMiniboss: 0

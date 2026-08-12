@@ -15,8 +15,8 @@ MonoBehaviour:
   maxHealth: 1000
   contactDamage: 2
   scoreReward: 24000
-  description: The book the host reads before it falls. Nobody wrote it. It accumulates.
-    Its last word is a hound.
+  description: The book the host reads before it falls. Nobody wrote it. It accumulates
+    - and the loose pages are looking for somewhere to file you.
   tactics: 'The rift endgame (difficulty 8, 1000 HP): crosses through curtains, then
     rift homing volleys over a spiral with Hexblade adds, and in the Last Word -
     dense rift rings, rift gyres, homing bolts, and a DIREHOUND MINIBOSS summoned

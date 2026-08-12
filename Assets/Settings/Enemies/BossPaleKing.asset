@@ -15,9 +15,9 @@ MonoBehaviour:
   maxHealth: 1000
   contactDamage: 1
   scoreReward: 12000
-  description: The throne was empty for a hundred years. Something patient sat down
-    in it anyway. The host was never marching TOWARD anything - it was marching AWAY
-    from him, and you are what is left in between.
+  description: The throne was empty for a hundred years. Something patient sat down,
+    grew antlers, and lit the pale fire. It has not stood up since, and it will not
+    for you.
   tactics: 'The d9 summit, every mechanic at once: two rift-casting Heralds guard
     him (grey bar), then a 150-point ward (blue bar), THEN three phases of ruin -
     dense rings into storm crosses into rift gyres with homing volleys while Riftlings

@@ -15,8 +15,8 @@ MonoBehaviour:
   maxHealth: 100
   contactDamage: 1
   scoreReward: 1500
-  description: Green curtains of grave-light, swaying as they fall. The Lich conducts
-    them like a choir, and below half health the phalanx begins to march.
+  description: A crown of ice on a king of leftovers. The staff holds the last soul
+    that argued with him, mid-argument.
   tactics: 'Sine curtains (violet snaking walls) with fast aimed spit underneath.
     The curtains breathe - their gaps slide in waves; move WITH the wave, not against
     it. Requiem (below half) adds a snaking phalanx wall: keep to the screen''s lower

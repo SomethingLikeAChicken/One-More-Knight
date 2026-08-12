@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.4
   scoreValue: 300
   contactDamage: 1
-  description: Two orbs that share one grudge. They never fire together - the second
-    waits for your dodge.
+  description: Two small spirits on one glowing thread, one pale, one dark. They
+    never fire together - the second waits for your answer to the first.
   tactics: Fires TWO red homing bolts in quick succession. The first pulls you, the
     second punishes the pull - keep moving through both instead of stopping after
     one. It weaves, so lead your shots.

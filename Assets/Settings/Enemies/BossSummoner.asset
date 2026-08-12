@@ -15,8 +15,8 @@ MonoBehaviour:
   maxHealth: 150
   contactDamage: 1
   scoreReward: 2600
-  description: It does not fight you. It invites others to - and rings its bell while
-    you drown in guests. The glowing core is the invitation list.
+  description: It does not fight you. It reads aloud from the grimoire, and the circle
+    underneath decides who does.
   tactics: 'Fights entirely through adds: Wisps in Ritual, Skirmishers in Legion
     (below 55%), with aimed spit and a telegraphed ring for punctuation. Kill the
     summons FIRST or they multiply past control - but watch your fire discipline

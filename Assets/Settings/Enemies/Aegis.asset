@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 0.8
   scoreValue: 300
   contactDamage: 2
-  description: The Bulwark's big sibling - a shield that walks, built by someone
-    who believed the best weapon is the enemy's wasted time.
+  description: Three tower shields and one knight who no longer remembers which he
+    is. The host stopped issuing orders to the Aegis; walls do not take orders.
   tactics: Fourteen HP of pure blockade with painful contact damage. Aegis walls
     come escorted - Wardens hide behind them lobbing homing bolts. Breaking the shield
     head-on costs seconds you may not have; going around costs position. Decide fast,

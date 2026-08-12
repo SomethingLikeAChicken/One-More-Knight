@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 2.4
   scoreValue: 350
   contactDamage: 1
-  description: Thrown out of the host's army for conduct unbecoming. The host has
-    low standards, so imagine.
+  description: Thrown out of the host's army for conduct unbecoming. Kept the armor,
+    kept the crossbow, kept the conduct.
   tactics: A fast weaving duelist with aimed shots - closes distance while firing.
     Do not let it set the range; kill it at the top of the screen or dance with it.
   isMiniboss: 0

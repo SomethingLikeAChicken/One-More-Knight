@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.4
   scoreValue: 300
   contactDamage: 1
-  description: It carries a ring of violet fire the way a monk carries a prayer -
-    constantly, and for someone else's benefit. The detonation is the sermon.
+  description: The hat is wide because the bolt is honest. He carries violet fire
+    the way a monk carries a prayer - constantly, and at you.
   tactics: Descends and periodically releases a full ring of bullets in every direction.
     The ring is dense near the Warlock and sparse far away - distance is armor. Kill
     it between rings, and never fight it point-blank.

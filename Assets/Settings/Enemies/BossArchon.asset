@@ -15,8 +15,8 @@ MonoBehaviour:
   maxHealth: 320
   contactDamage: 2
   scoreReward: 5000
-  description: A star of judgement that never learned mercy's spelling. Its wrath
-    calls zealots; its ascension calls wardens; its light calls walls.
+  description: A star of judgement in gold and black plate. The halo is not a reward
+    - it is a targeting ring, and mercy was never in its spelling.
   tactics: 'Wide fans and rotating crosses, then sweeping walls plus Zealot summons
     (Wrath), then rings, homing bolts, and Warden summons (Ascension). The summons
     are the real pressure - clear Zealots before their dives sync with the walls.

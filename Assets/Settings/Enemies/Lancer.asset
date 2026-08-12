@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 3
   scoreValue: 150
   contactDamage: 1
-  description: A splinter of steel with a single idea. The bolt it fires leaves the
-    barrel almost lazily, as if stretching - then remembers its purpose all at once.
+  description: A knightling with wings it barely earned and a javelin of light it
+    definitely stole. The bolt leaves the argument early.
   tactics: Fires a green bolt that starts slow and accelerates hard. Your instinct
     calibrates on the launch speed and is wrong by the time it reaches you - dodge
     EARLY, when the bolt is born, not when it looks close. The Lancer itself dives

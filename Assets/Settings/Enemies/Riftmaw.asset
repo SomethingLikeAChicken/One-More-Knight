@@ -17,7 +17,7 @@ MonoBehaviour:
   scoreValue: 1100
   contactDamage: 2
   description: A mouth that learned to open somewhere else. The teeth arrive before
-    the rest of it decides to.
+    the rest of it commits.
   tactics: 'A 20-HP RIFT MINIBOSS: rifts open on your position and spit short homing
     volleys. Hold the marker rule - off the square, sharp cuts against the red -
     and it ALWAYS drops a sword.'

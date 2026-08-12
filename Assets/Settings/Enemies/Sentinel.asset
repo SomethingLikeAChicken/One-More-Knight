@@ -16,9 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.2
   scoreValue: 250
   contactDamage: 1
-  description: A patient eye in a bronze shell. Sentinels were the first of the host
-    to look down and see YOU rather than a battlefield - and they have not looked
-    away since.
+  description: A patient eye in a stone tower that walks only when nobody proves
+    otherwise. The beam is the proof.
   tactics: 'Descends slowly and fires single green bolts aimed at your position when
     it shoots. The bolt flies straight after launch: sidestep AFTER it fires, not
     before, or you dodge into the next one. Low HP - a priority target while it is

@@ -15,9 +15,8 @@ MonoBehaviour:
   maxHealth: 70
   contactDamage: 1
   scoreReward: 1000
-  description: It announces the wall, then becomes it. The Herald believes a proclamation
-    should be legible from anywhere on the battlefield - so it writes in bullets,
-    edge to edge.
+  description: It announces the wall, then becomes it. The horn is longer than the
+    argument, and the spores carry the proclamation further than any voice could.
   tactics: Sweeping telegraphed walls with deliberate gaps, plus aimed jabs to herd
     you. Find the gap EARLY - the wall crosses slowly but totally. Below half HP
     (Judgement, white tint) a rotating cross joins; track the cross's turn and treat

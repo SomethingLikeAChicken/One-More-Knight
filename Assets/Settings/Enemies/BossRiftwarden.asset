@@ -15,8 +15,8 @@ MonoBehaviour:
   maxHealth: 380
   contactDamage: 2
   scoreReward: 6000
-  description: The first thing that learned doors do not need walls. Its frame IS
-    the doorway, and the courtesy of a knock is a square of violet light.
+  description: The first thing that learned doors do not need walls. It carries a
+    caged portal on a staff the way a jailer carries keys - proudly, and at you.
   tactics: 'The rift tutorial boss (difficulty 5): telegraphed squares open AT YOUR
     POSITION and erupt rings a moment later - the square is where you WERE, so simply
     keep moving. Threshold (below half) adds random-position crosses: track two squares

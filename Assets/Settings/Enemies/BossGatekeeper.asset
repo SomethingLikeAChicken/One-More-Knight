@@ -15,9 +15,9 @@ MonoBehaviour:
   maxHealth: 60
   contactDamage: 1
   scoreReward: 1000
-  description: The first bell of the Run. The Gatekeeper does not hate you; it simply
-    was built into the doorway, and you are knocking. Every knight meets it. Most
-    meet it again.
+  description: The first bell of the Run. A gate that grew tired of being opened,
+    with a keyhole where a heart should be. It does not hate you; it simply was never
+    taught to open.
   tactics: 'The tutorial boss: aimed shots, a modest fan, a phase flip at half HP.
     Its openers are slow and generously spaced - use the fight to practice reading
     telegraphs and phase tints. If the Gatekeeper is costing you hearts, later gates

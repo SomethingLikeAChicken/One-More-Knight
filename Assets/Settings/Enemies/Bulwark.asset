@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 0.9
   scoreValue: 200
   contactDamage: 1
-  description: A slab of walking iron with no gun, no eyes, and no doubts. The host
-    does not expect Bulwarks to win battles - only to make you late for them.
+  description: A knight who knelt behind his tower shield and never found a reason
+    to stand again. The host stopped waiting.
   tactics: High HP, slow descent, no attack; pure blockade. Behind one there is usually
     something shooting - a Warden's homing bolts curve around it. Either commit to
     breaking the wall fast or hold your fire and slip around; half-measures waste

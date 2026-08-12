@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.4
   scoreValue: 300
   contactDamage: 1
-  description: 'It weaves your bad luck in advance and wears it as a robe. The violet
-    eye is the loom. CURSED: killing it costs your sight.'
+  description: She weaves your bad luck in advance, thread by violet thread. By the
+    time you see the pattern, you are in it.
   tactics: 'CURSED - killing it BLINDS you for four seconds (the screen closes in).
     It fires slow homing bolts, so ignoring it entirely is expensive too. The professional
     answer: kill it at a calm moment, blind on YOUR schedule. The aura pulse marks

@@ -15,8 +15,8 @@ MonoBehaviour:
   maxHealth: 700
   contactDamage: 2
   scoreReward: 12000
-  description: A pale orb with five eyes, none of which blink. What it births is
-    small, hungry, and shockingly numerous.
+  description: What it births is worse than what it is, and what it is is a nursery
+    of eyes. None of them blink. All of them are counting.
   tactics: 'The swarm boss (difficulty 7): rift squares erupt HOMING volleys - five
     hunters from a point of your recent past - while Locusts spill continuously.
     Clear Locusts with your natural spread; save deliberate aim for the mother. Womb

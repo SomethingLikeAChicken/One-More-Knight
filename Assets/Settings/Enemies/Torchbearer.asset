@@ -17,7 +17,7 @@ MonoBehaviour:
   scoreValue: 150
   contactDamage: 1
   description: Carries the fire that burns the maps of everywhere the host has been.
-    Forward is the only direction left.
+    The sparks are complimentary.
   tactics: Fast fodder with a short flame fan. Two hits and it is gone - the danger
     is the pace it sets, not the shots.
   isMiniboss: 0

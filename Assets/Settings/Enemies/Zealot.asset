@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 2.6
   scoreValue: 350
   contactDamage: 1
-  description: A blade of white gold that dives like judgement. Zealots believe -
-    in what, nobody has survived long enough to ask.
+  description: The brand burns because he believes. Zealots dive like judgement because
+    nobody ever told them they are the evidence.
   tactics: 'Very fast diver with an aimed bolt that accelerates viciously. Two threats
     in one: the bolt commits you to a dodge, and the diving body punishes the dodge.
     Kill it at the top of the screen or give its lane away entirely.'

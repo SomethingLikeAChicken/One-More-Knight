@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.1
   scoreValue: 450
   contactDamage: 1
-  description: A turning wheel of violet omens. What it announces has never once
-    been good news.
+  description: 'A crow-headed priest of the host''s oldest omen: you. What it announces
+    has never once failed to happen.'
   tactics: Fires a rotating six-bolt ring (violet, telegraphed) - each volley steps
     a few degrees, so the safe angle NEVER stays. Keep circling in one direction
     and the gaps come to you; freeze and the wheel finds you. Kill it during the

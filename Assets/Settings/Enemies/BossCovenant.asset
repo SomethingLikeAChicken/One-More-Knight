@@ -15,8 +15,8 @@ MonoBehaviour:
   maxHealth: 300
   contactDamage: 1
   scoreReward: 3500
-  description: An agreement between two places that should never have met. You are
-    standing on the signature line.
+  description: An agreement between three judges who should never have met, sharing
+    one hood and one verdict. The scale is not weighing you. It has finished.
   tactics: 'A pure rift-caster: crosses erupt on your position, then rings from random
     field-points once the Second Seal opens. The markers are the whole fight - stop
     watching the boss, watch the floor. Move off every square before it blooms.'

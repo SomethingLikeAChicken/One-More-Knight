@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.1
   scoreValue: 900
   contactDamage: 2
-  description: The host's kennel-master lost the argument about whether this one
-    should be let out. Gold fangs, red eyes, miniboss bar.
+  description: The host's kennel-master lost the argument about the armor, the horns,
+    AND the fire. It wears all three now.
   tactics: A 35-HP MINIBOSS howling telegraphed triple-bursts of homing bolts. The
     bursts track sequentially - keep a steady circle and they trail behind you like
     a comet tail. Its escort dies first; the hound is a patient grind that always

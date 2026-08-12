@@ -15,7 +15,8 @@ MonoBehaviour:
   maxHealth: 380
   contactDamage: 1
   scoreReward: 4000
-  description: Breaks holy things for a living. Wears the last cathedral it visited.
+  description: Breaks holy things for a living and kept the best head as a club.
+    The embers leaking from the cracks are the last cathedral's opinion.
   tactics: 'An 80-point bone ward AND rifts - it casts the whole time you grind the
     blue bar, so the ward is not a free damage phase. Post-break the Desecration
     begins at full health: dense rift rings and rotating storm crosses. Budget your

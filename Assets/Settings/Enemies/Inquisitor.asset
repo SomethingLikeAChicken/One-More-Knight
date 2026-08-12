@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.3
   scoreValue: 500
   contactDamage: 1
-  description: A tall crimson hood with a white slit where questions come out. Its
-    brands do not ask where you are. They ask where you will be.
+  description: The censer swings, the embers fall, the questions continue. It has
+    never once liked an answer.
   tactics: Telegraphs, then fires TWIN red homing brands in quick succession. The
     first pulls your dodge; the second punishes it. Break line by moving hard perpendicular
     through both, or kill it during the telegraph. High value target - never let

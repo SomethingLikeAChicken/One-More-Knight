@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.4
   scoreValue: 400
   contactDamage: 1
-  description: Died for the cause once already. The cause was not grateful. Now everyone
-    gets to share the experience.
+  description: Died for the cause once already. The cause was not grateful. The burning
+    tears are not hers - they are for whoever is next.
   tactics: CURSED - its death inflicts Weakness (-1 damage) for the duration. A weaving
     arc-shooter you often WANT to leave alive while heavier targets need full swords.
     Fire discipline.

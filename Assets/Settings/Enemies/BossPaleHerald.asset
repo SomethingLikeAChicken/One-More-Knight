@@ -16,7 +16,8 @@ MonoBehaviour:
   contactDamage: 1
   scoreReward: 800
   description: 'It announces the King the way frost announces winter: by already
-    being everywhere.'
+    being there. The bell is cracked because it has only one note left, and it is
+    yours.'
   tactics: One of the Pale King's two heralds - and it casts RIFTS. While the pair
     lives the King takes nothing, and the floor keeps blooming crosses. Kill them
     fast or the marker density alone will end you. Each pays out and drops.

@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.6
   scoreValue: 250
   contactDamage: 1
-  description: A slit of red light on a falling shard of night. It has exactly one
-    thought, and the thought is your coordinates.
+  description: A crouch with a knife in it. It has exactly one plan, and the plan
+    is already thrown.
   tactics: 'Fires a single red homing bolt that hunts you for about a second. Red
     means hunted: move perpendicular, let it commit, and step aside as it straightens.
     One at a time is practice; three at once is a lesson.'

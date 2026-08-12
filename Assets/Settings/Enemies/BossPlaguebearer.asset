@@ -15,8 +15,8 @@ MonoBehaviour:
   maxHealth: 85
   contactDamage: 1
   scoreReward: 1500
-  description: It does not spread the plague. It carries it, gently, the way you
-    carry something you love.
+  description: It does not spread the plague. It carries it, gently, in a skull lantern
+    at the end of a crooked staff - the way you carry a candle to bed.
   tactics: 'A d2 curtain-caster that calls Wisps in while violet waves snake down.
     Kill the adds with strays, not swords - the curtains have troughs, live in them.
     Below half it Blooms: rings join the song.'

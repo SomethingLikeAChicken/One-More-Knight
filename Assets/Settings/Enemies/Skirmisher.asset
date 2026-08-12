@@ -16,9 +16,8 @@ MonoBehaviour:
   moveSpeed: 2.2
   scoreValue: 200
   contactDamage: 1
-  description: A kite of red-brown leather that refuses to hold still. Skirmishers
-    weave because a moving sniper is a living sniper - and they aim because living
-    is not enough.
+  description: A goblin, a sling, and a total absence of long-term planning. Skirmishers
+    refuse to hold still on principle.
   tactics: 'Weaves while firing aimed green bolts. The weave makes it annoying to
     hit - lead its sine, or wait for the turnaround points where it briefly hangs.
     Its shots come at YOUR position: keep moving and they land behind you.'

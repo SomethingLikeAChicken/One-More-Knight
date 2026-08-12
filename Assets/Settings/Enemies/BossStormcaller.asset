@@ -15,8 +15,8 @@ MonoBehaviour:
   maxHealth: 140
   contactDamage: 2
   scoreReward: 2000
-  description: The storm follows you. Crosses of violet lightning turn about the
-    Stormcaller as it hunts, and the thunder always aims.
+  description: The storm follows you. It levitates because the ground kept asking
+    questions, and the lightning between its hands is the shortest answer it knows.
   tactics: 'Capped red homing bolts plus rotating StormCross volleys. The homing
     bolts give up after a second - bait them wide, then cut back. Tempest (below
     55%) adds a radial ring and speed: the crosses keep rotating, so never park in

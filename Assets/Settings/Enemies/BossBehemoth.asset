@@ -15,8 +15,8 @@ MonoBehaviour:
   maxHealth: 220
   contactDamage: 2
   scoreReward: 3000
-  description: A wall of iron that learned to fight back. Everything the Behemoth
-    throws is heavy, including the silence between volleys.
+  description: A wall of meat that grew its own castle. Everything the Behemoth has
+    ever walked through is part of its back now.
   tactics: Accelerating fans, massive slow walls, offset and dense rings across three
     phases. Its bullets are heavy but sparse - the fight is about patience, not reflexes.
     Punish the long recovery after each wall; by Meltdown (red glow) the floor is

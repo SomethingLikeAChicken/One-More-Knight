@@ -15,8 +15,8 @@ MonoBehaviour:
   maxHealth: 750
   contactDamage: 2
   scoreReward: 13000
-  description: Three pillars, one sentence. It reads the charges in rifts - first
-    one square, then two, then everywhere.
+  description: Three stone faces, one sentence. The gavel burns because the verdict
+    is always the same, and it reads the charges in rifts.
   tactics: 'THREE rift patterns run simultaneously by the Second Reading (difficulty
     7): gyres, rings, and crosses each claiming their own square. The screen becomes
     a calendar of eruptions - triage by timer, newest square first. It summons Curseweavers:

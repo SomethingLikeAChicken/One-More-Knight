@@ -15,8 +15,8 @@ MonoBehaviour:
   maxHealth: 30
   contactDamage: 1
   scoreReward: 400
-  description: Sworn to carry the Baron's shield and, apparently, to die holding
-    it. Loyalty is not a virtue when the cause is a crown that shoots back.
+  description: Sworn to carry the Castellan's errands and, apparently, to die holding
+    a crossbow taller than himself. The helmet was a hand-me-down. So was the war.
   tactics: One of two guards that make the Baron untouchable - his greyed bar takes
     NOTHING until both fall. Squires are brittle (30 HP) but their bolts add up while
     you linger. Pick one, burst it down, then mirror it. Each fallen Squire pays

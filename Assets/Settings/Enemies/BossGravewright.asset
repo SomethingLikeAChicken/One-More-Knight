@@ -15,8 +15,8 @@ MonoBehaviour:
   maxHealth: 170
   contactDamage: 1
   scoreReward: 2500
-  description: The host's undertaker, promoted for enthusiasm. His work keeps getting
-    back up, which he takes as a compliment.
+  description: The host's undertaker, built from coffin planks and enthusiasm. The
+    lantern in its ribcage is for finding you in the dark it brings.
   tactics: 'Summons CURSED help: Gravediggers early (their deaths slow you), Martyrs
     late (their deaths weaken you). Fire discipline is the fight - every add you
     reflex-kill hands him your legs or your sword. Red bolts hunt between waves of

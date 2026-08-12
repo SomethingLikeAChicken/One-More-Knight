@@ -15,8 +15,8 @@ MonoBehaviour:
   maxHealth: 120
   contactDamage: 1
   scoreReward: 2000
-  description: Forges the host's grammar one ring at a time. Complaints about the
-    font are answered personally.
+  description: Forges the host's grammar one molten rune at a time, on an anvil that
+    follows him like a dog. Complaints about the spelling are answered in kind.
   tactics: 'Offset rings rotate around you - two interleaved circles whose gap drifts.
     Track the gap, not the bullets. Below half it Overwrites: a spiral joins and
     the gap starts moving twice.'

@@ -15,8 +15,8 @@ MonoBehaviour:
   maxHealth: 520
   contactDamage: 2
   scoreReward: 8000
-  description: An axe-head the size of a doorway with a verdict already written.
-    The squares it opens are not warnings. They are appointments.
+  description: An axe the size of a doorway with a verdict already written - several
+    verdicts, in fact, orbiting his shoulders in case the first one misses.
   tactics: 'Random rift crosses plus muzzle homing bolts (difficulty 6). The crosses
     claim diagonals from wherever a square opens - the moment one appears, note its
     lanes and leave them. Verdict (55%) adds sweeping walls and Zealot summons: kill

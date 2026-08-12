@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 2.6
   scoreValue: 150
   contactDamage: 1
-  description: A scrap of the dark with one violet eye, drifting among the crowds
-    you actually want to shoot. It wants to be killed. That is the trap.
+  description: A scrap of the dark with two furious eyes. It cannot shoot, cannot
+    speak, cannot forgive. It can only arrive.
   tactics: 'CURSED: killing it JAMS your gun for four seconds - it pulses a dark
     aura as warning. It has no weapon; its whole job is to swim between real targets
     and eat your stray bullets. Check your line of fire before you hold the trigger.

@@ -15,8 +15,9 @@ MonoBehaviour:
   maxHealth: 500
   contactDamage: 1
   scoreReward: 5000
-  description: Rules on behalf of a king nobody has seen in years. The arrangement
-    suits him. The knight asking questions does not.
+  description: Rules on behalf of a king nobody has seen in years, from a throne
+    that no longer touches the ground. The twin swords walk. He has never needed
+    to.
   tactics: 'Guarded by two Blades - he is untouchable and firing the whole time you
     duel them. Then three courts: fans and triples, dense rings below 55%, and a
     Scorched Court under a quarter where storm crosses sweep between walls. The endgame

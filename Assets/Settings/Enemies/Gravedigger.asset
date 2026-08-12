@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.6
   scoreValue: 350
   contactDamage: 1
-  description: Dug graves for the host until he noticed nobody was filling his. The
-    shovel still works either way.
+  description: Dug graves for the host until he noticed nobody was filling his. Now
+    he flings the spare bones at whoever looks employable.
   tactics: CURSED - killing it drops Leaden on you (move speed crushed). The dark
     aura is the warning. Kill it only with room to be slow in, or route around it
     entirely.

@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.3
   scoreValue: 300
   contactDamage: 1
-  description: It rings a warning before its circle of bells tolls - not out of fairness,
-    but ceremony. The host insists on its rituals.
+  description: The sigils orbit his head like patient wasps. He is not praying FOR
+    anything. He is praying AT you.
   tactics: 'Telegraphs (pulses violet-white) before releasing an eight-bullet ring.
     The pulse is your timer: be moving AWAY when it fires, and the ring''s gaps carry
     you through. Killing it mid-telegraph cancels the toll entirely.'

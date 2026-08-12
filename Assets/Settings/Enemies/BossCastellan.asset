@@ -16,8 +16,8 @@ MonoBehaviour:
   contactDamage: 1
   scoreReward: 1500
   description: The outer gate's warden-stone, animated by a garrison oath nobody
-    was left alive to release it from. It did not abandon its post. It brought the
-    post to you.
+    rescinded. The ballistae on its shoulders were the garrison's idea; the ward
+    in front of it is yours to break.
   tactics: 'The first warded Boss: a 30-point blue ward soaks every hit before its
     health moves - the blue bar is the ward, not the boss. Break it through the steady
     fans, watch the shatter, then the real fight begins at FULL health. Below half

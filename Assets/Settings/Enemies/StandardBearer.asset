@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 1
   scoreValue: 900
   contactDamage: 2
-  description: The standard has fallen eleven times. He picks it up every time. It
-    is starting to look personal.
+  description: The standard has fallen eleven times. He picks it up every time, and
+    the dark crackling around it is the standard's opinion of that.
   tactics: An 18-HP MINIBOSS (tracked bar) firing telegraphed aimed volleys - a fair,
     killable duel that ALWAYS drops a wing. Strafe through the volleys and take the
     speed you will need.

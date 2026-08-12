@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.1
   scoreValue: 450
   contactDamage: 1
-  description: The song has no words anymore. The bolts learned the melody and carry
-    the verse themselves.
+  description: The song has no words anymore. She sings it anyway, and the notes
+    arrive with edges.
   tactics: Broad violet curtains, slow and wide. One Dirgesinger is a rhythm; two
     are a wall of music. Prioritize when the screen already snakes.
   isMiniboss: 0

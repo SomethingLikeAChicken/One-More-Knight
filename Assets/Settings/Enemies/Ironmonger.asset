@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 0.8
   scoreValue: 350
   contactDamage: 2
-  description: Sells iron. Delivers personally. Refunds are handled by the two tons
-    of him walking at you.
+  description: Sells iron. Delivers personally. The furnace in its chest is the forge;
+    the fists are the invoice.
   tactics: 'A 14-HP walking wall with painful contact and no gun. Like the Bulwark
     line: either commit to breaking it fast or route around and mind what shoots
     from behind it.'

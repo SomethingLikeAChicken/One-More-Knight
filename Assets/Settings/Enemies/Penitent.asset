@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 2
   scoreValue: 250
   contactDamage: 1
-  description: 'A grey figure that walks to be struck. Its penance is your weakness
-    - literally. CURSED: killing it dulls your blade.'
+  description: A grey figure that walks to be struck, dragging its yoke uphill both
+    ways. Its penance is your weakness for hitting it.
   tactics: 'CURSED - killing it applies WEAKNESS (-1 bullet damage) for four seconds.
     It never shoots; it just weaves fast through your line of fire like a confession
     you did not ask for. Fire discipline: shoot around it, or accept dull steel at

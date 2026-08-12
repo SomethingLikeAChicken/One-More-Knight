@@ -16,7 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.2
   scoreValue: 400
   contactDamage: 1
-  description: 'Rings the hour. The hour is always the same one: too late.'
+  description: 'Rings the hour. The hour is always the same one: too late. The rings
+    arrive in waves, the way the hour does.'
   tactics: Telegraphed rings toll outward on a slow clock. The gap in a ring is born
     where you were when it rang - keep moving BEFORE the toll, not after.
   isMiniboss: 0

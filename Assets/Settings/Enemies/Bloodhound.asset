@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 3
   scoreValue: 250
   contactDamage: 1
-  description: All muzzle, no leash. The host does not aim Bloodhounds; it releases
-    them.
+  description: All muzzle, no leash. What it breathes at you is not fire exactly
+    - it is appetite with a temperature.
   tactics: A fast diver whose red dart turns viciously but gives up almost immediately.
     Sharp, short dodges beat wide ones - the dart cannot follow a quick cut. Two
     hits kill it; do it before the third pounce.

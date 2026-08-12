@@ -17,7 +17,7 @@ MonoBehaviour:
   scoreValue: 300
   contactDamage: 1
   description: The bird is dead. He throws it anyway, and something in the dark keeps
-    bringing it back.
+    bringing it back to his glove.
   tactics: A weaving handler loosing red hunting bolts. Short sharp dodges beat wide
     arcs - the falcon gives up quickly. Kill him mid-weave when he drifts to an edge.
   isMiniboss: 0

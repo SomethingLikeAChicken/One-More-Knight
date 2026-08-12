@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 1.5
   scoreValue: 600
   contactDamage: 1
-  description: A splinter of somewhere else wearing a robe. The robe is doing most
-    of the work of looking like a person.
+  description: A splinter of somewhere else with a spark of the same. The robe is
+    doing most of the work.
   tactics: 'RIFT ELITE: opens a telegraphed rift AT YOUR POSITION and erupts spikes
     from it. The square marker is your one warning - move OFF the mark and the spikes
     miss. Expensive to field; kill it before its second cast.'

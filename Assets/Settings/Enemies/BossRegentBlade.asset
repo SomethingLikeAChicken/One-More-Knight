@@ -16,7 +16,7 @@ MonoBehaviour:
   contactDamage: 1
   scoreReward: 600
   description: The Regent owns two swords that walk. They have names. He has never
-    used them.
+    used them - the ribbon is regal, but the edge is not ceremonial at all.
   tactics: 'One of the Regent''s two guards - 55 HP of aimed triples. While either
     lives the Regent''s grey bar takes nothing. Split your attention: their volleys
     converge from both flanks. Each fallen Blade pays out and drops.'

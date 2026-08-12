@@ -15,8 +15,9 @@ MonoBehaviour:
   maxHealth: 450
   contactDamage: 2
   scoreReward: 8000
-  description: The last thing most far runs see. A near-black orb with a violet rim,
-    dense rings, a turning spiral, and the dark that follows you home.
+  description: The last thing most far runs see. A mask with stars for eyes and nothing
+    measurable behind it. The tendrils are not reaching for you; you are simply in
+    the direction of everything.
   tactics: Dense rings with aimed spit, then a spiral (Maw, plus Hexblade summons),
     then cross-quads with homing bolts and a Ravager (Oblivion phase). The rings
     are the rhythm section - everything else syncopates around them. Below 30% the

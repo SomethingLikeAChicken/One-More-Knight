@@ -16,8 +16,7 @@ MonoBehaviour:
   moveSpeed: 1.7
   scoreValue: 250
   contactDamage: 1
-  description: Pressure incarnate. Marauders do not duel; they lean on you, volley
-    after paired volley, until something - usually you - gives.
+  description: Pressure incarnate. He has more axes than opinions and throws both.
   tactics: Fires green arcs in quick two-bursts. The second burst comes fast after
     the first - never dodge into the space the first volley herded you toward. Mid
     HP; focus fire between bursts.

@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 0.7
   scoreValue: 700
   contactDamage: 2
-  description: A dark shrine with a violet gem where a heart should be. Whatever
-    is sealed inside was sealed for a reason - and your bullets are a key.
+  description: A gilded shrine on four bronze legs. Whatever is holy in there leaks
+    out through the seams, and none of it is for you.
   tactics: 'CURSED miniboss: a 30-HP walking shrine whose death makes you LEADEN
     (slow) for four seconds. It blocks like an Aegis, so the temptation to break
     it is constant - but time your kill for a calm moment, or dodge around it and

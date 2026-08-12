@@ -15,8 +15,9 @@ MonoBehaviour:
   maxHealth: 650
   contactDamage: 2
   scoreReward: 12000
-  description: A crimson war-totem with a gold eye that has already counted your
-    hearts. The Warbringer does not summon soldiers. It PROMOTES them.
+  description: A siege engine that outlived its siege. The catapult arm is loaded,
+    the banners are torn, and nobody remembers what surrender was supposed to look
+    like.
   tactics: 'Muster opens with wide fans and lance walls while a DREAD CAPTAIN miniboss
     marches in - kill the Captain before Onslaught (60%) triples the Zealot pressure.
     Warpath (30%) is rings plus homing under maximum speed. This is the wall the

@@ -16,8 +16,8 @@ MonoBehaviour:
   moveSpeed: 4.4
   scoreValue: 100
   contactDamage: 1
-  description: 'Fast, fragile, and utterly without fear. Darters are the host''s
-    messengers, and the message is always the same: you have less time than you think.'
+  description: Fast, fragile, and utterly without fear. A needle of pale spite, thrown
+    by nobody, at you.
   tactics: Very fast, no gun - its body is the weapon. It crosses the screen in a
     couple of seconds, so treat every Darter lane as briefly poisoned. One hit kills
     it; snap shots work, but simply not being in its column is cheaper.

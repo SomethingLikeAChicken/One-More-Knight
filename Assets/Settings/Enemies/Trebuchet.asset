@@ -16,7 +16,8 @@ MonoBehaviour:
   moveSpeed: 0.9
   scoreValue: 450
   contactDamage: 2
-  description: Someone taught a siege engine to walk. Nobody taught it to stop.
+  description: Someone taught a siege engine to walk. Nobody crews it, nobody loads
+    it, and the stone glows anyway.
   tactics: A slow engine hurling sweeping walls. The wall is level with its arm -
     flank it and the volley never reaches you. Ten HP of wood burns eventually.
   isMiniboss: 0
