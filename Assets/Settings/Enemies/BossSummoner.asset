@@ -15,19 +15,22 @@ MonoBehaviour:
   maxHealth: 150
   contactDamage: 1
   scoreReward: 2600
-  description: It does not fight you. It invites others to - and rings its bell while
-    you drown in guests. The glowing core is the invitation list.
+  description: It does not fight you. It reads aloud from the grimoire, and the circle
+    underneath decides who does.
   tactics: 'Fights entirely through adds: Wisps in Ritual, Skirmishers in Legion
     (below 55%), with aimed spit and a telegraphed ring for punctuation. Kill the
     summons FIRST or they multiply past control - but watch your fire discipline
     near its ring telegraph. Its own HP melts fast once the court is empty.'
   displayName: 
   difficulty: 3
-  sprite: {fileID: 21300000, guid: 38dc9f76328c5894884b6115542e85b9, type: 3}
+  sprite: {fileID: 21300000, guid: dad8dd981831812418eb2c96cc23633f, type: 3}
   scale: 1.05
   entrySpeed: 2
   hoverSpeed: 0.9
   hoverAmplitude: 2.6
+  lackeys: []
+  shieldHealth: 0
+  shieldSprite: {fileID: 0}
   phases:
   - name: Ritual
     entersAtHpFraction: 1

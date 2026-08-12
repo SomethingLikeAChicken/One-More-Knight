@@ -16,15 +16,16 @@ MonoBehaviour:
   moveSpeed: 0.8
   scoreValue: 350
   contactDamage: 1
-  description: 'A teal lantern that guards the walls. Wardens learned the oldest
-    lesson of siegecraft: the archer behind the wall outlives the archer on it.'
+  description: 'A jailer whose lantern holds the green soul-fire of the last escape
+    attempt. Wardens learned the oldest lesson of walls: fire them.'
   tactics: 'The escort gun: slow, always behind a Bulwark or Aegis in the same lane,
     firing red homing bolts that curve around its shield. You cannot hit it until
     the wall dies - so either break the wall fast or dodge the bolts and starve it
     of a target. Red bullets hunt; keep moving perpendicular.'
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: a74d85805c9e07d4584092eec5b423d9, type: 3}
+  sprite: {fileID: 21300000, guid: bea6538d082ea724d827f153b449a409, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

@@ -1211,6 +1211,8 @@ MonoBehaviour:
   heroMask:
     serializedVersion: 2
     m_Bits: 64
+  runManager: {fileID: 0}
+  bulletSpawner: {fileID: 0}
   dropChance: 0.05
   typeSprites:
   - {fileID: 5234911950723891054, guid: 7723d7046e113fb4b82a450448c085d9, type: 3}
@@ -1222,6 +1224,8 @@ MonoBehaviour:
   - 0.12
   - 1
   - 1
+  lateTypesMinWave: 12
+  bossPhaseDropMinDifficulty: 8
 --- !u!4 &1352819513
 Transform:
   m_ObjectHideFlags: 0
@@ -1672,6 +1676,7 @@ MonoBehaviour:
   playArea: {fileID: 66600934}
   bulletSpawner: {fileID: 685176717}
   health: {fileID: 2057006109}
+  touch: {fileID: 0}
   moveSpeed: 8
   fireCooldown: 0.14
   bulletSpeed: 16
@@ -1792,7 +1797,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 16f76407b6b65234d86f766f460e5bd7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 097e144bf21cf4e45b3bb866b5abf70c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

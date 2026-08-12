@@ -17,14 +17,14 @@ MonoBehaviour:
   scoreValue: 1000
   contactDamage: 2
   description: A cabinet of everyone the host could not use whole. It rattles when
-    it is aiming.
+    it is about to share.
   tactics: A 22-HP MINIBOSS casting slow rings. The rings are readable and the march
     is glacial - it is a damage check, not a dodge check, and it ALWAYS drops a bolt
     for your trouble.
   isMiniboss: 1
   guaranteedDrop: 4
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: 699c9087eb6d97e4387b3d33663593e9, type: 3}
+  sprite: {fileID: 21300000, guid: 84a5f392ae27cea45b2ca6606853d1d3, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

@@ -15,14 +15,14 @@ MonoBehaviour:
   maxHealth: 120
   contactDamage: 1
   scoreReward: 2000
-  description: Forges the host's grammar one ring at a time. Complaints about the
-    font are answered personally.
+  description: Forges the host's grammar one molten rune at a time, on an anvil that
+    follows him like a dog. Complaints about the spelling are answered in kind.
   tactics: 'Offset rings rotate around you - two interleaved circles whose gap drifts.
     Track the gap, not the bullets. Below half it Overwrites: a spiral joins and
     the gap starts moving twice.'
   displayName: The Runesmith
   difficulty: 3
-  sprite: {fileID: 21300000, guid: eb257e309c5582b4daf767dd98621fb3, type: 3}
+  sprite: {fileID: 21300000, guid: 91295eb2d41e47e4a9189b22bc965303, type: 3}
   scale: 1.1
   entrySpeed: 2.2
   hoverSpeed: 1.1

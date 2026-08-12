@@ -1,0 +1,1950 @@
+fileFormatVersion: 2
+guid: e807ab1286b841447a11219ef8c11450
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8044150485606095660
+    second: OneMoreKnightAtlas_0
+  - first:
+      213: 357786716482142040
+    second: OneMoreKnightAtlas_1
+  - first:
+      213: 5607247884071029026
+    second: OneMoreKnightAtlas_2
+  - first:
+      213: -4409400676881493726
+    second: OneMoreKnightAtlas_3
+  - first:
+      213: -7370966190977409801
+    second: OneMoreKnightAtlas_4
+  - first:
+      213: -4805824200558880901
+    second: OneMoreKnightAtlas_5
+  - first:
+      213: 2541777065936602319
+    second: OneMoreKnightAtlas_6
+  - first:
+      213: -7454917259400673651
+    second: OneMoreKnightAtlas_7
+  - first:
+      213: 4206647541516376673
+    second: OneMoreKnightAtlas_8
+  - first:
+      213: -1325044266018046070
+    second: OneMoreKnightAtlas_9
+  - first:
+      213: -2699671602746719107
+    second: OneMoreKnightAtlas_10
+  - first:
+      213: 3478345540894053629
+    second: OneMoreKnightAtlas_11
+  - first:
+      213: 5045933954896337887
+    second: OneMoreKnightAtlas_12
+  - first:
+      213: -9167953187493466210
+    second: OneMoreKnightAtlas_13
+  - first:
+      213: -7298556320268391752
+    second: OneMoreKnightAtlas_14
+  - first:
+      213: -3348148532005634940
+    second: OneMoreKnightAtlas_15
+  - first:
+      213: 5089837129087712153
+    second: OneMoreKnightAtlas_16
+  - first:
+      213: 5403696332853933232
+    second: OneMoreKnightAtlas_17
+  - first:
+      213: 6689576888223867245
+    second: OneMoreKnightAtlas_18
+  - first:
+      213: 2379859741401140896
+    second: OneMoreKnightAtlas_19
+  - first:
+      213: -4795817347711775085
+    second: OneMoreKnightAtlas_20
+  - first:
+      213: -4964738897471588252
+    second: OneMoreKnightAtlas_21
+  - first:
+      213: -8076352267367737561
+    second: OneMoreKnightAtlas_22
+  - first:
+      213: -3623931510236070555
+    second: OneMoreKnightAtlas_23
+  - first:
+      213: 671651121446758661
+    second: OneMoreKnightAtlas_24
+  - first:
+      213: -6889899650945062889
+    second: OneMoreKnightAtlas_25
+  - first:
+      213: 7087342244135325902
+    second: OneMoreKnightAtlas_26
+  - first:
+      213: 7311336351899042442
+    second: OneMoreKnightAtlas_27
+  - first:
+      213: 5756331119781390435
+    second: OneMoreKnightAtlas_28
+  - first:
+      213: -622683324190642480
+    second: OneMoreKnightAtlas_29
+  - first:
+      213: 3472530900080532218
+    second: OneMoreKnightAtlas_30
+  - first:
+      213: -8125958265786485060
+    second: OneMoreKnightAtlas_31
+  - first:
+      213: 2698282931208179960
+    second: OneMoreKnightAtlas_32
+  - first:
+      213: -23044086059497754
+    second: OneMoreKnightAtlas_33
+  - first:
+      213: 8630822835999121742
+    second: OneMoreKnightAtlas_34
+  - first:
+      213: 2835487000245494203
+    second: OneMoreKnightAtlas_35
+  - first:
+      213: -4894676199370013464
+    second: OneMoreKnightAtlas_36
+  - first:
+      213: -5643249336611713350
+    second: OneMoreKnightAtlas_37
+  - first:
+      213: 7695165887521312086
+    second: OneMoreKnightAtlas_38
+  - first:
+      213: 3167659474042364575
+    second: OneMoreKnightAtlas_39
+  - first:
+      213: 7704358509723436493
+    second: OneMoreKnightAtlas_40
+  - first:
+      213: 2895321486094680184
+    second: OneMoreKnightAtlas_41
+  - first:
+      213: -93553716914063434
+    second: OneMoreKnightAtlas_42
+  - first:
+      213: -5864840560901061278
+    second: OneMoreKnightAtlas_43
+  - first:
+      213: -5417969587373286855
+    second: OneMoreKnightAtlas_44
+  - first:
+      213: 5691360816801190521
+    second: OneMoreKnightAtlas_45
+  - first:
+      213: 6694905906193517260
+    second: OneMoreKnightAtlas_46
+  - first:
+      213: -4191208684535182099
+    second: OneMoreKnightAtlas_47
+  - first:
+      213: -3890424372635027979
+    second: OneMoreKnightAtlas_48
+  - first:
+      213: -5079780403674868231
+    second: OneMoreKnightAtlas_49
+  - first:
+      213: 7456210417309284958
+    second: OneMoreKnightAtlas_50
+  - first:
+      213: 2614045289903881124
+    second: OneMoreKnightAtlas_51
+  - first:
+      213: 8345894708218732236
+    second: OneMoreKnightAtlas_52
+  - first:
+      213: 3177799908846213080
+    second: OneMoreKnightAtlas_53
+  - first:
+      213: 6983973491404875512
+    second: OneMoreKnightAtlas_54
+  - first:
+      213: -5234632685516502896
+    second: OneMoreKnightAtlas_55
+  - first:
+      213: -1857054432234255583
+    second: OneMoreKnightAtlas_56
+  - first:
+      213: -337502062275322568
+    second: OneMoreKnightAtlas_57
+  - first:
+      213: 8879206507100675246
+    second: OneMoreKnightAtlas_58
+  - first:
+      213: -5897795634166368498
+    second: OneMoreKnightAtlas_59
+  - first:
+      213: -3971737071248228758
+    second: OneMoreKnightAtlas_60
+  - first:
+      213: 2757383500492330133
+    second: OneMoreKnightAtlas_61
+  - first:
+      213: 7621996489649658835
+    second: OneMoreKnightAtlas_62
+  - first:
+      213: 8355613773026143581
+    second: OneMoreKnightAtlas_63
+  - first:
+      213: 1145233989214925789
+    second: OneMoreKnightAtlas_64
+  - first:
+      213: -7638129390272915266
+    second: OneMoreKnightAtlas_65
+  - first:
+      213: -1826827683536300979
+    second: OneMoreKnightAtlas_66
+  - first:
+      213: 4536921230958496253
+    second: OneMoreKnightAtlas_67
+  - first:
+      213: -6467370112870921108
+    second: OneMoreKnightAtlas_68
+  - first:
+      213: 5534988567130160363
+    second: OneMoreKnightAtlas_69
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 147
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2b56563f3092af60800000000000000
+      internalID: 8044150485606095660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 147
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85f754d7f1d17f400800000000000000
+      internalID: 357786716482142040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_2
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 147
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2294d99fd32f0dd40800000000000000
+      internalID: 5607247884071029026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_3
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 147
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2219c164279aec2c0800000000000000
+      internalID: -4409400676881493726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_4
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 147
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fc90676d4115b990800000000000000
+      internalID: -7370966190977409801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_5
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 147
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7756b81a584e4db0800000000000000
+      internalID: -4805824200558880901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_6
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 147
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc4c26946c4364320800000000000000
+      internalID: 2541777065936602319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_7
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 147
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d868e7b1040da8890800000000000000
+      internalID: -7454917259400673651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_8
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 131
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16a9a57b6a3016a30800000000000000
+      internalID: 4206647541516376673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_9
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 131
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8f735ca24f7c9de0800000000000000
+      internalID: -1325044266018046070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_10
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 131
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7482141bf6d88ad0800000000000000
+      internalID: -2699671602746719107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_11
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 131
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df4dd0327d0954030800000000000000
+      internalID: 3478345540894053629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_12
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 131
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdb9dad8232c60640800000000000000
+      internalID: 5045933954896337887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_13
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 131
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9faa0e5623e4c080800000000000000
+      internalID: -9167953187493466210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_14
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 131
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ba683532b156ba90800000000000000
+      internalID: -7298556320268391752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_15
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 131
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48cfe8e36acf881d0800000000000000
+      internalID: -3348148532005634940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_16
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 112
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99bfddbd6ebb2a640800000000000000
+      internalID: 5089837129087712153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_17
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 115
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b4f6d94f29cdfa40800000000000000
+      internalID: 5403696332853933232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_18
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 115
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d612f38acb626dc50800000000000000
+      internalID: 6689576888223867245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_19
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 115
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aec77563d5f60120800000000000000
+      internalID: 2379859741401140896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_20
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 115
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39ecbf51885d17db0800000000000000
+      internalID: -4795817347711775085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_21
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 115
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46834ade644b91bb0800000000000000
+      internalID: -4964738897471588252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_22
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 115
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72710a637680bef80800000000000000
+      internalID: -8076352267367737561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_23
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 115
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56db80aed7535bdc0800000000000000
+      internalID: -3623931510236070555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_24
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 99
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 509a3dae22f225900800000000000000
+      internalID: 671651121446758661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_25
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 99
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 718e45f85c82260a0800000000000000
+      internalID: -6889899650945062889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_26
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 99
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec05e4f783c4b5260800000000000000
+      internalID: 7087342244135325902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_27
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 99
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a82c758cca5177560800000000000000
+      internalID: 7311336351899042442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_28
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 99
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 368a814b7a892ef40800000000000000
+      internalID: 5756331119781390435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_29
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 99
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0deae06d0d8cb57f0800000000000000
+      internalID: -622683324190642480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_30
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 99
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afa1ed29478e03030800000000000000
+      internalID: 3472530900080532218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_31
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 99
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb6b52ca20cca3f80800000000000000
+      internalID: -8125958265786485060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_32
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 80
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f0d922a70a327520800000000000000
+      internalID: 2698282931208179960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_33
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 83
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e6004c96812eaff0800000000000000
+      internalID: -23044086059497754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_34
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 83
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e41ae0b24a7d6c770800000000000000
+      internalID: 8630822835999121742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_35
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 80
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb1eed6576ca95720800000000000000
+      internalID: 2835487000245494203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_36
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 83
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e4cdf50eed921cb0800000000000000
+      internalID: -4894676199370013464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_37
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 83
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abecc48a0a62fa1b0800000000000000
+      internalID: -5643249336611713350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_38
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 83
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65d496d9a98baca60800000000000000
+      internalID: 7695165887521312086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_39
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 83
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9222b73289c5fb20800000000000000
+      internalID: 3167659474042364575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_40
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 67
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc5c252ce316bea60800000000000000
+      internalID: 7704358509723436493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_41
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 64
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 870ca313d8f3e2820800000000000000
+      internalID: 2895321486094680184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_42
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 64
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b77befd361a3bef0800000000000000
+      internalID: -93553716914063434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_43
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 67
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26580374596eb9ea0800000000000000
+      internalID: -5864840560901061278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_44
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 67
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93adebcad518fc4b0800000000000000
+      internalID: -5417969587373286855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_45
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 67
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 972130e3286cbfe40800000000000000
+      internalID: 5691360816801190521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_46
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 51
+        width: 10
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cca4457537519ec50800000000000000
+      internalID: 6694905906193517260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_47
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 67
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dec8fba48e5d5d5c0800000000000000
+      internalID: -4191208684535182099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 35
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f5319b35af620ac0800000000000000
+      internalID: -3890424372635027979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_49
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 32
+        width: 8
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f518fdf2aef089b0800000000000000
+      internalID: -5079780403674868231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_50
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 40
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5a794eaed7c97760800000000000000
+      internalID: 7456210417309284958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_51
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 37
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4abf0836754f64420800000000000000
+      internalID: 2614045289903881124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_52
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 35
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cce9038c40392d370800000000000000
+      internalID: 8345894708218732236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_53
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 51
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d71c0e2e20d91c20800000000000000
+      internalID: 3177799908846213080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_54
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 33
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f6aee343ee0ce060800000000000000
+      internalID: 6983973491404875512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_55
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 33
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 098c32a8e49da57b0800000000000000
+      internalID: -5234632685516502896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_56
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 19
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12bcc1e35da6a36e0800000000000000
+      internalID: -1857054432234255583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_57
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 19
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83d1e1b99a3f05bf0800000000000000
+      internalID: -337502062275322568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_58
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 19
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eac921f2647493b70800000000000000
+      internalID: 8879206507100675246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_59
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 19
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e07f9ab5e12d62ea0800000000000000
+      internalID: -5897795634166368498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_60
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 19
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6ebff64d2e81e8c0800000000000000
+      internalID: -3971737071248228758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_61
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 19
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5945e583fa1344620800000000000000
+      internalID: 2757383500492330133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_62
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 19
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3db97dc9c65c6c960800000000000000
+      internalID: 7621996489649658835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_63
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 19
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5da595e47a15f370800000000000000
+      internalID: 8355613773026143581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_64
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 3
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd3fbd7de30b4ef00800000000000000
+      internalID: 1145233989214925789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_65
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 3
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb8df40c9c9eff590800000000000000
+      internalID: -7638129390272915266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_66
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 3
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4418f896edc5a6e0800000000000000
+      internalID: -1826827683536300979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_67
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 3
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df9853962d166fe30800000000000000
+      internalID: 4536921230958496253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_68
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 3
+        width: 25
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6cc95fd5294f36a0800000000000000
+      internalID: -6467370112870921108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OneMoreKnightAtlas_69
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 1
+        width: 24
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bec34a3b6ca30dc40800000000000000
+      internalID: 5534988567130160363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      OneMoreKnightAtlas_0: 8044150485606095660
+      OneMoreKnightAtlas_1: 357786716482142040
+      OneMoreKnightAtlas_10: -2699671602746719107
+      OneMoreKnightAtlas_11: 3478345540894053629
+      OneMoreKnightAtlas_12: 5045933954896337887
+      OneMoreKnightAtlas_13: -9167953187493466210
+      OneMoreKnightAtlas_14: -7298556320268391752
+      OneMoreKnightAtlas_15: -3348148532005634940
+      OneMoreKnightAtlas_16: 5089837129087712153
+      OneMoreKnightAtlas_17: 5403696332853933232
+      OneMoreKnightAtlas_18: 6689576888223867245
+      OneMoreKnightAtlas_19: 2379859741401140896
+      OneMoreKnightAtlas_2: 5607247884071029026
+      OneMoreKnightAtlas_20: -4795817347711775085
+      OneMoreKnightAtlas_21: -4964738897471588252
+      OneMoreKnightAtlas_22: -8076352267367737561
+      OneMoreKnightAtlas_23: -3623931510236070555
+      OneMoreKnightAtlas_24: 671651121446758661
+      OneMoreKnightAtlas_25: -6889899650945062889
+      OneMoreKnightAtlas_26: 7087342244135325902
+      OneMoreKnightAtlas_27: 7311336351899042442
+      OneMoreKnightAtlas_28: 5756331119781390435
+      OneMoreKnightAtlas_29: -622683324190642480
+      OneMoreKnightAtlas_3: -4409400676881493726
+      OneMoreKnightAtlas_30: 3472530900080532218
+      OneMoreKnightAtlas_31: -8125958265786485060
+      OneMoreKnightAtlas_32: 2698282931208179960
+      OneMoreKnightAtlas_33: -23044086059497754
+      OneMoreKnightAtlas_34: 8630822835999121742
+      OneMoreKnightAtlas_35: 2835487000245494203
+      OneMoreKnightAtlas_36: -4894676199370013464
+      OneMoreKnightAtlas_37: -5643249336611713350
+      OneMoreKnightAtlas_38: 7695165887521312086
+      OneMoreKnightAtlas_39: 3167659474042364575
+      OneMoreKnightAtlas_4: -7370966190977409801
+      OneMoreKnightAtlas_40: 7704358509723436493
+      OneMoreKnightAtlas_41: 2895321486094680184
+      OneMoreKnightAtlas_42: -93553716914063434
+      OneMoreKnightAtlas_43: -5864840560901061278
+      OneMoreKnightAtlas_44: -5417969587373286855
+      OneMoreKnightAtlas_45: 5691360816801190521
+      OneMoreKnightAtlas_46: 6694905906193517260
+      OneMoreKnightAtlas_47: -4191208684535182099
+      OneMoreKnightAtlas_48: -3890424372635027979
+      OneMoreKnightAtlas_49: -5079780403674868231
+      OneMoreKnightAtlas_5: -4805824200558880901
+      OneMoreKnightAtlas_50: 7456210417309284958
+      OneMoreKnightAtlas_51: 2614045289903881124
+      OneMoreKnightAtlas_52: 8345894708218732236
+      OneMoreKnightAtlas_53: 3177799908846213080
+      OneMoreKnightAtlas_54: 6983973491404875512
+      OneMoreKnightAtlas_55: -5234632685516502896
+      OneMoreKnightAtlas_56: -1857054432234255583
+      OneMoreKnightAtlas_57: -337502062275322568
+      OneMoreKnightAtlas_58: 8879206507100675246
+      OneMoreKnightAtlas_59: -5897795634166368498
+      OneMoreKnightAtlas_6: 2541777065936602319
+      OneMoreKnightAtlas_60: -3971737071248228758
+      OneMoreKnightAtlas_61: 2757383500492330133
+      OneMoreKnightAtlas_62: 7621996489649658835
+      OneMoreKnightAtlas_63: 8355613773026143581
+      OneMoreKnightAtlas_64: 1145233989214925789
+      OneMoreKnightAtlas_65: -7638129390272915266
+      OneMoreKnightAtlas_66: -1826827683536300979
+      OneMoreKnightAtlas_67: 4536921230958496253
+      OneMoreKnightAtlas_68: -6467370112870921108
+      OneMoreKnightAtlas_69: 5534988567130160363
+      OneMoreKnightAtlas_7: -7454917259400673651
+      OneMoreKnightAtlas_8: 4206647541516376673
+      OneMoreKnightAtlas_9: -1325044266018046070
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

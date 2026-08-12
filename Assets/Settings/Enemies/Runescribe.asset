@@ -16,14 +16,14 @@ MonoBehaviour:
   moveSpeed: 1.4
   scoreValue: 300
   contactDamage: 1
-  description: Every bolt is a word. The host's grammar is dreadful and entirely
-    violet.
+  description: Every bolt is a word lifted off the page of a book he did not finish
+    writing. The host's grammar is dreadful and entirely load-bearing.
   tactics: Snaking violet script drifts down in sine waves. Read the wave, stand
     in the trough, and erase the author before the paragraph ends.
   isMiniboss: 0
   guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: bc6e8d55d6d8b0740b8c02e53e43b7b3, type: 3}
+  sprite: {fileID: 21300000, guid: 857907555728909489e0f975d5d5b75c, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

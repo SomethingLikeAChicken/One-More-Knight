@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkinVoid
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Hero.HeroSkin
   displayName: Void Knight
-  sprite: {fileID: 21300000, guid: 96e2302cfc5bf07498fe26c9fd7b6285, type: 3}
+  sprite: {fileID: 21300000, guid: 9ec2a2c4ee3f3d2458373a5b97191abf, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   fireTint: {r: 0.55, g: 0.5, b: 1, a: 1}
   unlockAchievement: slay-voidmother

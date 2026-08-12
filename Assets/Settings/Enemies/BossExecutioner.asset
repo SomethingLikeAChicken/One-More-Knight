@@ -15,19 +15,22 @@ MonoBehaviour:
   maxHealth: 520
   contactDamage: 2
   scoreReward: 8000
-  description: An axe-head the size of a doorway with a verdict already written.
-    The squares it opens are not warnings. They are appointments.
+  description: An axe the size of a doorway with a verdict already written - several
+    verdicts, in fact, orbiting his shoulders in case the first one misses.
   tactics: 'Random rift crosses plus muzzle homing bolts (difficulty 6). The crosses
     claim diagonals from wherever a square opens - the moment one appears, note its
     lanes and leave them. Verdict (55%) adds sweeping walls and Zealot summons: kill
     the Zealots between wall passes.'
   displayName: The Executioner
   difficulty: 6
-  sprite: {fileID: 21300000, guid: 2ea48d08fe7b0c2428eb56da262b8f86, type: 3}
+  sprite: {fileID: 21300000, guid: b2ef0de801b408840b16e004cb60b00f, type: 3}
   scale: 1.15
   entrySpeed: 2
   hoverSpeed: 1.05
   hoverAmplitude: 2.7
+  lackeys: []
+  shieldHealth: 0
+  shieldSprite: {fileID: 0}
   phases:
   - name: Sentence
     entersAtHpFraction: 1

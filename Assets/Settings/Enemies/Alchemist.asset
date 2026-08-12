@@ -16,14 +16,14 @@ MonoBehaviour:
   moveSpeed: 1.3
   scoreValue: 350
   contactDamage: 1
-  description: Turned lead into gold once. Now he turns distance into regret - his
-    flasks arrive slower than they leave.
+  description: Turned lead into gold once. The green in his vials is what the gold
+    turned into next - he throws it so you can see for yourself.
   tactics: Lobs aimed flasks that DECELERATE - fast at first, then hanging in the
     air where you wanted to dodge to. Treat old flasks as terrain, not bullets.
   isMiniboss: 0
   guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: a52ab7b2cbadadb4b8020540663e044a, type: 3}
+  sprite: {fileID: 21300000, guid: c8ac846a66f87674cae9ec9f1692aa28, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 1
   weaveAmplitude: 1.5

@@ -15,8 +15,8 @@ MonoBehaviour:
   maxHealth: 900
   contactDamage: 2
   scoreReward: 20000
-  description: A white void ring that was here before the host and intends to be
-    here after. Stillness. Motion. Eternity. It has only ever needed three words.
+  description: A clockwork sphinx that was here before the host and intends to be
+    here after. The zodiac turns behind it because time, too, waits its turn.
   tactics: Stillness lays cross-quads through sine curtains - deceptively calm; learn
     its spacing. Motion (65%) adds a spiral and Hexblade summons. Eternity (35%)
     is dense rings, storm crosses, and the gyre at 1.6x hover with Ravagers hunting
@@ -24,11 +24,14 @@ MonoBehaviour:
     have learned is the entry fee.
   displayName: Eternity
   difficulty: 8
-  sprite: {fileID: 21300000, guid: 2a016ca036d7d9b49aa1514db71253ac, type: 3}
+  sprite: {fileID: 21300000, guid: 8911f1bd427134c4d94b2ce0d69dcc62, type: 3}
   scale: 1.35
   entrySpeed: 1.8
   hoverSpeed: 0.85
   hoverAmplitude: 3
+  lackeys: []
+  shieldHealth: 0
+  shieldSprite: {fileID: 0}
   phases:
   - name: Stillness
     entersAtHpFraction: 1

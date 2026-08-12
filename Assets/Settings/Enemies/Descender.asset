@@ -16,16 +16,16 @@ MonoBehaviour:
   moveSpeed: 2.2
   scoreValue: 100
   contactDamage: 1
-  description: The rank and file of the endless host. Nobody remembers mustering
-    them; they were simply always falling, rank after rank, like violet rain that
-    learned to hold a spear. Alone, one is nothing. The host has never sent one alone.
+  description: 'The rank and file of the endless host: a goblin, a sling, and a stone
+    with your name whistling on it. Nobody remembers mustering them.'
   tactics: Falls straight down at a steady pace and fires a single green bolt straight
     ahead on a fixed cooldown. It never aims, so standing anywhere but directly beneath
     it is safe. Two hits end it - clear them early before bigger threats arrive,
     and never let a row of them fence you in.
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: d41d8528802ab9348b1d3a57530eafef, type: 3}
+  sprite: {fileID: 21300000, guid: 1912914a071134442a4ce90ac93249b8, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

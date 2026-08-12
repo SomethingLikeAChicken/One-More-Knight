@@ -16,13 +16,14 @@ MonoBehaviour:
   moveSpeed: 1.2
   scoreValue: 400
   contactDamage: 1
-  description: 'Rings the hour. The hour is always the same one: too late.'
+  description: 'Rings the hour. The hour is always the same one: too late. The rings
+    arrive in waves, the way the hour does.'
   tactics: Telegraphed rings toll outward on a slow clock. The gap in a ring is born
     where you were when it rang - keep moving BEFORE the toll, not after.
   isMiniboss: 0
   guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: 3be34030cfcf0d745ac19ccf8c11abe1, type: 3}
+  sprite: {fileID: 21300000, guid: 2deffe8b81ddeda4992528d7e07e78ce, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

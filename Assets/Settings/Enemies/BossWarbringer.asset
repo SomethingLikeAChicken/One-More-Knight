@@ -15,19 +15,23 @@ MonoBehaviour:
   maxHealth: 650
   contactDamage: 2
   scoreReward: 12000
-  description: A crimson war-totem with a gold eye that has already counted your
-    hearts. The Warbringer does not summon soldiers. It PROMOTES them.
+  description: A siege engine that outlived its siege. The catapult arm is loaded,
+    the banners are torn, and nobody remembers what surrender was supposed to look
+    like.
   tactics: 'Muster opens with wide fans and lance walls while a DREAD CAPTAIN miniboss
     marches in - kill the Captain before Onslaught (60%) triples the Zealot pressure.
     Warpath (30%) is rings plus homing under maximum speed. This is the wall the
     40k crowd hits: bring maxed powerups or bring patience.'
   displayName: 
   difficulty: 7
-  sprite: {fileID: 21300000, guid: 1a86945b1bcf3dc4aa53510d0a667dcd, type: 3}
+  sprite: {fileID: 21300000, guid: 5bf48049077e7034fbc0f45e638aca9e, type: 3}
   scale: 1.3
   entrySpeed: 2
   hoverSpeed: 1
   hoverAmplitude: 2.8
+  lackeys: []
+  shieldHealth: 0
+  shieldSprite: {fileID: 0}
   phases:
   - name: Muster
     entersAtHpFraction: 1

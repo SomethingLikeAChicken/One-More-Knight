@@ -15,21 +15,22 @@ MonoBehaviour:
   maxHealth: 380
   contactDamage: 1
   scoreReward: 4000
-  description: Breaks holy things for a living. Wears the last cathedral it visited.
+  description: Breaks holy things for a living and kept the best head as a club.
+    The embers leaking from the cracks are the last cathedral's opinion.
   tactics: 'An 80-point bone ward AND rifts - it casts the whole time you grind the
     blue bar, so the ward is not a free damage phase. Post-break the Desecration
     begins at full health: dense rift rings and rotating storm crosses. Budget your
     Purge for the second half.'
   displayName: The Iconoclast
   difficulty: 6
-  sprite: {fileID: 21300000, guid: 3c98206e9c6b9244b84d19b6f09f8cc3, type: 3}
+  sprite: {fileID: 21300000, guid: 05cbe9a8292558c4991d89f55481277c, type: 3}
   scale: 1.25
   entrySpeed: 2.2
   hoverSpeed: 1.1
   hoverAmplitude: 2.6
   lackeys: []
   shieldHealth: 80
-  shieldSprite: {fileID: 21300000, guid: 699c9087eb6d97e4387b3d33663593e9, type: 3}
+  shieldSprite: {fileID: 21300000, guid: 84a5f392ae27cea45b2ca6606853d1d3, type: 3}
   phases:
   - name: Defacement
     entersAtHpFraction: 1

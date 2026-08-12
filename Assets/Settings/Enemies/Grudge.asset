@@ -16,15 +16,16 @@ MonoBehaviour:
   moveSpeed: 2.6
   scoreValue: 150
   contactDamage: 1
-  description: A scrap of the dark with one violet eye, drifting among the crowds
-    you actually want to shoot. It wants to be killed. That is the trap.
+  description: A scrap of the dark with two furious eyes. It cannot shoot, cannot
+    speak, cannot forgive. It can only arrive.
   tactics: 'CURSED: killing it JAMS your gun for four seconds - it pulses a dark
     aura as warning. It has no weapon; its whole job is to swim between real targets
     and eat your stray bullets. Check your line of fire before you hold the trigger.
     Sometimes the strongest shot is the one you do not take.'
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 2
-  sprite: {fileID: 21300000, guid: eb792fc5cda702d45906a04feca9b750, type: 3}
+  sprite: {fileID: 21300000, guid: 891b4d7bb8a4b4b4d97df49a1ccc88d1, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 1
   weaveAmplitude: 1.5

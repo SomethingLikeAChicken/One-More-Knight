@@ -16,14 +16,15 @@ MonoBehaviour:
   moveSpeed: 1
   scoreValue: 350
   contactDamage: 1
-  description: A pale worm that has never hurried and never let go. Its bolt remembers
-    you longer than most friendships last.
+  description: A mouth arranged in a spiral, going nowhere, arriving anyway. What
+    it fires remembers where you were and resents where you are.
   tactics: Its slow red bolt hunts for over TWO seconds - you cannot simply sidestep
     it once. Drag it in a wide circle until it dies of old age, and mind the wave
     around you while you babysit it. Kill the Lamprey first when possible.
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: 05c3e9fac652cd447b58d474f881c760, type: 3}
+  sprite: {fileID: 21300000, guid: 90ed667b0332d62408a5bb6e02f754ad, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

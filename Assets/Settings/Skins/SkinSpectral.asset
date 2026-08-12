@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkinSpectral
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Hero.HeroSkin
   displayName: Spectral Knight
-  sprite: {fileID: 21300000, guid: 64403568f7e11494fb2f6827e3f6e96b, type: 3}
+  sprite: {fileID: 21300000, guid: a8e393a2418ca00439c59f15db3c5eac, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 0.6}
   fireTint: {r: 0.95, g: 0.97, b: 1, a: 1}
   unlockAchievement: untouched-10

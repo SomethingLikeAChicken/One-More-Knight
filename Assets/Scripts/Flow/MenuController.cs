@@ -35,7 +35,10 @@ namespace OneMoreKnight.Flow
 
         private void Start()
         {
-            font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            UiTheme theme = UiTheme.Instance;
+            font = theme != null && theme.font != null
+                ? theme.font
+                : Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
 
             var canvasGo = new GameObject("MenuCanvas");
             var canvas = canvasGo.AddComponent<Canvas>();
@@ -54,6 +57,18 @@ namespace OneMoreKnight.Flow
                 es.AddComponent<UnityEngine.InputSystem.UI.InputSystemUIInputModule>();
             }
 
+            if (theme != null && theme.logo != null)
+            {
+                var logoGo = new GameObject("Logo");
+                logoGo.transform.SetParent(canvasGo.transform, false);
+                var logo = logoGo.AddComponent<Image>();
+                logo.sprite = theme.logo;
+                logo.preserveAspect = true;
+                logo.raycastTarget = false;
+                var logoRt = logo.rectTransform;
+                logoRt.anchorMin = logoRt.anchorMax = new Vector2(0.5f, 0.9f);
+                logoRt.sizeDelta = new Vector2(96f, 96f);
+            }
             Label(canvasGo.transform, "Title", "ONE MORE KNIGHT", 52, Gold, FontStyle.Bold,
                   new Vector2(0.5f, 0.78f), new Vector2(800f, 70f));
             Label(canvasGo.transform, "Hint", "press SPACE — or tap below", 20, Parchment, FontStyle.Normal,
@@ -92,15 +107,30 @@ namespace OneMoreKnight.Flow
             var go = new GameObject("StartButton");
             go.transform.SetParent(parent, false);
             var bg = go.AddComponent<Image>();
-            bg.color = new Color(0.16f, 0.15f, 0.22f, 0.95f);
+            UiTheme theme = UiTheme.Instance;
+            bool themed = theme != null && theme.buttonWood != null;
+            if (themed)
+            {
+                bg.sprite = theme.buttonWood;
+                bg.type = Image.Type.Sliced;
+                bg.color = Color.white;
+            }
+            else
+            {
+                bg.color = new Color(0.16f, 0.15f, 0.22f, 0.95f);
+            }
             var rt = go.GetComponent<RectTransform>();
             rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0.56f);
             rt.sizeDelta = new Vector2(280f, 54f);
-            var outline = go.AddComponent<Outline>();
-            outline.effectColor = Gold;
-            outline.effectDistance = new Vector2(2f, 2f);
+            if (!themed)
+            {
+                var outline = go.AddComponent<Outline>();
+                outline.effectColor = Gold;
+                outline.effectDistance = new Vector2(2f, 2f);
+            }
 
-            var label = Label(go.transform, "Label", "BEGIN THE RUN", 22, Gold, FontStyle.Bold,
+            var label = Label(go.transform, "Label", "BEGIN THE RUN", 22,
+                              themed ? new Color(0.16f, 0.09f, 0.04f) : Gold, FontStyle.Bold,
                               new Vector2(0.5f, 0.5f), new Vector2(280f, 54f));
             label.raycastTarget = false;
 
@@ -147,7 +177,17 @@ namespace OneMoreKnight.Flow
             var tile = new GameObject("Tile" + skin.name);
             tile.transform.SetParent(row, false);
             var bg = tile.AddComponent<Image>();
-            bg.color = TileBg;
+            UiTheme theme = UiTheme.Instance;
+            if (theme != null && theme.buttonDark != null)
+            {
+                bg.sprite = theme.buttonDark;
+                bg.type = Image.Type.Sliced;
+                bg.color = Color.white;
+            }
+            else
+            {
+                bg.color = TileBg;
+            }
             var rt = tile.GetComponent<RectTransform>();
             rt.sizeDelta = new Vector2(82f, 112f);
             var outline = tile.AddComponent<Outline>();

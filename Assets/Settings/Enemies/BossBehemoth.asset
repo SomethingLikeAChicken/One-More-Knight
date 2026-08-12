@@ -15,19 +15,22 @@ MonoBehaviour:
   maxHealth: 220
   contactDamage: 2
   scoreReward: 3000
-  description: A wall of iron that learned to fight back. Everything the Behemoth
-    throws is heavy, including the silence between volleys.
+  description: A wall of meat that grew its own castle. Everything the Behemoth has
+    ever walked through is part of its back now.
   tactics: Accelerating fans, massive slow walls, offset and dense rings across three
     phases. Its bullets are heavy but sparse - the fight is about patience, not reflexes.
     Punish the long recovery after each wall; by Meltdown (red glow) the floor is
     mostly bullets, so pre-plan lanes.
   displayName: 
   difficulty: 4
-  sprite: {fileID: 21300000, guid: e810d4b310a617340bbbfdbf23a56414, type: 3}
+  sprite: {fileID: 21300000, guid: 40143a57df774a2408e425abd1fac83a, type: 3}
   scale: 1.15
   entrySpeed: 1.4
   hoverSpeed: 0.7
   hoverAmplitude: 2
+  lackeys: []
+  shieldHealth: 0
+  shieldSprite: {fileID: 0}
   phases:
   - name: Advance
     entersAtHpFraction: 1

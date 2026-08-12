@@ -15,19 +15,23 @@ MonoBehaviour:
   maxHealth: 180
   contactDamage: 2
   scoreReward: 3000
-  description: The old king of the endless host. Three reigns, each crueller than
-    the last, and a court of bullets that never stops bowing.
+  description: The old king of the endless host. The crown floats now - three reigns,
+    each crueller than the last, and the head under it gave out before the ambition
+    did.
   tactics: Three phases stacking cross-quads, dense rings, and spirals. Phase entries
     are pulsed and tinted - the moment it flashes, reposition to open space before
     the new pattern's first volley. The dense ring's gaps are narrow but honest;
     the spiral rewards circling with it.
   displayName: 
   difficulty: 4
-  sprite: {fileID: 21300000, guid: 01edbd68eb2febe40b68c8c19a3f1b39, type: 3}
+  sprite: {fileID: 21300000, guid: 55781762cf1d3374ba392fa993f6f3fa, type: 3}
   scale: 1.1
   entrySpeed: 1.6
   hoverSpeed: 1.2
   hoverAmplitude: 2.8
+  lackeys: []
+  shieldHealth: 0
+  shieldSprite: {fileID: 0}
   phases:
   - name: Court
     entersAtHpFraction: 1

@@ -16,15 +16,15 @@ MonoBehaviour:
   moveSpeed: 1.9
   scoreValue: 150
   contactDamage: 1
-  description: A Descender that learned doubt. It swings across the sky as it falls,
-    never quite committing to a lane, scattering short arcs of shot as if sowing
-    a field.
+  description: A spider that learned doubt, or a witch that learned silk. She swings
+    across the sky as she falls, spinning the answer either way.
   tactics: Weaves side to side while dropping and lobs a small green arc downward.
     Its position is predictable - a smooth sine - so lead it slightly when you shoot.
     The arc punishes you for standing still; keep drifting and it never touches you.
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: 047fc3cb0bae03649b56db3fc00731c4, type: 3}
+  sprite: {fileID: 21300000, guid: be23aaf4ad120a345ae647b8d5bf1e73, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 1
   weaveAmplitude: 1.6

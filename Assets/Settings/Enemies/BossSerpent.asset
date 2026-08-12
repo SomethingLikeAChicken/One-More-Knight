@@ -15,19 +15,22 @@ MonoBehaviour:
   maxHealth: 90
   contactDamage: 1
   scoreReward: 1500
-  description: Two fangs, one appetite. The Serpent crosses its own fire because
-    it long ago stopped distinguishing between the battlefield and its jaws.
+  description: Two fangs, one appetite, and a coil that was a road once. The venom
+    crosses its own path because the Serpent has never once considered yours.
   tactics: Aimed spit from alternating fangs plus crossing diagonal volleys that
     lattice the screen. The lattice tightens as it bleeds - the fight gets harder
     as you win, so bank your dodging stamina. Stay off the centerline where the crosses
     overlap.
   displayName: 
   difficulty: 2
-  sprite: {fileID: 21300000, guid: 1b104fa172e758240bee3643aa56f63b, type: 3}
+  sprite: {fileID: 21300000, guid: fcea5357840518c4280aa298fef63a47, type: 3}
   scale: 1
   entrySpeed: 2.2
   hoverSpeed: 1.4
   hoverAmplitude: 3.2
+  lackeys: []
+  shieldHealth: 0
+  shieldSprite: {fileID: 0}
   phases:
   - name: Coil
     entersAtHpFraction: 1

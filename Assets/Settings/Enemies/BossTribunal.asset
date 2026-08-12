@@ -15,8 +15,8 @@ MonoBehaviour:
   maxHealth: 750
   contactDamage: 2
   scoreReward: 13000
-  description: Three pillars, one sentence. It reads the charges in rifts - first
-    one square, then two, then everywhere.
+  description: Three stone faces, one sentence. The gavel burns because the verdict
+    is always the same, and it reads the charges in rifts.
   tactics: 'THREE rift patterns run simultaneously by the Second Reading (difficulty
     7): gyres, rings, and crosses each claiming their own square. The screen becomes
     a calendar of eruptions - triage by timer, newest square first. It summons Curseweavers:
@@ -24,11 +24,14 @@ MonoBehaviour:
     bottom corners.'
   displayName: The Tribunal
   difficulty: 7
-  sprite: {fileID: 21300000, guid: 9b02065caf0f5f84cb76b9f407eb8d08, type: 3}
+  sprite: {fileID: 21300000, guid: 4677dcf682ea1fc46a84e5d5727c8120, type: 3}
   scale: 1.25
   entrySpeed: 2
   hoverSpeed: 0.95
   hoverAmplitude: 2.7
+  lackeys: []
+  shieldHealth: 0
+  shieldSprite: {fileID: 0}
   phases:
   - name: First Reading
     entersAtHpFraction: 1

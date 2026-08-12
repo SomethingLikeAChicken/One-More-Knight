@@ -16,14 +16,14 @@ MonoBehaviour:
   moveSpeed: 1.5
   scoreValue: 400
   contactDamage: 1
-  description: The banner is heavier than the sword, which tells you everything about
-    what the host thinks wins wars.
+  description: The banner names a house nobody living remembers. The hand crossbow
+    is for anyone who asks.
   tactics: A tougher aimed shooter that anchors formations. His shots are honest;
     his escort is not. Break the banner and the line around it loses its nerve (statistically).
   isMiniboss: 0
   guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: e27d10dc8e00968428c3671e19563179, type: 3}
+  sprite: {fileID: 21300000, guid: 39582160e78d01a4e9e74f2006440de8, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

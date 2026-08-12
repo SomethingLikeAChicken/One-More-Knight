@@ -16,15 +16,15 @@ MonoBehaviour:
   moveSpeed: 1
   scoreValue: 800
   contactDamage: 1
-  description: It is not calling the void. It is answering, and the connection is
-    excellent.
+  description: It is not calling the void. It is answering - the beard of tentacles
+    is where the connection comes through.
   tactics: 'RIFT ELITE: rings erupt from random rifts in the upper field, raining
     outward. Watch for markers, claim the lower screen, and end the call at 8 HP
     before rings overlap.'
   isMiniboss: 0
   guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: b8d8d950d795b20489bed2f47315a5a1, type: 3}
+  sprite: {fileID: 21300000, guid: f3c5379807097814f9133d13a9296eb8, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

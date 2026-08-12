@@ -16,14 +16,15 @@ MonoBehaviour:
   moveSpeed: 1.5
   scoreValue: 350
   contactDamage: 1
-  description: Wings of night with a red appetite. It circles because everything
-    beneath it is, eventually, carrion.
+  description: Wings of rag and appetite. It circles because everything below it
+    has, historically, become food.
   tactics: 'Fires a homing PAIR in a narrow arc - two hunters with slightly different
     angles. Splitting them is the trick: drift one way until they commit, then cut
     back between them. It weaves; snapshot at the turnarounds.'
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: 9b73928af96ecb64eb1cac1a3175e867, type: 3}
+  sprite: {fileID: 21300000, guid: c8b03d36d2e478742a53ffd34e784bd6, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 1
   weaveAmplitude: 1.5

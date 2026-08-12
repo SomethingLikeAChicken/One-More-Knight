@@ -16,14 +16,15 @@ MonoBehaviour:
   moveSpeed: 1.1
   scoreValue: 450
   contactDamage: 1
-  description: An amber ring that herds. The flock it drives ahead of itself is made
-    of your bad options.
+  description: The flock he drives ahead of himself is made of pale flames that used
+    to be someone. The crook is not for the flock.
   tactics: Telegraphs, then releases a homing WALL of three - a fence that bends
     toward you. Do not outrun the fence; break its formation by cutting through the
     widest gap early, while the bolts still turn slowly. High HP; commit or avoid.
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: df76375927dfbff478c193d6290ab571, type: 3}
+  sprite: {fileID: 21300000, guid: b328ab6a45f6b1847afb83174f19b682, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

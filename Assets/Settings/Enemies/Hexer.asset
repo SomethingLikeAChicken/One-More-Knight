@@ -16,14 +16,15 @@ MonoBehaviour:
   moveSpeed: 1.6
   scoreValue: 250
   contactDamage: 1
-  description: A quiet curse-monger. Hexers rarely kill anyone themselves; they make
-    the sky complicated, and the complicated sky kills you.
+  description: A quiet curse-monger behind a goat skull. Hexers rarely kill anyone
+    themselves; the green orb just makes everything else's job easier.
   tactics: Fires slow crossing bolts on fixed diagonals. One Hexer is trivial; three
     turn the screen into a braid. Their shots are the slowest on screen - track them
     peripherally and prioritize the enemies forcing you to move.
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: 15237ae5705e5c949b47f1bf536810e8, type: 3}
+  sprite: {fileID: 21300000, guid: b802eed023ee21c41bf02fbf36fc6cea, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

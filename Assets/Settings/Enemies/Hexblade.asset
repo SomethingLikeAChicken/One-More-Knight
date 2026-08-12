@@ -16,15 +16,15 @@ MonoBehaviour:
   moveSpeed: 1.8
   scoreValue: 250
   contactDamage: 1
-  description: Twin blades that fell from the same forge and never separated. They
-    snake as they fall, and the wall they draw between you and the sky bends like
-    a living thing.
+  description: The imp found the sword, or the sword found the imp - the curse considers
+    the distinction sentimental. The violet fire is the ongoing negotiation.
   tactics: 'Fires paired green walls that snake (sine motion - violet bullets). The
     wall''s gap oscillates: watch one full period before committing to a lane. The
     Hexblade itself weaves fast; it dies in three hits if you can pin it.'
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: 180b40ed362f2704b9632e46631ac848, type: 3}
+  sprite: {fileID: 21300000, guid: a33fabcebdabe8e4bbb36e2b5ee5ad4a, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0
   weaveAmplitude: 1.5

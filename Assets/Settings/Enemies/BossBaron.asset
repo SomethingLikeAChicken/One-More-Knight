@@ -15,9 +15,8 @@ MonoBehaviour:
   maxHealth: 110
   contactDamage: 1
   scoreReward: 2000
-  description: 'A minor lord with a major opinion of himself, fighting the way he
-    governed: from behind two people paid less than he is. The crown is real gold.
-    The courage is outsourced.'
+  description: A minor lord with a major opinion of himself, raising a chalice to
+    his own health. It is not his blood, and it is not his health either.
   tactics: 'The first guarded Boss: his bar is GREY and he cannot be hurt while either
     Squire lives - do not waste a single arrow on him early. Drop both Squires (each
     pays out a powerup), watch him rage as the bar lights violet, then duel him honestly:
@@ -25,7 +24,7 @@ MonoBehaviour:
     to.'
   displayName: The Baron
   difficulty: 3
-  sprite: {fileID: 2515924802082538597, guid: 77186e392d5971548a0ac037eab8ac4b, type: 3}
+  sprite: {fileID: 21300000, guid: 233f95d17cb6e1149847f9c77f26836d, type: 3}
   scale: 1.1
   entrySpeed: 2.2
   hoverSpeed: 1

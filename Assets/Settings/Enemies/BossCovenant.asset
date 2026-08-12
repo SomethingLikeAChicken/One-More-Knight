@@ -15,14 +15,14 @@ MonoBehaviour:
   maxHealth: 300
   contactDamage: 1
   scoreReward: 3500
-  description: An agreement between two places that should never have met. You are
-    standing on the signature line.
+  description: An agreement between three judges who should never have met, sharing
+    one hood and one verdict. The scale is not weighing you. It has finished.
   tactics: 'A pure rift-caster: crosses erupt on your position, then rings from random
     field-points once the Second Seal opens. The markers are the whole fight - stop
     watching the boss, watch the floor. Move off every square before it blooms.'
   displayName: The Covenant
   difficulty: 5
-  sprite: {fileID: 21300000, guid: 74dc05fa47d8fc443a8a73760abc0ccc, type: 3}
+  sprite: {fileID: 21300000, guid: 3fc4392209406114d8ae1b7150b18c43, type: 3}
   scale: 1.2
   entrySpeed: 2.2
   hoverSpeed: 1.1

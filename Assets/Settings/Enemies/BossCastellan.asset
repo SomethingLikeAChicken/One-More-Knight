@@ -16,8 +16,8 @@ MonoBehaviour:
   contactDamage: 1
   scoreReward: 1500
   description: The outer gate's warden-stone, animated by a garrison oath nobody
-    was left alive to release it from. It did not abandon its post. It brought the
-    post to you.
+    rescinded. The ballistae on its shoulders were the garrison's idea; the ward
+    in front of it is yours to break.
   tactics: 'The first warded Boss: a 30-point blue ward soaks every hit before its
     health moves - the blue bar is the ward, not the boss. Break it through the steady
     fans, watch the shatter, then the real fight begins at FULL health. Below half
@@ -25,13 +25,14 @@ MonoBehaviour:
     the blue, aggression after.'
   displayName: The Castellan
   difficulty: 2
-  sprite: {fileID: 1879355326188070566, guid: 264670a359034f34096ca80f470fe80b, type: 3}
+  sprite: {fileID: 21300000, guid: 67707324bce1f3c4c971984498cdc2c2, type: 3}
   scale: 1.15
   entrySpeed: 2.2
   hoverSpeed: 0.9
   hoverAmplitude: 2.2
+  lackeys: []
   shieldHealth: 30
-  shieldSprite: {fileID: 21300000, guid: 1068786b9c6aa5843993c6388931aa8d, type: 3}
+  shieldSprite: {fileID: 21300000, guid: c8861b4e583f4534b8e1403b8bc1ea6c, type: 3}
   phases:
   - name: Steadfast
     entersAtHpFraction: 1

@@ -16,14 +16,15 @@ MonoBehaviour:
   moveSpeed: 2.4
   scoreValue: 100
   contactDamage: 1
-  description: One is a whisper. The swarm is a sentence. Each carries a single tiny
-    bite that knows your name.
+  description: One is a whisper. The swarm is a sentence. Each brass belly glows
+    green with a single tiny opinion about you.
   tactics: 1 HP, swarms, and every one spits a brief homing nip. Individually harmless
     - collectively they fill every lane you planned to use. Sweep them casually with
     spread fire and never let them accumulate behind you.
   isMiniboss: 0
+  guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: f112a2a826d37904485abf6335ed8da6, type: 3}
+  sprite: {fileID: 21300000, guid: ef459c83f047c774e984b2283b78598c, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 1
   weaveAmplitude: 1.5

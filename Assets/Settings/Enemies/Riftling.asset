@@ -16,15 +16,15 @@ MonoBehaviour:
   moveSpeed: 1.5
   scoreValue: 600
   contactDamage: 1
-  description: A splinter of somewhere else wearing a robe. The robe is doing most
-    of the work of looking like a person.
+  description: A splinter of somewhere else with a spark of the same. The robe is
+    doing most of the work.
   tactics: 'RIFT ELITE: opens a telegraphed rift AT YOUR POSITION and erupts spikes
     from it. The square marker is your one warning - move OFF the mark and the spikes
     miss. Expensive to field; kill it before its second cast.'
   isMiniboss: 0
   guaranteedDrop: 0
   curseOnDeath: 0
-  sprite: {fileID: 21300000, guid: 883b66118a9bca1499be12a557b571f4, type: 3}
+  sprite: {fileID: 21300000, guid: 9aff1f8aed3accd428b38afa8e81b0f5, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 1
   weaveAmplitude: 1.5

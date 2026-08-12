@@ -15,19 +15,22 @@ MonoBehaviour:
   maxHealth: 320
   contactDamage: 2
   scoreReward: 5000
-  description: A star of judgement that never learned mercy's spelling. Its wrath
-    calls zealots; its ascension calls wardens; its light calls walls.
+  description: A star of judgement in gold and black plate. The halo is not a reward
+    - it is a targeting ring, and mercy was never in its spelling.
   tactics: 'Wide fans and rotating crosses, then sweeping walls plus Zealot summons
     (Wrath), then rings, homing bolts, and Warden summons (Ascension). The summons
     are the real pressure - clear Zealots before their dives sync with the walls.
     White tint means final phase: maximum speed, keep to the bottom corners.'
   displayName: 
   difficulty: 5
-  sprite: {fileID: 21300000, guid: 177dd41cb3db3f7469a493fc2b3c268c, type: 3}
+  sprite: {fileID: 21300000, guid: 322c99fa8de013b4290ca2ed32d05584, type: 3}
   scale: 1.15
   entrySpeed: 2
   hoverSpeed: 1
   hoverAmplitude: 2.6
+  lackeys: []
+  shieldHealth: 0
+  shieldSprite: {fileID: 0}
   phases:
   - name: Judgement
     entersAtHpFraction: 1

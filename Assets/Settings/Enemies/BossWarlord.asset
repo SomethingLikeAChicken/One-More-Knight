@@ -16,21 +16,21 @@ MonoBehaviour:
   contactDamage: 1
   scoreReward: 2500
   description: Won every siege he ever laid by the simple expedient of never once
-    going home.
+    going home. The warhorn is for the others; the banners are for himself.
   tactics: 'A 45-point iron ward - the blue bar - fronts a wall-thrower. Break the
     ward through sweeping walls and aimed shots, then the true Onslaught starts at
     FULL health: wide fans between the walls. Flank the walls; they sweep, they do
     not chase.'
   displayName: The Warlord
   difficulty: 4
-  sprite: {fileID: 21300000, guid: 071f765755a20864bafc97902b47c7dc, type: 3}
+  sprite: {fileID: 21300000, guid: 9dca99cdcccbaca45b8eb34f5e4dcd30, type: 3}
   scale: 1.2
   entrySpeed: 2.2
   hoverSpeed: 1.1
   hoverAmplitude: 2.6
   lackeys: []
   shieldHealth: 45
-  shieldSprite: {fileID: 21300000, guid: 0ecd6ad4cf9e76d4d86dcb438bce8975, type: 3}
+  shieldSprite: {fileID: 21300000, guid: b7bb49fc140e9cd43bfcef9666bd920c, type: 3}
   phases:
   - name: Siegecraft
     entersAtHpFraction: 1

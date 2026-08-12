@@ -16,15 +16,15 @@ MonoBehaviour:
   moveSpeed: 1.4
   scoreValue: 400
   contactDamage: 1
-  description: Died for the cause once already. The cause was not grateful. Now everyone
-    gets to share the experience.
+  description: Died for the cause once already. The cause was not grateful. The burning
+    tears are not hers - they are for whoever is next.
   tactics: CURSED - its death inflicts Weakness (-1 damage) for the duration. A weaving
     arc-shooter you often WANT to leave alive while heavier targets need full swords.
     Fire discipline.
   isMiniboss: 0
   guaranteedDrop: 0
   curseOnDeath: 4
-  sprite: {fileID: 21300000, guid: 7bb9392be3daec945b6375376036304c, type: 3}
+  sprite: {fileID: 21300000, guid: 0234b39f0965bda418a9392d62b2b303, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 1
   weaveAmplitude: 1.5

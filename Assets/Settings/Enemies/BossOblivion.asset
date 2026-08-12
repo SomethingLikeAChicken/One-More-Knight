@@ -15,19 +15,23 @@ MonoBehaviour:
   maxHealth: 450
   contactDamage: 2
   scoreReward: 8000
-  description: The last thing most far runs see. A near-black orb with a violet rim,
-    dense rings, a turning spiral, and the dark that follows you home.
+  description: The last thing most far runs see. A mask with stars for eyes and nothing
+    measurable behind it. The tendrils are not reaching for you; you are simply in
+    the direction of everything.
   tactics: Dense rings with aimed spit, then a spiral (Maw, plus Hexblade summons),
     then cross-quads with homing bolts and a Ravager (Oblivion phase). The rings
     are the rhythm section - everything else syncopates around them. Below 30% the
     hover doubles; stop aiming at where it is.
   displayName: 
   difficulty: 6
-  sprite: {fileID: 21300000, guid: 812a49d4b1381154c8833b86d6b9dac0, type: 3}
+  sprite: {fileID: 21300000, guid: c9d2d8816f08d3e41a4378b5f02b83ed, type: 3}
   scale: 1.25
   entrySpeed: 2
   hoverSpeed: 0.9
   hoverAmplitude: 2.6
+  lackeys: []
+  shieldHealth: 0
+  shieldSprite: {fileID: 0}
   phases:
   - name: Eclipse
     entersAtHpFraction: 1
