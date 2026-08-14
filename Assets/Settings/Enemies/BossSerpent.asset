@@ -57,3 +57,12 @@ MonoBehaviour:
     summonType: {fileID: 0}
     summonCount: 2
     summonInterval: 5
+  idleFrames:
+  - {fileID: 21300000, guid: 68f96e67677648b587f74755c57d1c44, type: 3}
+  - {fileID: 21300000, guid: f618b5ae0a774518a67562b11b8f32aa, type: 3}
+  - {fileID: 21300000, guid: 43d18afec3404f62b685fd5bd7893384, type: 3}
+  - {fileID: 21300000, guid: 6b346512eb56426f963198afe3bf0a8e, type: 3}
+  - {fileID: 21300000, guid: 4c88e7cea8a34573a02dadaac52596d2, type: 3}
+  - {fileID: 21300000, guid: baaa7f29ae384e1a850c75d35a173b66, type: 3}
+  - {fileID: 21300000, guid: 6091d84aad194275b2f74d53a3488775, type: 3}
+  idleFps: 7

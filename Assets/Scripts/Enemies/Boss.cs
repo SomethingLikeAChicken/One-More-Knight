@@ -24,6 +24,7 @@ namespace OneMoreKnight.Enemies
 
         private CircleCollider2D circleCollider;
         private BossShield shieldVisual;
+        private SpriteLoopAnimator idleAnimator;
         private Waves.WaveSpawner reinforcements;
         private float nextSummonAt;
         private float hoverLineY;
@@ -56,6 +57,9 @@ namespace OneMoreKnight.Enemies
             if (health == null) health = GetComponent<Health>();
             if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
             circleCollider = GetComponent<CircleCollider2D>();
+            // Added here rather than on the prefab, like the Enemy (#116).
+            idleAnimator = GetComponent<SpriteLoopAnimator>();
+            if (idleAnimator == null) idleAnimator = gameObject.AddComponent<SpriteLoopAnimator>();
             baseScale = transform.localScale; // Begin overrides this per Boss
             health.Died += OnDied;
             health.Changed += OnHealthChanged;
@@ -102,6 +106,7 @@ namespace OneMoreKnight.Enemies
 
             if (stats.sprite != null) spriteRenderer.sprite = stats.sprite;
             spriteRenderer.color = Color.white;
+            idleAnimator.PlayLoop(stats.idleFrames, stats.idleFps);
             baseScale = Vector3.one * stats.scale;
             transform.localScale = baseScale;
             ColliderFit.FitCircle(circleCollider, spriteRenderer.sprite);
