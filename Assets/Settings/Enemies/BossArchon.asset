@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
   m_Name: BossArchon
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
-  maxHealth: 320
+  maxHealth: 300
   contactDamage: 2
   scoreReward: 5000
   description: A star of judgement in gold and black plate. The halo is not a reward

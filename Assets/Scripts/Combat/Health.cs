@@ -29,6 +29,11 @@ namespace OneMoreKnight.Combat
         /// <summary>The moment the last shield point breaks — visuals listen.</summary>
         public event Action<Health> ShieldBroken;
 
+        /// <summary>Multiplier on incoming damage (#141) — the BREACH seam. Runtime
+        /// state, default 1; reset by <see cref="ResetHealth"/> so pooled actors
+        /// never inherit a window. Only the Boss sets it today.</summary>
+        public float IncomingDamageScale { get; set; } = 1f;
+
         private void Awake() => ResetHealth();
 
         /// <summary>
@@ -41,6 +46,7 @@ namespace OneMoreKnight.Combat
             Current = maxHealth;
             Shield = 0;
             Invulnerable = false;
+            IncomingDamageScale = 1f;
             Changed?.Invoke(this);
         }
 
@@ -73,6 +79,9 @@ namespace OneMoreKnight.Combat
         public void TakeDamage(int amount)
         {
             if (!IsAlive || amount <= 0 || Invulnerable) return;
+            // BREACH (#141): a lowered guard multiplies the whole hit, ward and all.
+            if (IncomingDamageScale != 1f)
+                amount = Mathf.Max(1, Mathf.RoundToInt(amount * IncomingDamageScale));
 
             // The ward eats the whole hit — no bleed-through (#79). A hit that breaks
             // the last point is fully spent breaking it; fairness over bookkeeping.

@@ -194,6 +194,7 @@ namespace OneMoreKnight.Run
                         title += "  ·  " + boss.Stats.phases[boss.CurrentPhase].name;
                     if (guarded) title += "  ·  GUARDED";
                     else if (warded) title += "  ·  SHIELD";
+                    if (boss.BreachActive) title += "  ·  BREACH ×2"; // the guard is down (#141)
                     title = title.ToUpperInvariant();
                     if (bossNameText.text != title) bossNameText.text = title;
                 }
