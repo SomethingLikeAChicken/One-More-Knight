@@ -61,6 +61,12 @@ namespace OneMoreKnight.Enemies
         public Sprite sprite;
         [Min(0.1f)] public float scale = 1f;
 
+        [Header("Animation (#116)")]
+        [Tooltip("Idle loop frames; frame 0 is the static sprite so the entrance " +
+                 "and loop wrap are seamless. Empty = static sprite.")]
+        public Sprite[] idleFrames = new Sprite[0];
+        [Min(0.1f)] public float idleFps = 7f;
+
         [Header("Movement")]
         [Min(0f)] public float entrySpeed = 2f;
         [Min(0f)] public float hoverSpeed = 1.1f;
