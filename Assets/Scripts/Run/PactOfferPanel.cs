@@ -40,6 +40,10 @@ namespace OneMoreKnight.Run
 
         public bool IsOpen => root != null && root.activeSelf;
 
+        /// <summary>Frame on which this panel consumed an Escape press (#135) — the
+        /// PauseController checks it so one Esc never both refuses and pauses.</summary>
+        public static int EscapeConsumedFrame { get; private set; } = -1;
+
         public void Show(Pact easy, Pact medium, Pact hard,
                          float easyMult, float mediumMult, float hardMult, Pact active)
         {
@@ -73,7 +77,11 @@ namespace OneMoreKnight.Run
             if (kb.digit1Key.wasPressedThisFrame && slots[0] != null) Pick(0);
             else if (kb.digit2Key.wasPressedThisFrame && slots[1] != null) Pick(1);
             else if (kb.digit3Key.wasPressedThisFrame && slots[2] != null) Pick(2);
-            else if (kb.escapeKey.wasPressedThisFrame) Refuse();
+            else if (kb.escapeKey.wasPressedThisFrame)
+            {
+                EscapeConsumedFrame = Time.frameCount;
+                Refuse();
+            }
         }
 
         private void Pick(int slot)

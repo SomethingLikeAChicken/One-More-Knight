@@ -38,6 +38,10 @@ namespace OneMoreKnight.Run
 
         private System.Random rng;
 
+        /// <summary>Pact hook (#135): scales the CHANCE drop roll only — guaranteed
+        /// miniboss and Boss-phase drops always pay. Set/reset by the PactDirector.</summary>
+        public float PactDropScale { get; set; } = 1f;
+
         private void Awake()
         {
             rng = new System.Random(System.Environment.TickCount ^ 0x2b992ddf);
@@ -92,7 +96,7 @@ namespace OneMoreKnight.Run
                 return;
             }
 
-            if (rng.NextDouble() < dropChance) Drop(position, RollType());
+            if (rng.NextDouble() < dropChance * PactDropScale) Drop(position, RollType());
         }
 
         private void OnBossDefeatedAt(Vector2 position) => Drop(position, RollType());

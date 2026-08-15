@@ -50,6 +50,12 @@ namespace OneMoreKnight.Hero
         private Combat.Health health;
         private AegisAura aura;
 
+        // Pact hooks (#135): the chosen bargain's hero-side levers, set and reset by
+        // the PactDirector - default 1 = no Pact.
+        public float PactMoveScale { get; set; } = 1f;
+        public float PactFireCooldownScale { get; set; } = 1f;
+        public float PactCurseDurationScale { get; set; } = 1f;
+
         /// <summary>A pickup landed — RunStats listens (#63).</summary>
         public event System.Action<PowerupType> PowerupApplied;
 
@@ -85,11 +91,13 @@ namespace OneMoreKnight.Hero
 
         public float MoveSpeedMultiplier =>
             (BuffActive(PowerupType.MoveSpeed) ? wingSpeedMultiplier : 1f)
-            * (ActiveCurse == CurseType.Leaden ? 0.6f : 1f);
+            * (ActiveCurse == CurseType.Leaden ? 0.6f : 1f)
+            * PactMoveScale;
 
         public float FireCooldownMultiplier =>
             (BuffActive(PowerupType.FireRate) ? boltCooldownMultiplier : 1f)
-            * (ActiveCurse == CurseType.Jammed ? 1.8f : 1f);
+            * (ActiveCurse == CurseType.Jammed ? 1.8f : 1f)
+            * PactFireCooldownScale;
 
         /// <summary>Applies one pickup: hearts heal +1 current (never past max), Aegis
         /// raises the one-hit ward (#83), Purge is instant (the spoils system executes
@@ -122,7 +130,7 @@ namespace OneMoreKnight.Hero
         {
             if (type == CurseType.None) return;
             curse = type;
-            curseEndsAt = Time.time + curseDuration;
+            curseEndsAt = Time.time + curseDuration * PactCurseDurationScale;
             CurseApplied?.Invoke(type);
         }
     }
