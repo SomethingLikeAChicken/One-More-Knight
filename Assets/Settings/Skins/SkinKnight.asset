@@ -18,3 +18,75 @@ MonoBehaviour:
   fireTint: {r: 1, g: 0.8, b: 0.35, a: 1}
   unlockAchievement: 
   lockHint: 
+  walkEast:
+  - {fileID: 21300000, guid: 02906db45a5bd754bbaad3553a56977e, type: 3}
+  - {fileID: 21300000, guid: b111576ade4e52a439113a69e70624a3, type: 3}
+  - {fileID: 21300000, guid: d2011a81ba4d6074189a1bfad677b435, type: 3}
+  - {fileID: 21300000, guid: 220734b371dd54c468d1de02c904d65b, type: 3}
+  - {fileID: 21300000, guid: 0d0b3349d7b3f5e4aa43ff715c861aa9, type: 3}
+  - {fileID: 21300000, guid: 22347118089a4b6428fbc9edadd47c85, type: 3}
+  - {fileID: 21300000, guid: 253d62588d3c31d449b69bf7677a54d3, type: 3}
+  - {fileID: 21300000, guid: 3e5a20cfc5f02424b81683029d244c50, type: 3}
+  walkNorthEast:
+  - {fileID: 21300000, guid: cfaef9746f4eb0a4cb0ba324fc0060eb, type: 3}
+  - {fileID: 21300000, guid: d76370b030f70304c9fc7dd0dab1058b, type: 3}
+  - {fileID: 21300000, guid: a47e6c5f3d9fbd1499142f83fcef753b, type: 3}
+  - {fileID: 21300000, guid: 64a58b09e0ef51b49afb921ec6eda1f5, type: 3}
+  - {fileID: 21300000, guid: 917446324f8187f459804c833cfefe2c, type: 3}
+  - {fileID: 21300000, guid: 14fb7aa554fe7fb41b64b1f2bf680379, type: 3}
+  - {fileID: 21300000, guid: 53b664ed82d8d3a459ba57e04112c4e1, type: 3}
+  - {fileID: 21300000, guid: dd83b496fa077c3439748a29997e5e07, type: 3}
+  walkNorth:
+  - {fileID: 21300000, guid: c9275dad0fd2f8543a9d9d35b2f74c80, type: 3}
+  - {fileID: 21300000, guid: 6cf03601cfb14c349b14a9be424f4bc4, type: 3}
+  - {fileID: 21300000, guid: 798ed3f2a55e0f04998deecffc0e3d18, type: 3}
+  - {fileID: 21300000, guid: 83c70691fc078e44ebdccdec8d220f4b, type: 3}
+  - {fileID: 21300000, guid: 314716e51e1afd040900346cb4e66748, type: 3}
+  - {fileID: 21300000, guid: 310b2b2e60924944494843907f5465eb, type: 3}
+  - {fileID: 21300000, guid: cf8ff7b3700919b43af27d95e69c8ac4, type: 3}
+  - {fileID: 21300000, guid: a84ab2fdf55a2b84f9ceca4979dab151, type: 3}
+  walkNorthWest:
+  - {fileID: 21300000, guid: eb89ab3048cb5704f9c25d932cce696b, type: 3}
+  - {fileID: 21300000, guid: e0ee4690bfc4e624c922199a43eeb28a, type: 3}
+  - {fileID: 21300000, guid: deb79664809843d46bb37ec0ac3b6eeb, type: 3}
+  - {fileID: 21300000, guid: 263db18869d2c2c4b86c06fc63443872, type: 3}
+  - {fileID: 21300000, guid: 4c2adb1db13852b4caee7069d8329bd8, type: 3}
+  - {fileID: 21300000, guid: 0e82a2bed3b61464e946a8b955a4c21a, type: 3}
+  - {fileID: 21300000, guid: 3d30a31296d6f21459315e244c5b2e60, type: 3}
+  - {fileID: 21300000, guid: fa210cd1e05a8b9418da83be471afb7d, type: 3}
+  walkWest:
+  - {fileID: 21300000, guid: 9fafef191886ddf46bac3432c3ca1f58, type: 3}
+  - {fileID: 21300000, guid: a79b1396f0839c244895d7bf99314e74, type: 3}
+  - {fileID: 21300000, guid: f6e0af022152c654580371b14ea008e8, type: 3}
+  - {fileID: 21300000, guid: 586ed3ff74288e44f8ea6559511bb376, type: 3}
+  - {fileID: 21300000, guid: f79d4d49316aea546a5cac591ca7b63c, type: 3}
+  - {fileID: 21300000, guid: 039c977f2ba415a4d96d2e05e33b6e2a, type: 3}
+  - {fileID: 21300000, guid: 0f657b83b2eb8104dbae18e4b6416768, type: 3}
+  - {fileID: 21300000, guid: 088cddacd5ba37a458bd4cbbe0822852, type: 3}
+  walkSouthWest:
+  - {fileID: 21300000, guid: 3296fc495b253fe4d9b3a404a96b0081, type: 3}
+  - {fileID: 21300000, guid: 2491b6f8c0bae99488e5604eb126dbcb, type: 3}
+  - {fileID: 21300000, guid: 4a93ae0fcc9f3af4784a0f41f8f1a8bb, type: 3}
+  - {fileID: 21300000, guid: 6c62e49e4aa1c0e44914ad001047f409, type: 3}
+  - {fileID: 21300000, guid: 31627a40a3d121a478fedb6f20928a1c, type: 3}
+  - {fileID: 21300000, guid: cf36911984f73f5418829079994392b6, type: 3}
+  - {fileID: 21300000, guid: 7b96ea71caa5dec469755970d3e4e06e, type: 3}
+  - {fileID: 21300000, guid: 8d865373720b77243b38d0505914f361, type: 3}
+  walkSouth:
+  - {fileID: 21300000, guid: fc1766e9e6efe07459e44888972ab291, type: 3}
+  - {fileID: 21300000, guid: 09337ed97dd86ef45ad11c1c9cbbd7ee, type: 3}
+  - {fileID: 21300000, guid: 2fea98cd403596845b85ae097c6c7d58, type: 3}
+  - {fileID: 21300000, guid: 3497613818c4bfd42afff80d13faeb70, type: 3}
+  - {fileID: 21300000, guid: e39af31e983bd9849922d69d37f02c8b, type: 3}
+  - {fileID: 21300000, guid: ab1f93a09e52f2a4d82a8a731e17f494, type: 3}
+  - {fileID: 21300000, guid: a5057f6c3ed36664b84025783ca963d3, type: 3}
+  - {fileID: 21300000, guid: 26cd7999d19a3894892bb5e171509c1c, type: 3}
+  walkSouthEast:
+  - {fileID: 21300000, guid: 7daa4b4f5bd48274682b9f0be3f94f08, type: 3}
+  - {fileID: 21300000, guid: cc62e19ecbb0128478f1ada8c02ebfed, type: 3}
+  - {fileID: 21300000, guid: ef94bcdb23ca426489376ff0411704c7, type: 3}
+  - {fileID: 21300000, guid: ceed8bb364c09f045ad3441b0d5cab69, type: 3}
+  - {fileID: 21300000, guid: 12ab8af990693f94b90748be71096e86, type: 3}
+  - {fileID: 21300000, guid: a5d6e5cd87c2cff4288e5f39c2c37bfa, type: 3}
+  - {fileID: 21300000, guid: 4639a42ee3eb25949a0af8b4afe1d70e, type: 3}
+  - {fileID: 21300000, guid: 0140ed999cd584c4fa12edc7cc5f698d, type: 3}

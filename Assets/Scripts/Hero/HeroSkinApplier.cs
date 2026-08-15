@@ -24,6 +24,10 @@ namespace OneMoreKnight.Hero
             if (skin.sprite != null) spriteRenderer.sprite = skin.sprite;
             spriteRenderer.color = skin.tint;
             FireTint = skin.fireTint;
+            // The skin's own walk cycle, when authored (#131) - falls back to the
+            // default mage frames otherwise.
+            var walk = GetComponent<HeroWalkAnimation>();
+            if (walk != null) walk.ApplySkin(skin);
             // HeroHitFlash captures its base color in Start, after this Awake -
             // the flash and curse pulses return to the skin's tint, not white.
         }
