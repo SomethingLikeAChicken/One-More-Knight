@@ -6,6 +6,6 @@ namespace OneMoreKnight.Flow
     /// </summary>
     public static class GameVersion
     {
-        public const string Current = "alpha 1.4.0";
+        public const string Current = "alpha 1.5.0-preview";
     }
 }
