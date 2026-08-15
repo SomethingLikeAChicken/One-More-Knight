@@ -31,7 +31,9 @@ namespace OneMoreKnight.Run
         [SerializeField] private Image damageVignette;
         [SerializeField] private Text curseText;
         [SerializeField] private Text buffText;
+        [SerializeField] private Text pactText;
         [SerializeField] private Hero.HeroUpgrades heroUpgrades;
+        [SerializeField] private PactDirector pactDirector;
 
         private static readonly (Hero.PowerupType type, string label)[] BuffLabels =
         {
@@ -73,7 +75,7 @@ namespace OneMoreKnight.Run
             if (theme == null) return;
             if (theme.font != null)
             {
-                foreach (var t in new[] { scoreText, waveText, bossNameText, curseText, buffText })
+                foreach (var t in new[] { scoreText, waveText, bossNameText, curseText, buffText, pactText })
                     if (t != null) t.font = theme.font;
                 if (bossBar != null)
                     foreach (var t in bossBar.GetComponentsInChildren<Text>(true))
@@ -147,6 +149,16 @@ namespace OneMoreKnight.Run
                 }
                 string buffs = buffBuilder.ToString();
                 if (buffText.text != buffs) buffText.text = buffs;
+            }
+
+            // Pact readout (#129): the standing bargain must stay visible - an
+            // invisible Pact state makes the build decision meaningless (#117 F).
+            if (pactText != null && pactDirector != null)
+            {
+                var pact = pactDirector.ActivePact;
+                string pactLabel = pact == null ? ""
+                    : $"PACT — {pact.displayName.ToUpperInvariant()}  ×{pactDirector.ActiveMultiplier:0.0#}";
+                if (pactText.text != pactLabel) pactText.text = pactLabel;
             }
 
             var boss = bossDirector != null ? bossDirector.ActiveBoss : null;

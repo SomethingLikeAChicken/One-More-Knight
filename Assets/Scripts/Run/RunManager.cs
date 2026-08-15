@@ -38,6 +38,12 @@ namespace OneMoreKnight.Run
         /// StopSpawning, so Bosses pay unmultiplied.</summary>
         public float WaveScoreMultiplier { get; set; } = 1f;
 
+        /// <summary>The active Pact's tier multiplier (#129), ×1 without one. Held
+        /// across Boss fights — unlike the Wave channel it is the player's chosen
+        /// bargain, cleared only by the PactDirector. Forward-only: it scales gains
+        /// as they happen, never retroactively (#117 §9.2).</summary>
+        public float PactScoreMultiplier { get; set; } = 1f;
+
         public int Wave { get; private set; }
         public bool IsOver { get; private set; }
 
@@ -59,7 +65,7 @@ namespace OneMoreKnight.Run
         {
             if (IsOver || amount <= 0) return;
             Score += amount;
-            LeaderboardScore += Mathf.RoundToInt(amount * WaveScoreMultiplier);
+            LeaderboardScore += Mathf.RoundToInt(amount * WaveScoreMultiplier * PactScoreMultiplier);
             Changed?.Invoke();
         }
 
