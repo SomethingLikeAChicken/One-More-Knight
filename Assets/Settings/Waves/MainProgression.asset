@@ -71,3 +71,5 @@ MonoBehaviour:
   speedMultiplierStep: 1.01
   maxHpMultiplier: 4
   maxSpeedMultiplier: 1.5
+  costFloorPerWave: 0.5
+  maxCostFloor: 24

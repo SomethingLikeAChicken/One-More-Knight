@@ -131,15 +131,33 @@ namespace OneMoreKnight.Waves
         private void Compose(int wave)
         {
             plan.Clear();
-            int remaining = progression.BudgetFor(wave);
+            int budget = progression.BudgetFor(wave);
             if (CurrentModifier == WaveModifier.Swarm)
-                remaining = Mathf.RoundToInt(remaining * 1.3f);
+                budget = Mathf.RoundToInt(budget * 1.3f);
 
+            ComposeWithFloor(wave, budget, progression.CostFloorFor(wave));
+            if (plan.Count == 0 && progression.pool.Length > 0)
+            {
+                // A floor above every pool cost would compose empty waves forever -
+                // impossible by authoring rule, guarded anyway (#125).
+                Debug.LogWarning("WaveSpawner: cost floor " + progression.CostFloorFor(wave)
+                    + " starves the pool at wave " + wave + " - composing without the floor");
+                ComposeWithFloor(wave, budget, 0);
+            }
+        }
+
+        /// <summary>One composition pass. The floor (#125) retires groups cheaper
+        /// than it, so a late wave spends its budget on few, hard groups and STOPS
+        /// once nothing at or above the floor fits - the unspent remainder is the
+        /// point (fewer, harder enemies), never topped back up with cheap filler.</summary>
+        private void ComposeWithFloor(int wave, int remaining, int costFloor)
+        {
             while (true)
             {
                 eligible.Clear();
                 foreach (GroupDefinition g in progression.pool)
-                    if (g != null && g.minWave <= wave && g.difficulty <= remaining)
+                    if (g != null && g.minWave <= wave
+                        && g.difficulty >= costFloor && g.difficulty <= remaining)
                         eligible.Add(g);
                 if (eligible.Count == 0) break;
 
