@@ -3,12 +3,12 @@ using UnityEngine;
 namespace OneMoreKnight.Hero
 {
     /// <summary>
-    /// The PixelLab animation test (#115): 8-direction, 8-frame walk cycle
-    /// generated from the hero sprite itself (create_character v3 rotation +
-    /// template walk). Movement is inferred from the transform so no input
-    /// plumbing is touched; standing still restores whatever sprite the
-    /// skin applier chose. KNOWN TEST LIMIT: the walk frames are the base
-    /// blue mage — non-default skins snap back to blue while moving.
+    /// The PixelLab walk cycle (#115): 8-direction, 8-frame, generated from the
+    /// hero sprite itself (create_character v3 rotation + template walk). Movement
+    /// is inferred from the transform so no input plumbing is touched; standing
+    /// still restores whatever sprite the skin applier chose. The serialized
+    /// arrays are the DEFAULT mage's frames; a skin with its own authored cycle
+    /// overrides them through <see cref="ApplySkin"/> (#131).
     /// </summary>
     public class HeroWalkAnimation : MonoBehaviour
     {
@@ -37,6 +37,22 @@ namespace OneMoreKnight.Hero
             // captured AFTER HeroSkinApplier.Awake so the skin survives idling
             idleSprite = spriteRenderer.sprite;
             lastPosition = transform.position;
+        }
+
+        /// <summary>Swaps in a skin's own walk cycle (#131). All-or-nothing: a skin
+        /// with any un-authored octant keeps the default frames, so partial data
+        /// never mixes two robes mid-turn.</summary>
+        public void ApplySkin(HeroSkin skin)
+        {
+            if (skin == null || !skin.HasWalkFrames) return;
+            east = skin.walkEast;
+            northEast = skin.walkNorthEast;
+            north = skin.walkNorth;
+            northWest = skin.walkNorthWest;
+            west = skin.walkWest;
+            southWest = skin.walkSouthWest;
+            south = skin.walkSouth;
+            southEast = skin.walkSouthEast;
         }
 
         private void LateUpdate()

@@ -23,5 +23,22 @@ namespace OneMoreKnight.Hero
         public string unlockAchievement;
         [Tooltip("Shown on a locked tile - tell the player what deed is missing.")]
         public string lockHint;
+
+        [Header("Walk cycle (#131) — empty arrays fall back to the default mage frames")]
+        public Sprite[] walkEast = new Sprite[0];
+        public Sprite[] walkNorthEast = new Sprite[0];
+        public Sprite[] walkNorth = new Sprite[0];
+        public Sprite[] walkNorthWest = new Sprite[0];
+        public Sprite[] walkWest = new Sprite[0];
+        public Sprite[] walkSouthWest = new Sprite[0];
+        public Sprite[] walkSouth = new Sprite[0];
+        public Sprite[] walkSouthEast = new Sprite[0];
+
+        /// <summary>True when every octant is authored — partial data must never
+        /// half-replace the default set.</summary>
+        public bool HasWalkFrames =>
+            walkEast.Length > 0 && walkNorthEast.Length > 0 && walkNorth.Length > 0
+            && walkNorthWest.Length > 0 && walkWest.Length > 0 && walkSouthWest.Length > 0
+            && walkSouth.Length > 0 && walkSouthEast.Length > 0;
     }
 }
