@@ -111,6 +111,16 @@ A temporary in-Run buff that drops from Enemies and is collected by the Hero (e.
 faster fire, a shield). Lasts within the Run. MVP concept.
 _Avoid_: pickup, item, buff (in code).
 
+**Pact**:
+A player-chosen difficulty bargain (#117, #129): exactly one may be active at a
+time, offered at Run start and after each Boss kill as three tier candidates
+(easy/medium/hard). It makes the Run harder via explicit effects and multiplies
+the LeaderboardScore earned while it holds — the multiplier is bound to the tier,
+never the individual Pact. Distinct from a Powerup (an Enemy drop), a Boon (a
+per-Run upgrade), a Relic (permanent), and a Wave modifier (involuntary,
+per-Wave).
+_Avoid_: curse (taken by death-Curses), cursed relic, contract, wager, handicap.
+
 **Boon** _(stretch)_:
 A per-Run upgrade chosen on level-up that lasts the rest of that Run — the
 roguelite build layer. Distinct from a Powerup (an Enemy drop) and a Relic
