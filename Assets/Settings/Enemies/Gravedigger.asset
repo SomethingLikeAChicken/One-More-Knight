@@ -30,3 +30,10 @@ MonoBehaviour:
   weaveAmplitude: 1.5
   weaveFrequency: 2
   attack: {fileID: 11400000, guid: 040eea6cdd2cf43468488e347cf339a0, type: 2}
+  idleFrames:
+  - {fileID: 21300000, guid: fde96c6af81140c3a2f25a5f24af7902, type: 3}
+  - {fileID: 21300000, guid: 4fceb8ab23534766b36c54f637117015, type: 3}
+  - {fileID: 21300000, guid: 94a9dda49a5d4e14852c52644140da05, type: 3}
+  - {fileID: 21300000, guid: 7ae8dc5df2294741be01947f580af5e8, type: 3}
+  - {fileID: 21300000, guid: 74ab9bc19333401c863a224e3c9c6fda, type: 3}
+  idleFps: 6

@@ -23,6 +23,7 @@ namespace OneMoreKnight.Enemies
 
         private CircleCollider2D circleCollider;
         private MiniHealthBar miniBar;
+        private SpriteLoopAnimator idleAnimator;
         private float speed;
         private int contactDamage;
         private float despawnY;
@@ -46,6 +47,10 @@ namespace OneMoreKnight.Enemies
             if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
             circleCollider = GetComponent<CircleCollider2D>();
             miniBar = GetComponent<MiniHealthBar>();
+            // Added here rather than on the prefab: every pooled instance needs one
+            // and this keeps the prefab untouched (#116).
+            idleAnimator = GetComponent<SpriteLoopAnimator>();
+            if (idleAnimator == null) idleAnimator = gameObject.AddComponent<SpriteLoopAnimator>();
             health.Died += OnDied;
         }
 
@@ -83,6 +88,7 @@ namespace OneMoreKnight.Enemies
 
             spriteRenderer.sprite = stats.sprite;
             spriteRenderer.color = stats.tint;
+            idleAnimator.PlayLoop(stats.idleFrames, stats.idleFps);
             ColliderFit.FitCircle(circleCollider, stats.sprite);
             if (miniBar != null) miniBar.SetVisible(stats.isMiniboss);
             Run.Scoring.EncounterReporter.Report(stats.name);
