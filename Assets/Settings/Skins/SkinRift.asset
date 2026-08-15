@@ -17,7 +17,7 @@ MonoBehaviour:
   tint: {r: 1, g: 1, b: 1, a: 1}
   fireTint: {r: 1, g: 0.6, b: 0.95, a: 1}
   unlockAchievement: chronicler-all
-  lockHint: Chronicle all 92 entries.
+  lockHint: Chronicle all 104 entries.
   walkEast:
   - {fileID: 21300000, guid: ae3880398a077764a8c56346172b5a8b, type: 3}
   - {fileID: 21300000, guid: 916c5f168a53efa4d93b4a0d2467ab2a, type: 3}

@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
+  m_Name: BossAshenKnight
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
+  maxHealth: 70
+  contactDamage: 1
+  scoreReward: 800
+  description: He held the gate while the castle burned behind him. He is still holding
+    it. There is no castle anymore.
+  tactics: 'A d1 duel with honest telegraphs: wide fans plus an aimed shot. Learn
+    to strafe through fan gaps here - every later fight assumes you can.'
+  displayName: The Ashen Knight
+  difficulty: 1
+  sprite: {fileID: 21300000, guid: 1edb9ee330db6cf4eb6ab7ea6214b8de, type: 3}
+  scale: 1.1
+  idleFrames:
+  - {fileID: 21300000, guid: df05dda7ce7656346a5e7be3e24c0534, type: 3}
+  - {fileID: 21300000, guid: 45ab2f465b7edfd408837670aeead41a, type: 3}
+  - {fileID: 21300000, guid: 6b9ffd44665bc9341b346b98e19b5c31, type: 3}
+  - {fileID: 21300000, guid: fac2929bb87a9c446927be069ddad3c7, type: 3}
+  - {fileID: 21300000, guid: 576b2f69022735b43a423be0f4ebbd89, type: 3}
+  - {fileID: 21300000, guid: 8b7d48b20af7ea64cb1d0a8d7f5f70d8, type: 3}
+  - {fileID: 21300000, guid: 913181cfd08adef4badc2d538731468a, type: 3}
+  idleFps: 7
+  entrySpeed: 2
+  hoverSpeed: 1
+  hoverAmplitude: 2.6
+  lackeys: []
+  shieldHealth: 0
+  shieldSprite: {fileID: 0}
+  phases:
+  - name: Smolder
+    entersAtHpFraction: 1
+    patterns:
+    - {fileID: 11400000, guid: b659cf286f40706418ba9395ce78d1e9, type: 2}
+    - {fileID: 11400000, guid: 344ef927f469f074a9ede4f6e73cedaf, type: 2}
+    hoverSpeedMultiplier: 1
+    tint: {r: 1, g: 1, b: 1, a: 1}
+    entryPulseScale: 1
+    entryPulseDuration: 0.4
+    summonType: {fileID: 0}
+    summonCount: 0
+    summonInterval: 99
+  - name: Cinders
+    entersAtHpFraction: 0.5
+    patterns:
+    - {fileID: 11400000, guid: 8e2247d3d7fd4834c8156572a5c8722e, type: 2}
+    - {fileID: 11400000, guid: 344ef927f469f074a9ede4f6e73cedaf, type: 2}
+    hoverSpeedMultiplier: 1.3
+    tint: {r: 1, g: 0.7, b: 0.55, a: 1}
+    entryPulseScale: 1.45
+    entryPulseDuration: 0.5
+    summonType: {fileID: 0}
+    summonCount: 0
+    summonInterval: 99

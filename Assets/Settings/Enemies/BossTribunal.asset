@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
   m_Name: BossTribunal
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
-  maxHealth: 750
+  maxHealth: 380
   contactDamage: 2
   scoreReward: 13000
   description: Three stone faces, one sentence. The gavel burns because the verdict

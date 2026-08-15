@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
   m_Name: BossEternity
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
-  maxHealth: 900
+  maxHealth: 440
   contactDamage: 2
   scoreReward: 20000
   description: A clockwork sphinx that was here before the host and intends to be

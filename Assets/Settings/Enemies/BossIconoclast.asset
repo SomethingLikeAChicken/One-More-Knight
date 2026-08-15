@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
   m_Name: BossIconoclast
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
-  maxHealth: 380
+  maxHealth: 340
   contactDamage: 1
   scoreReward: 4000
   description: Breaks holy things for a living and kept the best head as a club.

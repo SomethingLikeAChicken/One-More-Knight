@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
   m_Name: BossApocrypha
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
-  maxHealth: 1000
+  maxHealth: 440
   contactDamage: 2
   scoreReward: 24000
   description: The book the host reads before it falls. Nobody wrote it. It accumulates

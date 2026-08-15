@@ -37,8 +37,17 @@ namespace OneMoreKnight.Enemies
         private float pulsePeak = 1f;
         private float pulseDuration = 1f;
 
+        [Header("Breach (#141)")]
+        [Tooltip("Incoming-damage multiplier while a Phase-transition breach is open.")]
+        [SerializeField] [Min(1f)] private float breachMultiplier = 2f;
+        [SerializeField] [Min(0f)] private float breachDuration = 4f;
+        private float breachUntil;
+
         public BossStats Stats => stats;
         public Health Health => health;
+
+        /// <summary>The guard is down (#141) — the HUD advertises the window.</summary>
+        public bool BreachActive => Time.time < breachUntil && health != null && health.IsAlive;
 
         /// <summary>Index into <see cref="BossStats.phases"/>; -1 until the fight starts.</summary>
         public int CurrentPhase => currentPhase;
@@ -120,6 +129,13 @@ namespace OneMoreKnight.Enemies
         private void Update()
         {
             if (!health.IsAlive) return;
+
+            // Breach expiry (#141): tick-driven like everything else on the Boss.
+            if (breachUntil > 0f && Time.time >= breachUntil)
+            {
+                breachUntil = 0f;
+                health.IncomingDamageScale = 1f;
+            }
 
             if (entering)
             {
@@ -204,7 +220,15 @@ namespace OneMoreKnight.Enemies
             if (entering || currentPhase < 0 || !health.IsAlive) return;
 
             int next = PhaseForFraction((float)health.Current / health.Max);
-            if (next != currentPhase) EnterPhase(next);
+            if (next != currentPhase)
+            {
+                // BREACH (#141): a Phase TRANSITION drops the guard - double damage
+                // for a few seconds. Fights reward pressure at the dangerous moment
+                // instead of stretching a flat bar; the opening Phase never breaches.
+                breachUntil = Time.time + breachDuration;
+                health.IncomingDamageScale = breachMultiplier;
+                EnterPhase(next);
+            }
         }
 
         private void EnterPhase(int index)
