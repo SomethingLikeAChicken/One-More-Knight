@@ -60,6 +60,12 @@ namespace OneMoreKnight.Enemies
         public Sprite sprite;
         public Color tint = Color.white;
 
+        [Header("Animation (#116)")]
+        [Tooltip("Idle loop frames; frame 0 is the static sprite so spawn and loop " +
+                 "wrap are seamless. Empty = static sprite, exactly as before.")]
+        public Sprite[] idleFrames = new Sprite[0];
+        [Min(0.1f)] public float idleFps = 6f;
+
         [Header("Movement")]
         public MovementProfile movement = MovementProfile.Descend;
         [Tooltip("Weave only: horizontal amplitude in world units.")]
