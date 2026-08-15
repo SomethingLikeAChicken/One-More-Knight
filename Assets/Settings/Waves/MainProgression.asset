@@ -67,11 +67,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1e2cde7fa198c9c42bb299f23f8379b7, type: 2}
   delayBetweenGroups: 2.2
   intermission: 1.75
-  hpMultiplierStep: 1.04
+  hpMultiplierStep: 1.02
   speedMultiplierStep: 1.01
-  maxHpMultiplier: 4
+  maxHpMultiplier: 1.5
   maxSpeedMultiplier: 1.5
-  damageMultiplierStep: 1.03
-  maxDamageMultiplier: 3
+  damageMultiplierStep: 1
+  maxDamageMultiplier: 1
   costFloorPerWave: 0.5
   maxCostFloor: 24
