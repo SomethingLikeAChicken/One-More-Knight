@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
+  m_Name: Plaguecaller
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
+  maxHealth: 6
+  moveSpeed: 1.2
+  scoreValue: 400
+  contactDamage: 1
+  description: The censer does not burn incense anymore. Whatever it burns now, the
+    flock keeps following.
+  tactics: Casts full rings - stand between the spokes, not between the casters.
+    Two Plaguecallers interleave their rings; kill one before the overlap closes.
+  isMiniboss: 0
+  guaranteedDrop: 0
+  curseOnDeath: 0
+  sprite: {fileID: 21300000, guid: 4f834f2aedf14c74d872c80b9361dfa4, type: 3}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  idleFrames:
+  - {fileID: 21300000, guid: 23eac9607a2416c47b09bcd77b0335cf, type: 3}
+  - {fileID: 21300000, guid: 2aeda811d480acc498369b19642c5332, type: 3}
+  - {fileID: 21300000, guid: 9d594b98f9fb69d409e96a7f47fe23ed, type: 3}
+  - {fileID: 21300000, guid: 43e0879558529f747b842302d43bcb06, type: 3}
+  - {fileID: 21300000, guid: 338541242e4f1fd41b6ab3c0256a4cb0, type: 3}
+  idleFps: 6
+  movement: 0
+  weaveAmplitude: 1.5
+  weaveFrequency: 2
+  attack: {fileID: 11400000, guid: c82832a764afdcb4885e2da2fcaafbbb, type: 2}

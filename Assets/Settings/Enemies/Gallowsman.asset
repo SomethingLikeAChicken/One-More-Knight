@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
+  m_Name: Gallowsman
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
+  maxHealth: 7
+  moveSpeed: 1.2
+  scoreValue: 450
+  contactDamage: 1
+  description: He measured you the moment you entered the field. He is patient. The
+    rope is patient too.
+  tactics: Fires a homing bolt - keep moving and it loses the scent. Deadly when
+    you stop to thread another pattern; kill him FIRST in mixed company.
+  isMiniboss: 0
+  guaranteedDrop: 0
+  curseOnDeath: 0
+  sprite: {fileID: 21300000, guid: e42108e93fa71fc49be5f160743d9d58, type: 3}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  idleFrames:
+  - {fileID: 21300000, guid: 4220013dfbad4bc4190242e9177b589a, type: 3}
+  - {fileID: 21300000, guid: 63dc34c45b660b4418e4efc2ab995423, type: 3}
+  - {fileID: 21300000, guid: 01d53ce88a5c7234a95eb0586089dd12, type: 3}
+  - {fileID: 21300000, guid: d13770d191fb3b9499995897f44b772d, type: 3}
+  - {fileID: 21300000, guid: 6e3725f72aed37048be9ef148a36880c, type: 3}
+  idleFps: 6
+  movement: 0
+  weaveAmplitude: 1.5
+  weaveFrequency: 2
+  attack: {fileID: 11400000, guid: fa487b5561bb4504bafa7d44b7da86de, type: 2}

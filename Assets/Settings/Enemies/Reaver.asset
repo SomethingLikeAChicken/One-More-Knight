@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
+  m_Name: Reaver
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
+  maxHealth: 8
+  moveSpeed: 2
+  scoreValue: 500
+  contactDamage: 1
+  description: Faster than a knight, crueler than a bandit. The twin blades are for
+    whatever the arc of bolts leaves standing.
+  tactics: Weaves while spraying short arcs - the danger is his SPEED, he closes
+    distance while you dodge. Give ground early or he trades his life for a heart.
+  isMiniboss: 0
+  guaranteedDrop: 0
+  curseOnDeath: 0
+  sprite: {fileID: 21300000, guid: e31468471fef3a34a9650bf789371c73, type: 3}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  idleFrames:
+  - {fileID: 21300000, guid: 0f85b475f0adf134baceccf0f68fc05c, type: 3}
+  - {fileID: 21300000, guid: 22b0ff7e2fd3777459b02f401e3afc1f, type: 3}
+  - {fileID: 21300000, guid: 7ed136e5c8171be4a8165cdb8dde9360, type: 3}
+  - {fileID: 21300000, guid: a816da505025b8e4db2f5a60eb8d7bcf, type: 3}
+  - {fileID: 21300000, guid: 355ddfcd0bf7d3949af0d6afd9cdc9dc, type: 3}
+  idleFps: 6
+  movement: 1
+  weaveAmplitude: 1.5
+  weaveFrequency: 2
+  attack: {fileID: 11400000, guid: 7e28ce1bcfa48fd459fd56e7da47ad3d, type: 2}

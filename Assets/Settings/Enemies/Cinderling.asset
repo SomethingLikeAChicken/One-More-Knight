@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
+  m_Name: Cinderling
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
+  maxHealth: 1
+  moveSpeed: 3.2
+  scoreValue: 80
+  contactDamage: 1
+  description: A spark that refused to die with its bonfire. It drifts where the
+    war burns hottest, feeding on what is left.
+  tactics: Pure body threat in swarms - it never shoots, it just drifts INTO you.
+    One tap ends it; ignoring six of them ends you.
+  isMiniboss: 0
+  guaranteedDrop: 0
+  curseOnDeath: 0
+  sprite: {fileID: 21300000, guid: 77f0f79f5e68ca74a9c38ab7166917d7, type: 3}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  idleFrames:
+  - {fileID: 21300000, guid: 5a4bcb8cb19ea3a45bbba2eb8d5ad935, type: 3}
+  - {fileID: 21300000, guid: 9fe4fb013e4958343baac462020db026, type: 3}
+  - {fileID: 21300000, guid: 5045159a949bc584089408ecacdf04a3, type: 3}
+  - {fileID: 21300000, guid: e81fbe6ab01d4f945808756157f61d87, type: 3}
+  - {fileID: 21300000, guid: a13a972b5faf747438f5ed20f8c374d0, type: 3}
+  idleFps: 6
+  movement: 1
+  weaveAmplitude: 1.5
+  weaveFrequency: 2
+  attack: {fileID: 0}

@@ -17,4 +17,4 @@ MonoBehaviour:
   tint: {r: 1, g: 1, b: 1, a: 1}
   fireTint: {r: 1, g: 0.6, b: 0.95, a: 1}
   unlockAchievement: chronicler-all
-  lockHint: Chronicle all 92 entries.
+  lockHint: Chronicle all 104 entries.

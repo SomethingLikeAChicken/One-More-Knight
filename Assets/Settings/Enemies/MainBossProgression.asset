@@ -40,6 +40,9 @@ MonoBehaviour:
   - scoreThreshold: 64000
     minDifficulty: 8
     maxDifficulty: 9
+  - scoreThreshold: 80000
+    minDifficulty: 9
+    maxDifficulty: 10
   pool:
   - {fileID: 11400000, guid: 7dcfd7a5200568a4ea5786293ce255e8, type: 2}
   - {fileID: 11400000, guid: 29455908fffa6d145a7a80298afc1b78, type: 2}
@@ -69,6 +72,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 379a4b2e5ee22bc4da0749cd377004d0, type: 2}
   - {fileID: 11400000, guid: 7037127438c49ec48b0256b55761e580, type: 2}
   - {fileID: 11400000, guid: 03ebf02795fbb7c42abb28eee7bb25c6, type: 2}
+  - {fileID: 11400000, guid: c323ea6f772e2c941a99262958e65cc5, type: 2}
+  - {fileID: 11400000, guid: e7dc11c53ea7edc4384f9dbb79f13380, type: 2}
+  - {fileID: 11400000, guid: 2440891bf61ffe24f881bdd9e2574238, type: 2}
+  - {fileID: 11400000, guid: ef18caa33f57302419158a0bdfed358b, type: 2}
+  - {fileID: 11400000, guid: 23b013b5dd30244498aa3474e854bd13, type: 2}
+  - {fileID: 11400000, guid: f23af3459c63317419d02c5fd5721443, type: 2}
   endlessScoreStep: 8000
-  endlessMinDifficulty: 8
-  endlessMaxDifficulty: 9
+  endlessMinDifficulty: 9
+  endlessMaxDifficulty: 10

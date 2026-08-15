@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
+  m_Name: BossForgottenGod
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
+  maxHealth: 500
+  contactDamage: 1
+  scoreReward: 26000
+  description: Older than the kingdom, older than its name. It does not want worship
+    back. It wants the silence it had before you.
+  tactics: The first d10. Dense rings and storm crosses, then rift crosses with walls
+    and homing while Cinderlings pour in, then EVERYTHING while Reavers hunt you.
+    Kill the adds in the breach windows or drown.
+  displayName: The Forgotten God
+  difficulty: 10
+  sprite: {fileID: 21300000, guid: b2f5b2f4638bf394e9775b5c17df6ac2, type: 3}
+  scale: 1.5
+  idleFrames:
+  - {fileID: 21300000, guid: fd8c20b8cafd788428d24fc2412c017e, type: 3}
+  - {fileID: 21300000, guid: a867b5084c34afc49ba02c5c4dc1b93e, type: 3}
+  - {fileID: 21300000, guid: 19b57fef9df4e264aaf4874963f578ad, type: 3}
+  - {fileID: 21300000, guid: 6126166d13a610749b936101ace596a7, type: 3}
+  - {fileID: 21300000, guid: 18af780fdb3a19549a6e7c81e9855c82, type: 3}
+  - {fileID: 21300000, guid: a090399b431813e48bbc282e9a99c554, type: 3}
+  - {fileID: 21300000, guid: 6072f14a9c3feaf4daf07a8ba13101e0, type: 3}
+  idleFps: 7
+  entrySpeed: 2
+  hoverSpeed: 1
+  hoverAmplitude: 2.6
+  lackeys: []
+  shieldHealth: 0
+  shieldSprite: {fileID: 0}
+  phases:
+  - name: Awakening
+    entersAtHpFraction: 1
+    patterns:
+    - {fileID: 11400000, guid: 56388a9dc5046d6488d0537bb7834b24, type: 2}
+    - {fileID: 11400000, guid: c2309df7990210a4fbcb4244b255503b, type: 2}
+    hoverSpeedMultiplier: 1
+    tint: {r: 1, g: 1, b: 1, a: 1}
+    entryPulseScale: 1
+    entryPulseDuration: 0.4
+    summonType: {fileID: 0}
+    summonCount: 0
+    summonInterval: 99
+  - name: Wrath
+    entersAtHpFraction: 0.65
+    patterns:
+    - {fileID: 11400000, guid: d6103e25d16dbb94796d071cdc9446a3, type: 2}
+    - {fileID: 11400000, guid: 203c818f6d050a24caf98f243ff8afdf, type: 2}
+    - {fileID: 11400000, guid: fa487b5561bb4504bafa7d44b7da86de, type: 2}
+    hoverSpeedMultiplier: 1.2
+    tint: {r: 1, g: 0.85, b: 0.5, a: 1}
+    entryPulseScale: 1.45
+    entryPulseDuration: 0.5
+    summonType: {fileID: 11400000, guid: f7e2fbad6fbf6574c8279039a54021ab, type: 2}
+    summonCount: 3
+    summonInterval: 7
+  - name: Oblivion
+    entersAtHpFraction: 0.35
+    patterns:
+    - {fileID: 11400000, guid: 5617f9432a685d14196c1047c89c9086, type: 2}
+    - {fileID: 11400000, guid: 233f03791ae54654085c791dc95c9dee, type: 2}
+    - {fileID: 11400000, guid: 91fef18a9025a82499b9b5f2a7721141, type: 2}
+    hoverSpeedMultiplier: 1.4
+    tint: {r: 1, g: 0.6, b: 0.3, a: 1}
+    entryPulseScale: 1.45
+    entryPulseDuration: 0.5
+    summonType: {fileID: 11400000, guid: 70d9ac3aecd860f4e8231c57c5c3d381, type: 2}
+    summonCount: 2
+    summonInterval: 9

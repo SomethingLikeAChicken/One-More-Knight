@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
+  m_Name: Cryptkeeper
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
+  maxHealth: 14
+  moveSpeed: 0.9
+  scoreValue: 800
+  contactDamage: 1
+  description: Every grave in his crypt is numbered, and the lantern light says one
+    number is yours.
+  tactics: 'A slow anchor that casts rift spikes - the marker shows where the eruption
+    lands, so leave the square early. Tanky: commit to him or avoid him wholly.'
+  isMiniboss: 0
+  guaranteedDrop: 0
+  curseOnDeath: 0
+  sprite: {fileID: 21300000, guid: f6c0d76dd3aefcc40b1ec83032d82607, type: 3}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  idleFrames:
+  - {fileID: 21300000, guid: 15ecbabb8dd4eb54fbd1f5949a60a045, type: 3}
+  - {fileID: 21300000, guid: e01bf4002b192984db9b9ea3a1979e55, type: 3}
+  - {fileID: 21300000, guid: 1f2f2385cc32a434eb680ff5491a3661, type: 3}
+  - {fileID: 21300000, guid: 9c982904d4f610a46993408031d34c00, type: 3}
+  - {fileID: 21300000, guid: 64176b36fd5ef7e43ba1c70302ca7f00, type: 3}
+  idleFps: 6
+  movement: 0
+  weaveAmplitude: 1.5
+  weaveFrequency: 2
+  attack: {fileID: 11400000, guid: 8c6e36b8d02fd6f4ca5bd86f79225b5b, type: 2}
