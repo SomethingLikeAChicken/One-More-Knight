@@ -96,7 +96,8 @@ namespace OneMoreKnight.Waves
                 // The bestiary's modifier encyclopedia unlocks on first sight (#72).
                 if (CurrentModifier != WaveModifier.None)
                     Run.Scoring.EncounterReporter.Report("Mod" + CurrentModifier);
-                progression.MultipliersFor(waveNumber, out float hpMult, out float speedMult);
+                progression.MultipliersFor(waveNumber, out float hpMult, out float speedMult,
+                                           out float damageMult);
 
                 // Modifier levers (#57) - spikes on top of the bounded curve.
                 if (CurrentModifier == WaveModifier.Haste) speedMult *= 1.25f;
@@ -109,7 +110,7 @@ namespace OneMoreKnight.Waves
                 for (int g = 0; g < plan.Count; g++)
                 {
                     if (g > 0) yield return new WaitForSeconds(progression.delayBetweenGroups);
-                    yield return SpawnGroup(plan[g], hpMult, speedMult);
+                    yield return SpawnGroup(plan[g], hpMult, speedMult, damageMult);
                 }
 
                 while (alive > 0) yield return null;
@@ -171,7 +172,8 @@ namespace OneMoreKnight.Waves
             LastWavePlan = "wave " + wave + " budget " + progression.BudgetFor(wave) + ": " + names;
         }
 
-        private IEnumerator SpawnGroup(GroupDefinition group, float hpMultiplier, float speedMultiplier)
+        private IEnumerator SpawnGroup(GroupDefinition group, float hpMultiplier, float speedMultiplier,
+                                       float damageMultiplier)
         {
             foreach (GroupSlot slot in group.slots)
             {
@@ -180,13 +182,14 @@ namespace OneMoreKnight.Waves
 
                 for (int i = 0; i < slot.count; i++)
                 {
-                    SpawnOne(slot, i, hpMultiplier, speedMultiplier);
+                    SpawnOne(slot, i, hpMultiplier, speedMultiplier, damageMultiplier);
                     if (slot.spawnInterval > 0f) yield return new WaitForSeconds(slot.spawnInterval);
                 }
             }
         }
 
-        private void SpawnOne(GroupSlot slot, int index, float hpMultiplier, float speedMultiplier)
+        private void SpawnOne(GroupSlot slot, int index, float hpMultiplier, float speedMultiplier,
+                              float damageMultiplier)
         {
             Rect bounds = playArea.Bounds;
             float anchorX = Mathf.Lerp(bounds.center.x, slot.anchor >= 0f ? bounds.xMax : bounds.xMin,
@@ -212,7 +215,7 @@ namespace OneMoreKnight.Waves
 
             Enemy enemy = pool.Get();
             enemy.Spawn(slot.type, new Vector2(x, playArea.SpawnLineY), speedMultiplier, hpMultiplier,
-                        playArea.DespawnLineY);
+                        damageMultiplier, playArea.DespawnLineY);
             alive++;
         }
 
@@ -226,7 +229,7 @@ namespace OneMoreKnight.Waves
             position.x = Mathf.Clamp(position.x, bounds.xMin, bounds.xMax);
 
             Enemy enemy = pool.Get();
-            enemy.Spawn(type, position, 1f, 1f, playArea.DespawnLineY);
+            enemy.Spawn(type, position, 1f, 1f, 1f, playArea.DespawnLineY);
             alive++;
         }
 

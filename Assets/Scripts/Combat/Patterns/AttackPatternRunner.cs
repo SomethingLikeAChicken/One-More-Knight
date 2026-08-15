@@ -50,6 +50,13 @@ namespace OneMoreKnight.Combat.Patterns
         /// <summary>Who AimedAtTarget points at. Null is fine — aimed falls back to Down.</summary>
         public void SetTarget(Transform newTarget) => target = newTarget;
 
+        /// <summary>Per-actor damage multiplier on every emission (#127) — the Wave
+        /// curve's lethality lever, applied here so the shared Pattern asset is never
+        /// mutated (ADR-0003). Reset to 1 in <see cref="ResetState"/>: a recycled
+        /// pooled actor must not inherit the previous life's scale, and actors that
+        /// never scale (Boss, Hero) simply stay at 1.</summary>
+        public float DamageScale { get; set; } = 1f;
+
         /// <summary>Swaps the Pattern set (e.g. an Enemy type's asset at spawn, or a
         /// Boss Phase change later) and resets all timing state.</summary>
         public void SetPatterns(params AttackPattern[] newPatterns)
@@ -73,6 +80,7 @@ namespace OneMoreKnight.Combat.Patterns
                 slots[i].RiftArmed = false;
             }
             telegraphingSlots = 0;
+            DamageScale = 1f;
             if (visual == null) visual = GetComponent<SpriteRenderer>();
             firing = true;
         }
@@ -228,10 +236,11 @@ namespace OneMoreKnight.Combat.Patterns
                     break;
             }
 
+            int damage = Mathf.Max(1, Mathf.RoundToInt(pattern.bulletDamage * DamageScale));
             for (int i = 0; i < emissionBuffer.Count; i++)
             {
                 Emission e = emissionBuffer[i];
-                bulletSpawner.Spawn(e.Origin, e.Direction, pattern.bulletSpeed, pattern.bulletDamage,
+                bulletSpawner.Spawn(e.Origin, e.Direction, pattern.bulletSpeed, damage,
                                     hitMask, tint, motion);
             }
         }

@@ -35,6 +35,10 @@ namespace OneMoreKnight.Waves
         [Min(1f)] public float speedMultiplierStep = 1.01f;
         [Min(1f)] public float maxHpMultiplier = 4f;
         [Min(1f)] public float maxSpeedMultiplier = 1.5f;
+        [Tooltip("Damage is the lever with real headroom (#117 §9.1): it raises the " +
+                 "stakes without sponges or spent reaction time. 1 = off.")]
+        [Min(1f)] public float damageMultiplierStep = 1f;
+        [Min(1f)] public float maxDamageMultiplier = 1f;
 
         [Header("Group retirement (#125) - the primary endless lever")]
         [Tooltip("Cost floor gained per wave past the budget cap: groups cheaper than " +
@@ -63,13 +67,15 @@ namespace OneMoreKnight.Waves
             ? 1 + Mathf.CeilToInt((maxBudget - baseBudget) / (float)budgetPerWave)
             : 1;
 
-        /// <summary>HP/speed multipliers: 1 until the budget caps, then stepped per
-        /// extra wave up to the hard caps.</summary>
-        public void MultipliersFor(int waveNumber, out float hpMultiplier, out float speedMultiplier)
+        /// <summary>HP/speed/damage multipliers: 1 until the budget caps, then stepped
+        /// per extra wave up to the hard caps.</summary>
+        public void MultipliersFor(int waveNumber, out float hpMultiplier,
+                                   out float speedMultiplier, out float damageMultiplier)
         {
             int past = Mathf.Max(0, waveNumber - CapWave);
             hpMultiplier = Mathf.Min(Mathf.Pow(hpMultiplierStep, past), maxHpMultiplier);
             speedMultiplier = Mathf.Min(Mathf.Pow(speedMultiplierStep, past), maxSpeedMultiplier);
+            damageMultiplier = Mathf.Min(Mathf.Pow(damageMultiplierStep, past), maxDamageMultiplier);
         }
     }
 }
