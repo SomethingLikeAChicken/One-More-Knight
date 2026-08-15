@@ -14,22 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Run.BossProgression
   stages:
   - scoreThreshold: 1000
+    minDifficulty: 1
     maxDifficulty: 1
   - scoreThreshold: 3000
+    minDifficulty: 1
     maxDifficulty: 2
   - scoreThreshold: 6000
+    minDifficulty: 2
     maxDifficulty: 3
   - scoreThreshold: 10000
+    minDifficulty: 3
     maxDifficulty: 4
   - scoreThreshold: 16000
+    minDifficulty: 4
     maxDifficulty: 5
   - scoreThreshold: 24000
+    minDifficulty: 5
     maxDifficulty: 6
   - scoreThreshold: 34000
+    minDifficulty: 6
     maxDifficulty: 7
   - scoreThreshold: 48000
+    minDifficulty: 7
     maxDifficulty: 8
   - scoreThreshold: 64000
+    minDifficulty: 8
     maxDifficulty: 9
   pool:
   - {fileID: 11400000, guid: 7dcfd7a5200568a4ea5786293ce255e8, type: 2}
@@ -61,4 +70,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7037127438c49ec48b0256b55761e580, type: 2}
   - {fileID: 11400000, guid: 03ebf02795fbb7c42abb28eee7bb25c6, type: 2}
   endlessScoreStep: 8000
+  endlessMinDifficulty: 8
   endlessMaxDifficulty: 9

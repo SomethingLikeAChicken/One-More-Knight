@@ -8,9 +8,9 @@ namespace OneMoreKnight.Run
 {
     /// <summary>
     /// Paces the Run's climaxes from a <see cref="BossProgression"/> (issue #30):
-    /// at each stage's Score threshold a random eligible Boss (difficulty ≤ the
-    /// stage cap) enters; on Defeated the reward is scored, Waves resume, and the
-    /// stage advances — endlessly, per the progression's endless rule.
+    /// at each stage's Score threshold a random eligible Boss (difficulty inside
+    /// the stage's band, #121) enters; on Defeated the reward is scored, Waves
+    /// resume, and the stage advances — endlessly, per the progression's endless rule.
     /// </summary>
     public class BossDirector : MonoBehaviour
     {
@@ -79,25 +79,36 @@ namespace OneMoreKnight.Run
         private void OnRunChanged()
         {
             if (ActiveBoss != null || runManager.IsOver || progression == null) return;
-            progression.GetStage(stageIndex, out int threshold, out int maxDifficulty);
+            progression.GetStage(stageIndex, out int threshold,
+                                 out int minDifficulty, out int maxDifficulty);
             // Only EARNED score summons bosses - a big reward must not chain straight
             // into the next fight (#68).
             if (runManager.Score - rewardScore < threshold) return;
 
-            BossStats pick = PickEligible(maxDifficulty);
+            BossStats pick = PickEligible(minDifficulty, maxDifficulty);
             if (pick == null) return;
             Summon(pick);
             lastPicked = pick;
             stageIndex++;
         }
 
-        /// <summary>Random pool Boss with difficulty ≤ the cap, avoiding the
-        /// immediately previous Boss when alternatives exist.</summary>
-        private BossStats PickEligible(int maxDifficulty)
+        /// <summary>Random pool Boss inside the stage's difficulty band (#121),
+        /// avoiding the immediately previous Boss when alternatives exist. An empty
+        /// band falls back to the cap-only filter — a stalled Run (no Boss ever
+        /// eligible) must be impossible; the warning surfaces the data error.</summary>
+        private BossStats PickEligible(int minDifficulty, int maxDifficulty)
         {
             eligible.Clear();
             foreach (BossStats b in progression.pool)
-                if (b != null && b.difficulty <= maxDifficulty) eligible.Add(b);
+                if (b != null && b.difficulty >= minDifficulty && b.difficulty <= maxDifficulty)
+                    eligible.Add(b);
+            if (eligible.Count == 0)
+            {
+                Debug.LogWarning("BossDirector: no pool Boss in band d" + minDifficulty
+                    + "-d" + maxDifficulty + " - falling back to difficulty <= d" + maxDifficulty);
+                foreach (BossStats b in progression.pool)
+                    if (b != null && b.difficulty <= maxDifficulty) eligible.Add(b);
+            }
             if (eligible.Count == 0) return null;
             if (eligible.Count > 1 && lastPicked != null) eligible.Remove(lastPicked);
             return eligible[rng.Next(eligible.Count)];
