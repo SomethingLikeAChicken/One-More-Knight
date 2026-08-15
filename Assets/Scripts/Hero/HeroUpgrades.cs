@@ -24,7 +24,15 @@ namespace OneMoreKnight.Hero
         /// <summary>The screen edges close in — vision shrinks while active (#68).</summary>
         Blind,
         /// <summary>Bullet damage −1 (min 1) while active (#68).</summary>
-        Weakness
+        Weakness,
+        /// <summary>The chill of the grave (#139): move ×0.75 AND fire ×1.3 — a
+        /// milder, mixed Leaden+Jammed.</summary>
+        Frost,
+        /// <summary>Your prayers go unheard (#139): Powerup pickups do nothing while
+        /// active — an untouched pickup stays on the field for after.</summary>
+        Silence,
+        /// <summary>Your limbs betray you (#139): movement controls inverted.</summary>
+        Hex
     }
 
     /// <summary>
@@ -49,6 +57,12 @@ namespace OneMoreKnight.Hero
         private float curseEndsAt;
         private Combat.Health health;
         private AegisAura aura;
+
+        // Pact hooks (#135): the chosen bargain's hero-side levers, set and reset by
+        // the PactDirector - default 1 = no Pact.
+        public float PactMoveScale { get; set; } = 1f;
+        public float PactFireCooldownScale { get; set; } = 1f;
+        public float PactCurseDurationScale { get; set; } = 1f;
 
         /// <summary>A pickup landed — RunStats listens (#63).</summary>
         public event System.Action<PowerupType> PowerupApplied;
@@ -85,11 +99,16 @@ namespace OneMoreKnight.Hero
 
         public float MoveSpeedMultiplier =>
             (BuffActive(PowerupType.MoveSpeed) ? wingSpeedMultiplier : 1f)
-            * (ActiveCurse == CurseType.Leaden ? 0.6f : 1f);
+            * (ActiveCurse == CurseType.Leaden ? 0.6f : ActiveCurse == CurseType.Frost ? 0.75f : 1f)
+            * PactMoveScale;
 
         public float FireCooldownMultiplier =>
             (BuffActive(PowerupType.FireRate) ? boltCooldownMultiplier : 1f)
-            * (ActiveCurse == CurseType.Jammed ? 1.8f : 1f);
+            * (ActiveCurse == CurseType.Jammed ? 1.8f : ActiveCurse == CurseType.Frost ? 1.3f : 1f)
+            * PactFireCooldownScale;
+
+        /// <summary>Hex (#139): the controller negates its merged movement input.</summary>
+        public bool InvertControls => ActiveCurse == CurseType.Hex;
 
         /// <summary>Applies one pickup: hearts heal +1 current (never past max), Aegis
         /// raises the one-hit ward (#83), Purge is instant (the spoils system executes
@@ -97,6 +116,9 @@ namespace OneMoreKnight.Hero
         /// 10s clock. Returns false only for a full-HP heart.</summary>
         public bool Apply(PowerupType type)
         {
+            // Silence (#139): nothing lands while the bell tolls. Returning false
+            // leaves the pickup on the field - collectable once the curse ends.
+            if (ActiveCurse == CurseType.Silence) return false;
             switch (type)
             {
                 case PowerupType.MaxHp:
@@ -122,7 +144,7 @@ namespace OneMoreKnight.Hero
         {
             if (type == CurseType.None) return;
             curse = type;
-            curseEndsAt = Time.time + curseDuration;
+            curseEndsAt = Time.time + curseDuration * PactCurseDurationScale;
             CurseApplied?.Invoke(type);
         }
     }

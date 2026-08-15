@@ -23,7 +23,27 @@ namespace OneMoreKnight.Run
         [SerializeField] private Scoring.RunStats runStats;
         [SerializeField] [Min(0f)] private float gameOverDelay = 1.2f;
 
+        /// <summary>Raw earned points — the Boss pacing clock (#123). Multipliers
+        /// never touch this; a Score lever must never also be a pacing change
+        /// (#117 §2.4).</summary>
         public int Score { get; private set; }
+
+        /// <summary>The ranked figure (CONTEXT.md: Leaderboard): raw points times the
+        /// multiplier active when they were earned. What the HUD shows, the Game Over
+        /// readout displays, and the submitter sends (#123).</summary>
+        public int LeaderboardScore { get; private set; }
+
+        /// <summary>Multiplier applied to LeaderboardScore gains. Wave-modifier
+        /// scoped (#57 Gilded): the WaveSpawner sets it per Wave and resets it in
+        /// StopSpawning, so Bosses pay unmultiplied.</summary>
+        public float WaveScoreMultiplier { get; set; } = 1f;
+
+        /// <summary>The active Pact's tier multiplier (#129), ×1 without one. Held
+        /// across Boss fights — unlike the Wave channel it is the player's chosen
+        /// bargain, cleared only by the PactDirector. Forward-only: it scales gains
+        /// as they happen, never retroactively (#117 §9.2).</summary>
+        public float PactScoreMultiplier { get; set; } = 1f;
+
         public int Wave { get; private set; }
         public bool IsOver { get; private set; }
 
@@ -45,6 +65,7 @@ namespace OneMoreKnight.Run
         {
             if (IsOver || amount <= 0) return;
             Score += amount;
+            LeaderboardScore += Mathf.RoundToInt(amount * WaveScoreMultiplier * PactScoreMultiplier);
             Changed?.Invoke();
         }
 
@@ -60,10 +81,10 @@ namespace OneMoreKnight.Run
             if (IsOver) return;
             IsOver = true;
             gameOverAt = Time.time + gameOverDelay;
-            LastRun.Score = Score;
+            LastRun.Score = LeaderboardScore;
             LastRun.Wave = Wave;
             waveSpawner.StopSpawning();
-            ScoreSubmitter.Create().Submit(Score,
+            ScoreSubmitter.Create().Submit(LeaderboardScore,
                 runStats != null ? runStats.ToMetaJson()
                     : $"{{\"wave\":{Wave},\"bosses\":{(bossDirector != null ? bossDirector.BossesDefeated : 0)}}}");
             Changed?.Invoke();

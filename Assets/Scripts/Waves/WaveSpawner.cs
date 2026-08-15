@@ -53,7 +53,27 @@ namespace OneMoreKnight.Waves
         [SerializeField] [Min(2)] private int modifiersFromWave = 16;
         [Range(0f, 1f)] [SerializeField] private float modifierChance = 0.45f;
 
-        private float scoreMultiplier = 1f;
+        // Pact hooks (#129): runtime multipliers the PactDirector sets on top of the
+        // wave curve, applied at the next wave's spawn computation. All default 1.
+        public float PactSpeedScale { get; set; } = 1f;
+        public float PactHpScale { get; set; } = 1f;
+        public float PactDamageScale { get; set; } = 1f;
+
+        private float pactCadenceScale = 1f;
+
+        /// <summary>Scales every pacing delay (group layering, intermission, slot
+        /// spawn intervals). Clamped to [0.5, 1]: at 0.5 the 2.2 s layering
+        /// guarantee still reads as 1.1 s between groups — the floor the #117 B
+        /// constraint demands.</summary>
+        public float PactCadenceScale
+        {
+            get => pactCadenceScale;
+            set => pactCadenceScale = Mathf.Clamp(value, 0.5f, 1f);
+        }
+
+        /// <summary>Explicit forward jump of the Wave clock (#129 WaveOffset) —
+        /// acceleration is a Pact effect, never a Score coupling (#117 §9.2).</summary>
+        public void AdvanceWaves(int count) => waveNumber += Mathf.Max(0, count);
 
         private void Awake()
         {
@@ -98,25 +118,30 @@ namespace OneMoreKnight.Waves
                 // The bestiary's modifier encyclopedia unlocks on first sight (#72).
                 if (CurrentModifier != WaveModifier.None)
                     Run.Scoring.EncounterReporter.Report("Mod" + CurrentModifier);
-                progression.MultipliersFor(waveNumber, out float hpMult, out float speedMult);
+                progression.MultipliersFor(waveNumber, out float hpMult, out float speedMult,
+                                           out float damageMult);
 
                 // Modifier levers (#57) - spikes on top of the bounded curve.
                 if (CurrentModifier == WaveModifier.Haste) speedMult *= 1.25f;
                 if (CurrentModifier == WaveModifier.Ironclad) hpMult *= 1.35f;
-                scoreMultiplier = CurrentModifier == WaveModifier.Gilded ? 1.5f : 1f;
+                // Pact levers (#129) - the chosen bargain, applied the same way.
+                speedMult *= PactSpeedScale;
+                hpMult *= PactHpScale;
+                damageMult *= PactDamageScale;
+                runManager.WaveScoreMultiplier = CurrentModifier == WaveModifier.Gilded ? 1.5f : 1f;
                 Combat.Patterns.AttackPatternRunner.GlobalCooldownScale =
                     CurrentModifier == WaveModifier.Frenzy ? 0.75f : 1f;
 
                 Compose(waveNumber);
                 for (int g = 0; g < plan.Count; g++)
                 {
-                    if (g > 0) yield return new WaitForSeconds(progression.delayBetweenGroups);
-                    yield return SpawnGroup(plan[g], hpMult, speedMult);
+                    if (g > 0) yield return new WaitForSeconds(progression.delayBetweenGroups * pactCadenceScale);
+                    yield return SpawnGroup(plan[g], hpMult, speedMult, damageMult);
                 }
 
                 while (alive > 0) yield return null;
 
-                yield return new WaitForSeconds(progression.intermission);
+                yield return new WaitForSeconds(progression.intermission * pactCadenceScale);
             }
         }
 
@@ -133,15 +158,33 @@ namespace OneMoreKnight.Waves
         private void Compose(int wave)
         {
             plan.Clear();
-            int remaining = progression.BudgetFor(wave);
+            int budget = progression.BudgetFor(wave);
             if (CurrentModifier == WaveModifier.Swarm)
-                remaining = Mathf.RoundToInt(remaining * 1.3f);
+                budget = Mathf.RoundToInt(budget * 1.3f);
 
+            ComposeWithFloor(wave, budget, progression.CostFloorFor(wave));
+            if (plan.Count == 0 && progression.pool.Length > 0)
+            {
+                // A floor above every pool cost would compose empty waves forever -
+                // impossible by authoring rule, guarded anyway (#125).
+                Debug.LogWarning("WaveSpawner: cost floor " + progression.CostFloorFor(wave)
+                    + " starves the pool at wave " + wave + " - composing without the floor");
+                ComposeWithFloor(wave, budget, 0);
+            }
+        }
+
+        /// <summary>One composition pass. The floor (#125) retires groups cheaper
+        /// than it, so a late wave spends its budget on few, hard groups and STOPS
+        /// once nothing at or above the floor fits - the unspent remainder is the
+        /// point (fewer, harder enemies), never topped back up with cheap filler.</summary>
+        private void ComposeWithFloor(int wave, int remaining, int costFloor)
+        {
             while (true)
             {
                 eligible.Clear();
                 foreach (GroupDefinition g in progression.pool)
-                    if (g != null && g.minWave <= wave && g.difficulty <= remaining)
+                    if (g != null && g.minWave <= wave
+                        && g.difficulty >= costFloor && g.difficulty <= remaining)
                         eligible.Add(g);
                 if (eligible.Count == 0) break;
 
@@ -155,22 +198,26 @@ namespace OneMoreKnight.Waves
             LastWavePlan = "wave " + wave + " budget " + progression.BudgetFor(wave) + ": " + names;
         }
 
-        private IEnumerator SpawnGroup(GroupDefinition group, float hpMultiplier, float speedMultiplier)
+        private IEnumerator SpawnGroup(GroupDefinition group, float hpMultiplier, float speedMultiplier,
+                                       float damageMultiplier)
         {
             foreach (GroupSlot slot in group.slots)
             {
                 if (slot.type == null) continue;
-                if (slot.delayBeforeSlot > 0f) yield return new WaitForSeconds(slot.delayBeforeSlot);
+                if (slot.delayBeforeSlot > 0f)
+                    yield return new WaitForSeconds(slot.delayBeforeSlot * pactCadenceScale);
 
                 for (int i = 0; i < slot.count; i++)
                 {
-                    SpawnOne(slot, i, hpMultiplier, speedMultiplier);
-                    if (slot.spawnInterval > 0f) yield return new WaitForSeconds(slot.spawnInterval);
+                    SpawnOne(slot, i, hpMultiplier, speedMultiplier, damageMultiplier);
+                    if (slot.spawnInterval > 0f)
+                        yield return new WaitForSeconds(slot.spawnInterval * pactCadenceScale);
                 }
             }
         }
 
-        private void SpawnOne(GroupSlot slot, int index, float hpMultiplier, float speedMultiplier)
+        private void SpawnOne(GroupSlot slot, int index, float hpMultiplier, float speedMultiplier,
+                              float damageMultiplier)
         {
             Rect bounds = playArea.Bounds;
             float anchorX = Mathf.Lerp(bounds.center.x, slot.anchor >= 0f ? bounds.xMax : bounds.xMin,
@@ -196,7 +243,7 @@ namespace OneMoreKnight.Waves
 
             Enemy enemy = pool.Get();
             enemy.Spawn(slot.type, new Vector2(x, playArea.SpawnLineY), speedMultiplier, hpMultiplier,
-                        playArea.DespawnLineY);
+                        damageMultiplier, playArea.DespawnLineY);
             alive++;
         }
 
@@ -210,13 +257,15 @@ namespace OneMoreKnight.Waves
             position.x = Mathf.Clamp(position.x, bounds.xMin, bounds.xMax);
 
             Enemy enemy = pool.Get();
-            enemy.Spawn(type, position, 1f, 1f, playArea.DespawnLineY);
+            enemy.Spawn(type, position, 1f, 1f, 1f, playArea.DespawnLineY);
             alive++;
         }
 
         private void OnEnemyKilled(Enemy enemy)
         {
-            runManager.AddScore(Mathf.RoundToInt(enemy.Stats.scoreValue * scoreMultiplier));
+            // Raw points; the Gilded lever lives on RunManager.WaveScoreMultiplier and
+            // only inflates LeaderboardScore - the pacing clock stays honest (#123).
+            runManager.AddScore(enemy.Stats.scoreValue);
             EnemyKilled?.Invoke(enemy.Stats, enemy.transform.position);
         }
 
@@ -233,8 +282,9 @@ namespace OneMoreKnight.Waves
             if (loop == null) return;
             StopCoroutine(loop);
             loop = null;
-            // Bosses fight unmodified (#57).
+            // Bosses fight unmodified (#57) and pay unmultiplied (#123).
             Combat.Patterns.AttackPatternRunner.GlobalCooldownScale = 1f;
+            runManager.WaveScoreMultiplier = 1f;
         }
 
         /// <summary>Resumes after a pause. The Wave counter is a field, so the curve
