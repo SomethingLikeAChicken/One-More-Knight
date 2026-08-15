@@ -84,6 +84,8 @@ namespace OneMoreKnight.Hero
                 input += touch.Move;
                 firePressed |= touch.Firing;
             }
+            // Hex curse (#139): the merged input inverts, keyboard and touch alike.
+            if (upgrades != null && upgrades.InvertControls) input = -input;
             if (input.sqrMagnitude > 1f) input.Normalize();
             Vector2 target = (Vector2)transform.position + input * (moveSpeed * speedMult * Time.deltaTime);
             transform.position = playArea.Clamp(target);
