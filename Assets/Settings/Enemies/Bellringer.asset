@@ -22,7 +22,7 @@ MonoBehaviour:
     where you were when it rang - keep moving BEFORE the toll, not after.
   isMiniboss: 0
   guaranteedDrop: 0
-  curseOnDeath: 0
+  curseOnDeath: 6
   sprite: {fileID: 21300000, guid: 2deffe8b81ddeda4992528d7e07e78ce, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   movement: 0

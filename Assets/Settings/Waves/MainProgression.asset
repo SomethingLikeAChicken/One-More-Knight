@@ -65,13 +65,27 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f286cb865c42bc24ca8f87e594a77bdd, type: 2}
   - {fileID: 11400000, guid: 3fd58d84c00c2b54085480f9573ad18f, type: 2}
   - {fileID: 11400000, guid: 1e2cde7fa198c9c42bb299f23f8379b7, type: 2}
+  - {fileID: 11400000, guid: 6e4a70bea418b334a991a467685172a7, type: 2}
+  - {fileID: 11400000, guid: 222cf02bebd06fa4fb9e2f54787b7a8d, type: 2}
+  - {fileID: 11400000, guid: bfde06364e5e13842911a7ecaab27ac2, type: 2}
+  - {fileID: 11400000, guid: 46d2acd2b6c57d24b905bef1e59e9b0a, type: 2}
+  - {fileID: 11400000, guid: a04e8c99bd094824daf7571ba647de4f, type: 2}
+  - {fileID: 11400000, guid: b01190e4de50fee4d950bd5df31d9700, type: 2}
+  - {fileID: 11400000, guid: 80eec974c0ab5924796227d3b6f6e2e7, type: 2}
+  - {fileID: 11400000, guid: 91c15172069d6a24aa921ab5ab2dc5cf, type: 2}
+  - {fileID: 11400000, guid: 0117d0c21659bfe40a37151110f926a4, type: 2}
+  - {fileID: 11400000, guid: 7d84b29723659c44298f290354e87044, type: 2}
+  - {fileID: 11400000, guid: b4ac56f924474de4ba40a605b7074a82, type: 2}
+  - {fileID: 11400000, guid: d620900a3222c5647b1b933c769c33d4, type: 2}
+  - {fileID: 11400000, guid: cb36f903030da3944a298594f67ab438, type: 2}
+  - {fileID: 11400000, guid: fb669d4b80cbc204fa2f5135e3fce23e, type: 2}
   delayBetweenGroups: 2.2
   intermission: 1.75
-  hpMultiplierStep: 1.04
+  hpMultiplierStep: 1.02
   speedMultiplierStep: 1.01
-  maxHpMultiplier: 4
+  maxHpMultiplier: 1.5
   maxSpeedMultiplier: 1.5
-  damageMultiplierStep: 1.03
-  maxDamageMultiplier: 3
+  damageMultiplierStep: 1
+  maxDamageMultiplier: 1
   costFloorPerWave: 0.5
   maxCostFloor: 24

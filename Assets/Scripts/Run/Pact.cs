@@ -31,7 +31,16 @@ namespace OneMoreKnight.Run
         SpawnCadenceScale,
         /// <summary>One-time forward jump of the Wave clock on activation
         /// (effectiveWave += value). Never rewound when the Pact ends.</summary>
-        WaveOffset
+        WaveOffset,
+        /// <summary>Multiplies the Hero's move speed (#135). Values below 1 slow him.</summary>
+        HeroMoveScale,
+        /// <summary>Multiplies the Hero's fire cooldown (#135). Values above 1 slow the fire.</summary>
+        HeroFireCooldownScale,
+        /// <summary>Multiplies the CHANCE Powerup drop rate (#135). Guaranteed
+        /// miniboss drops always pay.</summary>
+        PowerupDropScale,
+        /// <summary>Multiplies death-Curse durations on the Hero (#135).</summary>
+        CurseDurationScale
     }
 
     [Serializable]

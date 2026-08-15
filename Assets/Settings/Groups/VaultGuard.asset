@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d547249a33096479b8a2fd1c64dbbd, type: 3}
+  m_Name: VaultGuard
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Waves.GroupDefinition
+  difficulty: 36
+  minWave: 20
+  slots:
+  - type: {fileID: 11400000, guid: 9c3e19e8f8d62d64cba2d47c3ca44d7a, type: 2}
+    count: 1
+    formation: 2
+    anchor: -0.4
+    spacing: 1.3
+    spawnInterval: 0.3
+    delayBeforeSlot: 0
+  - type: {fileID: 11400000, guid: 9c3e19e8f8d62d64cba2d47c3ca44d7a, type: 2}
+    count: 1
+    formation: 2
+    anchor: 0.4
+    spacing: 1.3
+    spawnInterval: 0.3
+    delayBeforeSlot: 0
+  - type: {fileID: 11400000, guid: 2155fb5cebd37ef489c4923bea9f8cfd, type: 2}
+    count: 1
+    formation: 2
+    anchor: 0
+    spacing: 1.3
+    spawnInterval: 0.3
+    delayBeforeSlot: 0.8
+  - type: {fileID: 11400000, guid: 12dac487918cff8429185ac9ffc5ea22, type: 2}
+    count: 3
+    formation: 0
+    anchor: 0
+    spacing: 1.3
+    spawnInterval: 0.45
+    delayBeforeSlot: 1.2

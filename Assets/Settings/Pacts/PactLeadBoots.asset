@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfc0b593571c4a344ae2d83c5fdf6697, type: 3}
-  m_Name: PactAbyss
+  m_Name: PactLeadBoots
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Run.Pact
-  displayName: Pact of the Abyss
-  description: "Leap to the abyss \u2014 the clock jumps 10 Waves forward and foes
-    stride +10% faster."
-  tier: 2
+  displayName: Pact of Lead Boots
+  description: "Your boots grow heavy \u2014 the Hero moves 15% slower while this
+    holds."
+  tier: 0
   effects:
-  - type: 4
-    value: 10
-  - type: 0
-    value: 1.1
+  - type: 5
+    value: 0.85

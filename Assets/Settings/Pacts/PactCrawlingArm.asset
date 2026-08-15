@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfc0b593571c4a344ae2d83c5fdf6697, type: 3}
-  m_Name: PactCruelty
+  m_Name: PactCrawlingArm
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Run.Pact
-  displayName: Pact of Cruelty
-  description: "Every blow lands heavier \u2014 enemy damage +50% while this holds."
-  tier: 1
+  displayName: Pact of the Crawling Arm
+  description: "Every cast is a labor \u2014 the Hero fires 60% slower while this
+    holds."
+  tier: 2
   effects:
-  - type: 2
-    value: 1.5
+  - type: 6
+    value: 1.6

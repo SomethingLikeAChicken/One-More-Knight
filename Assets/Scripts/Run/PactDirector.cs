@@ -19,6 +19,10 @@ namespace OneMoreKnight.Run
         [SerializeField] private BossDirector bossDirector;
         [SerializeField] private WaveSpawner waveSpawner;
         [SerializeField] private Scoring.RunStats runStats;
+        [SerializeField] private Combat.BulletSpawner bulletSpawner;
+        [SerializeField] private LayerMask heroMask;
+        [SerializeField] private Hero.HeroUpgrades heroUpgrades;
+        [SerializeField] private PowerupDirector powerupDirector;
 
         [Header("The bargain (#117 §9.2: multiplier bound to the TIER)")]
         [SerializeField] private Pact[] pool = new Pact[0];
@@ -65,6 +69,10 @@ namespace OneMoreKnight.Run
             Pact medium = PickTier(PactTier.Medium);
             Pact hard = PickTier(PactTier.Hard);
             if (easy == null && medium == null && hard == null) return;
+            // Never trap the player (#135): time resumes exactly where it froze, so
+            // any bullet in flight when the offer opened would be a hit nobody could
+            // dodge. The Purge seam clears the field first.
+            if (bulletSpawner != null) bulletSpawner.ClearThreatening(heroMask);
             Time.timeScale = 0f;
             panel.Show(easy, medium, hard,
                        easyMultiplier, mediumMultiplier, hardMultiplier, ActivePact);
@@ -84,26 +92,41 @@ namespace OneMoreKnight.Run
                 waveSpawner.PactDamageScale = 1f;
                 waveSpawner.PactCadenceScale = 1f;
             }
+            if (heroUpgrades != null)
+            {
+                heroUpgrades.PactMoveScale = 1f;
+                heroUpgrades.PactFireCooldownScale = 1f;
+                heroUpgrades.PactCurseDurationScale = 1f;
+            }
+            if (powerupDirector != null) powerupDirector.PactDropScale = 1f;
 
             ActivePact = pact;
             runManager.PactScoreMultiplier = ActiveMultiplier;
 
-            if (pact != null && waveSpawner != null)
+            if (pact != null)
             {
                 foreach (PactEffect effect in pact.effects)
                 {
                     switch (effect.type)
                     {
                         case PactEffectType.EnemySpeedScale:
-                            waveSpawner.PactSpeedScale *= effect.value; break;
+                            if (waveSpawner != null) waveSpawner.PactSpeedScale *= effect.value; break;
                         case PactEffectType.EnemyHpScale:
-                            waveSpawner.PactHpScale *= effect.value; break;
+                            if (waveSpawner != null) waveSpawner.PactHpScale *= effect.value; break;
                         case PactEffectType.EnemyDamageScale:
-                            waveSpawner.PactDamageScale *= effect.value; break;
+                            if (waveSpawner != null) waveSpawner.PactDamageScale *= effect.value; break;
                         case PactEffectType.SpawnCadenceScale:
-                            waveSpawner.PactCadenceScale *= effect.value; break;
+                            if (waveSpawner != null) waveSpawner.PactCadenceScale *= effect.value; break;
                         case PactEffectType.WaveOffset:
-                            waveSpawner.AdvanceWaves(Mathf.RoundToInt(effect.value)); break;
+                            if (waveSpawner != null) waveSpawner.AdvanceWaves(Mathf.RoundToInt(effect.value)); break;
+                        case PactEffectType.HeroMoveScale:
+                            if (heroUpgrades != null) heroUpgrades.PactMoveScale *= effect.value; break;
+                        case PactEffectType.HeroFireCooldownScale:
+                            if (heroUpgrades != null) heroUpgrades.PactFireCooldownScale *= effect.value; break;
+                        case PactEffectType.PowerupDropScale:
+                            if (powerupDirector != null) powerupDirector.PactDropScale *= effect.value; break;
+                        case PactEffectType.CurseDurationScale:
+                            if (heroUpgrades != null) heroUpgrades.PactCurseDurationScale *= effect.value; break;
                     }
                 }
             }

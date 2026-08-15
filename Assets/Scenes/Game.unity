@@ -1189,6 +1189,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1252633461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1252633463}
+  - component: {fileID: 1252633462}
+  m_Layer: 0
+  m_Name: PauseController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1252633462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252633461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e33945cd6e19c944983c90f24add436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Run.PauseController
+  runManager: {fileID: 1283923270}
+  pactDirector: {fileID: 1804762995}
+--- !u!4 &1252633463
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252633461}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1283923269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,16 +1776,30 @@ MonoBehaviour:
   bossDirector: {fileID: 878119175}
   waveSpawner: {fileID: 251957308}
   runStats: {fileID: 1283923273}
+  bulletSpawner: {fileID: 685176717}
+  heroMask:
+    serializedVersion: 2
+    m_Bits: 64
+  heroUpgrades: {fileID: 2057006116}
+  powerupDirector: {fileID: 1173818852}
   pool:
-  - {fileID: 11400000, guid: 9ffa8a36bc1f05a4884a4cd641d06b64, type: 2}
-  - {fileID: 11400000, guid: a04e81206086f4841a640107854d6db4, type: 2}
-  - {fileID: 11400000, guid: 77ecdc1470a92c14180cd3c5bab3163b, type: 2}
-  - {fileID: 11400000, guid: b7303342916bc6b4eb7d6b318b4a45b5, type: 2}
-  - {fileID: 11400000, guid: b557c660711aebf40852d0b756a1aa00, type: 2}
-  - {fileID: 11400000, guid: ec8c56de375ab19468b4303c92f7ca76, type: 2}
-  - {fileID: 11400000, guid: 3caafdc5d66129f47961d54368914a17, type: 2}
-  - {fileID: 11400000, guid: 5377ad3baa93b25489d1debc65fd0bfc, type: 2}
   - {fileID: 11400000, guid: 9a00bc6b58488c347892ffa95586b86c, type: 2}
+  - {fileID: 11400000, guid: e391b2c96999c4945a23fdf792fb1f7f, type: 2}
+  - {fileID: 11400000, guid: 5377ad3baa93b25489d1debc65fd0bfc, type: 2}
+  - {fileID: 11400000, guid: 7c00eb09956df6441b284f1a39a9ef40, type: 2}
+  - {fileID: 11400000, guid: ec8c56de375ab19468b4303c92f7ca76, type: 2}
+  - {fileID: 11400000, guid: 716cd81bf3bdf554baf4d9ad4d217203, type: 2}
+  - {fileID: 11400000, guid: adac40ab91407e541b4b5d4cd29f16fe, type: 2}
+  - {fileID: 11400000, guid: f0666edf5e2d4fb418a45a5195bc54b0, type: 2}
+  - {fileID: 11400000, guid: a04e81206086f4841a640107854d6db4, type: 2}
+  - {fileID: 11400000, guid: c12c92902e96d6b46bed3f94939021f3, type: 2}
+  - {fileID: 11400000, guid: d3c7218997164674c943eb88cf3fd44d, type: 2}
+  - {fileID: 11400000, guid: 77ecdc1470a92c14180cd3c5bab3163b, type: 2}
+  - {fileID: 11400000, guid: 8ca68cabece1c5546baa0eda79c7cb18, type: 2}
+  - {fileID: 11400000, guid: 9ffa8a36bc1f05a4884a4cd641d06b64, type: 2}
+  - {fileID: 11400000, guid: 646f045a08f45974389809750df9e67f, type: 2}
+  - {fileID: 11400000, guid: 3caafdc5d66129f47961d54368914a17, type: 2}
+  - {fileID: 11400000, guid: b7303342916bc6b4eb7d6b318b4a45b5, type: 2}
   easyMultiplier: 1.4
   mediumMultiplier: 2
   hardMultiplier: 3
@@ -2240,3 +2300,4 @@ SceneRoots:
   - {fileID: 1211516796}
   - {fileID: 555528280}
   - {fileID: 1804762996}
+  - {fileID: 1252633463}
