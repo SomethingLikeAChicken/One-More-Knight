@@ -23,7 +23,9 @@ namespace OneMoreKnight.Enemies
 
         private CircleCollider2D circleCollider;
         private MiniHealthBar miniBar;
+        private SpriteLoopAnimator idleAnimator;
         private float speed;
+        private int contactDamage;
         private float despawnY;
         private float anchorX;
         private float age;
@@ -45,6 +47,10 @@ namespace OneMoreKnight.Enemies
             if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
             circleCollider = GetComponent<CircleCollider2D>();
             miniBar = GetComponent<MiniHealthBar>();
+            // Added here rather than on the prefab: every pooled instance needs one
+            // and this keeps the prefab untouched (#116).
+            idleAnimator = GetComponent<SpriteLoopAnimator>();
+            if (idleAnimator == null) idleAnimator = gameObject.AddComponent<SpriteLoopAnimator>();
             health.Died += OnDied;
         }
 
@@ -65,21 +71,24 @@ namespace OneMoreKnight.Enemies
         /// <summary>Puts a pooled instance into play as <paramref name="type"/> — the
         /// one prefab plays every Enemy type; identity is data (PRD §5.2).</summary>
         /// <param name="speedMultiplier">Per-Wave scaling, applied here rather than
-        /// written into the shared asset. Same for <paramref name="hpMultiplier"/>.</param>
+        /// written into the shared asset. Same for <paramref name="hpMultiplier"/> and
+        /// <paramref name="damageMultiplier"/> (#127 — lethality is the headroom lever).</param>
         public void Spawn(EnemyStats type, Vector2 position, float speedMultiplier, float hpMultiplier,
-                          float despawnLineY)
+                          float damageMultiplier, float despawnLineY)
         {
             stats = type;
             transform.position = position;
             anchorX = position.x;
             age = 0f;
             speed = stats.moveSpeed * speedMultiplier;
+            contactDamage = Mathf.Max(1, Mathf.RoundToInt(stats.contactDamage * damageMultiplier));
             despawnY = despawnLineY;
             retired = false;
             health.ResetHealth(Mathf.Max(1, Mathf.RoundToInt(stats.maxHealth * hpMultiplier)));
 
             spriteRenderer.sprite = stats.sprite;
             spriteRenderer.color = stats.tint;
+            idleAnimator.PlayLoop(stats.idleFrames, stats.idleFps);
             ColliderFit.FitCircle(circleCollider, stats.sprite);
             if (miniBar != null) miniBar.SetVisible(stats.isMiniboss);
             Run.Scoring.EncounterReporter.Report(stats.name);
@@ -87,6 +96,7 @@ namespace OneMoreKnight.Enemies
             // Attacks are driven entirely by the type's Pattern asset (ADR-0003); the
             // runner resets all timing state here, so a recycled instance starts fresh.
             attackRunner.SetPatterns(stats.attack);
+            attackRunner.DamageScale = damageMultiplier; // after SetPatterns - ResetState puts it back to 1
         }
 
         private static readonly Color CurseAura = new Color(0.25f, 0.05f, 0.35f);
@@ -119,7 +129,7 @@ namespace OneMoreKnight.Enemies
             Health hero = other.GetComponentInParent<Health>();
             if (hero == null || !hero.IsAlive) return;
 
-            hero.TakeDamage(stats.contactDamage);
+            hero.TakeDamage(contactDamage);
             Retire(); // the Enemy is consumed by the collision
         }
 

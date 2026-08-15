@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34d430200d8aba46bc663456fe41c28, type: 3}
+  m_Name: Crossbowman
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.EnemyStats
+  maxHealth: 4
+  moveSpeed: 1.5
+  scoreValue: 250
+  contactDamage: 1
+  description: A siege veteran who learned that walls fall but a loaded crossbow
+    keeps its promises.
+  tactics: Aimed single bolts - he leads your position, so strafe THROUGH his shot
+    line, not away from it. Falls quickly to focused fire.
+  isMiniboss: 0
+  guaranteedDrop: 0
+  curseOnDeath: 0
+  sprite: {fileID: 21300000, guid: e777dec97d572884692c8a6b5b208808, type: 3}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  idleFrames:
+  - {fileID: 21300000, guid: 1249bb9234401ba42a229f9ef0491b4e, type: 3}
+  - {fileID: 21300000, guid: 645be54b8d019ba45a71a71aec7fddd9, type: 3}
+  - {fileID: 21300000, guid: e9c6d4b8d5d8e8d49971571aa708623d, type: 3}
+  - {fileID: 21300000, guid: f76ce45d027b4ab46a711a8512541041, type: 3}
+  - {fileID: 21300000, guid: 6c187c204fccd0d4181526bc5f1e3df4, type: 3}
+  idleFps: 6
+  movement: 0
+  weaveAmplitude: 1.5
+  weaveFrequency: 2
+  attack: {fileID: 11400000, guid: d27974f3a92a77f468ff5e4f96574fa2, type: 2}

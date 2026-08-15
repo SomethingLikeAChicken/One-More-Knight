@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
   m_Name: BossOblivion
   m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
-  maxHealth: 450
+  maxHealth: 340
   contactDamage: 2
   scoreReward: 8000
   description: The last thing most far runs see. A mask with stars for eyes and nothing
@@ -71,3 +71,12 @@ MonoBehaviour:
     summonType: {fileID: 11400000, guid: 12dac487918cff8429185ac9ffc5ea22, type: 2}
     summonCount: 1
     summonInterval: 9
+  idleFrames:
+  - {fileID: 21300000, guid: f5ef93d85d3b49348054045a292d2e2b, type: 3}
+  - {fileID: 21300000, guid: 8ff2d5e8e1b44a458cf8db69e3f93cc5, type: 3}
+  - {fileID: 21300000, guid: 2cd5c957ad664154bf368c7d4b9514df, type: 3}
+  - {fileID: 21300000, guid: eaca1c5485634653a868318cc5834c83, type: 3}
+  - {fileID: 21300000, guid: be11052af4ff4c4d865178ed2079a137, type: 3}
+  - {fileID: 21300000, guid: f19a6348bfdc446aa9ae2ac662d64f19, type: 3}
+  - {fileID: 21300000, guid: ceba30dc7faa498abb81dca2f17a3549, type: 3}
+  idleFps: 7

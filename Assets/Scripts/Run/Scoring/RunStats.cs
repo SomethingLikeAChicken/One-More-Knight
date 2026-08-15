@@ -28,6 +28,7 @@ namespace OneMoreKnight.Run.Scoring
         private int powerupsCollected;
         private int cursesSuffered;
         private int lastHp = int.MaxValue;
+        private readonly List<string> pactSegments = new List<string>(8);
 
         private void Awake()
         {
@@ -84,6 +85,14 @@ namespace OneMoreKnight.Run.Scoring
         private void OnPowerupApplied(PowerupType _) => powerupsCollected++;
         private void OnCurseApplied(CurseType _) => cursesSuffered++;
 
+        /// <summary>Pact history for the Run Summary (#129, #117 §5): which Pact
+        /// went live after which Boss kill — the ADR-0005 hardening path needs the
+        /// segments. "none" records a decline.</summary>
+        public void RecordPactSegment(string pactName, float multiplier, int atBossKills)
+        {
+            pactSegments.Add($"{pactName}|x{multiplier:0.0#}|b{atBossKills}");
+        }
+
         /// <summary>The submission meta (#63): everything the site's achievement
         /// evaluation needs, hand-built JSON like the rest of the bridge layer.</summary>
         public string ToMetaJson()
@@ -111,7 +120,13 @@ namespace OneMoreKnight.Run.Scoring
                 first = false;
                 sb.Append('"').Append(kv.Key).Append("\":").Append(kv.Value);
             }
-            sb.Append("}}");
+            sb.Append("},\"pacts\":[");
+            for (int i = 0; i < pactSegments.Count; i++)
+            {
+                if (i > 0) sb.Append(',');
+                sb.Append('"').Append(pactSegments[i]).Append('"');
+            }
+            sb.Append("]}");
             return sb.ToString();
         }
     }

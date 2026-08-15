@@ -31,7 +31,9 @@ namespace OneMoreKnight.Run
         [SerializeField] private Image damageVignette;
         [SerializeField] private Text curseText;
         [SerializeField] private Text buffText;
+        [SerializeField] private Text pactText;
         [SerializeField] private Hero.HeroUpgrades heroUpgrades;
+        [SerializeField] private PactDirector pactDirector;
 
         private static readonly (Hero.PowerupType type, string label)[] BuffLabels =
         {
@@ -73,7 +75,7 @@ namespace OneMoreKnight.Run
             if (theme == null) return;
             if (theme.font != null)
             {
-                foreach (var t in new[] { scoreText, waveText, bossNameText, curseText, buffText })
+                foreach (var t in new[] { scoreText, waveText, bossNameText, curseText, buffText, pactText })
                     if (t != null) t.font = theme.font;
                 if (bossBar != null)
                     foreach (var t in bossBar.GetComponentsInChildren<Text>(true))
@@ -98,7 +100,7 @@ namespace OneMoreKnight.Run
 
         private void Update()
         {
-            scoreText.text = $"SCORE  {runManager.Score:n0}";
+            scoreText.text = $"SCORE  {runManager.LeaderboardScore:n0}"; // the ranked figure (#123)
             waveText.text = string.IsNullOrEmpty(runManager.WaveModifierLabel)
                 ? $"WAVE  {runManager.Wave}"
                 : $"WAVE  {runManager.Wave}  —  {runManager.WaveModifierLabel}";
@@ -149,6 +151,16 @@ namespace OneMoreKnight.Run
                 if (buffText.text != buffs) buffText.text = buffs;
             }
 
+            // Pact readout (#129): the standing bargain must stay visible - an
+            // invisible Pact state makes the build decision meaningless (#117 F).
+            if (pactText != null && pactDirector != null)
+            {
+                var pact = pactDirector.ActivePact;
+                string pactLabel = pact == null ? ""
+                    : $"PACT — {pact.displayName.ToUpperInvariant()}  ×{pactDirector.ActiveMultiplier:0.0#}";
+                if (pactText.text != pactLabel) pactText.text = pactLabel;
+            }
+
             var boss = bossDirector != null ? bossDirector.ActiveBoss : null;
             bool bossActive = boss != null && boss.Health.IsAlive;
             if (bossBar.activeSelf != bossActive) bossBar.SetActive(bossActive);
@@ -182,6 +194,7 @@ namespace OneMoreKnight.Run
                         title += "  ·  " + boss.Stats.phases[boss.CurrentPhase].name;
                     if (guarded) title += "  ·  GUARDED";
                     else if (warded) title += "  ·  SHIELD";
+                    if (boss.BreachActive) title += "  ·  BREACH ×2"; // the guard is down (#141)
                     title = title.ToUpperInvariant();
                     if (bossNameText.text != title) bossNameText.text = title;
                 }

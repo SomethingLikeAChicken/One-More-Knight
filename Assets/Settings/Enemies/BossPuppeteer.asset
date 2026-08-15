@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f06418a4b8a7f44bbff8d3998dd031, type: 3}
+  m_Name: BossPuppeteer
+  m_EditorClassIdentifier: OneMoreKnight::OneMoreKnight.Enemies.BossStats
+  maxHealth: 150
+  contactDamage: 1
+  scoreReward: 2400
+  description: Nobody has seen his face. Everyone has worn his strings. The marionettes
+    he favors most still think they volunteered.
+  tactics: Summons Cinderlings while spitting aimed shots - clear the puppets FAST
+    or the sine curtains of his Tangle phase weave through a crowd. His breach windows
+    are your bursts.
+  displayName: The Puppeteer
+  difficulty: 3
+  sprite: {fileID: 21300000, guid: cedfd197b836be34d82cfb1f4ee51588, type: 3}
+  scale: 1.15
+  idleFrames:
+  - {fileID: 21300000, guid: 596877907c4c48449804bba9c5fb975d, type: 3}
+  - {fileID: 21300000, guid: 4fdbaf542ce5f5b4db67cacd6fba4b73, type: 3}
+  - {fileID: 21300000, guid: 6846be2518d2681428c84db432535e2f, type: 3}
+  - {fileID: 21300000, guid: 38f812c206e1f724ab191829896aa36b, type: 3}
+  - {fileID: 21300000, guid: 03d07d4e4303b8b43a6887886f076b59, type: 3}
+  - {fileID: 21300000, guid: a65ef5ca00726974c822cac1cea978d6, type: 3}
+  - {fileID: 21300000, guid: 3d49d2c514515c54a9d5d1ff123b9bc7, type: 3}
+  idleFps: 7
+  entrySpeed: 2
+  hoverSpeed: 1
+  hoverAmplitude: 2.6
+  lackeys: []
+  shieldHealth: 0
+  shieldSprite: {fileID: 0}
+  phases:
+  - name: Strings
+    entersAtHpFraction: 1
+    patterns:
+    - {fileID: 11400000, guid: 344ef927f469f074a9ede4f6e73cedaf, type: 2}
+    - {fileID: 11400000, guid: c7d9391491d595642bbe8d2c7428896c, type: 2}
+    hoverSpeedMultiplier: 1
+    tint: {r: 1, g: 1, b: 1, a: 1}
+    entryPulseScale: 1
+    entryPulseDuration: 0.4
+    summonType: {fileID: 11400000, guid: f7e2fbad6fbf6574c8279039a54021ab, type: 2}
+    summonCount: 2
+    summonInterval: 8
+  - name: Tangle
+    entersAtHpFraction: 0.5
+    patterns:
+    - {fileID: 11400000, guid: ead253804c30099449ee443b4182c9d9, type: 2}
+    - {fileID: 11400000, guid: 00de3d1101e983b4dbb35739d45b872b, type: 2}
+    hoverSpeedMultiplier: 1.35
+    tint: {r: 0.85, g: 0.7, b: 1, a: 1}
+    entryPulseScale: 1.45
+    entryPulseDuration: 0.5
+    summonType: {fileID: 11400000, guid: f7e2fbad6fbf6574c8279039a54021ab, type: 2}
+    summonCount: 2
+    summonInterval: 6
