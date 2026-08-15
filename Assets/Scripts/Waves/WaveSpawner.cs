@@ -53,6 +53,28 @@ namespace OneMoreKnight.Waves
         [SerializeField] [Min(2)] private int modifiersFromWave = 16;
         [Range(0f, 1f)] [SerializeField] private float modifierChance = 0.45f;
 
+        // Pact hooks (#129): runtime multipliers the PactDirector sets on top of the
+        // wave curve, applied at the next wave's spawn computation. All default 1.
+        public float PactSpeedScale { get; set; } = 1f;
+        public float PactHpScale { get; set; } = 1f;
+        public float PactDamageScale { get; set; } = 1f;
+
+        private float pactCadenceScale = 1f;
+
+        /// <summary>Scales every pacing delay (group layering, intermission, slot
+        /// spawn intervals). Clamped to [0.5, 1]: at 0.5 the 2.2 s layering
+        /// guarantee still reads as 1.1 s between groups — the floor the #117 B
+        /// constraint demands.</summary>
+        public float PactCadenceScale
+        {
+            get => pactCadenceScale;
+            set => pactCadenceScale = Mathf.Clamp(value, 0.5f, 1f);
+        }
+
+        /// <summary>Explicit forward jump of the Wave clock (#129 WaveOffset) —
+        /// acceleration is a Pact effect, never a Score coupling (#117 §9.2).</summary>
+        public void AdvanceWaves(int count) => waveNumber += Mathf.Max(0, count);
+
         private void Awake()
         {
             // Per-Run seed. When ADR-0005's Run Summary lands, this seed is what gets
@@ -102,6 +124,10 @@ namespace OneMoreKnight.Waves
                 // Modifier levers (#57) - spikes on top of the bounded curve.
                 if (CurrentModifier == WaveModifier.Haste) speedMult *= 1.25f;
                 if (CurrentModifier == WaveModifier.Ironclad) hpMult *= 1.35f;
+                // Pact levers (#129) - the chosen bargain, applied the same way.
+                speedMult *= PactSpeedScale;
+                hpMult *= PactHpScale;
+                damageMult *= PactDamageScale;
                 runManager.WaveScoreMultiplier = CurrentModifier == WaveModifier.Gilded ? 1.5f : 1f;
                 Combat.Patterns.AttackPatternRunner.GlobalCooldownScale =
                     CurrentModifier == WaveModifier.Frenzy ? 0.75f : 1f;
@@ -109,13 +135,13 @@ namespace OneMoreKnight.Waves
                 Compose(waveNumber);
                 for (int g = 0; g < plan.Count; g++)
                 {
-                    if (g > 0) yield return new WaitForSeconds(progression.delayBetweenGroups);
+                    if (g > 0) yield return new WaitForSeconds(progression.delayBetweenGroups * pactCadenceScale);
                     yield return SpawnGroup(plan[g], hpMult, speedMult, damageMult);
                 }
 
                 while (alive > 0) yield return null;
 
-                yield return new WaitForSeconds(progression.intermission);
+                yield return new WaitForSeconds(progression.intermission * pactCadenceScale);
             }
         }
 
@@ -178,12 +204,14 @@ namespace OneMoreKnight.Waves
             foreach (GroupSlot slot in group.slots)
             {
                 if (slot.type == null) continue;
-                if (slot.delayBeforeSlot > 0f) yield return new WaitForSeconds(slot.delayBeforeSlot);
+                if (slot.delayBeforeSlot > 0f)
+                    yield return new WaitForSeconds(slot.delayBeforeSlot * pactCadenceScale);
 
                 for (int i = 0; i < slot.count; i++)
                 {
                     SpawnOne(slot, i, hpMultiplier, speedMultiplier, damageMultiplier);
-                    if (slot.spawnInterval > 0f) yield return new WaitForSeconds(slot.spawnInterval);
+                    if (slot.spawnInterval > 0f)
+                        yield return new WaitForSeconds(slot.spawnInterval * pactCadenceScale);
                 }
             }
         }
