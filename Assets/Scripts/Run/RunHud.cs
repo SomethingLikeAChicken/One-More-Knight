@@ -98,7 +98,7 @@ namespace OneMoreKnight.Run
 
         private void Update()
         {
-            scoreText.text = $"SCORE  {runManager.Score:n0}";
+            scoreText.text = $"SCORE  {runManager.LeaderboardScore:n0}"; // the ranked figure (#123)
             waveText.text = string.IsNullOrEmpty(runManager.WaveModifierLabel)
                 ? $"WAVE  {runManager.Wave}"
                 : $"WAVE  {runManager.Wave}  —  {runManager.WaveModifierLabel}";
